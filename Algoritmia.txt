@@ -1,0 +1,356 @@
+Complejidad.
+	Big O notation. Operaciones necesarias en función de n.
+	Gives an upper bound of the complexity in the worst case.
+	Hay algoritmos con complejidad de:
+		Constant time		O(1)
+		Logarithmic time	O(log(n))
+		Linear Time		O(n)
+		Linearithmic Time	O(nlog(n))
+		Quadric Time		O(n^2)
+		Cubic Time		O(n^3)
+		Exponential Time	O(b^n)
+		Factorial time		O(n!)
+	Una computadora soporta hasta 10 a la 8 operaciones por segundo
+Algoritmo de Kadane. (Suma Acumulada)
+	Comparar nuestro valor máximo con la suma acumulada de mi array.
+	Tomar en cuenta que si mi suma se hace negativa es mejor igualar a 0.
+Busqueda binaria.
+	Considerar que tengo un arreglo ordenado.
+	Para encontrar un elemento dentro de un array, es mejor comenzar a buscar por la mitad del grupo.
+	Se determina si mi número está a la derecha o izquierda
+	Se sustituyen valores y calculo la mitad de nuevo.
+	Se itera hasta que encuentre mi número o el inicio y fin sean lo mismo.
+Busqueda binaria II.
+	Array ordenado.
+	Se hacen saltos.
+	Los saltos consisten en comenzar con un n / 2. La posición se actualiza cuando:
+		Cae dentro del rango (dentro del tamaño en el que estoy buscando)
+		El número en el que se está es menor o igual al que se busca.
+	En cuanto la variable saltos sea 0, se compara la posición y ahí debe estar el número que se busca (si es que se encuentra).
+	Upper_bound.
+		Ultima vez que el numero buscado apareció.
+	Lower_bound.
+		Primera vez que apareció el número que se busca.
+	/*
+	int binbusq( int arreglo[], int tamanio, int busca ){
+		int posicion = -1, salto = tamanio/2;
+		while(salto){
+			if(( posicion + salto ) < tamanio && arreglo[ posicion + salto ] <= busca ) posicion += salto;
+		        else salto /= 2;
+		}
+	return posicion;
+	}
+	*/
+Busqueda binaria Algoritmia
+	Divide and Conquer
+	O(logn)
+	Conjunto de numeros ordenados.
+	Aplicaciones. 
+		Encontrar un número.
+		Encontrar cambio en un secuencia (util para 2)
+		Problemas no intuitivos
+			Valor mínimo para hacer algo
+			Buscar posibles answers y simular
+	Implentacion
+		Intuitiva
+			int l = 0, r = n, busqueda /* = el que buscas*/;
+			while( l < r ){
+				int mid = (l+r)/2;
+				if( arr[mid] == busqueda ); //Ya lo encontraste
+				else if( arr[mid] > busqueda )
+					l = mid+1;
+				else 
+					r = mid-1;
+			}
+		Chida
+			Se le ve una busqueda lineal pero de n/2, n/4, n/8, n/16
+			int ind = 0;
+			//n = numero de elementos-1
+			for( int i = n; i > 0; i /= 2 ){
+				if( arr[ind + i] == busqueda ); //Lo encontraste
+				if( arr[ind + i) < busqueda )
+					ind += i;				}	
+			}
+Arrays
+	Static.
+		Is a fixed lenght container containing n elements, indexable from (0, n-1).
+	Dynamic.
+		It can grow an shrink in size.
+		It's possible to:
+			Append elements
+			Delete elements
+			Insert elements
+Linked List
+	A linked list is a sequential list of nodes that hold data which point to other nodes also containing data
+	Terminology.
+		Head. First node of a linked list
+		Tail. Last node in a linked list
+		Pointer. Reference to a node
+		Node. An object containing data and pointer(s)
+Stack
+	Is a one-ended linear data structures which models a real world stack by having two primary operations, namely push and pop
+	Tambien conocido como LIFO (last in first out) o pila.
+	Declaracion.
+		stack <tipo_de_dato> S;
+	Funciones.
+		Sea sta el nombre del stack
+			sta.top() //Devuelve el ultimo elemento en ingresar, no lo borra
+			sta.pop() //Elimina el elemento de la ultima posicion, el ultimo en ser ingresado
+			sta.push(x) //Ingresa x a la ultima posicion
+			sta.empty() //Dice si el arreglo está vacio
+			sta.size() //Devuelve el tamaño de la estructura de datos
+	Propiedades. 
+		Si se inserta un numero de n elementos y despues se les hace pop, regresa los n elementos en orden inverso.
+			Para que una secuencia de paréntesis se verifique si es válida debe cumplir las condiciones.
+			1. par[0] = '(';
+			2. n % 2 == 0
+			3. #( = #)
+			4. par[n-1] = 
+Queue
+	Is a one-ended linear data structures which models a real world stack by having two primary operations, namely enqueue and dequeue
+	Tambien conocido como FIFO (first in first out) o cola.
+	Pueden contener lo que sea.
+	Declaración.
+		queue <tipo_de_dato> Q;
+	Funciones.
+		Sea kiu el nombre de nuestra queue.
+			kiu.front() //Devuelve el valor en la primer posicion del conjunto de datos	O(1)
+			kiu.push(x) //Insertar elemento x al final de la queue				O(1)
+			kiu.pop() //Elimina el elemento de la primer posicion				O(1)
+			sta.empty() //Dice si el arreglo está vacio
+			sta.size() //Devuelve el tamaño de la estructura de datos
+	
+Priority Queues (PQs) with an interlude on heaps
+	Priority Queue
+		Is an abstract data type, operates like a queue but every element has a certain priority. This determines the order in which
+		elements are removed from the PQ.
+		It only supports comparable data.
+			Poll = remove the element with the highest priority queue
+	Heap (Montículos)
+		Is a tree based data structure that satisfies the heap invariant (also called heap property)
+		Max Heap invariant.
+			Presents when the parent node is greater than children nodes
+		Min Heap invariant.
+			Is a data structure where children are greater than parent nodes
+		There are many types of heaps that can be used to implement a priority queue including:
+			*Binary heap.
+				Is a binary tree that supports the heap invariant. In a binary tree every node has exactly two children
+				Complete binary tree. (Balanced)
+					Is a tree in which at every level, expect possibly the last is completely filled and all the nodes are as far 
+					left as possible.	
+			Fibonacci heap
+			Binomial heap
+			Pairing heap
+		Las operaciones existentes en el heap
+			Insertar. O(log(n))
+				Para meter un elemento se debe asegurar que el nodo cargado a la izquierda esté lleno, si no, se completa
+				Se inserta y se evalúa si se cumple la heap invariant, else se hace swap nodo-hijo, hasta que se cumpla en todo el árbol.
+			Busqueda. O(n)
+				Al no ser un BST, debes recorrer todos los elementos hasta encontrarlo.
+			Borrar. O(log(n))
+				Se encuentra el elemento y para eliminarlo hay que borrarlo y re-adaptar el arbol
+			Llenarlo. O(nlog(n))
+				N inserciones 
+		Ventajas y usos
+			Heapsort
+			En cada momento se sabe cual es el elemento mayor-menor
+		Implementacion real
+			Priority queue. Estructura de datos existente en C++
+			priority_queue <tipo> nombre //pque
+			pque.top() //Accede al elemento de hasta arriba
+			pque.pop() //Le hace pop al elemento de arriba
+			pcola.push() //Inserta elemento
+
+	Turning min PQ into max PQ
+		Negate the value of priority (only for numbers).
+			Multiply by -1 the elementwhen it is added and multiply it by -1 it's being polled
+		Negation of the comparators
+			Let x, y be numbers in the PQ. For a min PQ, if x <= y then x comes out of the PQ before y, so the negation of this
+			is x >= y, then y comes out before x.
+	Priority Queues are usually implemented with heaps since this gives them the best possible time complexity.
+Union Find
+	Data structure that tracks elements which are split into one or more disjoint sets.
+	It has two primary operations:
+		Find
+		Union
+	Used in:
+		Kruskal's minimum spanning tree algorithm
+			Given a graph G = (V,E) we want to find a minimum spanning tree in the graph (it may not be unique).
+				(A minimun spanning tree is a subset of the edges which connect all vertices in the graph with the minimal total edge cost.)
+			1. Sort edges by ascending edge weight 
+			2. Walk trough the sorted edges and look at the two nodes the edge belongs to, if the nodes are already unified we don't include this edge, 
+			otherwise we include it and uniufy the nodes.
+			3. The algorithm teminates when every edge has been processed or all the vertices have been unified
+	Operations
+		Union. To unify two elements find which are the root nodes of each component and if the root nodes are different make one of the root nodes be the
+		parent of the other.
+		Find. To find which component a particular element belongs to, find the root of that component by following the parent nodes until a self loop is 
+		reached (a node who's parent is itself)
+	Remarks
+		It is not common to un-union elements. That'd be very inefficient.
+		The number of components is equal to the number of roots remaining.
+		The number of root nodes never increases
+	Path compression
+		As it is not common tu un-unify stuff, it's possible to make every element point to its root node so finding the root from an element 
+		will take constant time.
+Trees
+	A tree is an undirected graph which satisfies any of the following definitions:
+		- An acyclic connected graph
+		- A connected graph with N nodes and N-1 edges
+		- A graph in which any two vertices are connected by exactly one path
+	Any node can root the tree!
+	Child. Is a node extending from another node.
+	Parent. Is the opposite (The root node has no parent, it might be useful to set a parent to itself)
+	A leaf node is a node with no children
+	A subtree is a tree entirely contained within another (it may consist of a single node)
+	Binary Trees
+		Is a tree for which every node has at most 2 children
+		Binary Search Tree
+			Is a BT that satisfies the BST invariant.
+				Left subtree has smaller element
+				Right subtree has larger elements
+			We are not limited to use only numbers
+			Used in 
+				Red black trees
+				AVL trees
+				Splay trees		
+				Binary heaps
+				Syntax trees
+				Treap
+			Insert, delete, remove and search have a n complexity
+			Insert
+				When inserting an element we want to compare its value to the value stored in the current node we're considering
+				to decide on one of the following
+					<. Recurse down left subtree
+					>. Recurse down right subtree
+					=. Handle finding a duplicate value
+					Null leaf. Create a new node
+			Remove
+				1. Find the element. You have to deal with the next situations
+					I. Null node. The element doesn't exist
+					II. Comparator equal to 0. You found it!
+					III. Comparator less than 0. The value is in the left subtree
+					IV. Comparator greater than 0. The value is in the right subtree
+				2. Replace the node we want to remove with its successor (if any) to maintain the BST variant.
+					There are 4 different situation when doing this.
+					I. Node to remove is a leaf node.
+						We may do so without side effect.
+					II. Node to remove has a right subtree but not left subtree.
+						The successor of the node we ate trying to remove in these cases will be the root of
+						the left subtree.
+					III. Node to remove has a left subtree but no right subtree.
+						The successor of the node we ate trying to remove in these cases will be the root of
+						the right subtree.
+					IV. Node to remove has both, left and right subtree.
+						The successor can either be the largest value in the left subtree OR the smallest value in the right subtree
+			To run through a binary tree, there are some ways to deal with information.
+				Preorder traversal.
+					Prints current node 
+					Runs to the left subtree
+					Runs to the right subtree
+				Inorder traversal. (Prints values increasingly sorted in case of BST)
+					Runs to the left subtree
+					Prints current node 
+					Runs to the right subtree
+				Postorder traversal. (Root node is the last to be printed)
+					Runs to the left subtree
+					Runs to the right subtree
+					Prints current node 
+				Level order traversal.
+					Prints in the order of the layers our tree has.
+					To do so, it's needed a BFS from the root to the leaf nodes
+
+
+Balanced Binary Search Trees
+	Linear behaviour is very bad when working with BST, that's why balanced binary search trees were invented
+	
+BFS
+	Consist of visiting every neighbor of each node until every node has been visited
+
+///   COMPETITIVE PROGRAMMING BOOK   ///
+
+Shortcuts commonly used 
+	// Shortcuts for "common" data types in contests
+		typedef long long ll; // comments that are mixed in with code
+		typedef pair<int, int> ii; // are aligned to the right like this
+		typedef vector<ii> vii;
+		typedef vector<int> vi;
+		#define INF 1000000000 // 1 billion, safer than 2B for Floyd Warshall’s
+	// Common memset settings
+		//memset(memo, -1, sizeof memo); // initialize DP memoization table with -1
+		//memset(arr, 0, sizeof arr); // to clear array of integers
+		// We have abandoned the use of "REP" and "TRvii" since the second edition
+	// in order to reduce the confusion encountered by new programmers
+	The following shortcuts are frequently used in both our C/C++ and Java code:
+		// ans = a ? b : c; // to simplify: if (a) ans = b; else ans = c;
+		// ans += val; // to simplify: ans = ans + val; and its variants
+		// index = (index + 1) % n; // index++; if (index >= n) index = 0;
+		// index = (index + n - 1) % n; // index--; if (index < 0) index = n - 1;
+		// int ans = (int)((double)d + 0.5); // for rounding to nearest integer
+		// ans = min(ans, new_computation); // min/max shortcut
+		// alternative form but not used in this book: ans <?= new_computation;
+	// some code use short circuit && (AND) and || (OR)
+
+	TIP 5. Master the Art of Testing Code
+		1. Test the sample cases
+		2. If multi-case problem try with two identical sample test consecutively.
+		3. Try tricky corner cases. 
+			Extreme values like negatives, 0, 1, or the limit of bounds
+		4. Check with large inputs
+	TIP 7. Team Work
+		1. Practice coding in blank paper.
+		2. If WA print your code and debug on paper.
+		3. If your teammate is programming, prepare some hard test cases for his code.
+		4. Be friend of your teammates outside of the trainings and contests.
+
+GRAPHS
+	Un grafo sin ciclos es un árbol.
+	Un grafo tiene vertices y aristas
+	Puede ser ponderado y/o dirigido
+	Formas de implementacion
+		Matriz de Adyacencia
+			Se acomoda cada vertice de 1 hasta n en el eje de las x y de las y
+			Si existe una arista que conecte 2 nodos a y b, se enciende el bit a, b en la matriz. 
+			En caso de que no sea dirigido, también se prende el bit b, a
+			Implementacion
+				Es definida una matriz de n*n
+			Ventajas
+				Es mas rapido acceder a cada nodo
+				Util cuando se recorre muchas veces un grafo
+			Desventajas
+				Demanda mucha memoria
+
+		Lista de Adyacencia (Como matriz de adyacencia con los espacios vacios desechados)
+			Para cada nodo de la lista se agrega cada nodo con el que está conectado.
+			Implementacion 
+				Es necesario utilizar vector.
+					#include <vector>
+					vector< vector<int> > adj; //Definir un vector de vectores de enteros					
+					adj.resize(5); //Definir tamaño del vector (inicializa con 0)
+					adj.assign(10, 20); //Inicializar un vector con tamaño definido
+					adj.push_back(3); // Inserta tres a la casilla final
+					adj.size(); //Tamaño del vector
+					adj[5].empty(); //Dice si está vacio
+					adj.pop_back(); //Borra la ultima posicion del vector
+					adj.clear(); // Elimina el vector
+				int a, b;
+				for( int i = 0; i < aristas; i++ ){
+					cin >> a >> b;
+					adj[a-1].push_back(b-1);
+				}
+		Lista de Ejes
+			Siendo n el numero de aristas se define una matriz de n*2 donde se representa cada nodo que conecte la arista.
+Pair
+	Almacena dos tipos de datos ligados
+	Funciones
+		pair <int, int> par;
+		par.first //Acceso
+		par.second //Acceso
+/// RESOURCES ///
+Competitive programming 3 book
+mycodeschool
+MIT course. Introduction to algorithms
+www.coursera.org/specializations/algorithms
+The algorithm desing manual
+https://udacity.com/course/data-structures-and-algorithms-in-python-ud513
+Algorithms (4th edition)

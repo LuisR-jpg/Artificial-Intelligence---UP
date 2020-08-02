@@ -1,2 +1,3 @@
 # School
-Every class and homework will be uploaded here.
+##### Every classwork and homework will be uploaded here.
+
