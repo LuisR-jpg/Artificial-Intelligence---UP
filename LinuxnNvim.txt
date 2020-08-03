@@ -1,5 +1,11 @@
 --- LINUX ---
 For console: ctrl + alt + T
+C++:
+  To compile: g++ nombre.cpp	//Se guarda en a.out
+	      g++ nombre.cpp -o salida.out //Se guarda en salida.out
+  To run: ./a.out
+  To compile and run: g++ nombre.cpp && ./a.out
+		      g++ nombre.cpp -o nombre.out && ./nombre.out
 
 --- NVIM ---
 To exit: esc, esc, :, q   //Sometimes needed !q
