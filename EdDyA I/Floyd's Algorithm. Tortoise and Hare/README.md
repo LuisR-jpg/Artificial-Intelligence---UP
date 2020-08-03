@@ -2,6 +2,6 @@
 ### Tortoise and Hare
 
 ###### Mejor Solucion
-Util algoritmo para encontrar un numero repetido dada una lista ordenada.
+Util algoritmo para encontrar un numero repetido dada una lista.
 
-Explicación: https://www.youtube.com/watch?v=RrCiS8ggUn8
+ExplicaciÃ³n: https://www.youtube.com/watch?v=RrCiS8ggUn8
