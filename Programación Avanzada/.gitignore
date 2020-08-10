@@ -1,3 +1,4 @@
 #Se ignoran ejecutables de los programas para C++
 *.exe
 *.out
+test.cpp
