@@ -7,8 +7,8 @@ int main(){
 	suma = a + b;
 	resta = a - b;
 	multiplicacion = a * b;
-	division = double(a / b);
+	division = double(a) / double(b);
 	cout << "La suma es: " << suma << "\nLa resta es: " << resta << "\nLa multiplicacion es: " << multiplicacion;
-	cout << "\nLa division es: " << double(division) << endl;
+	cout << "\nLa division es: " << division << endl;
 	return 0;
 }
