@@ -1,0 +1,9 @@
+# Shortcuts
+  a: Para insertar linea arriba de la actual
+  b: Para insertar linea abajo de la actual
+  x: Para eliminar linea actual
+  ctrl + shift: Para ejecutar
+  crtl + enter: Para ejecutar
+  m: Para notas
+
+
