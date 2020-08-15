@@ -7,8 +7,7 @@ int main(){
   for( int i = 0; i < h*2-1; i++ ){
     for( int j = 0; j < h*2-1; j++ )
       cout << (j == a || j == b? '*': ' ');
-    a = i < h-1? ++a: --a;
-    b = i < h-1? --b: ++b;
+    a++; b--;
     cout << endl;
   }
   return 0;
