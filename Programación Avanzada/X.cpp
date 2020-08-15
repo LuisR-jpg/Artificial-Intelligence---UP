@@ -1,14 +1,9 @@
 #include <iostream>
-using namespace std;
 int main(){
-  int h, a = 0, b; 
-  cin >> h;
-  b = 2*h-2;
-  for( int i = 0; i < h*2-1; i++ ){
+  int h;
+  std::cin >> h;
+  for( int i = 0, b = 2*h-2; i < h*2-1; i++, b-- )
     for( int j = 0; j < h*2-1; j++ )
-      cout << (j == a || j == b? '*': ' ');
-    a++; b--;
-    cout << endl;
-  }
+      std::cout << (j == i || j == b? '*': ' ') << (j+2 == 2*h? "\n": "");
   return 0;
 }
