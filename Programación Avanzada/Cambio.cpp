@@ -1,5 +1,5 @@
 #include <iostream>
-#include "Cambio.h"
+#include "cambio.h"
 using namespace std;
 int main(){
 	int money, cien, cincuenta, veinte, diez, cinco, uno;
