@@ -7,8 +7,11 @@ int main(){
   cin >> fu >> fd >> ft;
   cout << "Inserte fecha 2 (dd/mm/aaaa): ";
   cin >> fau >> fad >> fat;
-  mayor(fu, fd, ft, fau, fad, fat);
-  cout << "La fecha mas reciente es " << fu << "/" << fd << "/" << ft << endl;
+  if( validar(fu, fd, ft) && validar(fau, fad, fat) ){
+    mayor(fu, fd, ft, fau, fad, fat);
+    cout << "La fecha mas reciente es " << fu << "/" << fd << "/" << ft << endl;
+  }
+  else cout << "Hay al menos una fecha introducida no valida." << endl;
   return 0;
 }
 void mayor(int &u, int &d, int &t, int c, int f, int s){
@@ -17,4 +20,7 @@ void mayor(int &u, int &d, int &t, int c, int f, int s){
     d = f;
     t = s;
   }
+}
+bool validar(int d, int m, int a){
+  return (d > 0 && d < 31 && m > 0 && m < 13 && a > 0? true: false);
 }
