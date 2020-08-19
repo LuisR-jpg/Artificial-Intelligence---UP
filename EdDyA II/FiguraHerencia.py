@@ -42,6 +42,24 @@ class Rectangulo(Figura):
     def calcular_area(self):
         return base*altura
     def __str__(self):
-        return str(Figura) + " con base = " + str(self.__base) + " y altura = " + str(self.__altura)
+        return Figura.__str__(self) + " con base = " + str(self.__base) + " y altura = " + str(self.__altura)
+class Cuadrado(Figura):
+    def __init__(self, nombre, color, lado = 1):
+        Figura.__init__(self, nombre, color)
+        self.__lado = lado
+    @property
+    def lado(self):
+        return self.__lado
+    @lado.setter
+    def lado(self, lado):
+        if( lado >= 0 ): self.__lado = lado
+        else: print("Lado asignado no valido")
+    def calcular_perimetro(self):
+        return 4*lado
+    def calcular_area(self):
+        return lado*lado
+    def __str__(self):
+        return Figura.__str__(self) + " con lado = " + str(self.__lado)
 print(Figura("Figurita", "magenta"))
 print(Rectangulo("recti", "negro black"))
+print(Cuadrado("Cau", 'blue'))
