@@ -1,5 +1,4 @@
 --- LINUX ---
-ncommit: Alias for committing without message
 For console: ctrl + alt + T
 C++:
   To compile: g++ nombre.cpp	//Se guarda en a.out
