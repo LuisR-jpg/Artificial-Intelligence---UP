@@ -1,12 +1,12 @@
 def mochila(cap, w, g):
-    dic, res, gan = dict(), [], 0
-    g.sort(reverse = True)
-    for i,j in zip(g, w):
-        dic[i] = j
-        if dic[i] <= cap:
-            cap -= dic[i]
-            gan += i
-    print("La ganancia sera de:", gan)
-    return dic
-capacidad, peso, ganancia = 5, [1, 1, 2], [5, 30, 10]
+    ganancia, objeto, gan, res = 0, [(a, b/a, i) for i, (a, b) in enumerate(zip(w, g))], 0, [0]*len(w)
+    objeto.sort(reverse = True, key = lambda tup: tup[1])
+    for i in objeto:
+        if cap > i[0]:
+            res[i[2]] = 1
+            cap -= i[0]
+            ganancia += i[1] * i[0]
+    print("La ganancia es de:", ganancia)
+    return res
+capacidad, peso, ganancia = 3, [1, 1, 2], [5, 30, 10]
 print(mochila(capacidad, peso, ganancia))

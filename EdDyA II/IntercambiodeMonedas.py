@@ -5,4 +5,4 @@ def monedas(cantidad, denominaciones):
         dic[i] = cantidad // i
         cantidad %= i
     return dic
-print(monedas(87, [50, 10, 5, 2, 1]))
+print(monedas(int(input("Ingrese la cantidad: ")), [100, 50, 20, 10, 5, 2, 1]))
