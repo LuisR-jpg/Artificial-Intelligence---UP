@@ -2,10 +2,6 @@
 #include <stdlib.h>
 #include <time.h>
 using namespace std;
-void generarArr(int arr[], int n){
-  for( int i = 0; i < n; i++ )
-    arr[i] = rand()%100;
-}
 bool chec(int arr[], int n){
   bool res = true;
   for( int i = 1; i < n; i++ ){
@@ -17,13 +13,13 @@ bool chec(int arr[], int n){
   return true;
 }
 int main(){
-  srand(time(NULL));
-  int n = rand()%50 + 1;
+  cout << "Por favor ingresa el numero de elementos: ";
+  int n;
+  cin >> n;
   int arr[n];
-//  generarArr(arr, n); //Completamente random
-  for( int i = 0; i < n; i++ ) arr[i] = i; arr[rand()%n] = 0; //Para comprobar que funciona
-  cout << (chec(arr, n)? "Es": "No es") << " posible hacerlo no decreciente." << endl;
+  cout << "Ingresa " << n << " enteros." << endl;
   for( int i = 0; i < n; i++ )
-    cout << arr[i] << " ";
+    cin >> arr[i];
+  cout << (chec(arr, n)? "Es": "No es") << " posible hacerlo no decreciente." << endl;
   return 0;
 }

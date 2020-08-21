@@ -2,16 +2,14 @@
 #include <stdlib.h>
 #include <time.h>
 using namespace std;
-void generarArr(int arr[], int n){
-  for( int i = 0; i < n; i++ )
-    arr[i] = rand()%10;
-}
 int main(){
-  srand(time(NULL));
-  int n = rand() % 10 + 1;
+  int n;
+  cout << "Ingresa el tamano del arreglo: ";
+  cin >> n;
+  cout << "Por favor ingresa " << n << " enteros. " << endl;
   int arr[n];
-  generarArr(arr, n);
-  arr[0] = rand()%7 + 1;
+  for( int i = 0; i < n; i++ )
+    cin >> arr[i];
   for( int i = 0; i < n; i++ )
     cout << arr[i];
   cout << " + 1 = ";
