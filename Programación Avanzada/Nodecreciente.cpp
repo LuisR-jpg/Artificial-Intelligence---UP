@@ -1,13 +1,15 @@
 #include <iostream>
-#include <stdlib.h>
-#include <time.h>
 using namespace std;
 bool chec(int arr[], int n){
   bool res = true;
   for( int i = 1; i < n; i++ ){
     if( arr[i-1] > arr[i] ){
-      if( !res ) return false;
-      else res = false;
+      if( i - 2 < 0 || i + 1 >= n || arr[i-1] <= arr[i+1] || arr[i-2] <= arr[i] ){
+	if( res ) res = false;
+	else return false;
+      }
+      else if( arr[i-2] > arr[i] && arr[i-1] > arr[i+1] )
+	return false;
     }
   }
   return true;
