@@ -25,6 +25,7 @@ To insert:
 	A: to insert at the end of the line
 	o: Inserts in a new line below cursor's line
 	O: Inserts in a new line above the cursor's line
+	ctrl + O: Goes to normal mode waiting for an action
 To remove: 
 	x: Being in normal mode deletes next char (like supr)
 	d, $: Deletes from the cursor to the end of line
