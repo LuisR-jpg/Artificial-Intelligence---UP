@@ -21,9 +21,8 @@ int main(){
   cout << endl;
   for( int i = 0; i < rows; i++ ){
     for( int j = 0; j < cols; j++ ){
-      int aux = i + j;
       *(*(pm + i) + j) = i + j;
-      cout << **pm + aux << " --> ";
+      cout << *(*(pm + i) + j) << " --> ";
       cout << (*(pm + i) + j) << endl;
     }
     cout << endl;

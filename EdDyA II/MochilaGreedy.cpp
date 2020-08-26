@@ -1,8 +1,8 @@
 #include <iostream>
 using namespace std;
-int peso[] = {1, 1, 2}, ganancia[] = {5, 30, 10};
+int peso[] = {1, 2, 2, 2}, ganancia[] = {5, 3, 2, 20};
 const int n = sizeof(peso)/sizeof(int);
-int capacidad = 5, res[n], ga = 0;
+int capacidad = 7, res[n], ga = 0;
 void mochila(int cap, int w[], int g[]){
   int gan = 0; 
   double obj[n][3];

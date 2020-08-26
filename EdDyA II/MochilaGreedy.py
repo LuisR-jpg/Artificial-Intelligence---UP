@@ -8,5 +8,5 @@ def mochila(cap, w, g):
             ganancia += i[1] * i[0]
     print("La ganancia es de:", ganancia)
     return res
-capacidad, peso, ganancia = 5, [1, 1, 2], [5, 30, 10]
+capacidad, peso, ganancia = 7, [1, 2, 2, 2], [5, 3, 2, 20]
 print(mochila(capacidad, peso, ganancia))
