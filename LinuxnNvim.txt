@@ -10,7 +10,6 @@ C++:
 --- NVIM ---
 To exit: esc, esc, :, q   //Sometimes needed !q
 To enter a file: nvim nombre.ext
-ctrl + n: Autocomplete, in insert mode
 To move:
 	It's possible to use numbers, like 3l, 4w, 7b
 	l: right
@@ -26,6 +25,8 @@ To insert:
 	A: to insert at the end of the line
 	o: Inserts in a new line below cursor's line
 	O: Inserts in a new line above the cursor's line
+In insert: 
+	ctrl + n: Autocomplete, in insert mode
 	ctrl + O: Goes to normal mode waiting for an action
 To remove: 
 	x: Being in normal mode deletes next char (like supr)
@@ -61,6 +62,18 @@ Clipboard:
 			y: Exits the mode, but the selection is in the clipboard 
 		:%y //Copies everything
 		:%x //Cuts everything
+To comment: 
+	Block selection is used
+	To delete comments:
+	  ctrl + v: To enter the block selection mode
+	  Use navigation tools to create the block you want to delete
+	  x: Will delete everything you selected
+	To comment a block:
+	  ctrl + v: To put editor in block selection mode
+	  Use up and down navigation until the last line you want to comment
+	  I: Will put the editor in insert mode
+	  Write now the comment symbol (//, #)
+	  esc: After pressing this button, comments will appear
 To replace: 
 	If you mistyped one character:
 		r: Over the wrong letter and just write the correct one
