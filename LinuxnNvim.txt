@@ -10,6 +10,7 @@ C++:
 --- NVIM ---
 To exit: esc, esc, :, q   //Sometimes needed !q
 To enter a file: nvim nombre.ext
+ctrl + n: Autocomplete, in insert mode
 To move:
 	It's possible to use numbers, like 3l, 4w, 7b
 	l: right
