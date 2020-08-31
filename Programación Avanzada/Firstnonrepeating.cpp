@@ -11,7 +11,8 @@ int main(){
   for( int i = 0; i < strlen(cad); i++ )
     if(cub[cad[i]-65] == 1){
       cout << i;
-      break;
+      return 0;
     }
+  cout << -1;
   return 0;
 }
