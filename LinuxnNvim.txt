@@ -1,5 +1,16 @@
 --- LINUX ---
-For console: ctrl + alt + T
+CTRL + ALT + T: Console
+WIN + UP:	Maximize
+WIN + LEFT:	Maximize to left
+WIN + RIGHT:	Maximize to right
+WIN + DOWN:	Maximize horizontally
+WIN + SPACE:	Menu
+ALT + ESC:	Quick Launcher
+ALT + F1:	Escritorio 1
+ALT + F2:	Escritorio 2
+ALT + F4:	Close window
+ALT + TAB:	Change window
+
 C++:
   To compile: g++ nombre.cpp	//Se guarda en a.out
 	      g++ nombre.cpp -o salida.out //Se guarda en salida.out
