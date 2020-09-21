@@ -39,6 +39,7 @@ To insert:
 In insert: 
 	ctrl + n: Autocomplete, in insert mode
 	ctrl + O: Goes to normal mode waiting for an action
+	ctrl + w: Deletes current word
 To remove: 
 	x: Being in normal mode deletes next char (like supr)
 	d, $: Deletes from the cursor to the end of line
