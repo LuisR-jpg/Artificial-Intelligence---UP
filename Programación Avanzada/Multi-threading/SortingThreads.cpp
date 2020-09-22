@@ -32,7 +32,7 @@ int main(){
   srand(time(NULL));
   int n = 10;
   int arr[n], narr[n];
-  for( int i = 0, aux = rand() % 100; i < n; i++ )
+  for( int i = 0; i < n; i++ )
     narr[i] = arr[i] = rand() % 100;
   print(arr, n);
   thread m(merge, arr, n);

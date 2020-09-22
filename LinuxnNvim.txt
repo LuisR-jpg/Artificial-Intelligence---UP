@@ -11,6 +11,15 @@ ALT + F2:	Escritorio 2
 ALT + F4:	Close window
 ALT + TAB:	Change window
 
+Focus terminal: 	ALT + ARROW
+Split horizontally:	CTRL + SHIFT + DOWN
+Split vertically:	CTRL + SHIFT + RIGHT
+New tab:		CTRL + T
+New terminal:		CTRL + ALT + T o CTRL + SHIFT + N
+Brings tab selector: 	TAB
+Moves between tabs:	SHIFT + LEFT || RIGHT: 
+Closes current tab:	CTRL + W
+
 C++:
   To compile: g++ nombre.cpp	//Se guarda en a.out
 	      g++ nombre.cpp -o salida.out //Se guarda en salida.out
