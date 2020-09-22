@@ -13,99 +13,50 @@
   </head>
   <body bgcolor = "#b6985e">
     <br><div style = "background-color: #CC092F;" align = center><img src = "UP.jpg"></div><br>
-    <form style = "background-color: #00338e; color: white">
+    <form style = "background-color: #00338e; color: white" align = center text-align = center>
       <h2 align = center>General</h2><br>
       <div class = "row justify-content-center form-group">
-        <label for = "inputName" class = "col-sm-2 col-form-label">Nombre</label>
-	<div class = "col-sm-4">
-	  <input type = "text" class = "form-control" id = "inputName" aria-describedby = "nameHelp" placeholder = "Escribe tu nombre">
+        <label for = "inputName" class = "col-sm-4 col-form-label">Nombre</label>
+	<div class = "col-sm-8">
+	  <input type = "text" class = "form-control" id = "inputName" aria-describedby = "nameHelp" placeholder = "Escribe tu nombre" required>
 	  <small id = "nameHelp" class = "form-text text-muted">*Obligatorio.</small>
 	</div>
       </div>
       <div class = "row justify-content-center form-group">
-        <label for = "inputLName" class = "col-sm-2 col-form-label">Apellido paterno</label>
-	<div class = "col-sm-4">
+        <label for = "inputLName" class = "col-sm-4 col-form-label">Apellido paterno</label>
+	<div class = "col-sm-8">
 	  <input type = "text" class = "form-control" id = "inputLName" placeholder = "Escribe tu apellido paterno">
 	</div>
       </div>
       <div class = "row justify-content-center form-group">
-        <label for = "inputLName2" class = "col-sm-2 col-form-label">Apellido materno</label>
-	<div class = "col-sm-4">
+        <label for = "inputLName2" class = "col-sm-4 col-form-label">Apellido materno</label>
+	<div class = "col-sm-8">
 	  <input type = "text" class = "form-control" id = "inputLName2" placeholder = "Escribe tu apellido materno">
 	</div>
       </div>
-    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-      <label class="btn btn-secondary">
-        <input type="radio" name="options" id="option1" > Masculino
-      </label>
-      <label class="btn btn-secondary">
-        <input type="radio" name="options" id="option2"> Femenino
-      </label>
-    </div>
+      <div class = "row justify-content-center form-group">
+	<label class = "col-sm-4 col-form-label">Genero</label>
+      	<div class = "row form-check form-check-inline col-sm-8">
+	  <div class="form-check form-check-inline">
+      	    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+      	    <label class="form-check-label" for="inlineRadio1">Hombre</label>
+      	  </div>
+	  <div class="form-check form-check-inline">
+      	    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+      	    <label class="form-check-label" for="inlineRadio2">Mujer</label>
+      	  </div>
+      	</div>
+      </div>
+      <div class = "row justify-content-center form-group">
+	<label for="exampleFormControlSelect2" class = "col-sm-4 col-form-label">Vivienda</label>
+        <select multiple class="form-control col-sm-8" id="exampleFormControlSelect2">
+          <option>Casa propia</option>
+          <option>Casa rentada</option>
+          <option>Fraccionamiento</option>
+          <option>Departamento</option>
+        </select>
+      </div>
+      <input class="btn btn-primary" type="submit" value="Submit">
     </form>
-    <button type="button" class="btn btn-primary">Primary</button>
-    <button type="button" class="btn btn-secondary">Secondary</button>
-    <button type="button" class="btn btn-success">Success</button>
-    <button type="button" class="btn btn-danger">Danger</button>
-    <button type="button" class="btn btn-warning">Warning</button>
-    <button type="button" class="btn btn-info">Info</button>
-    <button type="button" class="btn btn-light">Light</button>
-    <button type="button" class="btn btn-dark">Dark</button>
-    <button type="button" class="btn btn-link">Link</button>
-    <br>
-    <a class="btn btn-primary" href="#" role="button">Link</a>
-    <button class="btn btn-primary" type="submit">Button</button>
-    <input class="btn btn-primary" type="button" value="Input">
-    <input class="btn btn-primary" type="submit" value="Submit">
-    <input class="btn btn-primary" type="reset" value="Reset">    <!-- Optional JavaScript -->
-    <button type="button" class="btn btn-outline-primary">Primary</button>
-    <button type="button" class="btn btn-outline-secondary">Secondary</button>
-    <button type="button" class="btn btn-outline-success">Success</button>
-    <button type="button" class="btn btn-outline-danger">Danger</button>
-    <button type="button" class="btn btn-outline-warning">Warning</button>
-    <button type="button" class="btn btn-outline-info">Info</button>
-    <button type="button" class="btn btn-outline-light">Light</button>
-    <button type="button" class="btn btn-outline-dark">Dark</button>
-    <br>
-    <button type="button" class="btn btn-primary btn-lg">Large button</button>
-    <button type="button" class="btn btn-secondary btn-lg">Large button</button>
-    <br>
-    <button type="button" class="btn btn-primary btn-sm">Small button</button>
-    <button type="button" class="btn btn-secondary btn-sm">Small button</button>
-    <br>
-    <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
-    <button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
-    <br>
-    <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Primary link</a>
-    <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Link</a>
-    <br>
-    <button type="button" class="btn btn-lg btn-primary" disabled>Primary button</button>
-    <button type="button" class="btn btn-secondary btn-lg" disabled>Button</button>
-    <br>
-    <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false">
-      Single toggle
-    </button>
-    <br>
-    <div class="btn-group-toggle" data-toggle="buttons">
-      <label class="btn btn-secondary active">
-        <input type="checkbox" checked> Checked
-      </label>
-    </div>
-    <br>
-    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-      <label class="btn btn-secondary active">
-        <input type="radio" name="options" id="option1" checked> Active
-      </label>
-      <label class="btn btn-secondary">
-        <input type="radio" name="options" id="option2"> Radio
-      </label>
-      <label class="btn btn-secondary">
-        <input type="radio" name="options" id="option3"> Radio
-      </label>
-    </div>
-    <br>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
   </body>
 </html>
