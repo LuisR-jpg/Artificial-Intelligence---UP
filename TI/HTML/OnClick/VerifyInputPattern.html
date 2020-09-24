@@ -2,17 +2,24 @@
   <head>
     <script>
       function myFunction() {
-	return;
 	var n = document.getElementById("inputName").value;
 	var ap = document.getElementById("inputLName").value;
 	var am = document.getElementById("inputLName2").value;
         var ele = document.getElementsByName('inlineRadioOptions'); 
-	var v = document.getElementById("sel").value;
+	var v = document.getElementById("sel").value, s, e = "";
+	patron = /^[a-zA-ZÀ-ÿ ]+$/;
 	if( n.length && ap.length && am.length && (ele[0].checked || ele[1].checked) && v != "Seleccionar..." ){
 	  s = "Nombre: " + n;
 	  s += "\nApellidos: " + ap  + " " + am;
 	  s += "\nGenero: " + (ele[0].checked? "Hombre": "Mujer");
 	  s += "\nVivienda: " + v;
+	  if( !patron.test(n) ) e += "\n\tNombre";
+	  if( !patron.test(ap) ) e += "\n\tApellido Paterno";
+	  if( !patron.test(am) ) e += "\n\tApellido Materno";
+	  if( e.length ){
+	    alert("Por favor revisa tu entrada de:" + e);
+	    return;
+	  }
 	}
 	else{
 	  s = "Elemento(s) por llenar:\n";
@@ -28,10 +35,7 @@
 	    document.getElementById("inputLName2").focus();
 	    s += "\tApellido Materno\n";
 	  }
-	  if( !(ele[0].checked || ele[1].checked) ){
-	    //document.getElementById("inlineRadioOptions").focus();
-	    s += "\tGenero\n";
-	  }
+	  if( !(ele[0].checked || ele[1].checked) )s += "\tGenero\n";
 	  if( v == "Seleccionar..." ){
 	    document.getElementById("sel").focus();
 	    s += "\tVivienda";
