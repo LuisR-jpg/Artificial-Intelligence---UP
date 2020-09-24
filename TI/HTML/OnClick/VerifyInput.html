@@ -1,5 +1,44 @@
 <html>
   <head>
+    <script>
+      function myFunction() {
+	var n = document.getElementById("inputName").value;
+	var ap = document.getElementById("inputLName").value;
+	var am = document.getElementById("inputLName2").value;
+        var ele = document.getElementsByName('inlineRadioOptions'); 
+	var v = document.getElementById("sel").value;
+	if( n.length && ap.length && am.length && (ele[0].checked || ele[1].checked) && v != "Seleccionar..." ){
+	  s = "Nombre: " + n;
+	  s += "\nApellidos: " + ap  + " " + am;
+	  s += "\nGenero: " + (ele[0].checked? "Hombre": "Mujer");
+	  s += "\nVivienda: " + v;
+	}
+	else{
+	  s = "Elemento(s) por llenar:\n";
+	  if( !n.length ){
+	    document.getElementById("inputName").focus();
+	    s += "\tNombre\n";
+	  }
+	  if( !ap.length ){
+	    document.getElementById("inputLName").focus();
+	    s += "\tApellido Paterno\n";
+	  }
+	  if( !am.length ){
+	    document.getElementById("inputLName2").focus();
+	    s += "\tApellido Materno\n";
+	  }
+	  if( !(ele[0].checked || ele[1].checked) ){
+	    //document.getElementById("inlineRadioOptions").focus();
+	    s += "\tGenero\n";
+	  }
+	  if( v == "Seleccionar..." ){
+	    document.getElementById("sel").focus();
+	    s += "\tVivienda";
+	  }
+	}
+	alert(s);
+      }
+    </script>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,7 +50,7 @@
     crossorigin="anonymous">
     <title>Hello, world!</title>
   </head>
-  <body bgcolor = "#b6985e">
+  <body style="background-color: #b6985e">
     <br><div style = "background-color: #CC092F;" align = center><img src = "UP.jpg"></div><br>
     <form style = "background-color: #00338e; color: white" align = center>
       <h2 align = center>General</h2><br>
@@ -50,7 +89,8 @@
       <div class = "row justify-content-center form-group">
 	<label for="exampleFormControlSelect2" class = "col-sm-4 col-form-label">Vivienda</label>
 	<div class = "col-sm-8">
-          <select multiple class="form-control" id="exampleFormControlSelect2">
+          <select class="form-control" id="sel">
+            <option>Seleccionar...</option>
             <option>Casa propia</option>
             <option>Casa rentada</option>
             <option>Fraccionamiento</option>
@@ -58,7 +98,7 @@
           </select>
 	</div>
       </div>
-      <input class="btn btn-primary" type="submit" value="Submit">
+      <input onclick = "myFunction()" id = "boton" class="btn btn-primary" type="button" value="Submit">
     </form>
   </body>
 </html>

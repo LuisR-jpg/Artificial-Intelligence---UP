@@ -1,5 +1,6 @@
 #include <iostream>
 #include <thread>
+#include <chrono>
 using namespace std;
 void print(int arr[], int n){
   for( int i = 0; i < n; i++ )
@@ -19,6 +20,7 @@ void mer(int arr[], int ini, int fin){
 }
 void me(int arr[], int fin){
   mer(arr, 0, fin-1);
+  cout << "Termina merge." << endl;
 }
 void bu(int arr[], int n){
   int sw = 1, i;
@@ -27,19 +29,21 @@ void bu(int arr[], int n){
       sw += arr[i] > arr[i+1]? 1: 0;
       if (arr[i] > arr[i+1]) swap(arr[i], arr[i+1]);
     }
+  cout << "Termina burbuja." << endl;
 }
 int main(){
   srand(time(NULL));
-  const int n = 10;
+  const int n = 100000;
   int arr[n], narr[n];
   for( int i = 0; i < n; i++ )
     narr[i] = arr[i] = rand() % 100;
-  print(arr, n);
+//  print(arr, n);
   thread m(me, arr, n);
   thread b(bu, narr, n);
   b.join();
   m.join();
-  print(arr, n);
-  print(narr, n);
+  //this_thread::sleep_for(chrono::milliseconds(1000) );
+//  print(arr, n);
+//  print(narr, n);
   return 0;
 }
