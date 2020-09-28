@@ -128,5 +128,3 @@ To search:
 
 Tricks:
 	d, d, p: Swaps two lines	
-	
-	
