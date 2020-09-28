@@ -11,6 +11,13 @@ Complejidad.
 		Exponential Time	O(b^n)
 		Factorial time		O(n!)
 	Una computadora soporta hasta 10 a la 8 operaciones por segundo
+Tipos de datos.
+  int, double, long long, bool
+  La division entre numeros con punto es diferente a división entre enteros.
+  La conversión entre datos nos puede dejar cosas buenas
+   Floor: C y C++ hace piso cuando conviertes de numeros decimales a enteros.
+   Ceil: 
+
 Algoritmo de Kadane. (Suma Acumulada)
 	Comparar nuestro valor máximo con la suma acumulada de mi array.
 	Tomar en cuenta que si mi suma se hace negativa es mejor igualar a 0.
@@ -346,6 +353,9 @@ Pair
 		pair <int, int> par;
 		par.first //Acceso
 		par.second //Acceso
+
+
+
 /// RESOURCES ///
 Competitive programming 3 book
 mycodeschool
