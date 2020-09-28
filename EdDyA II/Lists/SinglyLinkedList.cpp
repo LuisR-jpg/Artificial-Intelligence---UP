@@ -26,13 +26,13 @@ class SinglyLinkedList{
       cout << "\tSinglyLinkedList()" << endl;
     }
     ~SinglyLinkedList(){
-      cout << "\t~SinglyLinkedList()" << endl;
       Node *a = head;
       while( a ){
 	Node *b = a -> next;
 	delete a;
 	a = b;
       }
+      cout << "\t~SinglyLinkedList()" << endl;
     }
     void insert_head(int data){
       Node *n = new Node(data);
