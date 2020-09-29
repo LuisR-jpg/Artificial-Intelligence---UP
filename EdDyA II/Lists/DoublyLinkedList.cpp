@@ -15,7 +15,7 @@ class DoublyLinkedList{
 	  cout << "\t~Node(" << data << ")" << endl;
 	}
 	friend ostream &operator << (ostream &output, const Node &n){
-	  output << "\tPrev: " << n.prev << "\tData: " << n.data << "\tNext: " << n.next << endl;
+	  output << "Data: " << n.data << "\tPrev: " << n.prev << "\t&: " << &n << "\tNext: " << n.next << endl;
 	  return output;
 	}
     };
@@ -62,8 +62,23 @@ class DoublyLinkedList{
       delete a;
     }
     void remove(int data){
-      if( !head ) return;
-
+      Node *a = head;
+      while( a && a -> data != data ) a = a -> next;
+      if( a == head && head == tail ) head = tail = NULL;
+      if( !a ) return;
+      if( a == head ) head -> next -> prev = NULL, head = head -> next;
+      if( a == tail ) tail -> prev -> next = NULL, tail = tail -> prev;
+      if( a -> prev ) a -> prev -> next = a -> next;
+      if( a -> next ) a -> next -> prev = a -> prev;
+      delete a;
+    }
+    void print_reverse(){
+      Node *a = tail;
+      while( a ){
+	cout << *a;
+	a = a -> prev;
+      }
+    }
     friend ostream &operator << (ostream &output, const DoublyLinkedList &l){
       Node *n = l.head;
       while ( n ){
@@ -75,22 +90,31 @@ class DoublyLinkedList{
 };
 int main(){
   DoublyLinkedList lista;
-//  lista.push_front(1);
-//  lista.push_front(2);
-//  lista.push_front(3);
-//  lista.push_back(4);
-//  lista.push_back(6);
-//  lista.push_back(7);
-//  cout << lista;
-//  lista.pop_front();
-//  lista.pop_front();
-//  lista.pop_back();
-//  lista.pop_back();
-//  cout << lista;
-//  lista.pop_back();
-//  lista.pop_back();
-//  lista.pop_back();
-//  lista.pop_back();
-  lista.pop_back();
+  for( int i = 0; i < 100; i++ )
+    lista.push_front(i);
+  for( int i = 0; i < 105; i++ )
+    lista.remove(i);
+  for( int i = 0; i < 100; i++ )
+    lista.push_front(i);
+  for( int i = 0; i < 105; i++ )
+    lista.pop_front();
+  for( int i = 0; i < 100; i++ )
+    lista.push_front(i);
+  for( int i = 0; i < 105; i++ )
+    lista.pop_back();
+  for( int i = 0; i < 100; i++ )
+    lista.push_back(i);
+  for( int i = 0; i < 105; i++ )
+    lista.pop_back();
+  for( int i = 0; i < 100; i++ )
+    lista.push_back(i);
+  for( int i = 0; i < 105; i++ )
+    lista.pop_front();
+  cout << lista << endl;
+  lista.push_front(0);
+  lista.push_front(5);
+  lista.push_front(1);
+  cout << lista << endl;
+  lista.print_reverse();
   return 0;
 }
