@@ -86,6 +86,7 @@ int main(){
 //  lista.remove(3);
 //  lista.remove(1);
 //  lista.remove(5);
+  lista.remove(3);
   cout << lista;
   return 0;
 }
