@@ -52,33 +52,18 @@ class CircularLinkedList{
       a -> next = n;
     }
     void remove(int data){
-      if( !head ) return;
-      if( head == head -> next ){
-	if( head -> data == data ){
-	  Node *a = head;
-	  delete a;
-	  head = NULL;
-	}
-	return;
-      }
-      Node *a = head;
-      if( a -> data == data ){
-	while( a -> next != head ) a = a -> next;
-	Node *b = a -> next;
-	a -> next = a -> next -> next;
-	delete b;
-	cout << "hola" << endl;
-	return;
-      }
+      Node *b, *a = head;
+      if( !a ) return;
+      bool h = head -> data != data;
       while( a -> next != head ){
-	if( a -> next -> data == data ){
-	  Node *b = a -> next;
-	  a -> next = a -> next -> next;
-	  delete b;
-	  return;
-	}
+	if( h && a -> next -> data == data ) break;
 	a = a -> next;
       }
+      b = a -> next;
+      if( b -> data != data ) return;
+      a -> next = a -> next -> next;
+      if( !h ) head = (head == head -> next? NULL: a -> next);
+      delete b;
     }
     friend ostream &operator << (ostream &output, const CircularLinkedList &l){
       Node *a = l.head;
@@ -93,21 +78,14 @@ class CircularLinkedList{
 };
 int main(){
   CircularLinkedList lista;
-  lista.insert_tail(3);
-  lista.insert_tail(3);
-  cout << lista << endl;
-  lista.remove(3);
-  cout << lista << endl;
-  return 0;
   for( int i = 0; i < 10; i++ )
-    lista.insert_head(i);
+    lista.insert_head(10-1-i);
   for( int i = 10; i < 20; i++ )
     lista.insert_tail(i);
   lista.remove(0);
-  cout << lista;
-  return 0;
   lista.remove(100);
   lista.remove(19);
+  lista.remove(9);
   for( int i = 3; i < 11; i++ )
     lista.remove(i);
   cout << lista;
