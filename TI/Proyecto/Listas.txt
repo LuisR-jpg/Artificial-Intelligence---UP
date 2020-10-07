@@ -1,3 +1,4 @@
+
 172.23.5.2
 172.23.5.244
 wwwroot > Zoom
@@ -50,6 +51,14 @@ Correr el programa: //Simula servidor
   WAMP //Exclusivo para windows LOCALHOST
     Se encuentra como wamp
   XAMPP //Windows, Linux y MAC
+    En linux: /opt/lampp
+    To run XAMPP:
+      sudo /opt/lampp/lampp start
+      sudo /opt/lampp/lampp stop
+      Con interfaz: 
+	cd /opt/lampp
+        sudo ./manager-linux.run (or manager-linux-x64.run)
+
     Se encuentra como inetpub
     APACHE para PHP
   Procurar que no corran al mismo que IIS

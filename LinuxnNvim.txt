@@ -20,6 +20,9 @@ Brings tab selector: 	TAB
 Moves between tabs:	SHIFT + LEFT || RIGHT: 
 Closes current tab:	CTRL + W
 
+whoami //Written in console returns username
+unzip cosa.zip //To unpack files
+
 C++:
   To compile: g++ nombre.cpp	//Se guarda en a.out
 	      g++ nombre.cpp -o salida.out //Se guarda en salida.out
