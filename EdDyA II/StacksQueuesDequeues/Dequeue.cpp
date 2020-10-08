@@ -58,6 +58,7 @@ class Dequeue{
       last = last -> prev;
       delete a;
       if( last ) last -> next = NULL;
+      else first = last = NULL;
       return b;
     }
     t front(){
