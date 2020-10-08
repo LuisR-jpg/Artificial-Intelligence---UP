@@ -84,7 +84,9 @@ Clipboard:
 		v: Enters the visual mode (selects every place it goes)
 			x: To delete selection
 			y: Exits the mode, but the selection is in the clipboard 
+			"+y: To make sure it'll be copied into the system's clipboard
 		:%y //Copies everything
+		:%y+ //To make sure it'll be copied into the system's clipboard
 		:%x //Cuts everything
 	. (punto): Duplicates line
 To comment: 

@@ -44,7 +44,10 @@ Pagina
   Pasadas: Lista de participantes que trae la pista (list ended meeting instances) 
   Futuras: List meetings (parametro upcoming) para encuestas
 
-YO: MODIFICAR DISEÑO, AGREGAR IMAGEN DE ZOOM, QUITAR LO QUE NO VAMOS A OCUPAR, MOMENTS 
+YO: MODIFICAR DISEÑO:
+  AGREGAR IMAGEN DE ZOOM
+  QUITAR LO QUE NO VAMOS A OCUPAR
+  MOMENTS 
 
 
 Correr el programa: //Simula servidor
