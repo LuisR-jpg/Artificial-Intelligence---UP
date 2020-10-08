@@ -15,10 +15,12 @@ class Stack:
         self.first = n
     def pop(self):
         a = self.first
-        if not a: return
+	if not a: return
         self.first = self.first.next
-        return a
-    def top(self): return self.first
+        return a.data
+    def top(self):
+      if self.first:
+	return self.first.data
     def isEmpty(self):
         if self.first is None: return True
         return False
