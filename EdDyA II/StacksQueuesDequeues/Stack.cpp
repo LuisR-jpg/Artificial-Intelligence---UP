@@ -39,7 +39,7 @@ class Stack{
       first = n;
     }
     t pop(){
-      if( !first ) return 0;
+      if( !first ) return (t)NULL;
       Node *a = first;
       t b = a -> data;
       first = first -> next;
@@ -47,7 +47,7 @@ class Stack{
       return b;
     }
     t top(){
-      if( !first ) return 0;
+      if( !first ) return (t)NULL;
       return first -> data;
     }
     bool isEmpty(){
@@ -62,7 +62,7 @@ int main(){
   cout << s.top() << endl;
   cout << s.top() << endl;
   cout << (s.isEmpty()? "True": "False") << endl;
-  for(int i = 0; i < 15; i++)
+  for(int i = 0; !s.isEmpty() && i < 15; i++)
     cout << s.pop() << endl;
   cout << (s.isEmpty()? "True": "False") << endl;
   return 0;

@@ -1,3 +1,4 @@
+//Regresa t(NULL) cuando vacío y funciona solo para tipos de datos primitivso
 #include <iostream>
 using namespace std;
 template<class t>
@@ -40,11 +41,11 @@ class Queue{
       last = n;
     }
     t top(){
-      if( !first ) return 0;
+      if( !first ) return (t)NULL;
       return first -> data;
     }
     t pop(){
-      if( !first ) return 0;
+      if( !first ) return (t)NULL;
       Node *a = first;
       first = first -> next;
       t b = a -> data;
@@ -56,10 +57,10 @@ class Queue{
     }
 };
 int main(){
-  Queue<int> q;
+  Queue<char> q;
   cout << (q.isEmpty()? "True": "False") << endl;
   for( int i = 0; i < 10; i++ )
-    q.push(i);
+    q.push(i + 'a');
   cout << q.top() << endl;
   cout << q.top() << endl;
   cout << (q.isEmpty()? "True": "False") << endl;
