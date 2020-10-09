@@ -7,14 +7,14 @@ class Dequeue{
       public: 
         Node *prev, *next;
         t data;
-      Node(t data){
-        this -> data = data;
-        prev = next = NULL;
-        cout << "\tNode(" << data << ")" << endl;
-      }
-      ~Node(){
-        cout << "\t~Node(" << data << ")" << endl;
-      }
+	Node(t data){
+      	  this -> data = data;
+      	  prev = next = NULL;
+      	  cout << "\tNode(" << data << ")" << endl;
+      	}
+      	~Node(){
+      	  cout << "\t~Node(" << data << ")" << endl;
+      	}
     };
     Node *first, *last;
     Dequeue(){
@@ -49,6 +49,7 @@ class Dequeue{
       first = first -> next;
       delete a;
       if( first ) first -> prev = NULL;
+      else last = NULL;
       return b;
     }
     t pop_back(){
@@ -58,7 +59,7 @@ class Dequeue{
       last = last -> prev;
       delete a;
       if( last ) last -> next = NULL;
-      else first = last = NULL;
+      else first = NULL;
       return b;
     }
     t front(){
