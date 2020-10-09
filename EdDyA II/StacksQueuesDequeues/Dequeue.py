@@ -1,7 +1,9 @@
+from __future__ import print_function
 class Node:
   def __init__(self, data):
     self.prev = self.next = None
     self.data = data
+    print("\tNode(" + str(data) + ")")
 class Dequeue:
   def __init__(self): self.first = self.last = None
   def push_front(self, data):
@@ -36,24 +38,54 @@ class Dequeue:
     return self.last.data
   def isEmpty(self):
     return False if self.first else True
-d = Dequeue()
-print(d.isEmpty())
-for i in range(10):
-  d.push_back(i)
-print(d.isEmpty())
-for i in range(10):
-  print(d.back())
-print(d.isEmpty())
-for i in range(10):
-  print(d.pop_back())
-print(d.isEmpty())
-print(d.isEmpty())
-for i in range(10):
-  d.push_front(i)
-print(d.isEmpty())
-for i in range(10):
-  print(d.front())
-print(d.isEmpty())
-for i in range(10):
-  print(d.pop_front())
-print(d.isEmpty())
+
+print("DEQUEUEEEEEEE")
+
+q = Dequeue()
+for i in range(1,5):
+    q.push_back(i)
+for i in range(5,10):
+    q.push_front(i)
+for i in range(3):
+    print(q.front(), end = " ") 
+for i in range(3):
+    print(q.back(),end = ' ') 
+print(q.pop_front())
+print(q.pop_back())
+for i in range(3):
+    print(q.front(),end = ' ') 
+for i in range(3):
+    print(q.back(),end = ' ') 
+
+
+
+for i in range(15):
+    print(q.pop_front(),end = ' ') 
+    
+for i in range(15,19):
+    q.push_front(i)
+print(q)
+
+while not q.isEmpty():
+    print(q.pop_back(),end=' ')#d = Dequeue()
+
+#print(d.isEmpty())
+#for i in range(10):
+#  d.push_back(i)
+#print(d.isEmpty())
+#for i in range(10):
+#  print(d.back())
+#print(d.isEmpty())
+#for i in range(10):
+#  print(d.pop_back())
+#print(d.isEmpty())
+#print(d.isEmpty())
+#for i in range(10):
+#  d.push_front(i)
+#print(d.isEmpty())
+#for i in range(10):
+#  print(d.front())
+#print(d.isEmpty())
+#for i in range(10):
+#  print(d.pop_front())
+#print(d.isEmpty())
