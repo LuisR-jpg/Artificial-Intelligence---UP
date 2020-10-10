@@ -33,34 +33,34 @@ class Dequeue{
     void push_front(t data){
       Node *n = new Node(data);
       if( !first ) last = n;
-      n -> next = first;
+      else n -> next = first, first -> prev = n;
       first = n;
     }
     void push_back(t data){
       Node *n = new Node(data);
       if( !last ) first = n;
-      n -> prev = last;
+      else n -> prev = last, last -> next = n;
       last = n;
     }
     t pop_front(){
       if( !first ) return (t)NULL;
-      Node *a = first;
-      t b = a -> data;
-      first = first -> next;
-      delete a;
-      if( first ) first -> prev = NULL;
+      t a = first -> data;
+      Node *b = first -> next;
+      if( first != last ) first -> next -> prev = NULL;
       else last = NULL;
-      return b;
+      delete first;
+      first = b;
+      return a;
     }
     t pop_back(){
       if( !last ) return (t)NULL;
-      Node *a = last;
-      t b = a -> data;
-      last = last -> prev;
-      delete a;
-      if( last ) last -> next = NULL;
+      t a = last -> data;
+      Node *b = last -> prev;
+      if( first != last ) last -> prev -> next = NULL;
       else first = NULL;
-      return b;
+      delete last;
+      last = b;
+      return a;
     }
     t front(){
       if( !first ) return (t)NULL;
