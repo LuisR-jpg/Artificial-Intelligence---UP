@@ -1,0 +1,7 @@
+Arbol Binario de Busqueda
+  Recorridos:
+    DFS: Profundidad
+    BFS: Anchura
+    Pre orden: Nodo -> Izq -> Der (Mas parecido a DFS)
+    En orden: Izq -> Nodo -> Der
+    Post orden: Izq -> Der -> Nodo
