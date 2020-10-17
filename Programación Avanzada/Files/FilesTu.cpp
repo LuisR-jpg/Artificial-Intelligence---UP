@@ -8,6 +8,7 @@ class Contacto{
   public:
     string nombre, apellido;
     long long telefono;
+    Contacto(){}
     Contacto(string _nombre, string _apellido, long long _telefono){
       nombre = _nombre;
       apellido = _apellido;
@@ -20,7 +21,7 @@ class Contacto{
     }
     ~Contacto(){}
     void print() const{
-      cout << nombre << " " << apellido;
+      cout << nombre << " " << apellido << " -> " << telefono;
     }
     bool operator < (const Contacto &other) const{
       if(nombre == other.nombre) return apellido < other.apellido;
@@ -40,7 +41,8 @@ Contacto nuevo(){
 }
 ofstream archivo;
 int main(){
-  map<Contacto, long long> people;
+  map<string, Contacto> phone;
+//  map<Contacto, long long> people;
   bool n = true;
   while( true ){
     fflush(stdin);
@@ -66,7 +68,8 @@ int main(){
       fflush(stdin);
       auto a = nuevo();
       archivo << a.nombre << "\t" << a.apellido << "\t" << a.telefono << endl; 
-      people[Contacto(a.nombre, a.apellido)] = a.telefono;
+//      people[Contacto(a.nombre, a.apellido)] = a.telefono;
+      phone[a.nombre] = a;
     }
     else{
       /*
@@ -85,10 +88,18 @@ int main(){
       }
       jaja.close();
       */
+      /*
       for(auto i = people.begin(); i != people.end(); i++){
 	i -> first.print();
 	cout << ": " << i -> second << endl;
       }
+      */
+      cout << endl;
+      for(auto i = phone.begin(); i != phone.end(); i++){
+	cout << endl << i -> first << ": ";
+	i -> second.print();
+      }
+      cout << endl;
     }
   }
   archivo.close();
