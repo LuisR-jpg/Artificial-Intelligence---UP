@@ -28,14 +28,14 @@ class BST{
       cout << "\tBST()" << endl;
     }
     void insert(int data){
-      node *n = new Node(data);
+      Node *n = new Node(data);
       if(!root){
 	root = n;
 	return;
       }
-      Node a = root;
+      Node *a = root;
       for(;;){
-	if(a -> data <= n -> data){
+	if(n -> data <= a -> data){
 	  if(a -> left) a = a -> left;
 	  else{
 	    a -> left = n;
@@ -51,6 +51,24 @@ class BST{
 	}
       }
     }
-}
-}
+    /*
+    friend ostream &operator << (ostream &output, const BST &n){
+      output << n.root -> data << endl;
+      if( n.root -> left ) output << n.root -> left;
+      if( n.root -> right ) output << n.root -> right;
+      return output;
+    }
+    */
 }; 
+void print(BST r){
+  cout << r.root << endl;
+  if( r.root -> left ) print(r.root -> left);
+  if( r.root -> right ) print(r.root -> right);
+}
+int main(){
+  BST b;
+  for(int i = 0; i < 10; i++)
+    b.insert(i);
+  print(b.root);
+  return 0;
+}
