@@ -57,6 +57,14 @@ int main(){
       return 0;
     }
     if( op != 3 ){
+      if( op == 1 ){
+	archivo.close();
+	ofstream f;
+      	f.open("Reto 2.txt", ios::out);
+      	f << "";
+      	f.close();
+	n = true;
+      }
       if( n ){
 	n = false;
 	archivo.open("Reto 2.txt", ios::app);
