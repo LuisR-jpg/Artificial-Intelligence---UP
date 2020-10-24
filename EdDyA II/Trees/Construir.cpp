@@ -9,7 +9,7 @@ int index(int x){
 }
 Node* makeTree(int l = 0, int r = n - 1){
   cout << l << " " << r << " " << " " << i++ << endl;
-  if(i >= n) return NULL;
+  if(i >= n || l > r) return NULL;
   Node *a = new Node(p[i]);
   if(l == r) return a;
   //if(l == r || i >= n) return a;
