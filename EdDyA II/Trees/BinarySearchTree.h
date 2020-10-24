@@ -3,33 +3,33 @@
 #include <vector>
 using namespace std;
 vector<int> pre, en, post;
-    class Node{
-      public: 
-        int data;
-        Node *left, *right;
-        Node(int data){
-          this -> data = data;
-          this -> left = this -> right = NULL;
-          cout << "\tNode(" << data << ")" << endl;
-        }
-        ~Node(){
-          cout << "\t~Node(" << data << ")" << endl;
-        }
-        friend ostream &operator << (ostream &output, const Node &n){
-          output << "\tData: " << n.data << endl;
-          return output;
-        }
-    };
+class Node{
+  public: 
+    int data;
+    Node *left, *right;
+    Node(int data){
+      this -> data = data;
+      this -> left = this -> right = NULL;
+      //cout << "\tNode(" << data << ")" << endl;
+    }
+    ~Node(){
+      //cout << "\t~Node(" << data << ")" << endl;
+    }
+    friend ostream &operator << (ostream &output, const Node &n){
+      output << "\tData: " << n.data << endl;
+      return output;
+    }
+};
 class BST{
   public: 
     Node *root;
     BST(){
       root = NULL;
-      cout << "\tBST()" << endl;
+      //cout << "\tBST()" << endl;
     } 
     BST(Node *r){
       root = r;
-      cout << "\tBST()" << endl;
+      //cout << "\tBST()" << endl;
     }
     void destruir(Node *r){
       if(r -> left) destruir(r -> left);
@@ -38,7 +38,7 @@ class BST{
     }
     ~BST(){
       if(root) destruir(root);
-      cout << "\t~BST()" << endl;
+      //cout << "\t~BST()" << endl;
     }
     void insert(int data){
       Node *n = new Node(data);
