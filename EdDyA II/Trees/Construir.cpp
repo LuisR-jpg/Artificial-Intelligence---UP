@@ -30,12 +30,12 @@ int main(){
   t.insert(9);
   t.insert(3);
   t.insert(6);
-  preOrden(t.root);
+  t.preOrden();
   cout << endl;
-  enOrden(t.root);
+  t.enOrden();
   cout << endl;
-  postOrden(t.root);
-  cout << endl;
+  t.postOrden();
+  cout << endl << endl;
   n = en.size();
   for(int i = 0; i < n; i++)
     p[i] = pre[i], e[i] = en[i];
@@ -43,11 +43,11 @@ int main(){
 //    cout << p[i] << " " << e[i] << endl;
   BST ans(makeTree());
   cout << endl << endl;
-  preOrden(ans.root);
+  ans.preOrden();
   cout << endl;
-  enOrden(ans.root);
+  ans.enOrden();
   cout << endl;
-  postOrden(ans.root);
+  ans.postOrden();
   cout << endl;
   return 0;
 }
