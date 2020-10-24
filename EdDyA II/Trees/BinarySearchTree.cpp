@@ -1,30 +1,36 @@
 #include <iostream>
 using namespace std;
-class Node{
-  public: 
-    int data;
-    Node *left, *right;
-    Node(int data){
-      this -> data = data;
-      this -> left = this -> right = NULL;
-      cout << "\tNode(" << data << ")" << endl;
-    }
-    ~Node(){
-      cout << "\t\t~Node(" << data << ")" << endl;
-    }
-    friend ostream &operator << (ostream &output, const Node &n){
-      output << "Data: " << n.data << endl;
-      return output;
-    }
-};
 class BST{
   public: 
+    class Node{
+      public: 
+        int data;
+        Node *left, *right;
+        Node(int data){
+          this -> data = data;
+          this -> left = this -> right = NULL;
+          cout << "\tNode(" << data << ")" << endl;
+        }
+        ~Node(){
+          cout << "\t~Node(" << data << ")" << endl;
+        }
+        friend ostream &operator << (ostream &output, const Node &n){
+          output << "\tData: " << n.data << endl;
+          return output;
+        }
+    };
     Node *root;
     BST(){
       root = NULL;
       cout << "\tBST()" << endl;
     } 
+    void destruir(Node *r){
+      if(r -> left) destruir(r -> left);
+      if(r -> right) destruir(r -> right);
+      delete r;
+    }
     ~BST(){
+      if( root) destruir(root);
       cout << "\t~BST()" << endl;
     }
     void insert(int data){
@@ -87,41 +93,44 @@ class BST{
       return false;
     }
 
-    /*
-    friend ostream &operator << (ostream &output, const BST &n){
-      output << n.root -> data << endl;
-      if( n.root -> left ) output << n.root -> left;
-      if( n.root -> right ) output << n.root -> right;
-      return output;
+    void preOrden(){
+      preOrden(root);
+    } 
+    void preOrden(Node *r){
+      cout << *r;
+      if( r -> left ) preOrden(r -> left);
+      if( r -> right ) preOrden(r -> right);
     }
-    */
+    void enOrden(){
+      enOrden(root);
+    }
+    void enOrden(Node *r){
+      if( r -> left ) enOrden(r -> left);
+      cout << *r;
+      if( r -> right ) enOrden(r -> right);
+    }
+    void postOrden(){
+      postOrden(root);
+    }
+    void postOrden(Node *r){
+      if( r -> left ) postOrden(r -> left);
+      if( r -> right ) postOrden(r -> right);
+      cout << *r;
+    }
 }; 
-void preOrden(Node *r){
-  cout << *r;
-  if( r -> left ) preOrden(r -> left);
-  if( r -> right ) preOrden(r -> right);
-}
-void enOrden(Node *r){
-  if( r -> left ) enOrden(r -> left);
-  cout << *r;
-  if( r -> right ) enOrden(r -> right);
-}
-void postOrden(Node *r){
-  if( r -> left ) postOrden(r -> left);
-  if( r -> right ) postOrden(r -> right);
-  cout << *r;
-}
 int main(){
   BST b;
   for(int i = -3; i < 12; i++)
     b.insert(i);
-  preOrden(b.root);
   cout << endl;
-  enOrden(b.root);
+  b.preOrden();
   cout << endl;
-  postOrden(b.root);
+  b.enOrden();
+  cout << endl;
+  b.postOrden();
   cout << endl;
   for(int i = -5; i < 15; i++)
     cout << i << ":\t" << b.contains(i) << endl;
+  cout << endl;
   return 0;
 }
