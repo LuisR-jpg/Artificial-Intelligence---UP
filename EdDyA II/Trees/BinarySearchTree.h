@@ -104,8 +104,17 @@ class BST{
 }; 
 BST createRandom(int n = 15){
   BST tree;
+  int arr[100] = {0};
   srand(time(NULL));
-  for(int i = 0; i < n; i++)
-    tree.insert(rand() % 100);
+  for(int i = 0, a; i < n; i++){
+    while(true){
+      a = rand() % 100;
+      if( !arr[a] ){
+	arr[a]++;
+	break;
+      }
+    }
+    tree.insert(a);
+  }
   return tree;
 }
