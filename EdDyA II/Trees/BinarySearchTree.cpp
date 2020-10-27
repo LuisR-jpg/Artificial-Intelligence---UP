@@ -1,12 +1,15 @@
 #include <iostream>
+#include <stack>
+#include <queue>
 using namespace std;
+template<class t>
 class BST{
   public: 
     class Node{
       public: 
-        int data;
+        t data;
         Node *left, *right;
-        Node(int data){
+        Node(t data){
           this -> data = data;
           this -> left = this -> right = NULL;
           cout << "\tNode(" << data << ")" << endl;
@@ -30,10 +33,10 @@ class BST{
       delete r;
     }
     ~BST(){
-      if( root) destruir(root);
+      if(root) destruir(root);
       cout << "\t~BST()" << endl;
     }
-    void insert(int data){
+    void insert(t data){
       Node *n = new Node(data);
       if(!root){
 	root = n;
@@ -56,7 +59,7 @@ class BST{
 	}
       }
     }
-    bool contains(int data){
+    bool contains(t data){
       Node *a = root;
       if( !a ) return false;
       while(a){
@@ -67,7 +70,7 @@ class BST{
       }
       return false;
     }
-    int remove(int data){
+    t remove(t data){
       Node *a = root;
       if( !a ) return -123;
       while(a){
@@ -113,15 +116,50 @@ class BST{
       postOrden(root);
     }
     void postOrden(Node *r){
-      if( r -> left ) postOrden(r -> left);
-      if( r -> right ) postOrden(r -> right);
+      if(r -> left) postOrden(r -> left);
+      if(r -> right) postOrden(r -> right);
       cout << *r;
+    }
+    void BFS(){
+      stack<Node*> s;
+      if(root) s.push(root);
+      while(s.size()){
+	auto a = s.top();
+	s.pop();
+	cout << *a;
+	if(a -> left) s.push(a -> left);
+	if(a -> right) s.push(a -> right);
+      }
+    }
+    void DFS(){
+      queue<Node*> q;
+      if(root) q.push(root);
+      while(q.size()){
+	auto a = q.front();
+	q.pop();
+	cout << *a;
+	if(a -> left) q.push(a -> left);
+	if(a -> right) q.push(a -> right);
+      }
+    }
+    void print(Node *r, int i = 0){
+      if(r -> left) print(r -> left, i + 1);
+      for(int a = 0; a < i; a++) cout << "\t";
+      cout << r -> data << endl;
+      if(r -> right) print(r -> right, i + 1);
+    }
+    friend ostream &operator << (ostream &output, BST &tree){
+      if(tree.root) tree.print(tree.root);
+      else output << "Arbol Vacio" << endl;
+      return output;
     }
 }; 
 int main(){
-  BST b;
+  BST<int> b;
   for(int i = -3; i < 12; i++)
     b.insert(i);
+  cout << endl;
+  b.DFS();
   cout << endl;
   b.preOrden();
   cout << endl;
@@ -129,8 +167,10 @@ int main(){
   cout << endl;
   b.postOrden();
   cout << endl;
+  b.BFS();
+  cout << endl;
   for(int i = -5; i < 15; i++)
     cout << i << ":\t" << b.contains(i) << endl;
-  cout << endl;
+  cout << b << endl;
   return 0;
 }
