@@ -29,7 +29,6 @@ int main(){
   //t.insert(3);
   //t.insert(6);
 
-  //BST<int> t = createRandom();
   BST t = createRandom();
 
   t.preOrden();
@@ -46,8 +45,6 @@ int main(){
   n = en.size();
   for(int i = 0; i < n; i++)
     p[i] = pre[i], e[i] = en[i];
-  //BST<int> ans(makeTree());
-  BST ans(makeTree());
   cout << endl << endl;
   ans.preOrden();
   cout << endl;
