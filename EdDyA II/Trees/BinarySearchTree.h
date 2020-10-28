@@ -3,6 +3,9 @@
 #include <vector>
 using namespace std;
 vector<int> pre, en, post;
+//template<class int>
+class BST{
+  public: 
 class Node{
   public: 
     int data;
@@ -20,8 +23,6 @@ class Node{
       return output;
     }
 };
-class BST{
-  public: 
     Node *root;
     BST(){
       root = NULL;
