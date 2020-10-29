@@ -59,20 +59,48 @@ class BST:
             elif data > n.data: p, n = n, n.right
             else: return p, n
         return None, None
-    def remove(self, data):
-        p, n = self.__search(data)
-        if not n: return
-        print("Parent:", p, "\tNode:", n)
+    #def remove(self, data):
+    def __remove(self, p, n):
+        #p, n = self.__search(data)
+        #if not n: return
+        #print("Parent:", p, "\tNode:", n)
         if not(n.left or n.right):
             print("Caso 1:")
             if not p: self.root = None
             elif p.left is n: p.left = None
             elif p.right is n: p.right = None
-            print("Deleted:", n.data)
         elif (not n.left and n.right) or (n.left and not n.right):
             print("Caso 2:")
+            if not p:
+                if n.left: self.root = n.left
+                elif n.right: self.root = n.right
+            elif p.left == n:
+                if n.left: p.left = n.left
+                elif n.right: p.left = n.right
+            elif p.right == n:
+                if n.left: p.right = n.left
+                elif n.right: p.right = n.right
+
         elif n.left and n.right: 
             print("Caso 3:")
+            pd, nd = n, n.left
+            while nd.right:
+                pd = nd
+                nd = nd.right
+            print('Parent 2:', pd, "\tNode 2:", nd)
+            self.__remove(pd, nd)
+            nd.left = n.left
+            nd.right = n.right
+            if not p: self.root = nd
+            elif p.left == n: p.left = nd
+            elif p.right == n: p.right = nd
+    def remove(self, data):
+        p, n = self.__search(data)
+        if not n: return
+        print("Parent:", p, "\tNode:", n)
+        self.__remove(p, n)
+        print("Deleted:", n)
+
         #elif (node.left is None and node.right is not None) or (node.left is not None and node.right is None):
     def __str__(self):
         if self.root: self.printArbol(self.root, 0) 
@@ -103,4 +131,6 @@ bst.insert(8)
 print(bst)
 bst.remove(13)
 bst.remove(8)
+for i in range(2, 25):
+    bst.remove(i)
 print(bst)
