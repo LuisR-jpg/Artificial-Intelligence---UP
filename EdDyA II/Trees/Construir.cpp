@@ -46,6 +46,7 @@ int main(){
   for(int i = 0; i < n; i++)
     p[i] = pre[i], e[i] = en[i];
   cout << endl << endl;
+  BST ans = BST(makeTree());
   ans.preOrden();
   cout << endl;
   ans.enOrden();

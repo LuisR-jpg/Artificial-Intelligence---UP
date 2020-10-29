@@ -65,12 +65,12 @@ class BST:
         #if not n: return
         #print("Parent:", p, "\tNode:", n)
         if not(n.left or n.right):
-            print("Caso 1:")
+            #print("Caso 1:")
             if not p: self.root = None
             elif p.left is n: p.left = None
             elif p.right is n: p.right = None
         elif (not n.left and n.right) or (n.left and not n.right):
-            print("Caso 2:")
+            #print("Caso 2:")
             if not p:
                 if n.left: self.root = n.left
                 elif n.right: self.root = n.right
@@ -82,12 +82,12 @@ class BST:
                 elif n.right: p.right = n.right
 
         elif n.left and n.right: 
-            print("Caso 3:")
+            #print("Caso 3:")
             pd, nd = n, n.left
             while nd.right:
                 pd = nd
                 nd = nd.right
-            print('Parent 2:', pd, "\tNode 2:", nd)
+            #print('Parent 2:', pd, "\tNode 2:", nd)
             self.__remove(pd, nd)
             nd.left = n.left
             nd.right = n.right
@@ -97,7 +97,7 @@ class BST:
     def remove(self, data):
         p, n = self.__search(data)
         if not n: return
-        print("Parent:", p, "\tNode:", n)
+        #print("Parent:", p, "\tNode:", n)
         self.__remove(p, n)
         print("Deleted:", n)
 
@@ -129,8 +129,13 @@ bst.insert(13)
 bst.insert(20)
 bst.insert(8)
 print(bst)
+for i in range(-5, 15):
+    print(str(i) + ":\t" + str(bst.contains(i)))
 bst.remove(13)
 bst.remove(8)
 for i in range(2, 25):
     bst.remove(i)
 print(bst)
+for i in range(-5, 15):
+    print(str(i) + ":\t" + str(bst.contains(i)))
+
