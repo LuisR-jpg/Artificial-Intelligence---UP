@@ -34,43 +34,25 @@ class BST:
             elif a.right and data > a.data: a = a.right
             else: return False
         return False
-    def printArbol(self, r, i):
-        if r.left: self.printArbol(r.left, i + 1)
-        for _ in range(i): print("", end = '\t')
-        print(r.data)
-        if r.right: self.printArbol(r.right, i + 1)
     def __search(self, data):
-        """
-        if not self.root: return None, None
-        p, n = None, self.root
-        while True:
-            if data == n.data: return p, n
-            elif data < n.data:
-                p = n
-                n = n.left
-            elif data > n.data:
-                p = n
-                n = n.right
-            if not n: return None, None
-            """
         p, n = None, self.root
         while n:
             if data < n.data: p, n = n, n.left
             elif data > n.data: p, n = n, n.right
             else: return p, n
         return None, None
-    #def remove(self, data):
-    def __remove(self, p, n):
-        #p, n = self.__search(data)
-        #if not n: return
+    def remove(self, data):
+        p, n = self.__search(data)
+        if not n: return
         #print("Parent:", p, "\tNode:", n)
+        self.__remove(p, n)
+        print("Deleted:", n)
+    def __remove(self, p, n):
         if not(n.left or n.right):
-            #print("Caso 1:")
             if not p: self.root = None
             elif p.left is n: p.left = None
             elif p.right is n: p.right = None
         elif (not n.left and n.right) or (n.left and not n.right):
-            #print("Caso 2:")
             if not p:
                 if n.left: self.root = n.left
                 elif n.right: self.root = n.right
@@ -80,33 +62,53 @@ class BST:
             elif p.right == n:
                 if n.left: p.right = n.left
                 elif n.right: p.right = n.right
-
         elif n.left and n.right: 
-            #print("Caso 3:")
             pd, nd = n, n.left
             while nd.right:
                 pd = nd
                 nd = nd.right
-            #print('Parent 2:', pd, "\tNode 2:", nd)
             self.__remove(pd, nd)
             nd.left = n.left
             nd.right = n.right
             if not p: self.root = nd
             elif p.left == n: p.left = nd
             elif p.right == n: p.right = nd
-    def remove(self, data):
-        p, n = self.__search(data)
-        if not n: return
-        #print("Parent:", p, "\tNode:", n)
-        self.__remove(p, n)
-        print("Deleted:", n)
-
-        #elif (node.left is None and node.right is not None) or (node.left is not None and node.right is None):
+    def printArbol(self, r, i):
+        if r.left: self.printArbol(r.left, i + 1)
+        for _ in range(i): print("", end = '\t')
+        print(r.data)
+        if r.right: self.printArbol(r.right, i + 1)
     def __str__(self):
         if self.root: self.printArbol(self.root, 0) 
         else: return "Arbol Vacio"
         return ""
+    def preOrden(self):
+      self.__preOrden(self.root)
+      print()
+    def __preOrden(self, r):
+      print(r, end = ' ')
+      if r.left: self.__preOrden(r.left)
+      if r.right: self.__preOrden(r.right)
+    def enOrden(self):
+      self.__enOrden(self.root)
+      print()
+    def __enOrden(self, r):
+      if r.left: self.__enOrden(r.left)
+      print(r, end = ' ')
+      if r.right: self.__enOrden(r.right)
+    def postOrden(self):
+      self.__postOrden(self.root)
+      print()
+    def __postOrden(self, r):
+      if r.left: self.__postOrden(r.left)
+      if r.right: self.__postOrden(r.right)
+      print(r, end = ' ')
+    def BFS(self):
+      q= []
+      q.append(self.root)
+      while len(q):
 
+#BFS, DFS
 """
 b = BST()
 for i in range(-3, 12):
@@ -128,6 +130,9 @@ bst.insert(9)
 bst.insert(13)
 bst.insert(20)
 bst.insert(8)
+bst.preOrden()
+bst.enOrden()
+bst.postOrden()
 print(bst)
 for i in range(-5, 15):
     print(str(i) + ":\t" + str(bst.contains(i)))
@@ -138,4 +143,3 @@ for i in range(2, 25):
 print(bst)
 for i in range(-5, 15):
     print(str(i) + ":\t" + str(bst.contains(i)))
-
