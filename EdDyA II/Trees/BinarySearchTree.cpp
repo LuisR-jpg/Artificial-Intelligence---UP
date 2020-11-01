@@ -70,33 +70,6 @@ class BST{
       }
       return false;
     }
-    /*
-    t remove(t data){
-      Node *a = root;
-      if( !a ) return -123;
-      while(a){
-	if(data == a -> data){
-	  Node *b = a;
-	  if(a -> left || a -> right){
-	    if(a -> left){
-	      a = a -> left;
-	      while(a -> right) a -> right;
-	    }
-	    else{
-	      a = a -> right;
-	      while(a -> left) a -> left;
-	    }
-
-	  }
-	  return a -> data;
-	}
-	else if(a -> left && data < a -> data) a = a -> left;
-	else if(a -> right && data > a -> data) a = a -> right;
-	else return false;
-      }
-      return false;
-    }
-    */
 //remove
     Node* _search(t data){
       Node *p = NULL, *n = root;
@@ -141,9 +114,10 @@ class BST{
     void remove(t data){
       Node *p = _search(data), *n;
       if(p) n = (p -> left && p -> left -> data == data? p -> left: p -> right);
-      else n = NULL;
+      else n = root;
+      if(!n || n -> data != data) return;
       _remove(p, n);
-      cout << "Deleted: " << n << endl;
+      delete n;
     }
     void preOrden(){
       preOrden(root);
@@ -176,8 +150,8 @@ class BST{
 	auto a = s.top();
 	s.pop();
 	cout << *a;
-	if(a -> left) s.push(a -> left);
 	if(a -> right) s.push(a -> right);
+	if(a -> left) s.push(a -> left);
       }
     }
     void DFS(){
@@ -205,8 +179,16 @@ class BST{
 }; 
 int main(){
   BST<int> b;
+  /*
   for(int i = -3; i < 12; i++)
     b.insert(i);
+    */
+  b.insert(1);
+  b.insert(4);
+  b.insert(7);
+  b.insert(9);
+  b.insert(3);
+  b.insert(0);
   cout << "DFS: " << endl;
   b.DFS();
   cout << "preOrden" << endl;
@@ -221,11 +203,11 @@ int main(){
   for(int i = -5; i < 15; i++)
     cout << i << ":\t" << b.contains(i) << endl;
   cout << b << endl;
-  b.remove(0);
+  //b.remove(11);
+  //b.remove(0);
   cout << b << endl;
   cout << endl << endl << endl << endl;
   for(int i = -10; i < 11; i++){
-    cout << "hola";
     b.remove(i);
   }
   cout << b << endl;
