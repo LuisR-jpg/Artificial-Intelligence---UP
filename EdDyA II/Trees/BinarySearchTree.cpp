@@ -121,49 +121,54 @@ class BST{
     }
     void preOrden(){
       preOrden(root);
+      cout << endl;
     } 
     void preOrden(Node *r){
-      cout << *r;
+      cout << r -> data << " ";
       if( r -> left ) preOrden(r -> left);
       if( r -> right ) preOrden(r -> right);
     }
     void enOrden(){
       enOrden(root);
+      cout << endl;
     }
     void enOrden(Node *r){
       if( r -> left ) enOrden(r -> left);
-      cout << *r;
+      cout << r -> data << " ";
       if( r -> right ) enOrden(r -> right);
     }
     void postOrden(){
       postOrden(root);
+      cout << endl;
     }
     void postOrden(Node *r){
       if(r -> left) postOrden(r -> left);
       if(r -> right) postOrden(r -> right);
-      cout << *r;
+      cout << r -> data << " ";
     }
-    void BFS(){
+    void DFS(){
       stack<Node*> s;
       if(root) s.push(root);
       while(s.size()){
 	auto a = s.top();
 	s.pop();
-	cout << *a;
+	cout << a -> data << " ";
 	if(a -> right) s.push(a -> right);
 	if(a -> left) s.push(a -> left);
       }
+      cout << endl;
     }
-    void DFS(){
+    void BFS(){
       queue<Node*> q;
       if(root) q.push(root);
       while(q.size()){
 	auto a = q.front();
 	q.pop();
-	cout << *a;
+	cout << a -> data << " ";
 	if(a -> left) q.push(a -> left);
 	if(a -> right) q.push(a -> right);
       }
+      cout << endl;
     }
     void print(Node *r, int i = 0){
       if(r -> left) print(r -> left, i + 1);
@@ -178,11 +183,10 @@ class BST{
     }
 }; 
 int main(){
-  BST<int> b;
   /*
+  BST<int> b;
   for(int i = -3; i < 12; i++)
     b.insert(i);
-    */
   b.insert(1);
   b.insert(4);
   b.insert(7);
@@ -211,5 +215,17 @@ int main(){
     b.remove(i);
   }
   cout << b << endl;
+  */
+  BST<char> b;
+  string a = "Anitalavalatina";
+  for(auto i: a) b.insert(i);
+  cout << b;
+  b.BFS();
+  b.DFS();
+  b.preOrden();
+  b.enOrden();
+  b.postOrden();
+  for(auto i: a) b.remove(i);
+  cout << b;
   return 0;
 }
