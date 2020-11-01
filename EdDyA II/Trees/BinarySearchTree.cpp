@@ -22,7 +22,6 @@ class BST{
           return output;
         }
     };
-//remove, BFS, DFS
     Node *root;
     BST(){
       root = NULL;
@@ -98,6 +97,7 @@ class BST{
       return false;
     }
     */
+//remove
     Node* _search(t data){
       Node *p = NULL, *n = root;
       while(n){

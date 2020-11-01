@@ -158,3 +158,5 @@ for i in range(2, 25):
 print(bst)
 for i in range(-5, 15):
     print(str(i) + ":\t" + str(bst.contains(i)))
+for i in range(-10, 100):
+    bst.remove(i)
