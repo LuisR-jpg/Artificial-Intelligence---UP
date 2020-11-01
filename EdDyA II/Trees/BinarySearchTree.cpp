@@ -22,6 +22,7 @@ class BST{
           return output;
         }
     };
+//remove, BFS, DFS
     Node *root;
     BST(){
       root = NULL;
@@ -70,6 +71,7 @@ class BST{
       }
       return false;
     }
+    /*
     t remove(t data){
       Node *a = root;
       if( !a ) return -123;
@@ -95,7 +97,54 @@ class BST{
       }
       return false;
     }
-
+    */
+    Node* _search(t data){
+      Node *p = NULL, *n = root;
+      while(n){
+	if(data < n -> data) p = n, n = n -> left;
+	else if(data > n -> data) p = n, n = n -> right;
+	else return p;
+      }
+      return NULL;
+    }
+    void _remove(Node *p, Node *n){
+      if(!(n -> left || n -> right)){
+	if(!p) root = NULL;
+	else if(p -> left == n) p -> left = NULL;
+	else if(p -> right == n) p -> right = NULL;
+      }
+      else if((!n -> left && n -> right) || (n -> left && !n -> right)){
+	if(!p){
+	  if(n -> left) root = n -> left;
+	  else if(n -> right) root = n -> right;
+	}
+	else if(p -> left == n){
+	  if(n -> left) p -> left = n -> left;
+	  else if(n -> right) p -> left = n -> right;
+	}
+	else if(p -> right == n){
+	  if(n -> left) p -> right = n -> left;
+	  else if(n -> right) p -> right = n -> right;
+	}
+      }
+      else if(n -> left && n -> right){
+	Node *pd = n, *nd = n -> left;
+	while(nd -> right) pd = nd, nd = nd -> right;
+	_remove(pd, nd);
+	nd -> left = n -> left;
+	nd -> right = n -> right; 
+	if(!p) root = nd;
+	else if(p -> left == n) p -> left = nd;
+	else if(p -> right == n) p -> right = nd;
+      }
+    }
+    void remove(t data){
+      Node *p = _search(data), *n;
+      if(p) n = (p -> left && p -> left -> data == data? p -> left: p -> right);
+      else n = NULL;
+      _remove(p, n);
+      cout << "Deleted: " << n << endl;
+    }
     void preOrden(){
       preOrden(root);
     } 
@@ -158,19 +207,27 @@ int main(){
   BST<int> b;
   for(int i = -3; i < 12; i++)
     b.insert(i);
-  cout << endl;
+  cout << "DFS: " << endl;
   b.DFS();
-  cout << endl;
+  cout << "preOrden" << endl;
   b.preOrden();
-  cout << endl;
+  cout << "enOrden" << endl;
   b.enOrden();
-  cout << endl;
+  cout << "postOrden" << endl;
   b.postOrden();
-  cout << endl;
+  cout << "BFS: " << endl;
   b.BFS();
   cout << endl;
   for(int i = -5; i < 15; i++)
     cout << i << ":\t" << b.contains(i) << endl;
+  cout << b << endl;
+  b.remove(0);
+  cout << b << endl;
+  cout << endl << endl << endl << endl;
+  for(int i = -10; i < 11; i++){
+    cout << "hola";
+    b.remove(i);
+  }
   cout << b << endl;
   return 0;
 }

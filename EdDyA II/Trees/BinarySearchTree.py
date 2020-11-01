@@ -104,11 +104,24 @@ class BST:
       if r.right: self.__postOrden(r.right)
       print(r, end = ' ')
     def BFS(self):
-      q= []
-      q.append(self.root)
-      while len(q):
+      from collections import deque
+      s = deque([self.root])
+      while len(s):
+        a = s.popleft()
+        print(a, end = ' ')
+        if a.left: s.append(a.left)
+        if a.right: s.append(a.right)
+      print()
+    def DFS(self):
+      from collections import deque
+      s = deque([self.root])
+      while len(s):
+        a = s.pop()
+        print(a, end = ' ')
+        if a.right: s.append(a.right)
+        if a.left: s.append(a.left)
+      print()
 
-#BFS, DFS
 """
 b = BST()
 for i in range(-3, 12):
@@ -133,6 +146,8 @@ bst.insert(8)
 bst.preOrden()
 bst.enOrden()
 bst.postOrden()
+bst.DFS()
+bst.BFS()
 print(bst)
 for i in range(-5, 15):
     print(str(i) + ":\t" + str(bst.contains(i)))
