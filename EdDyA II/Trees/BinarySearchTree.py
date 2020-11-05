@@ -155,7 +155,6 @@ bst.remove(13)
 bst.remove(8)
 for i in range(2, 25):
     bst.remove(i)
-print(bst)
 for i in range(-5, 15):
     print(str(i) + ":\t" + str(bst.contains(i)))
 for i in range(-10, 100):
