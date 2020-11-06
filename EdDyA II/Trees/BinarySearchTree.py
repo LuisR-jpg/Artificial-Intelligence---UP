@@ -130,6 +130,7 @@ for i in range(-5, 15):
     print(str(i) + ":\t" + str(b.contains(i)))
 print(b)
 """
+"""
 bst = BST()
 bst.insert(10)
 bst.insert(3)
@@ -159,3 +160,14 @@ for i in range(-5, 15):
     print(str(i) + ":\t" + str(bst.contains(i)))
 for i in range(-10, 100):
     bst.remove(i)
+"""
+b = BST()
+l = [50, 17, 72, 12, 23, 25, 74, 16, 19]
+for i in l: b.insert(i)
+print(b)
+b.BFS()
+b.DFS()
+b.preOrden()
+b.enOrden()
+b.postOrden()
+b.remove(17)

@@ -216,6 +216,7 @@ int main(){
   }
   cout << b << endl;
   */
+  /*
   BST<char> b;
   string a = "Anitalavalatina";
   for(auto i: a) b.insert(i);
@@ -227,5 +228,16 @@ int main(){
   b.postOrden();
   for(auto i: a) b.remove(i);
   cout << b;
+  */
+  int arr[] = {50, 17, 72, 12, 23, 25, 74, 16, 19};
+  BST<int> b;
+  for(int i = 0; i < 9; i++) b.insert(arr[i]);
+  cout << b;
+  b.BFS(); 
+  b.DFS();
+  b.preOrden();
+  b.enOrden();
+  b.postOrden();
+  b.remove(17);
   return 0;
 }
