@@ -171,35 +171,5 @@ class AVL{
     }
 };
 int main(){
-  AVL<int> a;
-  //int arr[] = {10, 5, 1};
-  int arr[] = {72, 66, 81, 18, 60, 53, 48, 27, 10, 50, 9, 40, 45};
-  //int arr[] = {1, 2, 3, 4, 5, 6};
-  //int arr[] = {5, 4, 3, 2, 1, 10};
-  int n = sizeof(arr)/sizeof(arr[0]);
-  for(int i = 0; i < n; i++) a.insert(arr[i]);
-  //cout << a << endl;
-  a.printTree();
-  /*
-  for(int i = 0; i < n; i++) a.remove(arr[i]);
-  */
-  //cout << a << endl;
-
-    a.remove(48);
-    a.printTree();
-    a.remove(72);
-    a.remove(66);
-    a.remove(81);
-    a.remove(18);
-    a.remove(60);
-    a.remove(53);
-    a.printTree();
-    a.remove(27);
-    a.remove(10);
-    a.remove(50);
-    a.remove(9);
-    a.remove(40);
-    a.remove(45);
-    a.printTree();
   return 0;
 }

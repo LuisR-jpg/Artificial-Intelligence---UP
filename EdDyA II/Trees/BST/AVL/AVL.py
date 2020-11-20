@@ -129,32 +129,3 @@ class AVL:
     def __str__(self):
         if self.root: return self.__print_node(self.root, "")
         else: return ""
-t = AVL()
-#arr = [10, 5, 1]
-arr = [72, 66, 81, 18, 60, 53, 48, 27, 10, 50, 9, 40, 45]
-#arr = [1, 2, 3, 4, 5, 6]
-#arr = [5, 4, 3, 2, 1, 10]
-for i in arr:
-    t.insert(i)
-print(t)
-for i in arr:
-    t.remove(i)
-print(t)
-"""
-t.remove(48)
-print(t)
-t.remove(72)
-t.remove(66)
-t.remove(81)
-t.remove(18)
-t.remove(60)
-t.remove(53)
-print(t)
-t.remove(27)
-t.remove(10)
-t.remove(50)
-t.remove(9)
-t.remove(40)
-t.remove(45)
-print(t)
-"""
