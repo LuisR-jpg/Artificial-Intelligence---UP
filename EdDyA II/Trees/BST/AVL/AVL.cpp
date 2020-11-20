@@ -95,6 +95,58 @@ class AVL{
       if(!root) root = n;
       else root = root -> insert(n, root);
     }
+    Node* _search(dato data){
+      Node *p = NULL, *n = root;
+      while(n){
+	if(data < n -> data) p = n, n = n -> left;
+	else if(data > n -> data) p = n, n = n -> right;
+	else return p;
+      }
+      return NULL;
+    }
+    void _remove(Node *p, Node *n){
+      if(!(n -> left || n -> right)){
+	if(!p) root = NULL;
+	else if(p -> left == n) p -> left = NULL;
+	else if(p -> right == n) p -> right = NULL;
+      }
+      else if((!n -> left && n -> right) || (n -> left && !n -> right)){
+	if(!p){
+	  if(n -> left) root = n -> left;
+	  else if(n -> right) root = n -> right;
+	}
+	else if(p -> left == n){
+	  if(n -> left) p -> left = n -> left;
+	  else if(n -> right) p -> left = n -> right;
+	}
+	else if(p -> right == n){
+	  if(n -> left) p -> right = n -> left;
+	  else if(n -> right) p -> right = n -> right;
+	}
+      }
+      else if(n -> left && n -> right){
+	Node *pd = n, *nd = n -> left;
+	while(nd -> right) pd = nd, nd = nd -> right;
+	_remove(pd, nd);
+	nd -> left = n -> left;
+	nd -> right = n -> right; 
+	if(!p) root = nd;
+	else if(p -> left == n) p -> left = nd;
+	else if(p -> right == n) p -> right = nd;
+      }
+    }
+    void remove(dato data){
+      Node *p = _search(data), *n;
+      if(p) n = (p -> left && p -> left -> data == data? p -> left: p -> right);
+      else n = root;
+      if(!n || n -> data != data) return;
+      _remove(p, n);
+      delete n;
+      if(root){
+	if(!p) root -> mbalance(root);
+	else root -> mbalance(p);
+      }
+    }
     void print(Node *r, int i = 0){
       if(r -> left) print(r -> left, i + 1);
       for(int a = 0; a < i; a++, cout << "\t");
@@ -121,12 +173,33 @@ class AVL{
 int main(){
   AVL<int> a;
   //int arr[] = {10, 5, 1};
-  //int arr[] = {72, 66, 81, 18, 60, 53, 48, 27, 10, 50, 9, 40, 45};
+  int arr[] = {72, 66, 81, 18, 60, 53, 48, 27, 10, 50, 9, 40, 45};
   //int arr[] = {1, 2, 3, 4, 5, 6};
-  int arr[] = {5, 4, 3, 2, 1, 10};
+  //int arr[] = {5, 4, 3, 2, 1, 10};
   int n = sizeof(arr)/sizeof(arr[0]);
   for(int i = 0; i < n; i++) a.insert(arr[i]);
-  cout << a << endl;
+  //cout << a << endl;
   a.printTree();
+  /*
+  for(int i = 0; i < n; i++) a.remove(arr[i]);
+  */
+  //cout << a << endl;
+
+    a.remove(48);
+    a.printTree();
+    a.remove(72);
+    a.remove(66);
+    a.remove(81);
+    a.remove(18);
+    a.remove(60);
+    a.remove(53);
+    a.printTree();
+    a.remove(27);
+    a.remove(10);
+    a.remove(50);
+    a.remove(9);
+    a.remove(40);
+    a.remove(45);
+    a.printTree();
   return 0;
 }
