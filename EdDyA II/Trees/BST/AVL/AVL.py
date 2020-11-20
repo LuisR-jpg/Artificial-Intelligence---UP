@@ -98,7 +98,8 @@ class AVL:
         self.__remove(p, n)
         #print("Deleted:", n.data)
         if self.root:
-            self.root = self.root.mbalance(self.root)
+            if not p: self.root.mbalance(self.root)
+            else: self.root.mbalance(p)
     def __remove(self, p, n):
         if not(n.left or n.right):
             if not p: self.root = None
@@ -125,8 +126,6 @@ class AVL:
             if not p: self.root = nd
             elif p.left == n: p.left = nd
             elif p.right == n: p.right = nd
-        root = n.mbalance(self.root)
-        return root
     def __str__(self):
         if self.root: return self.__print_node(self.root, "")
         else: return ""
@@ -138,7 +137,6 @@ arr = [72, 66, 81, 18, 60, 53, 48, 27, 10, 50, 9, 40, 45]
 for i in arr:
     t.insert(i)
 print(t)
-"""
 for i in arr:
     t.remove(i)
 print(t)
@@ -159,3 +157,4 @@ t.remove(9)
 t.remove(40)
 t.remove(45)
 print(t)
+"""
