@@ -17,17 +17,11 @@ class AVL{
         ~Node(){}
         Node* insert(Node *node, Node *root){
 	  if(node -> data <= data){
-  	    if(!left){
-	      left = node;
-	      node -> parent = this;
-	    }
+  	    if(!left) left = node, node -> parent = this;
   	    else left -> insert(node, root);
   	  }
   	  else{
-  	    if(!right){
-	      right = node;
-	      node -> parent = this;
-	    }
+  	    if(!right) right = node, node -> parent = this;
   	    else right -> insert(node, root);
   	  }
   	  return mbalance(root);
@@ -127,9 +121,9 @@ class AVL{
 int main(){
   AVL<int> a;
   //int arr[] = {10, 5, 1};
-  int arr[] = {72, 66, 81, 18, 60, 53, 48, 27, 10, 50, 9, 40, 45};
+  //int arr[] = {72, 66, 81, 18, 60, 53, 48, 27, 10, 50, 9, 40, 45};
   //int arr[] = {1, 2, 3, 4, 5, 6};
-  //int arr[] = {5, 4, 3, 2, 1, 10};
+  int arr[] = {5, 4, 3, 2, 1, 10};
   int n = sizeof(arr)/sizeof(arr[0]);
   for(int i = 0; i < n; i++) a.insert(arr[i]);
   cout << a << endl;
