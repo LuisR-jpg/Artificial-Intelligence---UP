@@ -48,8 +48,8 @@ class Map{
       int pos = getVal(k);
       for(auto x: hash[pos])
 	if(x.first == k) return x.second;
-      if(typeid(value) == typeid(string)) return "";
-      return value(NULL);
+      value a;
+      return a;
     }
     friend ostream &operator << (ostream &output, const Map &m){
       for(int i = 0; i < m.si; i++)
@@ -73,8 +73,7 @@ int main(){
   m.remove("hola"); 
   cout << m.contains("hola") << endl;
   cout << m.get("hola") << endl;
-  */
-  /*
+
   Map<int, string> m;
   cout << m.contains(10) << endl;
   m.insert(1010, "hola");
@@ -87,7 +86,7 @@ int main(){
   m.remove(1010);
   cout << m.contains(1010) << endl;
   cout << m << endl;
-  */
+
   Map<int, int> m;
   cout << m.contains(10) << endl;
   m.insert(10, 11);
@@ -101,6 +100,19 @@ int main(){
   cout << m.contains(1010) << endl;
   cout << m.contains(10) << endl;
   cout << m << endl;
+  */
+  Map<string, int> m;
+  cout << m.contains("hola") << endl;
+  m.insert("hola", 10);
+  cout << m.get("hola") << endl;
+  cout << m.contains("hola") << endl;
+  m.insert("adios", 100);
+  cout << m.get("adios") << endl;
+  cout << m << endl;
+  cout << m.contains("adios") << endl;
+  m.remove("adios");
+  cout << m.contains("asies") << endl;
+  cout << m.contains("adios") << endl;
+  cout << m << endl;
   return 0;
 }
-
