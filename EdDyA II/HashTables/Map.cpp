@@ -23,9 +23,9 @@ class Map{
     }
     void insert(key k, value v){
       int pos = getVal(k);
-      for(auto x: hash[pos])
-	if(x.first == k){
-	  x.second = v;
+      for(auto it = hash[pos].begin(); it != hash[pos].end(); it++)
+	if(it -> first == k){
+	  it -> second = v;
 	  return;
 	}
       hash[pos].push_back(make_pair(k, v));
@@ -61,6 +61,7 @@ class Map{
     ~Map(){}
 };
 int main(){
+  /*
   Map<string, string> m;
   cout << m.contains("hola") << endl;
   m.insert("hola", "hola");
@@ -72,6 +73,34 @@ int main(){
   m.remove("hola"); 
   cout << m.contains("hola") << endl;
   cout << m.get("hola") << endl;
+  */
+  /*
+  Map<int, string> m;
+  cout << m.contains(10) << endl;
+  m.insert(1010, "hola");
+  cout << m.get(1010) << endl;
+  cout << m.contains(10) << endl;
+  m.insert(1010, "adios");
+  cout << m.get(1010) << endl;
+  cout << m << endl;
+  cout << m.contains(1010) << endl;
+  m.remove(1010);
+  cout << m.contains(1010) << endl;
+  cout << m << endl;
+  */
+  Map<int, int> m;
+  cout << m.contains(10) << endl;
+  m.insert(10, 11);
+  cout << m.get(10) << endl;
+  cout << m.contains(10) << endl;
+  m.insert(10, 110);
+  cout << m.get(10) << endl;
+  cout << m << endl;
+  cout << m.contains(10) << endl;
+  m.remove(10);
+  cout << m.contains(1010) << endl;
+  cout << m.contains(10) << endl;
+  cout << m << endl;
   return 0;
 }
 
