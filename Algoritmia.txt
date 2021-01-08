@@ -274,6 +274,41 @@ Balanced Binary Search Trees
 BFS
 	Consist of visiting every neighbor of each node until every node has been visited
 
+Manejo de bits
+  *Siempre usar paréntesis (2) | (1)
+  Utilizando enteros en vez de arreglos, se ahorra memoria y tiempo de ejecución.
+  Operadores a nivel de bits.
+    | OR
+    & AND
+    ^ XOR
+    ~ Complemento
+    >> Right shift
+    << Left shift
+
+  Variables enteras tienen la limitación de almacenar relativamente pocos bits. Por eso se usa 
+  Bitset
+    Estructura de datos dinámica para trabajarla con operaciones a niveles de bits.
+    Constructores
+      bitset<10> bs;
+      bitset<6> bs(10);
+      bitset<6> bs("1010");
+      bitset<2> bs(10); //Se recorta 1010 -> 10(10). El bitset se llena con los ultimos dos digitos.
+    Funciones
+      bs.size();
+      bs.count(); //Cuenta cuantos bits prendidos tiene
+      bs.size() - bs.count(); //Numero de ceros
+      bs.any(); //Al menos un bit prendido
+      bs.test(index); //Regresa estado del bit de ese indice
+      bs.flip(); //Equivalente a ~
+      bs.flip(index); //Toggles al bit de ese indice
+      bs.set(); //Todo a uno
+      bs.set(index); //A uno ese indice
+      bs.set(index, val); //bs[index] = val
+      bs.reset(); //Todo a cero
+      bs.reset(index); //A cero ese indice
+	
+
+
 ///   COMPETITIVE PROGRAMMING BOOK   ///
 
 Shortcuts commonly used 
@@ -310,6 +345,9 @@ Shortcuts commonly used
 		3. If your teammate is programming, prepare some hard test cases for his code.
 		4. Be friend of your teammates outside of the trainings and contests.
 
+	#define
+	  Predefine ciertos valores u operaciones.
+	  #define setBit(i, j) i = ((i) | (ll) 1 << j)
 GRAPHS
 	Un grafo sin ciclos es un árbol.
 	Un grafo tiene vertices y aristas
