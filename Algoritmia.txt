@@ -87,6 +87,31 @@ Arrays
 			Append elements
 			Delete elements
 			Insert elements
+Vector
+  Arreglo dinámico.
+  Uso:
+    #include <vector>
+    //Constructores
+    vector<int> v; //Construye vector
+    vector<int> v(n); //Vector de tamaño n
+    vector<int> v(n, val); //Vector de tamaño n con un valor de inicio
+    //Iteradores
+    v.begin(); //Apuntador a la primer posición
+    v.end(); //Apuntador a la aun no existente ultima posición
+    //Asignacion
+    v.clear(); //Limpia
+    v.resize(n); //Cambia el tamaño, resetea valores
+    v.assing(n, val); //Cambia el tamaño y asigna val
+    //Agregar
+    v.emplace_back(); //Agrega elemento, construyendo al objeto
+    v.push_back(); //Sólo mete elemento ya construido
+    v.pop_back(); //Borra ultimo elemento
+    //Size
+    v.size(); //Cuantos elementos
+    v.empty(); //Bool, está vacio?
+    
+    sort(v.begin(), v.end()); //Ordena el vector. Funciona también con pairs, ordenando por el primero
+
 Linked List
 	A linked list is a sequential list of nodes that hold data which point to other nodes also containing data
 	Terminology.
@@ -127,6 +152,78 @@ Queue
 			sta.empty() //Dice si el arreglo está vacio
 			sta.size() //Devuelve el tamaño de la estructura de datos
 	
+Deque
+  Stack y queue juntitos.
+  deque<int> q;
+  q.empty(); //Vacio?
+  q.size(); //Tamaño
+  //Queue
+  q.push_front();
+  q.pop_front();
+  q.front();
+  //Stack
+  q.push_back();
+  q.pop_back();
+  q.back();
+
+Conjuntos
+  Set
+    Estructura no lineal que representa un conjunto de datos, no admite repetidos.
+    set<int> st;
+    st.begin(); //Primer elmento
+    st.end(); //Hipotético último elemento
+  
+    st.size();
+    st.empty();
+    st.insert(x);
+    st.erase(x);
+    st.clear(); //Deja vacío al set
+  
+    st.find(x) //Iterador, al elemento si existe, o a end si no
+    st.count(x); //1 si esta, 0 si no
+
+  Map
+    Conjunto de datos relación key - value.
+    map<int, int> st;
+
+    st.begin(); //Primer elmento
+    st.end(); //Hipotético último elemento
+  
+    st.size();
+    st.empty();
+    st.insert(make_pair(k, v)); //insert({k, v}); m["Pedro"] = 10;
+    st.erase(k);
+    st.clear(); //Deja vacío al set
+  
+    st.find(k) //Iterador, al elemento si existe, o a end si no
+    st.count(k); //1 si esta, 0 si no
+    
+    for(auto x: m)
+      cout << x.first << " " << x.second << endl;
+    for(map<string, int>::iterator it = m.begin(); it != m.end(); it++)
+      cout << it -> first << " " << it -> second << endl;
+    for(auto it = m.begin(); it != m.end(); it++)
+      cout << it -> first << " " << it -> second << endl;
+
+  Multiset
+    Acepta elementos repetidos
+    st.size();
+    st.empty();
+    st.insert(x);
+    st.erase(x);
+    st.clear(); //Deja vacío al set
+  
+    st.find(x); //Regresa iterador al primer elemento
+    st.count(x); //Numero de incidencias del elemento
+    
+    st.upper_bound(); //Iterador a ultima ocurrencia
+    st.lower_bound(); //Primer ocurrencia
+
+  Multimap
+    Map, pero acepta varios elementos
+
+  Unordered_map
+
 Priority Queues (PQs) with an interlude on heaps
 	Priority Queue
 		Is an abstract data type, operates like a queue but every element has a certain priority. This determines the order in which
@@ -163,10 +260,12 @@ Priority Queues (PQs) with an interlude on heaps
 			En cada momento se sabe cual es el elemento mayor-menor
 		Implementacion real
 			Priority queue. Estructura de datos existente en C++
-			priority_queue <tipo> nombre //pque
+			priority_queue<tipo> nombre //pque
 			pque.top() //Accede al elemento de hasta arriba
 			pque.pop() //Le hace pop al elemento de arriba
-			pcola.push() //Inserta elemento
+			pque.push() //Inserta elemento
+			pque.empty() //Vacio?
+			pque.size()
 
 	Turning min PQ into max PQ
 		Negate the value of priority (only for numbers).
@@ -175,6 +274,7 @@ Priority Queues (PQs) with an interlude on heaps
 			Let x, y be numbers in the PQ. For a min PQ, if x <= y then x comes out of the PQ before y, so the negation of this
 			is x >= y, then y comes out before x.
 	Priority Queues are usually implemented with heaps since this gives them the best possible time complexity.
+
 Union Find
 	Data structure that tracks elements which are split into one or more disjoint sets.
 	It has two primary operations:
@@ -275,7 +375,7 @@ BFS
 	Consist of visiting every neighbor of each node until every node has been visited
 
 Manejo de bits
-  *Siempre usar paréntesis (2) | (1)
+  *Siempre usar paréntesis (2 | 1)
   Utilizando enteros en vez de arreglos, se ahorra memoria y tiempo de ejecución.
   Operadores a nivel de bits.
     | OR
@@ -387,6 +487,8 @@ GRAPHS
 			Siendo n el numero de aristas se define una matriz de n*2 donde se representa cada nodo que conecte la arista.
 Pair
 	Almacena dos tipos de datos ligados
+	#define se second
+	#define fi first
 	Funciones
 		pair <int, int> par;
 		par.first //Acceso
