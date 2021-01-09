@@ -300,79 +300,113 @@ Union Find
 	Path compression
 		As it is not common tu un-unify stuff, it's possible to make every element point to its root node so finding the root from an element 
 		will take constant time.
-Trees
-	A tree is an undirected graph which satisfies any of the following definitions:
-		- An acyclic connected graph
-		- A connected graph with N nodes and N-1 edges
-		- A graph in which any two vertices are connected by exactly one path
-	Any node can root the tree!
-	Child. Is a node extending from another node.
-	Parent. Is the opposite (The root node has no parent, it might be useful to set a parent to itself)
-	A leaf node is a node with no children
-	A subtree is a tree entirely contained within another (it may consist of a single node)
-	Binary Trees
-		Is a tree for which every node has at most 2 children
-		Binary Search Tree
-			Is a BT that satisfies the BST invariant.
-				Left subtree has smaller element
-				Right subtree has larger elements
-			We are not limited to use only numbers
-			Used in 
-				Red black trees
-				AVL trees
-				Splay trees		
-				Binary heaps
-				Syntax trees
-				Treap
-			Insert, delete, remove and search have a n complexity
-			Insert
-				When inserting an element we want to compare its value to the value stored in the current node we're considering
-				to decide on one of the following
-					<. Recurse down left subtree
-					>. Recurse down right subtree
-					=. Handle finding a duplicate value
-					Null leaf. Create a new node
-			Remove
-				1. Find the element. You have to deal with the next situations
-					I. Null node. The element doesn't exist
-					II. Comparator equal to 0. You found it!
-					III. Comparator less than 0. The value is in the left subtree
-					IV. Comparator greater than 0. The value is in the right subtree
-				2. Replace the node we want to remove with its successor (if any) to maintain the BST variant.
-					There are 4 different situation when doing this.
-					I. Node to remove is a leaf node.
-						We may do so without side effect.
-					II. Node to remove has a right subtree but not left subtree.
-						The successor of the node we ate trying to remove in these cases will be the root of
-						the left subtree.
-					III. Node to remove has a left subtree but no right subtree.
-						The successor of the node we ate trying to remove in these cases will be the root of
-						the right subtree.
-					IV. Node to remove has both, left and right subtree.
-						The successor can either be the largest value in the left subtree OR the smallest value in the right subtree
-			To run through a binary tree, there are some ways to deal with information.
-				Preorder traversal.
-					Prints current node 
-					Runs to the left subtree
-					Runs to the right subtree
-				Inorder traversal. (Prints values increasingly sorted in case of BST)
-					Runs to the left subtree
-					Prints current node 
-					Runs to the right subtree
-				Postorder traversal. (Root node is the last to be printed)
-					Runs to the left subtree
-					Runs to the right subtree
-					Prints current node 
-				Level order traversal.
-					Prints in the order of the layers our tree has.
-					To do so, it's needed a BFS from the root to the leaf nodes
+Graph Theory
+  Un grafo es un conjunto de vertices y aristas que modelan un problema.
+  Puede haber grafos; dirigidos, no dirigidos, ponderados, no ponderados.
+  Grados de un vertice: 
+    In degree: Numero de ejes que recibe el vertice.
+    Out degree: Numero de ejes que salen del vertice.
+  Trees
+  	A tree is an undirected graph which satisfies any of the following definitions:
+  		- An acyclic connected graph
+  		- A connected graph with N nodes and N-1 edges
+  		- A graph in which any two vertices are connected by exactly one path
+  	Any node can root the tree!
+  	Child. Is a node extending from another node.
+  	Parent. Is the opposite (The root node has no parent, it might be useful to set a parent to itself)
+  	A leaf node is a node with no children
+  	A subtree is a tree entirely contained within another (it may consist of a single node)
+  	Binary Trees
+  		Is a tree for which every node has at most 2 children
+  		Binary Search Tree
+  			Is a BT that satisfies the BST invariant.
+  				Left subtree has smaller element
+  				Right subtree has larger elements
+  			We are not limited to use only numbers
+  			Used in 
+  				Red black trees
+  				AVL trees
+  				Splay trees		
+  				Binary heaps
+  				Syntax trees
+  				Treap
+  			Insert, delete, remove and search have a n complexity
+  			Insert
+  				When inserting an element we want to compare its value to the value stored in the current node we're considering
+  				to decide on one of the following
+  					<. Recurse down left subtree
+  					>. Recurse down right subtree
+  					=. Handle finding a duplicate value
+  					Null leaf. Create a new node
+  			Remove
+  				1. Find the element. You have to deal with the next situations
+  					I. Null node. The element doesn't exist
+  					II. Comparator equal to 0. You found it!
+  					III. Comparator less than 0. The value is in the left subtree
+  					IV. Comparator greater than 0. The value is in the right subtree
+  				2. Replace the node we want to remove with its successor (if any) to maintain the BST variant.
+  					There are 4 different situation when doing this.
+  					I. Node to remove is a leaf node.
+  						We may do so without side effect.
+  					II. Node to remove has a right subtree but not left subtree.
+  						The successor of the node we ate trying to remove in these cases will be the root of
+  						the left subtree.
+  					III. Node to remove has a left subtree but no right subtree.
+  						The successor of the node we ate trying to remove in these cases will be the root of
+  						the right subtree.
+  					IV. Node to remove has both, left and right subtree.
+  						The successor can either be the largest value in the left subtree OR the smallest value in the right subtree
+  			To run through a binary tree, there are some ways to deal with information.
+  				Preorder traversal.
+  					Prints current node 
+  					Runs to the left subtree
+  					Runs to the right subtree
+  				Inorder traversal. (Prints values increasingly sorted in case of BST)
+  					Runs to the left subtree
+  					Prints current node 
+  					Runs to the right subtree
+  				Postorder traversal. (Root node is the last to be printed)
+  					Runs to the left subtree
+  					Runs to the right subtree
+  					Prints current node 
+  				Level order traversal.
+  					Prints in the order of the layers our tree has.
+  					To do so, it's needed a BFS from the root to the leaf nodes
+  
+  
+    Balanced Binary Search Trees
+    	Linear behaviour is very bad when working with BST, that's why balanced binary search trees were invented
+  	
+  BFS
+  	Consist of visiting every neighbor of each node until every node has been visited
+  DAG: Directed Acyclic Graph
+    Se verifica si un grafo es DAG revisando el in-degree y out-degree:
+      Raiz	
+	raíz tiene in degree = 0
+	puede haber varias raíces
+	primer nivel del DAG
+	primer nivel del DAG
+      Niveles
+	Si un vertice tiene varios niveles; se toma el mínimo de ellos.
+      Ventajas
+	Es el grafo utilizado para un topological sort, ordena los nodos por nivel.
+  Guardar grafos
+    Lista de ejes:
+      {[vuno, vdos, peso], [ , , ], [ , , ]}
+      Buscar eje - O(n)
+      Simple de usar
 
+    Matriz de adyacencia:
+      Si hay un eje entre vertice uno y dos, entonces mat[1][2] = w; (peso siendo w)
+      Buscar eje - O(1)
+      Mucha memoria - O(n^2)
+      
+    Lista de adyacencia: 
+      Memoria dinámica: Vector de vectores, para evitar memoria extra
+      Buscar eje - O(E_i)
+      Memoria - O(e)
 
-Balanced Binary Search Trees
-	Linear behaviour is very bad when working with BST, that's why balanced binary search trees were invented
-	
-BFS
-	Consist of visiting every neighbor of each node until every node has been visited
+    
 
 Manejo de bits
   *Siempre usar paréntesis (2 | 1)
