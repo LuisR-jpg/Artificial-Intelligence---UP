@@ -10,6 +10,6 @@ int main(){
   memset(dp, -1, sizeof(dp));
   int n;
   cin >> n;
-  cout << fib(n) << endl;
+  //cout << 2*fib(n-1) << endl; //Modificación para banderitas
   return 0;
 }
