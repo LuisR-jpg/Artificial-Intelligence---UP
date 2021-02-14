@@ -18,6 +18,9 @@ int main(){
     if(res[i] > r) r = res[i], p = i;
   }
   cout << r << endl;
+  for(int i = 0; i < n; i++)
+    cout << res[i] << " ";
+  cout << endl;
   vector<int> v;
   do{
     v.push_back(p);
