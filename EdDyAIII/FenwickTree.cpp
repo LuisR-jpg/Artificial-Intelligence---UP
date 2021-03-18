@@ -1,3 +1,13 @@
+//------------NO TERMINADO
+//Fenwick or Binary Indexed Tree
+//Given information, it evaluates queries and updates values.
+//Ez to code
+
+//Memory O(n)
+//Time:
+//  Build O(nlogn)
+//  Query O(logn)
+//  Update O(logn)
 #include <bits/stdc++.h>
 using namespace std;
 void update(int i, int v){

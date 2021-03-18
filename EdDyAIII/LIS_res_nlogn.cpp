@@ -1,3 +1,7 @@
+//Longest Increasing Subsequence
+// Finds the longest strictly increasing subsequence in a given array.
+// Memory O(n)
+// Time O(nlogn)
 #include <bits/stdc++.h>
 using namespace std;
 int main(){
@@ -13,7 +17,7 @@ int main(){
     else{
       int j = -1;
       for(int o = n; o >= 1; o /= 2)
-	while(j + o < n && l[j + o] < x) j += o;
+	      while(j + o < n && l[j + o] < x) j += o;  
       l[j+1] = x,  d[j+1] = i, p[i] = d[j];
     }
   }
