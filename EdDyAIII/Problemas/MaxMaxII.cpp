@@ -27,6 +27,7 @@ int main(){
   build();
   for(int i = 0, p, x, y; i < q; i++){
     cin >> p >> x >> y;
+    p %= 2;
     if(p) cout << query(x, ++y) << endl;
     else modify(x, y);
   }
