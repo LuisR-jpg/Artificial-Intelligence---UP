@@ -1,2 +1,2 @@
 from sympy import *
-diff(cos(x), x)
+#diff(cos(x), x)
