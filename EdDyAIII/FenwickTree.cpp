@@ -1,6 +1,6 @@
 //Fenwick or Binary Indexed Tree
 //Given information, it evaluates queries and updates values.
-//Ez to code
+//Ez to code (Current implementation reads queries 1-indexed)
 
 //Memory O(n)
 //Time:

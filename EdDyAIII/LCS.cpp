@@ -1,4 +1,3 @@
-//-----------FALTA ENCONTRAR *CUAL* ES LA SECUENCIA
 //Longest common subsequence
 //Given two arrays, finds the longest common subsequence in case only removing is allowed.
 //Let n and m be the lenghts of the arrays.
