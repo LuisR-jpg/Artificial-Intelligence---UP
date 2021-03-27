@@ -37,7 +37,7 @@ int main(){
   string a;
   for(int i = 0; i < n; i++)
     cin >> a, addWord(a);
-  for(int i=0; i<m; i++)
+  for(int i = 0; i < m; i++)
     cin >> a, cout << (search(a)? "YES": "NO") << endl;
   return 0;
 }
