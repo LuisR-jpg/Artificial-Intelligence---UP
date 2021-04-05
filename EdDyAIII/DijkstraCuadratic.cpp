@@ -1,3 +1,8 @@
+//Dijkstra's Algorithm.
+//Greedy
+//
+//Time Complexity. O(n^2)
+//Finds the lightest path between two nodes.
 #include <bits/stdc++.h>
 #define f first
 #define s second
