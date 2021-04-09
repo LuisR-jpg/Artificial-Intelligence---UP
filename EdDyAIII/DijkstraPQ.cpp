@@ -1,3 +1,8 @@
+//Dijkstra. 
+//Solves SSSP Problemas (single source shortest paths)
+//Finds shortest path between two nodes and prints every node used
+
+//Time. O(nlogn) 
 #include <bits/stdc++.h>
 using namespace std;
 #define s second

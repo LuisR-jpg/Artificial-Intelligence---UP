@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+nclude <bits/stdc++.h>
 using namespace std;
 #define s second
 #define f first
