@@ -8,7 +8,13 @@ int dfs(int i, int j){
     return 1000;
   if(s[i][j] == 'E') return y = 0;
   v[i][j] = 1;
-  return min(min(dfs(i + 1, j), dfs(i - 1, j)), min(dfs(i, j + 1), dfs(i, j - 1))) + 1;
+  int a, b, c, d;
+  a = dfs(i + 1, j);
+  b = dfs(i - 1, j);
+  c = dfs(i, j + 1);
+  d = dfs(i, j - 1);
+  return min(min(a, b), min(c, d)) + 1;
+  //return min(min(dfs(i + 1, j), dfs(i - 1, j)), min(dfs(i, j + 1), dfs(i, j - 1))) + 1;
 }
 int main(){
   cin >> n >> m;
