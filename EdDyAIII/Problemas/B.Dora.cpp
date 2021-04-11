@@ -1,31 +1,29 @@
 #include <bits/stdc++.h>
 using namespace std;
-int n, m, da, db, y = 1;
-bool v[60][60];
-char s[60][60];
-int dfs(int i, int j){
-  if(i < 0 || i >= n || j < 0 || j >= m || v[i][j] || s[i][j] == '*') 
-    return 1000;
-  if(s[i][j] == 'E') return y = 0;
-  v[i][j] = 1;
-  int a, b, c, d;
-  a = dfs(i + 1, j);
-  b = dfs(i - 1, j);
-  c = dfs(i, j + 1);
-  d = dfs(i, j - 1);
-  return min(min(a, b), min(c, d)) + 1;
-  //return min(min(dfs(i + 1, j), dfs(i - 1, j)), min(dfs(i, j + 1), dfs(i, j - 1))) + 1;
-}
+#define f first
+#define s second
+vector<pair<int, int>> d = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
 int main(){
+  int n, m, a, b, x, y;
   cin >> n >> m;
-  for(int i = 0; i < n; i++){
+  char s[n+3][m+3];
+  int v[n+3][m+3];
+  memset(v, -1, sizeof(v));
+  for(int i = 0; i < n; i++)
     for(int j = 0; j < m; j++){
       cin >> s[i][j];
-      if(s[i][j] == 'S') da = i, db = j;
+      if(s[i][j] == 'S') a = i, b = j;
+      if(s[i][j] == 'E') s[i][j] = '.', x = i, y = j;
     }
+  queue<pair<int, int>> q;
+  q.push({a, b}), v[a][b] = 0;
+  while(q.size()){
+    auto p = q.front();
+    q.pop();
+    for(int i = 0, x, y; i < d.size(); i++)
+      if((y = p.f + d[i].f) < n && y >= 0 && (x = p.s + d[i].s) < m && x >= 0 && v[y][x] == -1 && s[y][x] == '.')
+	q.push({y, x}), v[y][x] = v[p.f][p.s] + 1;
   }
-  memset(v, 0, sizeof(v));
-  int x = dfs(da, db);
-  cout << (y? -1: x);
+  cout << v[x][y];
   return 0;
 }
