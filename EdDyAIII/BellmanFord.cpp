@@ -19,6 +19,7 @@ int main(){
   for(int a, b, k, i = 0; i < m; i++)
     cin >> a >> b >> k, v[i] = {{a, b}, k};
   bool r = 0;
+  d[0] = 0; //Initilize the source
   for(int i = 0; i <= n; i++){
     for(auto x: v){
       auto y = d[x.f.s];
