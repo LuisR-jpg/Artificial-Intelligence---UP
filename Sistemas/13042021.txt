@@ -1,0 +1,514 @@
+lalitor@HP-240-G4:~$ ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: enp3s0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc fq_codel state DOWN group default qlen 1000
+    link/ether dc:4a:3e:61:bb:7a brd ff:ff:ff:ff:ff:ff
+3: wlp2s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 60:6d:c7:d6:5d:f3 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.10.106/24 brd 192.168.10.255 scope global dynamic noprefixroute wlp2s0
+       valid_lft 86391sec preferred_lft 86391sec
+    inet6 fe80::bdcf:795:228a:92e6/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+lalitor@HP-240-G4:~$ sudo ethtool 
+[sudo] password for lalitor: 
+ethtool: bad command line argument(s)
+For more information run ethtool -h
+lalitor@HP-240-G4:~$ sudo ethtool eth4
+Settings for eth4:
+Cannot get device settings: No such device
+Cannot get wake-on-lan settings: No such device
+Cannot get message level: No such device
+Cannot get link status: No such device
+No data available
+lalitor@HP-240-G4:~$ sudo ethtool eth0
+Settings for eth0:
+Cannot get device settings: No such device
+Cannot get wake-on-lan settings: No such device
+Cannot get message level: No such device
+Cannot get link status: No such device
+No data available
+lalitor@HP-240-G4:~$ sudo ethtool eth1
+Settings for eth1:
+Cannot get device settings: No such device
+Cannot get wake-on-lan settings: No such device
+Cannot get message level: No such device
+Cannot get link status: No such device
+No data available
+lalitor@HP-240-G4:~$ ping
+Usage: ping [-aAbBdDfhLnOqrRUvV64] [-c count] [-i interval] [-I interface]
+            [-m mark] [-M pmtudisc_option] [-l preload] [-p pattern] [-Q tos]
+            [-s packetsize] [-S sndbuf] [-t ttl] [-T timestamp_option]
+            [-w deadline] [-W timeout] [hop1 ...] destination
+Usage: ping -6 [-aAbBdDfhLnOqrRUvV] [-c count] [-i interval] [-I interface]
+             [-l preload] [-m mark] [-M pmtudisc_option]
+             [-N nodeinfo_option] [-p pattern] [-Q tclass] [-s packetsize]
+             [-S sndbuf] [-t ttl] [-T timestamp_option] [-w deadline]
+             [-W timeout] destination
+lalitor@HP-240-G4:~$ ping www.up.edu.mx -c 4
+PING www.up.edu.mx (192.100.230.183) 56(84) bytes of data.
+
+--- www.up.edu.mx ping statistics ---
+4 packets transmitted, 0 received, 100% packet loss, time 3050ms
+
+lalitor@HP-240-G4:~$ netstat -p
+(Not all processes could be identified, non-owned process info
+ will not be shown, you would have to be root to see it all.)
+Active Internet connections (w/o servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+Active UNIX domain sockets (w/o servers)
+Proto RefCnt Flags       Type       State         I-Node   PID/Program name     Path
+unix  2      [ ]         DGRAM                    23237    -                    /run/wpa_supplicant/wlp2s0
+unix  2      [ ]         DGRAM                    24326    783/systemd          /run/user/1000/systemd/notify
+unix  3      [ ]         DGRAM                    15480    -                    /run/systemd/notify
+unix  8      [ ]         DGRAM                    15500    -                    /run/systemd/journal/socket
+unix  2      [ ]         DGRAM                    13806    -                    /run/systemd/journal/syslog
+unix  16     [ ]         DGRAM                    15718    -                    /run/systemd/journal/dev-log
+unix  3      [ ]         STREAM     CONNECTED     20195    -                    
+unix  3      [ ]         STREAM     CONNECTED     22887    -                    /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     21999    -                    
+unix  2      [ ]         DGRAM                    15955    -                    
+unix  3      [ ]         DGRAM                    18426    -                    
+unix  2      [ ]         DGRAM                    24296    783/systemd          
+unix  3      [ ]         STREAM     CONNECTED     23278    -                    @/tmp/.X11-unix/X0
+unix  2      [ ]         DGRAM                    20285    -                    
+unix  3      [ ]         STREAM     CONNECTED     22861    -                    /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     26337    -                    /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     20512    -                    
+unix  3      [ ]         STREAM     CONNECTED     22859    -                    /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     22885    -                    /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     24926    984/nm-applet        
+unix  3      [ ]         STREAM     CONNECTED     23244    -                    
+unix  3      [ ]         STREAM     CONNECTED     22003    -                    /var/run/dbus/system_bus_socket
+unix  2      [ ]         DGRAM                    20883    -                    
+unix  3      [ ]         STREAM     CONNECTED     22131    -                    /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     21382    -                    
+unix  3      [ ]         STREAM     CONNECTED     24647    -                    
+unix  3      [ ]         STREAM     CONNECTED     24610    884/gvfsd            
+unix  3      [ ]         DGRAM                    24328    783/systemd          
+unix  3      [ ]         STREAM     CONNECTED     23277    -                    
+unix  3      [ ]         STREAM     CONNECTED     23243    -                    
+unix  3      [ ]         DGRAM                    15482    -                    
+unix  3      [ ]         STREAM     CONNECTED     23045    -                    /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     20976    -                    
+unix  3      [ ]         STREAM     CONNECTED     24538    810/dbus-daemon      /run/user/1000/bus
+unix  3      [ ]         STREAM     CONNECTED     22002    -                    
+unix  3      [ ]         STREAM     CONNECTED     20289    -                    /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     20880    -                    /run/systemd/journal/stdout
+unix  3      [ ]         DGRAM                    18424    -                    
+unix  3      [ ]         STREAM     CONNECTED     23537    -                    /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     21994    -                    
+unix  3      [ ]         STREAM     CONNECTED     20287    -                    
+unix  3      [ ]         STREAM     CONNECTED     20894    -                    
+unix  2      [ ]         DGRAM                    27991    -                    
+unix  3      [ ]         DGRAM                    18423    -                    
+unix  3      [ ]         STREAM     CONNECTED     24535    810/dbus-daemon      /run/user/1000/bus
+unix  2      [ ]         DGRAM                    24291    -                    
+unix  3      [ ]         STREAM     CONNECTED     24065    -                    /var/run/dbus/system_bus_socket
+unix  3      [ ]         DGRAM                    18425    -                    
+unix  3      [ ]         STREAM     CONNECTED     21993    -                    
+unix  3      [ ]         STREAM     CONNECTED     20286    -                    
+unix  3      [ ]         STREAM     CONNECTED     24064    -                    
+unix  3      [ ]         STREAM     CONNECTED     24650    -                    
+unix  2      [ ]         DGRAM                    21992    -                    
+unix  3      [ ]         STREAM     CONNECTED     20368    -                    
+unix  3      [ ]         STREAM     CONNECTED     21457    -                    
+unix  2      [ ]         DGRAM                    20970    -                    
+unix  3      [ ]         STREAM     CONNECTED     24632    889/gvfsd-fuse       
+unix  3      [ ]         STREAM     CONNECTED     21998    -                    
+unix  3      [ ]         STREAM     CONNECTED     20288    -                    /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     18414    -                    
+unix  2      [ ]         DGRAM                    18421    -                    
+unix  3      [ ]         STREAM     CONNECTED     24437    866/efreetd          
+unix  3      [ ]         STREAM     CONNECTED     22836    -                    /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     22007    -                    
+unix  3      [ ]         STREAM     CONNECTED     24651    -                    /var/run/dbus/system_bus_socket
+unix  3      [ ]         DGRAM                    15481    -                    
+unix  3      [ ]         STREAM     CONNECTED     22553    -                    
+unix  3      [ ]         STREAM     CONNECTED     22008    -                    
+unix  3      [ ]         DGRAM                    24327    783/systemd          
+unix  3      [ ]         STREAM     CONNECTED     24648    -                    /var/run/dbus/system_bus_socket
+unix  2      [ ]         DGRAM                    24178    -                    
+unix  3      [ ]         STREAM     CONNECTED     24387    -                    /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     26162    972/dbus-daemon      
+unix  3      [ ]         STREAM     CONNECTED     23949    -                    
+unix  3      [ ]         DGRAM                    25780    -                    
+unix  3      [ ]         STREAM     CONNECTED     23530    865/enlightenment    
+unix  3      [ ]         STREAM     CONNECTED     23305    -                    /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     22864    -                    /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     23958    -                    /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     24659    -                    @/tmp/.X11-unix/X0
+unix  3      [ ]         STREAM     CONNECTED     26161    972/dbus-daemon      
+unix  3      [ ]         STREAM     CONNECTED     25692    -                    
+unix  3      [ ]         DGRAM                    18346    -                    
+unix  3      [ ]         STREAM     CONNECTED     22915    -                    /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     23076    -                    
+unix  3      [ ]         STREAM     CONNECTED     23957    -                    
+unix  3      [ ]         STREAM     CONNECTED     22124    -                    
+unix  3      [ ]         STREAM     CONNECTED     26126    -                    /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     22129    -                    /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     22123    -                    
+unix  3      [ ]         STREAM     CONNECTED     24771    810/dbus-daemon      /run/user/1000/bus
+unix  3      [ ]         STREAM     CONNECTED     21556    -                    /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     20879    -                    /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     23545    -                    @/tmp/.X11-unix/X0
+unix  3      [ ]         STREAM     CONNECTED     19892    -                    /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     24385    783/systemd          
+unix  3      [ ]         STREAM     CONNECTED     26184    975/at-spi2-registr  
+unix  3      [ ]         STREAM     CONNECTED     25707    911/xclip            
+unix  3      [ ]         STREAM     CONNECTED     23429    810/dbus-daemon      /run/user/1000/bus
+unix  3      [ ]         STREAM     CONNECTED     14295    -                    
+unix  3      [ ]         STREAM     CONNECTED     23427    810/dbus-daemon      
+unix  3      [ ]         STREAM     CONNECTED     24386    783/systemd          
+unix  3      [ ]         STREAM     CONNECTED     26187    -                    @/tmp/.X11-unix/X0
+unix  3      [ ]         STREAM     CONNECTED     25694    -                    /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     19891    -                    /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     26188    975/at-spi2-registr  
+unix  2      [ ]         DGRAM                    14298    -                    
+unix  3      [ ]         STREAM     CONNECTED     24007    -                    /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     16085    -                    
+unix  3      [ ]         STREAM     CONNECTED     26186    975/at-spi2-registr  
+unix  3      [ ]         STREAM     CONNECTED     23531    -                    /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     22128    -                    
+unix  3      [ ]         DGRAM                    14304    -                    
+unix  3      [ ]         STREAM     CONNECTED     26123    967/at-spi-bus-laun  
+unix  3      [ ]         STREAM     CONNECTED     23053    -                    /run/systemd/journal/stdout
+unix  3      [ ]         DGRAM                    18345    -                    
+unix  3      [ ]         STREAM     CONNECTED     22107    -                    
+unix  3      [ ]         STREAM     CONNECTED     21230    -                    
+unix  2      [ ]         DGRAM                    22122    -                    
+unix  3      [ ]         DGRAM                    14305    -                    
+unix  2      [ ]         DGRAM                    26183    -                    
+unix  3      [ ]         STREAM     CONNECTED     23304    -                    
+unix  2      [ ]         DGRAM                    14163    -                    
+unix  3      [ ]         STREAM     CONNECTED     26185    972/dbus-daemon      @/tmp/dbus-v9QuuqEPbC
+unix  3      [ ]         STREAM     CONNECTED     21711    -                    
+unix  3      [ ]         STREAM     CONNECTED     24698    920/pulseaudio       
+unix  3      [ ]         STREAM     CONNECTED     27689    1081/tilix           
+unix  2      [ ]         DGRAM                    22884    -                    
+unix  3      [ ]         STREAM     CONNECTED     22837    -                    /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     24388    -                    /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     27688    972/dbus-daemon      @/tmp/dbus-v9QuuqEPbC
+unix  3      [ ]         DGRAM                    25779    -                    
+unix  3      [ ]         STREAM     CONNECTED     24809    984/nm-applet        
+unix  3      [ ]         STREAM     CONNECTED     22962    -                    
+unix  3      [ ]         STREAM     CONNECTED     22863    -                    /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     26020    -                    @/tmp/.X11-unix/X0
+unix  3      [ ]         STREAM     CONNECTED     24810    972/dbus-daemon      @/tmp/dbus-v9QuuqEPbC
+unix  3      [ ]         STREAM     CONNECTED     22234    -                    
+unix  2      [ ]         DGRAM                    22886    -                    
+unix  3      [ ]         STREAM     CONNECTED     22880    -                    
+unix  3      [ ]         STREAM     CONNECTED     24804    984/nm-applet        
+unix  2      [ ]         DGRAM                    22914    -                    
+unix  3      [ ]         STREAM     CONNECTED     22865    -                    /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     22858    -                    /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     23415    810/dbus-daemon      
+unix  3      [ ]         STREAM     CONNECTED     24692    920/pulseaudio       
+unix  3      [ ]         STREAM     CONNECTED     27687    1081/tilix           
+unix  3      [ ]         STREAM     CONNECTED     23426    810/dbus-daemon      
+unix  3      [ ]         STREAM     CONNECTED     20446    -                    
+unix  3      [ ]         STREAM     CONNECTED     24805    -                    @/tmp/.X11-unix/X0
+unix  3      [ ]         STREAM     CONNECTED     22625    -                    
+unix  3      [ ]         STREAM     CONNECTED     21139    -                    /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     22235    -                    /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     27683    -                    @/tmp/.X11-unix/X0
+unix  3      [ ]         STREAM     CONNECTED     21305    -                    
+unix  3      [ ]         STREAM     CONNECTED     18415    -                    /run/systemd/journal/stdout
+unix  2      [ ]         DGRAM                    21940    -                    
+unix  3      [ ]         STREAM     CONNECTED     27690    810/dbus-daemon      /run/user/1000/bus
+unix  3      [ ]         STREAM     CONNECTED     22236    -                    /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     20290    -                    /var/run/dbus/system_bus_socket
+unix  2      [ ]         DGRAM                    23425    810/dbus-daemon      
+unix  3      [ ]         STREAM     CONNECTED     25884    -                    
+unix  3      [ ]         STREAM     CONNECTED     24812    810/dbus-daemon      /run/user/1000/bus
+unix  3      [ ]         STREAM     CONNECTED     22963    -                    
+unix  3      [ ]         STREAM     CONNECTED     22838    -                    /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     24699    -                    /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     24811    984/nm-applet        
+unix  3      [ ]         STREAM     CONNECTED     23034    -                    
+unix  3      [ ]         STREAM     CONNECTED     24285    783/systemd          
+unix  2      [ ]         DGRAM                    22203    -                    
+unix  3      [ ]         STREAM     CONNECTED     24734    939/polkit-gnome-au  
+unix  3      [ ]         STREAM     CONNECTED     27682    1081/tilix           
+unix  3      [ ]         STREAM     CONNECTED     21226    -                    
+unix  3      [ ]         STREAM     CONNECTED     25940    810/dbus-daemon      /run/user/1000/bus
+unix  3      [ ]         STREAM     CONNECTED     23337    -                    /run/systemd/journal/stdout
+unix  2      [ ]         DGRAM                    24709    920/pulseaudio       
+unix  3      [ ]         STREAM     CONNECTED     22881    -                    
+unix  3      [ ]         STREAM     CONNECTED     22974    -                    
+unix  3      [ ]         STREAM     CONNECTED     20793    -                    /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     24705    920/pulseaudio       /run/user/1000/pulse/native
+unix  3      [ ]         STREAM     CONNECTED     23541    865/enlightenment    
+unix  3      [ ]         STREAM     CONNECTED     24565    -                    /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     24761    939/polkit-gnome-au  
+unix  3      [ ]         STREAM     CONNECTED     18344    -                    /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     24442    865/enlightenment    
+unix  3      [ ]         STREAM     CONNECTED     26163    972/dbus-daemon      @/tmp/dbus-v9QuuqEPbC
+unix  3      [ ]         STREAM     CONNECTED     20587    -                    
+unix  3      [ ]         STREAM     CONNECTED     24769    939/polkit-gnome-au  
+unix  3      [ ]         STREAM     CONNECTED     22431    -                    
+unix  3      [ ]         STREAM     CONNECTED     24770    810/dbus-daemon      /run/user/1000/bus
+unix  3      [ ]         STREAM     CONNECTED     24578    866/efreetd          /run/user/1000/.ecore/efreetd/0
+unix  3      [ ]         STREAM     CONNECTED     20291    -                    /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     24533    884/gvfsd            
+unix  3      [ ]         STREAM     CONNECTED     25978    865/enlightenment    
+unix  3      [ ]         STREAM     CONNECTED     24763    967/at-spi-bus-laun  
+unix  3      [ ]         STREAM     CONNECTED     20033    -                    
+unix  3      [ ]         STREAM     CONNECTED     24534    -                    /run/systemd/journal/stdout
+unix  2      [ ]         DGRAM                    20044    -                    
+unix  3      [ ]         STREAM     CONNECTED     24762    810/dbus-daemon      /run/user/1000/bus
+unix  3      [ ]         STREAM     CONNECTED     24564    865/enlightenment    
+unix  3      [ ]         STREAM     CONNECTED     21137    -                    
+unix  3      [ ]         STREAM     CONNECTED     24767    -                    /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     24551    865/enlightenment    
+unix  3      [ ]         STREAM     CONNECTED     24764    810/dbus-daemon      /run/user/1000/bus
+unix  3      [ ]         STREAM     CONNECTED     21066    -                    
+unix  3      [ ]         STREAM     CONNECTED     24765    939/polkit-gnome-au  
+unix  3      [ ]         STREAM     CONNECTED     20121    -                    
+unix  3      [ ]         STREAM     CONNECTED     24766    939/polkit-gnome-au  
+unix  3      [ ]         STREAM     CONNECTED     24552    810/dbus-daemon      /run/user/1000/bus
+unix  3      [ ]         STREAM     CONNECTED     20794    -                    /run/systemd/journal/stdout
+unix  3      [ ]         STREAM     CONNECTED     20878    -                    
+unix  3      [ ]         STREAM     CONNECTED     25912    -                    /run/systemd/journal/stdout
+lalitor@HP-240-G4:~$ sudo tcpdump
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on wlp2s0, link-type EN10MB (Ethernet), capture size 262144 bytes
+^C
+0 packets captured
+0 packets received by filter
+0 packets dropped by kernel
+lalitor@HP-240-G4:~$ nslookup up.edu.mx
+Server:		127.0.0.53
+Address:	127.0.0.53#53
+
+Non-authoritative answer:
+Name:	up.edu.mx
+Address: 104.209.187.49
+
+lalitor@HP-240-G4:~$ whois up.edu.mx
+
+Command 'whois' not found, but can be installed with:
+
+sudo apt install whois
+
+lalitor@HP-240-G4:~$ sudo apt install whois
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following NEW packages will be installed:
+  whois
+0 upgraded, 1 newly installed, 0 to remove and 196 not upgraded.
+Need to get 43.7 kB of archives.
+After this operation, 262 kB of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 whois amd64 5.3.0 [43.7 kB]
+Fetched 43.7 kB in 1s (34.2 kB/s)     
+Selecting previously unselected package whois.
+(Reading database ... 123073 files and directories currently installed.)
+Preparing to unpack .../archives/whois_5.3.0_amd64.deb ...
+Unpacking whois (5.3.0) ...
+Setting up whois (5.3.0) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+lalitor@HP-240-G4:~$ whois up.edu.mx
+
+Domain Name:       up.edu.mx
+
+Created On:        1998-01-21
+Expiration Date:   2022-01-20
+Last Updated On:   2021-01-21
+Registrar:         Akky (Una division de NIC Mexico)
+URL:               http://www.akky.mx
+Whois TCP URI:     whois.akky.mx
+Whois Web URL:     http://www.akky.mx/herramientas/whois.jsf
+
+Registrant:
+   Name:           Centros Culturales de Mexico A.C.
+   City:           Mexico
+   State:          Distrito Federal
+   Country:        Mexico
+
+Administrative Contact:
+   Name:           Lorenzo Miguel Elguea Fernandez
+   City:           Mexico
+   State:          Distrito Federal
+   Country:        Mexico
+
+Technical Contact:
+   Name:           Carlos Chavez Paz
+   City:           Mexico
+   State:          Distrito Federal
+   Country:        Mexico
+
+Billing Contact:
+   Name:           Marina Navarro Casta~eda
+   City:           Mexico
+   State:          Distrito Federal
+   Country:        Mexico
+
+Name Servers:
+   DNS:            mex1.up.edu.mx       192.100.201.30, 2801:f0:20:880:0:0:0:cafe
+   DNS:            mex2.up.edu.mx       192.100.230.214, 2801:f0:20:dc0:0:0:0:cafe
+   DNS:            gdl1.up.edu.mx       192.100.179.24
+   DNS:            ags1.up.edu.mx       189.208.175.66
+   DNS:            gdl2.up.edu.mx       192.100.179.36
+
+DNSSEC DS Records:
+
+
+% NOTICE: The expiration date displayed in this record is the date the
+% registrar's sponsorship of the domain name registration in the registry is
+% currently set to expire. This date does not necessarily reflect the
+% expiration date of the domain name registrant's agreement with the sponsoring
+% registrar. Users may consult the sponsoring registrar's Whois database to
+% view the registrar's reported date of expiration for this registration.
+
+% The requested information ("Information") is provided only for the delegation
+% of domain names and the operation of the DNS administered by NIC Mexico.
+
+% It is absolutely prohibited to use the Information for other purposes, 
+% including sending not requested emails for advertising or promoting products
+% and services purposes (SPAM) without the authorization of the owners of the
+% Information and NIC Mexico.
+
+% The database generated from the delegation system is protected by the
+% intellectual property laws and all international treaties on the matter.
+
+% If you need more information on the records displayed here, please contact us
+% by email at ayuda@nic.mx .
+
+% If you want notify the receipt of SPAM or unauthorized access, please send a
+% email to abuse@nic.mx .
+
+% NOTA: La fecha de expiracion mostrada en esta consulta es la fecha que el
+% registrar tiene contratada para el nombre de dominio en el registry. Esta
+% fecha no necesariamente refleja la fecha de expiracion del nombre de dominio
+% que el registrante tiene contratada con el registrar. Puede consultar la base
+% de datos de Whois del registrar para ver la fecha de expiracion reportada por
+% el registrar para este nombre de dominio.
+
+% La informacion que ha solicitado se provee exclusivamente para fines
+% relacionados con la delegacion de nombres de dominio y la operacion del DNS
+% administrado por NIC Mexico.
+
+% Queda absolutamente prohibido su uso para otros propositos, incluyendo el
+% envio de Correos Electronicos no solicitados con fines publicitarios o de
+% promocion de productos y servicios (SPAM) sin mediar la autorizacion de los
+% afectados y de NIC Mexico.
+
+% La base de datos generada a partir del sistema de delegacion, esta protegida
+% por las leyes de Propiedad Intelectual y todos los tratados internacionales
+% sobre la materia.
+
+% Si necesita mayor informacion sobre los registros aqui mostrados, favor de
+% comunicarse a ayuda@nic.mx.
+
+% Si desea notificar sobre correo no solicitado o accesos no autorizados, favor
+% de enviar su mensaje a abuse@nic.mx.
+
+lalitor@HP-240-G4:~$ whois encalientes.com
+   Domain Name: ENCALIENTES.COM
+   Registry Domain ID: 1968430973_DOMAIN_COM-VRSN
+   Registrar WHOIS Server: whois.godaddy.com
+   Registrar URL: http://www.godaddy.com
+   Updated Date: 2020-10-14T16:46:24Z
+   Creation Date: 2015-10-14T04:16:17Z
+   Registry Expiry Date: 2021-10-14T04:16:17Z
+   Registrar: GoDaddy.com, LLC
+   Registrar IANA ID: 146
+   Registrar Abuse Contact Email: abuse@godaddy.com
+   Registrar Abuse Contact Phone: 480-624-2505
+   Domain Status: clientDeleteProhibited https://icann.org/epp#clientDeleteProhibited
+   Domain Status: clientRenewProhibited https://icann.org/epp#clientRenewProhibited
+   Domain Status: clientTransferProhibited https://icann.org/epp#clientTransferProhibited
+   Domain Status: clientUpdateProhibited https://icann.org/epp#clientUpdateProhibited
+   Name Server: NS11.DOMAINCONTROL.COM
+   Name Server: NS12.DOMAINCONTROL.COM
+   DNSSEC: unsigned
+   URL of the ICANN Whois Inaccuracy Complaint Form: https://www.icann.org/wicf/
+>>> Last update of whois database: 2021-04-13T18:53:16Z <<<
+
+For more information on Whois status codes, please visit https://icann.org/epp
+
+NOTICE: The expiration date displayed in this record is the date the
+registrar's sponsorship of the domain name registration in the registry is
+currently set to expire. This date does not necessarily reflect the expiration
+date of the domain name registrant's agreement with the sponsoring
+registrar.  Users may consult the sponsoring registrar's Whois database to
+view the registrar's reported date of expiration for this registration.
+
+TERMS OF USE: You are not authorized to access or query our Whois
+database through the use of electronic processes that are high-volume and
+automated except as reasonably necessary to register domain names or
+modify existing registrations; the Data in VeriSign Global Registry
+Services' ("VeriSign") Whois database is provided by VeriSign for
+information purposes only, and to assist persons in obtaining information
+about or related to a domain name registration record. VeriSign does not
+guarantee its accuracy. By submitting a Whois query, you agree to abide
+by the following terms of use: You agree that you may use this Data only
+for lawful purposes and that under no circumstances will you use this Data
+to: (1) allow, enable, or otherwise support the transmission of mass
+unsolicited, commercial advertising or solicitations via e-mail, telephone,
+or facsimile; or (2) enable high volume, automated, electronic processes
+that apply to VeriSign (or its computer systems). The compilation,
+repackaging, dissemination or other use of this Data is expressly
+prohibited without the prior written consent of VeriSign. You agree not to
+use electronic processes that are automated and high-volume to access or
+query the Whois database except as reasonably necessary to register
+domain names or modify existing registrations. VeriSign reserves the right
+to restrict your access to the Whois database in its sole discretion to ensure
+operational stability.  VeriSign may restrict or terminate your access to the
+Whois database for failure to abide by these terms of use. VeriSign
+reserves the right to modify these terms at any time.
+
+The Registry database contains ONLY .COM, .NET, .EDU domains and
+Registrars.
+Domain Name: encalientes.com
+Registry Domain ID: 1968430973_DOMAIN_COM-VRSN
+Registrar WHOIS Server: whois.godaddy.com
+Registrar URL: http://www.godaddy.com
+Updated Date: 2020-10-14T09:46:24Z
+Creation Date: 2015-10-13T23:16:17Z
+Registrar Registration Expiration Date: 2021-10-13T23:16:17Z
+Registrar: GoDaddy.com, LLC
+Registrar IANA ID: 146
+Registrar Abuse Contact Email: abuse@godaddy.com
+Registrar Abuse Contact Phone: +1.4806242505
+Domain Status: clientTransferProhibited http://www.icann.org/epp#clientTransferProhibited
+Domain Status: clientUpdateProhibited http://www.icann.org/epp#clientUpdateProhibited
+Domain Status: clientRenewProhibited http://www.icann.org/epp#clientRenewProhibited
+Domain Status: clientDeleteProhibited http://www.icann.org/epp#clientDeleteProhibited
+Registrant Organization:
+Registrant State/Province: Washington
+Registrant Country: US
+Registrant Email: Select Contact Domain Holder link at https://www.godaddy.com/whois/results.aspx?domain=encalientes.com
+Tech Email: Select Contact Domain Holder link at https://www.godaddy.com/whois/results.aspx?domain=encalientes.com
+Admin Email: Select Contact Domain Holder link at https://www.godaddy.com/whois/results.aspx?domain=encalientes.com
+Name Server: NS11.DOMAINCONTROL.COM
+Name Server: NS12.DOMAINCONTROL.COM
+DNSSEC: unsigned
+URL of the ICANN WHOIS Data Problem Reporting System: http://wdprs.internic.net/
+>>> Last update of WHOIS database: 2021-04-13T18:53:35Z <<<
+
+For more information on Whois status codes, please visit https://www.icann.org/resources/pages/epp-status-codes-2014-06-16-en
+
+TERMS OF USE: The data contained in this registrar's Whois database, while believed by the
+registrar to be reliable, is provided "as is" with no guarantee or warranties regarding its
+accuracy. This information is provided for the sole purpose of assisting you in obtaining
+information about domain name registration records. Any use of this data for any other purpose
+is expressly forbidden without the prior written permission of this registrar. By submitting
+an inquiry, you agree to these terms and limitations of warranty. In particular, you agree not
+to use this data to allow, enable, or otherwise support the dissemination or collection of this
+data, in part or in its entirety, for any purpose, such as transmission by e-mail, telephone,
+postal mail, facsimile or other means of mass unsolicited, commercial advertising or solicitations
+of any kind, including spam. You further agree not to use this data to enable high volume, automated
+or robotic electronic processes designed to collect or compile this data for any purpose, including
+mining this data for your own personal or commercial purposes. Failure to comply with these terms
+may result in termination of access to the Whois database. These terms may be subject to modification
+at any time without notice.
+lalitor@HP-240-G4:~$ whois https://github.com/LuisR-jpg/School
+No whois server is known for this kind of object.
+lalitor@HP-240-G4:~$ whois https://github.com/
+No whois server is known for this kind of object.
+lalitor@HP-240-G4:~$ 
