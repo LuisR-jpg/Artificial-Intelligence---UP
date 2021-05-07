@@ -37,10 +37,8 @@ erase
   v.push_back(k); //Inserta 'k' al final del vector.
   v.pop_back(); //Elimina el último elemento.
 
-  v.assign(
-  v.clear();
-  v.erase();
-  v.insert();
+  v.assign(n, k); //Asigna el varlo k a los primeros n elementos.
+  v.clear(); //Borra todos los elementos. 
 
   return 0;
 }
