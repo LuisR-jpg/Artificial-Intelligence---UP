@@ -7,20 +7,6 @@ int main(){
   vector<int> t(n, k); //Vector de tamaño n, con valores iniciales = k
   vector<int> v = {1, 2, 3}; //Se crea un vector a partir de un listado.
 
-/*
-size
-empty
-[]
-front
-back
-assign
-push_back
-pop_back
-insert
-clear
-erase
-*/
-
   /* CAPACIDAD */
   v.size(); //*size_type: Número de elementos.
   v.empty(); //bool: 1 si está vacío, 0 si no.
