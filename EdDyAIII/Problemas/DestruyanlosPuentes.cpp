@@ -1,7 +1,10 @@
 #include <bits/stdc++.h>
+#define f first
+#define s second
 using namespace std;
 int n, m, c = 0;
-vector<vector<int>> v, b;
+vector<vector<int>> v;
+set<pair<int, int>> b;
 vector<int> num, low, p;
 void bridges(int u){
   num[u] = low[u] = c++;
@@ -10,8 +13,10 @@ void bridges(int u){
     if(num[w] == -1){
       p[w] = u;
       bridges(w);
-      if(low[w] > num[u])
-	b.push_back({u, w});
+      if(low[w] > num[u]){
+	if(u > w) swap(u, w);
+	b.insert({u, w});
+      }
       low[u] = min(low[u], low[w]);
     }
     else if(p[u] != w) 
@@ -27,7 +32,7 @@ int main(){
     if(num[i] == -1) 
       bridges(i);
   cout << b.size() << "\n";
-  for(auto puente: b)
-    cout << puente[0] << " - " << puente[1] << "\n";
+  for(auto p: b)
+    cout << p.f << " - " << p.s << "\n";
   return 0;
 }
