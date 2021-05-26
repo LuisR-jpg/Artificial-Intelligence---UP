@@ -14,8 +14,7 @@ void bridges(int u){
       p[w] = u;
       bridges(w);
       if(low[w] > num[u]){
-	if(u > w) swap(u, w);
-	b.insert({u, w});
+	b.insert({min(u, w), max(u, w)});
       }
       low[u] = min(low[u], low[w]);
     }
