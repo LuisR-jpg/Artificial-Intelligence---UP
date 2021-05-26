@@ -1,11 +1,10 @@
-//Union-Find Disjoint sets
-//
-//Connects and tells whether an element is in a set.
-//Time Complexity
-//	Union: O(1)
-//	findSet: ~O(1)
-//
+//Kruskal's Algorithm
+//	Algorithm that finds the minimum spanning tree of a graph in O(m), given m edges.
+//	Uses UnionFind
+
 #include <bits/stdc++.h>
+#define f first
+#define s second
 using namespace std;
 class UnionFind{
   private:
@@ -34,11 +33,19 @@ class UnionFind{
     }
 };
 int main(){
-  UnionFind u(10);
-  u.unionSet(0, 1);
-  u.unionSet(2, 3);
-  u.unionSet(4, 3);
-  u.unionSet(0, 4);
-  cout << u.isSameSet(1, 3);
+  int n, m, wMST = 0;
+  cin >> n >> m; //n nodes, m edges
+  vector<pair<int, pair<int, int>>> eL; //Edge List
+  for(int a, b, k, i = 0; i < m; i++){
+    cin >> a >> b >> k; //Edge whose weigth is k and connects a - b
+    eL.push_back({k, {a, b}});
+  }
+  sort(eL.begin(), eL.end()); 
+  UnionFind u(n);
+  for(auto e: eL) //Adds lightest edge that doesn't generate a cycle
+    if(!u.isSameSet(e.s.f, e.s.s))
+      u.unionSet(e.s.f, e.s.s), wMST += e.f;
+  cout << "Weigth of MST: " << wMST << endl;  
   return 0;
 }
+
