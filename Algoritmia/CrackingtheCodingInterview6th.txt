@@ -1,4 +1,4 @@
-Big O
+VI. Big O 38-59
   Metric used to describe the efficiency of algorithms.
   Big O. Upper bound
   Big Omega. Lower bound
@@ -22,4 +22,27 @@ Big O
   Recursive runtimes
     When you have a recursive function that makes multiple calls, the complexity is often O(branches^depth)
 
-    Example 15
+IX. Interview Questions
+  Data Structures.
+    Arrays and Strings
+      Hash tables.
+        A key is assigned to the values and it is located at a position of an array, so the lookup time is O(1) most of the times.
+      Resizable arrays. 
+        Most of the times, a resizable arrays doubles its size if the capacity is exceeded, this still has O(1) complexity for insertions. n + n/2 + n/4... is almost 2n.
+      Stringbuilder.
+        Concatenating n strings of length x takes O(xn²), a StringBuilder is a resizable array that is converted to string only when needed.
+      Interview Questions.     
+        1.1 Is Unique. Sorting.
+        1.2 Check Permutation. Sorting.
+        1.3 URLify. Traverse backwards.
+        1.4 Palindrome Permutation. Sort, set.
+        1.5 One away. Edit distance, check char by char, if not equal, start from the back.
+        1.6 String compression. Another string, pointer and compress.
+        1.7 Rotate Matrix. *
+        1.8 Zero Matrix. Set of rows, set of columns.
+        1.9 String Rotation. *
+    Linked lists.
+      Data structure that represents a sequence of nodes. Every node points to others.
+
+	
+	
