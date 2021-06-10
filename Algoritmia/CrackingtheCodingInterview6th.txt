@@ -43,6 +43,10 @@ IX. Interview Questions
         1.9 String Rotation. *
     Linked lists.
       Data structure that represents a sequence of nodes. Every node points to others.
-
+    Stacks and Queues.
+      Stack. LIFO
+      Queue. FIFO
+	3.1 Three in one. *
+	3.2 Stack Min. Some kind of DP? Save every item with the smallest so far.
 	
 	
