@@ -48,5 +48,7 @@ IX. Interview Questions
       Queue. FIFO
 	3.1 Three in one. *
 	3.2 Stack Min. Some kind of DP? Save every item with the smallest so far.
-	
+	3.3 Stack of Plates. Ez
+	3.4 Queue via stacks. *
+
 	
