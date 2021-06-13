@@ -1,9 +1,10 @@
-# VI. Big O 38-59
+# VI. Big O
   Metric used to describe the efficiency of algorithms.
   - Big O. Upper bound
   - Big Omega. Lower bound
   - Big theta. Tight bound
   ## Space Complexity.
+
     It is different to the time complexity.
   ## Drop the constants.
     Big O notation only describes the slope.
