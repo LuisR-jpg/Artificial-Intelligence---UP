@@ -1,25 +1,25 @@
-VI. Big O 38-59
+# VI. Big O 38-59
   Metric used to describe the efficiency of algorithms.
-  Big O. Upper bound
-  Big Omega. Lower bound
-  Big theta. Tight bound
-  Space Complexity.
+  - Big O. Upper bound
+  - Big Omega. Lower bound
+  - Big theta. Tight bound
+  ## Space Complexity.
     It is different to the time complexity.
-  Drop the constants.
+  ## Drop the constants.
     Big O notation only describes the slope.
-  Multi-part algorithms.
-    O(A + B)
+  ## Multi-part algorithms.
+    ### O(A + B)
       for(auto x: a) cout << 1;
       for(auto x: b) cout << 0;
-    O(AB) 
+    ### O(AB) 
       for(auto x: a) 
         for(auto y: b) 
           cout << 10;
-  Amortized Time
+  ## Amortized Time
     If complexity changes depending on the case, try to consider both complexities and generalize.
-  logn runtimes
+  ## logn runtimes
     Appears commonly the number of elements is divided by two.
-  Recursive runtimes
+  ## Recursive runtimes
     When you have a recursive function that makes multiple calls, the complexity is often O(branches^depth)
 
 IX. Interview Questions
