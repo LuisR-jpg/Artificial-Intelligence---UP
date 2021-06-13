@@ -9,8 +9,8 @@ It is different to the time complexity.
 Big O notation only describes the slope.
 ## Multi-part algorithms.
 ### O(A + B)
-for(auto x: a) cout << 1;
-  for(auto x: b) cout << 0;
+  for(auto x: a) cout << 1;
+    for(auto x: b) cout << 0;
 ### O(AB) 
 for(auto x: a) 
   for(auto y: b) 
