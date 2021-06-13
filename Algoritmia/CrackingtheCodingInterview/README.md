@@ -4,8 +4,8 @@
   - Big Omega. Lower bound
   - Big theta. Tight bound
   ## Space Complexity.
-
     It is different to the time complexity.
+    
   ## Drop the constants.
     Big O notation only describes the slope.
   ## Multi-part algorithms.
