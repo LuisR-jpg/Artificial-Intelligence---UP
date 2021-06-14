@@ -1,3 +1,5 @@
+*CHECK PRETTY IMPORTANT
+
 VI. Big O 38-59
   Metric used to describe the efficiency of algorithms.
   Big O. Upper bound
@@ -24,7 +26,7 @@ VI. Big O 38-59
 
 IX. Interview Questions
   Data Structures.
-    Arrays and Strings
+    1. Arrays and Strings
       Hash tables.
         A key is assigned to the values and it is located at a position of an array, so the lookup time is O(1) most of the times.
       Resizable arrays. 
@@ -41,65 +43,95 @@ IX. Interview Questions
         1.7 Rotate Matrix. *
         1.8 Zero Matrix. Set of rows, set of columns.
         1.9 String Rotation. *
-    Linked lists.
+    2. Linked lists.
       Data structure that represents a sequence of nodes. Every node points to others.
-    Stacks and Queues.
+    3. Stacks and Queues.
       Stack. LIFO
       Queue. FIFO
+      Interview Questions.     
 	3.1 Three in one. *
 	3.2 Stack Min. Some kind of DP? Save every item with the smallest so far.
 	3.3 Stack of Plates. Ez
 	3.4 Queue via stacks. *O(n) approach, is it the best?
 	3.5 Sort Stack. Original stack is already sorted. Pop every element smaller than the one you are pushing.
 	3.6 Animal Shelter. It's only a pair of queues. Isn't it?
-    Trees and Graphs.
-      Trees are a kind of graph, it has no cycles, it has a root, every node may have children.
-      A node is called a leaf if it has no children.
-      Binary Tree.
-	Every node has up to two children.
-	Binary Search Tree.
-	  Every descendant from the left is <= than any right descendant.
-	Balanced trees.
-	  AVL and Red-Black trees ensure to find and search elements in O(logn)
-	Complete binary tree.
-	  The only level able to be not filled is the last one, in that case, it's filled from left to right.
-	Full Binary Trees.
-	  Every node has either two or zero children.
-	Perfect binary trees.
-	  These trees are both full and complete. This means every leaf are at the same level adn this lever has the maximum number of nodes.
-	Binary tree traversal.
-	  In-order traversal.
-	    Left branch
-	    Current Node
-	    Rigth branch
-	  Pre-order traversal.
-	    Current node
-	    Left branch
-	    Right branch
-	  Post-order traversal.
-	    Left branch
-	    Rigth branch
-	    Current node
-	Binary heaps.
+    4. Trees and Graphs.
+      Trees
+        Trees are a kind of graph, it has no cycles, it has a root, every node may have children.
+        A node is called a leaf if it has no children.
+	Binary Tree.
+	  Every node has up to two children.
+	  Binary Search Tree.
+	    Every descendant from the left is <= than any right descendant.
+	  Balanced trees.
+	    AVL and Red-Black trees ensure to find and search elements in O(logn)
 	  Complete binary tree.
-	  For max heaps: Every node is greater than its children.
-	  Min heaps: Nodes are smaller than the children.
-	  Insertion.
-	    Insert the element in the bottommost and rigthmost spot and bubble it with its parent while it's greater.
-	  Extract.
-	    Remove top element, move the last one to the top and bubble it down with the smaller child until the heap property is maintained.
-      Tries.
-	Variant of n-ary trees. Good data structure to work with strings and their prefixes.
-    Graphs.
-      A graph is a collection of edges and nodes.
-      They can be:
-	Directed or undirected
-	Connected or disconnected 
-	Cyclic or acyclic
-      In programming they can be stored in:
-	Adjacency list. A bit more complex
-	Adjacency matrix. Less efficient
-      Graph search.
-	
-
-	
+	    The only level able to be not filled is the last one, in that case, it's filled from left to right.
+	  Full Binary Trees.
+	    Every node has either two or zero children.
+	  Perfect binary trees.
+	    These trees are both full and complete. This means every leaf are at the same level adn this lever has the maximum number of nodes.
+	  Binary tree traversal.
+	    In-order traversal.
+      	      Left branch
+      	      Current Node
+      	      Rigth branch
+	    Pre-order traversal.
+      	      Current node
+      	      Left branch
+      	      Right branch
+      	    Post-order traversal.
+      	      Left branch
+      	      Rigth branch
+      	      Current node
+	  Binary heaps.
+      	    Complete binary tree.
+      	    For max heaps: Every node is greater than its children.
+      	    Min heaps: Nodes are smaller than the children.
+      	    Insertion.
+      	      Insert the element in the bottommost and rigthmost spot and bubble it with its parent while it's greater.
+      	    Extract.
+      	      Remove top element, move the last one to the top and bubble it down with the smaller child until the heap property is maintained.
+	Tries.
+	  Variant of n-ary trees. Good data structure to work with strings and their prefixes.
+      Graphs.
+	A graph is a collection of edges and nodes.
+	They can be:
+	  Directed or undirected
+	  Connected or disconnected 
+	  Cyclic or acyclic
+	For programming they can be stored in:
+	  Adjacency list. A bit more complex
+	  Adjacency matrix. Less efficient
+	Graph search.
+	  DFS.
+	    Goes deep
+	    It is called preorder in trees
+	    Stack (may be implemented recursively or iteratively)
+	  BFS.
+	    Goes wide
+	    Queue (it's not recursive)
+	  Bidirectional search.
+	    To find the shortest path between two points, a BFS from the source and one from the destination will be faster.
+	    In a graph where every node has k neighbors. Finding a path of length d would take O(k^d) using the common BFS, and O(k^(d/2)) in terms of bidirectional search.
+      Interview Questions.     
+	4.2 Minimal Tree.
+	4.7 Build Order.
+	4.8 First Common Ancestor.
+	4.9 BST Sequences.
+	4.10 Check Subtree.
+	4.11 Random node.
+  Concepts and Algorithms
+    5. Bit Manipulation
+      XOR is true if both bits are different
+      Two's complement and negative numbers
+	Computers store positive numbers in their binary representation
+	And negative numbers are stored in two's complement, that is a concatenation of (1, 2^(n-1) - k)
+      Arithmetic vs Logical Right Shift
+	Logical right shift. The most significant bit turns to 0 (messes up negative numbers)
+	Arithmetical right shift. Roughly divides by two
+	Common bit tasks.
+	  Pretty important
+      Interview Questions
+	Pretty important
+    6. Math and logical puzzles
