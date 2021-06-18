@@ -1,10 +1,7 @@
-//	Ford Fulkerson
-//Finds the maximum flow that can be send from a source node to the sink node.
-//Steps.
-//	1. Find Augmenting Path
-//	2. Find max flow in the path
-//	3. Update capacites with the max flow
-//
+//	Ford Fulkerson Approach
+//To solve the BMP problem using Ford Fulkerson, the algorithm doesn't change.
+//Given a bipartite graph a new source node is declarated and it has to point to the left-most elements and the right-most ones have to point to the new sink node.
+
 //Complexity
 //	Time: O(f*n^2) Where f is the max flow and n is the number of nodes.
 //	Memory: O(n^2)
@@ -58,12 +55,18 @@ int fordFulkerson(){
 }
 
 int main(){
-  cin >> n >> m >> s >> t;
-  for(int i = 0, a, b, k; i < m; i++){
-    cin >> a >> b >> k;
-    c[a][b] = k;
+  cin >> n >> m;
+  s = n, t = n + 1; //New nodes
+  n += 2;
+  for(int i = 0, a, b; i < m; i++){
+    cin >> a >> b;
+    c[s][a] = 1; //m in case one node from the left may connect many of the right
+    c[b][t] = 1;
+    c[a][b] = 1;
+    r[s][a] = c[s][a];
+    r[b][t] = c[b][t];
     r[a][b] = c[a][b];
   }
-  cout << "The max flow is: " << fordFulkerson();
+  cout << "The max number of pairs is: " << fordFulkerson();
   return 0;
 }
