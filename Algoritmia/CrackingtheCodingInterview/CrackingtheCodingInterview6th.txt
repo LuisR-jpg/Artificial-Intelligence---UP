@@ -1,4 +1,60 @@
 *CHECK PRETTY IMPORTANT
+I. The interview process.
+  Your performance might be evaluated by the next by:
+    Analytical Skills. How was your solution? Did you struggle to find it?
+    Coding Skills. Did you write reasonable code?
+    Technical Knowledge. Do you have strong basics?
+    Experience. Have you done good technical decisions?
+    Culture fit. Did you communicate well?
+II. Behind the scenes.
+  The google interview.
+    Definitely prepare: 
+      System design
+      Scalability
+      Algorithmic skills
+    What's different
+      Your interviewers don't decide if you are hired or not.
+V. Behavioral Questions.
+  Interview Preparation Grid
+    Important to know the aspects of your projects.
+  Weaknesses
+    Be honest!
+    How do you overcome this?
+  What should I ask to the interviewer?
+    Genuine Questions
+      What has been most challenging for you?
+    Insightful Questions
+      Questions to demonstrate your knowledge
+    Passion questions
+      These questions demonstrate that you like technology:
+	I like x, what opportunities are there at this company to learn more about this?
+	Could you tell me a bit of how y works?
+    Know your technical projects
+      Focus on the ones with:
+	Challenging components
+	You played a central role
+	You can talk at technical depth
+    Responding to behavioral questions
+      Be specific, not arrogant
+      Limit Details 
+      Focus on Yourself, not your team
+	Assume that every question is about your role.
+	Listen how many times you say "we" vs "I"
+      Give structured answers
+	Nugget. "Let me tell you about that time..."
+	SAR. Situation, action, result
+      Check what your stories say
+      Tell me about yourself
+	Important
+	Recommended structure.
+	  Current role.
+	  College
+	  Post-college
+	  Current role (details).
+	  Outside of work
+	  what's next
+	Hobbies
+	  Mention them only if they're interesting, unique or remark any of your passions or skills
 
 VI. Big O 38-59
   Metric used to describe the efficiency of algorithms.
