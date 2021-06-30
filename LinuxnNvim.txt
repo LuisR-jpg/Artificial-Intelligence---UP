@@ -22,6 +22,7 @@ Closes current tab:	CTRL + W
 
 whoami //Written in console returns username
 unzip cosa.zip //To unpack files
+sudo apt-get purge --auto-remove nameoftheSoftware //Deletes program and it's dependencies
 
 C++:
   To compile: g++ nombre.cpp	//Se guarda en a.out
