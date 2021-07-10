@@ -134,3 +134,20 @@ To search:
 
 Tricks:
 	d, d, p: Swaps two lines	
+
+
+--- PROGRAMMING ---
+
+PYTHON:
+  Ejecutar. nombre.py
+  Interactivo. python
+
+C++:
+  g++ -o nombrecualquiera (.exe opcional) nombre.cpp
+  nombrecualquiera (sin .exe)
+
+Java:
+  javac nombre.java
+  java nombre
+  jar -cfe nombreJar.jar nombreClasePrincipal (sin extension) demáselementos (con extension)
+  java -jar nombreJar.jar
