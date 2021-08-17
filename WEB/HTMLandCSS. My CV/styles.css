@@ -1,0 +1,60 @@
+body {
+    background-color: darkslategrey;
+}
+h1 {
+    color: black;
+    font-family: Georgia, "Lucida Console", Monaco, "Courier New";
+    font-size: x-large;
+}
+h2 {
+    margin-bottom: 1mm;
+}
+h3 {
+    font-weight: normal;
+    margin-top: 25px;
+}
+p {
+    font-size: large;
+}
+a:hover {
+    cursor: pointer;
+    color: red;
+}
+.cero {
+    list-style-type: circle;
+}
+.uno {
+    list-style-type: square;
+}
+.nombre {
+    background-color: white;
+    width: 45%;
+    border-radius: 5px;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.recuadro {
+    background-color: white;
+    border-radius: 25px;
+    padding: 1%;
+    width: 45%;
+    text-align: justify;
+}
+.escuela {
+    font-size: medium;
+}
+.carrera {
+    font-weight: 100;
+    font-size: large;
+}
+.graduacion {
+    text-align: right;
+}
+.fin {
+    margin-bottom: 10px
+}
+.proyecto {
+    color: black;
+    text-decoration: none;
+}
