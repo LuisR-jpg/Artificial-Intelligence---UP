@@ -1,3 +1,46 @@
 body {
   margin: 0;
 }
+img {
+  width: 200px;
+  border-style: solid;
+  border-width: 5px;
+  border-color:  rgb(234, 184, 190);
+  border-radius: 50%;
+}
+.card {
+  width: 210px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: gray;
+  border-radius: 5px;
+  text-align: center;
+}
+.paddingEjercicio {
+  background-color: green;
+  padding: 10px;
+  padding: 5px 10px;
+  padding: 3px 6px 9px;
+  padding: 2px 3px 4px 5px;
+}
+.librePadding {
+  background-color: greenyellow;
+  padding: 1px;
+  padding: 1px 2px;
+  padding: 3px 5px 8px;
+  padding: 13px 21px 34px;
+}
+.marginEjercicio {
+  background-color: blue;
+  margin: 10px;
+  margin: 5px 10px;
+  margin: 3px 6px 9px;
+  margin: 4px 2px 6px 8px;
+}
+.libreMargin {
+  background-color: blueviolet;
+  margin: 1px;
+  margin: 1px 2px;
+  margin: 3px 6px 9px;
+  margin: 4px 2px 6px 8px;
+}
