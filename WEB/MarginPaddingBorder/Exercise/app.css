@@ -17,30 +17,30 @@ img {
   text-align: center;
 }
 .paddingEjercicio {
-  background-color: green;
+  background-color: #297F87;
   padding: 10px;
   padding: 5px 10px;
   padding: 3px 6px 9px;
   padding: 2px 3px 4px 5px;
 }
 .librePadding {
-  background-color: greenyellow;
+  background-color: #FFF7AE;
   padding: 1px;
   padding: 1px 2px;
   padding: 3px 5px 8px;
-  padding: 13px 21px 34px;
+  padding: 13px 21px 34px 55px;
 }
 .marginEjercicio {
-  background-color: blue;
+  background-color: #F6D167;
   margin: 10px;
   margin: 5px 10px;
   margin: 3px 6px 9px;
   margin: 4px 2px 6px 8px;
 }
 .libreMargin {
-  background-color: blueviolet;
+  background-color: #DF2E2E;
   margin: 1px;
   margin: 1px 2px;
-  margin: 3px 6px 9px;
-  margin: 4px 2px 6px 8px;
+  margin: 3px 5px 8px;
+  margin: 13px 21px 34px 55px;
 }
