@@ -1,0 +1,40 @@
+body {
+    margin: 0%;
+    display: flex;
+    background-color: aqua;
+}
+#contenedor {
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 15%;
+    left: 37%;
+    height: 70%;
+    width: 26%;
+    border-radius: 6%;
+}
+#screen {
+    background-color: gray;
+    width: 80%;
+    height: 15%;
+    position: relative;
+    left: 10%;
+    border-style: solid;
+    border-width: 30%;
+}
+.fila { 
+    display: flex;
+    justify-content: space-around;
+}
+.boton {
+    background-color: white;
+    border-radius: 25%;
+    height: 4vw;
+    width: 4vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
