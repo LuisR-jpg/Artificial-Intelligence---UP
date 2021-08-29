@@ -10,7 +10,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    flex-wrap: wrap;
+    /*flex-wrap: wrap;*/
     position: absolute;
     top: 7%;
     left: 36%;
