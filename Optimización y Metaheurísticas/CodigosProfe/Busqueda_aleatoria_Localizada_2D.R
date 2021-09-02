@@ -14,13 +14,11 @@ my.cols <- matlab.like(9)
 x1 <- seq(-4, 4, length.out=100)
 x2 <- seq(-4, 4, length.out=100)
 
-
-
-
 # crear mallado con x1 y x2, y evaluar cada par de puntos en la funcion fr
-z <- fobjetivo(expand.grid(x1, x2)) 
-# grafica de contorno: x1, x2 = axis, matrix = vals(100, 100)
-contour(x1, x2, matrix(z$Var, length(x1)), col=my.cols, lwd=1, lty=1, nlevels = 14, xlab='x1', ylab='x2')
+z <- fobjetivo(expand.grid(x1, x2))
+
+# grafica de contorno
+contour(x1, x2, matrix(z$Var, length(x1)), col=my.cols, lwd=1.8, lty=2, nlevels = 14, xlab='x1', ylab='x2')
 
 
 # Paso 0 (inicializacion)
@@ -28,18 +26,17 @@ x = c(4, 4)
 fx = fobjetivo(x)
 k = 0
 
-points(x[1], x[2], col="blue", pch=25)
+points(x[1], x[2], col="blue", pch=19)
 
 while(k < 500){
-  k = k + 1
-
+  k = k + 1 
+  
   # Paso 1:
   dk = rnorm(2, mean = 0, sd = 1.3) # sigma pequeña, saltos pequeños; sigma grande, saltos grandes
   xhat = x + dk
   fxhat = fobjetivo(xhat)
-
+  
   if(fxhat < fx){
-    arrows(x[1], x[2], xhat[1], xhat[2], length=1)
     x = xhat
     fx = fxhat
     points(x[1], x[2], col="green", pch=19)
