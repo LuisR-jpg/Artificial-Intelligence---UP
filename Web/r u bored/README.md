@@ -4,5 +4,6 @@ Find a bunch of activities to do! You can decide the type of activity you want t
 
 
 
-###### Simulated errors might be present in the page.
+###### Note #1. Simulated errors might be present in the page.
 
+###### Note #2. The project consumes from: https://www.boredapi.com/
