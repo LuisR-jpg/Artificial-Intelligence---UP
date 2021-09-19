@@ -1,8 +1,8 @@
 # R u bored? 
-#### Have you ever been bored and don't know what to do? Then this page is for you.
-Find a bunch of activities to do! You can decide the type of activity or let the page surprise you.
+#### This page is here to help when you don't know what to do.
+Find a bunch of activities to do! You can decide the type of activity you want to receive or let the page surprise you.
 
 
 
-###### Simulated error might be present in the page.
+###### Simulated errors might be present in the page.
 
