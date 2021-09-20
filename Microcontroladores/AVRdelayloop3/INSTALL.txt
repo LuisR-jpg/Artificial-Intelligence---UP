@@ -1,0 +1,34 @@
+     AVR DELAY LOOP GENERATOR V1.x  (C)2000 by Tjabo Kloppenburg
+
+                 -+-- Deutsche/English Install Info --+-
+                 
+            Das Programm darf frei kopiert und verwendet werden.
+                    Der Verkauf ist nicht gestattet.
+              Die Benutzung geschieht auf eigene Gefahr.
+
+Version 1.2:
+  - the program now can create really long delays (80.000.000 is no problem).
+  - removed serveral bugs - actually I've rewritten the codecreator code.
+  - thanks to Marc Lalonde for his bug report feedback!
+
+          Send bug reports and suggestions to tjabo@unix-ag.org!
+
+--INSTALLATION:-------------------------------------------------------------------
+DEUTSCH:
+
+Installation:
+  - Kopiere das Programm dahin, wo du es haben willst
+  - Lege Links an wie es Dir beliebt.
+
+Deinstallation:
+  - Lösche das Programm und alle Links. :-)
+
+
+ENGLISH:
+Install:
+  - Copy the program where you want it to be.
+  - Create links if you wish.
+
+Uninstall:
+  - Delete the program file and all your links. :-)
+---------------------------------------------------------------------

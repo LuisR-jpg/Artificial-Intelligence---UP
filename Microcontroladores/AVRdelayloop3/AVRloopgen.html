@@ -1,0 +1,84 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="me">
+   <title>AVR delay loop generator</title>
+</head>
+<body>
+
+<center>
+<h2>
+AVR delay loop generator</h2></center>
+
+<center><font size=+1>Version 1.2 (Windoze-Version)</font>
+<p>(C)2000 by Tjabo Kloppenburg
+<br><i>Jeder darf die Software downloaden und benutzen.</i>
+<br><i>Nur die kostenlose Weitergabe ist gestattet.</i>
+<br><i>Der Autor &uuml;bernimmt keinerlei Garantie f&uuml;r die Funktionsweise
+des Programms!</i>
+<br><i>Der Autor &uuml;bernimmt keinerlei Haftung im Schadensfalle!</i>
+<p><a href="http://www.home.unix-ag.org/tjabo/AVR/AVRdelayloop3.rar">Download
+for Win9x. (V1.2)</a>
+<br><a href="http://www.home.unix-ag.org/tjabo/AVR/AVRdelayloop.pl">Download
+perl program for Linux.</a></center>
+
+<p>
+<b>Changes:</b><br>
+Version 1.2:<ul>
+<li>the program can now create really <i>lllooonnnggg</i> delays,
+<li>I've rewritten the code generator (too many bugs),
+<li>the program now remembers its language,
+<li>you can now select the registers to use,
+<li>and finally: thanks to Marc Lalone for reporting a bug!
+</ul>
+</p>
+
+<p>Click <a href="#English">here</a> for english text.
+<p>Ich habe ein Programm geschrieben, mit dem man recht einfach Warteschleifen
+f&uuml;r ATMEL AVR-Controllers erzeugen kann, die ohne Timer auskommen.
+Das Programm ist <b>mehrsprachlich</b> - durch Klick auf eine der Flaggen kann
+man die GUI auf eine andere Sprache einstellen. Neu: das Programm merkt
+sich die Einstellung. Was mir noch fehlt sind die Texte f&uuml;r franz&ouml;sisch
+und spanisch -- wenn mir die jemand
+<a href="mailto:tjabo.kloppenburg@unix-ag.org">per
+Email schickt</a>, baue ich die sofort ein.
+<p>Um eine Warteschleife zu erzeugen geht man einfach so vor, wie es in
+der linken Fensterh&auml;lfte des Programmfensters steht:
+<br>1. Zuerst gibt man die Taktzyklen an, die von der Warteschleife verbraten
+werden sollen. Oder wahlweise die Sekunden.
+<br>2. Klick auf den START-Button.
+<br>3. Den erzeugten Quellcode speichern, oder ins ClipBoard kopieren (f&uuml;r
+Copy/Paste).
+<br>Fertig!
+<p>Im Quelltexteditor kann man den Warteschleifen-Code dann einfach per
+Shift-Einfg einf&uuml;gen.
+<p>Welche Register f&uuml;r die Schleife verwendet werden sollen, stellt
+man oben recht ein:
+<center>
+<p><img SRC="AVRdelayloop1.jpg"></center>
+
+<p>
+<hr NOSHADE WIDTH="100%">
+<p>
+<a NAME="English"></a><b>English text for non germans:</b><br>
+<b>Send french and spanisch texts and I'll put them in the program!</b>
+</p>
+<br>I've written a program to generate delay loops for ATMEL AVR controllers.
+It's multilingual. You can change the program's GUI language by clicking on one of the flags.
+<p>To generate a delay loop in ASM source code just follow the steps in
+the left part of the window:
+<br>1. Enter the cycles the delay loop shall have. (in a future version
+you'll be able to enter the delay time in seconds).
+<br>2. Click the GO-Button
+<br>3. Save the generated code to a file or copy the source to your ClipBoard
+(Copy/Paste).
+<br>That's it.
+<p>Watch out for register collisions in your ASM source!
+<p>You may download, <b>use</b> and copy the programs <b>for free</b>!
+See german copyright infos at top of page for details.
+<center>
+<p><img SRC="AVRdelayloop2.jpg"></center>
+
+</body>
+</html>
