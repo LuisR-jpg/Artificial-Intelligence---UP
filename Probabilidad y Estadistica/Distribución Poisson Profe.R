@@ -47,23 +47,22 @@
 # ¿Cuál es la probabilidad de que la primer llamada llegue después de las 8:10 am?R = 0.3679 ( P(X = 0) )
 # ¿Cuál es la probabilidad de que el empleado pueda realizar una actividad distinta durante 45 minutos sin que sea interrumpido por una llamada?R = 0.0111
 
-lambda60 = 6
-# a) P(x <= 2) = P(x = 0) + P(x = 3) + P(x = 2)
-lambda30 = (30/60)*lambda60
-lambda30
-prob_menor_o_igual_2 = dpois(0, lambda30) + dpois(1, lambda30) + dpois(2, lambda30)
-prob_menor_o_igual_2
+# lambda60 = 6
+# # a) P(x <= 2) = P(x = 0) + P(x = 3) + P(x = 2)
+# lambda30 = (30/60)*lambda60
+# lambda30
+# prob_menor_o_igual_2 = dpois(0, lambda30) + dpois(1, lambda30) + dpois(2, lambda30)
+# prob_menor_o_igual_2
+# 
+# # b) P(X = 0) en un intervalo de 10 minutos
+# lambda10 = (10/60)*lambda60
+# prob_0 = dpois(0, lambda10)
+# prob_0
+# 
+# # c) P(X = 0) en un intervalo de 45 minutos
+# lambda45 = 45/60*lambda60
+# prob_0 = dpois(0, lambda45)
+# prob_0
 
-# b) P(X = 0) en un intervalo de 10 minutos
-lambda10 = (10/60)*lambda60
-prob_0 = dpois(0, lambda10)
-prob_0
-
-# c) P(X = 0) en un intervalo de 45 minutos
-lambda45 = 45/60*lambda60
-prob_0 = dpois(0, lambda45)
-prob_0
-
-# Tareitaaaaaaa
 
 
