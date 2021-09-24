@@ -1,7 +1,7 @@
 ;
-; ContadorSimple.asm
+; ContadoresIndependientes.asm
 ;
-; Created: 21/09/2021 03:26:28 p. m.
+; Created: 23/09/2021 03:59:16 p. m.
 ; Author : lalor
 ;
 
@@ -53,65 +53,102 @@ out SPL, r16
 ;Aquí comienza el programa...
 ;No olvides configurar al inicio todo lo que utilizarás
 ;*********************************
-LDI R16, $FE
-OUT DDRA, R16
-LDI R16, $01
-OUT PORTA, R16
-LDI R16, $FF
-OUT DDRD, R16
-LDI R16, $00
-OUT PORTD, R16
 
-BUTTON:
-SBIC PINA, 0
-RJMP BUTTON
-INC R16
-CPI R16, 10
-BREQ RESETBUTTON
-SETDISPLAY:
-OUT PORTD, R16
-RCALL RTR
-RJMP BUTTON
 
-RESETBUTTON:
+//Puerto parcial de entrada y completo de salida
 LDI R16, 0
-RJMP SETDISPLAY
+OUT DDRA, R16
+LDI R16, $FF
+OUT PORTA, R16
+OUT DDRC, R16
+LDI R16, 0
+OUT PORTC, R16
+LDI R17, 0 //CONTADOR UNO
+LDI R18, 0 //CONTADOR DOS
 
-RTR:
-RCALL DELAY
-STAY:
+BOTONES:
 SBIS PINA, 0
-RJMP STAY
+RCALL RESETUNO
+SBIS PINA, 2
+RCALL AUMENTAUNO
+SBIS PINA, 4
+RCALL RESETDOS
+SBIS PINA, 6
+RCALL AUMENTADOS
+RJMP BOTONES
+
+AUMENTAUNO:
+INC R17
+CPI R17, $10
+BREQ RESETRUNO
+RCALL PRINT
+RCALL DELAY
+STAYUNO:
+SBIS PINA, 2
+RJMP STAYUNO
 RCALL DELAY
 RET
 
+AUMENTADOS:
+RCALL DELAY
+STAYDOS:
+SBIS PINA, 6
+RJMP STAYDOS
+RCALL DELAY
+INC R18
+CPI R18, $10
+BREQ RESETRDOS
+RCALL PRINT
+RET
+
+RESETUNO:
+RCALL RESETRUNO
+RCALL PRINT
+RCALL DELAY
+STAYRUNO:
+SBIS PINA, 0
+RJMP STAYRUNO
+RCALL DELAY
+RET
+
+RESETDOS:
+RCALL DELAY
+STAYRDOS:
+SBIS PINA, 4
+RJMP STAYRDOS
+RCALL DELAY
+RCALL RESETRDOS
+RCALL PRINT
+RET
+
+RESETRUNO:
+LDI R17, 0
+RET
+RESETRDOS:
+LDI R18, 0
+RET
+
+PRINT:
+MOV R19, R17
+SWAP R19
+OR R19, R18
+OUT PORTC, R19
+RET
+
 DELAY:
-; ============================= 
-;    delay loop generator 
 ;     50000 cycles:
-; ----------------------------- 
-; delaying 49995 cycles:
-          ldi  R17, $65
-WGLOOP0:  ldi  R18, $A4
-WGLOOP1:  dec  R18
+          ldi  R29, $65
+WGLOOP0:  ldi  R30, $A4
+WGLOOP1:  dec  R30
           brne WGLOOP1
-          dec  R17
+          dec  R29
           brne WGLOOP0
-; ----------------------------- 
-; delaying 3 cycles:
-          ldi  R17, $01
-WGLOOP2:  dec  R17
+          ldi  R29, $01
+WGLOOP2:  dec  R29
           brne WGLOOP2
-; ----------------------------- 
-; delaying 2 cycles:
           nop
           nop
-; ============================= 
-ret
-
-
-
-
+RET
 
 
 ;*********************************
