@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  C:\Users\lalor\Documents\Git\School\Microcontroladores\IV. Contadores Independientes\ContadoresIndependientes\ContadoresIndependientes\main.asm Fri Sep 24 17:15:49 2021
+AVRASM ver. 2.2.8  C:\Users\lalor\Documents\Git\School\Microcontroladores\IV. Contadores Independientes\ContadoresIndependientes\ContadoresIndependientes\main.asm Fri Sep 24 22:15:35 2021
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m16Adef.inc'
 C:\Users\lalor\Documents\Git\School\Microcontroladores\IV. Contadores Independientes\ContadoresIndependientes\ContadoresIndependientes\main.asm(8): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m16adef.inc'
@@ -1033,9 +1033,9 @@ C:\Users\lalor\Documents\Git\School\Microcontroladores\IV. Contadores Independie
 000059 d00f                      RCALL DELAY
                                  STAYRDOS:
 00005a 9bcc                      SBIS PINA, 4
-00005b e020                      LDI R18, 0
+00005b cffe                      RJMP STAYRDOS
 00005c d00c                      RCALL DELAY
-00005d d004                      RCALL RESETRDOS
+00005d e020                      LDI R18, 0
 00005e d005                      RCALL PRINT
 00005f 9508                      RET
                                  
@@ -1150,7 +1150,7 @@ fmulsu:   0 icall :   0 ijmp  :   0 in    :   0 inc   :   2 jmp   :  21
 ld    :   0 ldd   :   0 ldi   :  14 lds   :   0 lpm   :   0 lsl   :   0 
 lsr   :   0 mov   :   1 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
 neg   :   0 nop   :   2 or    :   1 ori   :   0 out   :   7 pop   :   0 
-push  :   0 rcall :  17 ret   :   6 reti  :  20 rjmp  :   6 rol   :   0 
+push  :   0 rcall :  16 ret   :   6 reti  :  20 rjmp  :   7 rol   :   0 
 ror   :   0 sbc   :   0 sbci  :   0 sbi   :   0 sbic  :   0 sbis  :   8 
 sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   0 sec   :   0 seh   :   0 
 sei   :   0 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
