@@ -3,29 +3,30 @@ library('Deriv')
 Secante <- function(a, b, e){
   flag = 0
   it = 1
-  alpha = (a + b)/2
+  alpha = 0
   fDeriv = Deriv(f)
-  sDeriv = Deriv(fDeriv)
-  h = c(it, alpha, f(alpha), fDeriv(alpha), sDeriv(alpha))
-  while(abs(fDeriv(alpha)) > e){
+  #h = c(it, alpha, f(alpha), fDeriv(alpha))
+  h = c()
+  repeat{
+    alpha = (a + b)/2
     if(fDeriv(a)*fDeriv(alpha) < 0){
-      b = alpha
-      flag = 1
+      b = alpha;
+      break;
     }
-    else a = alpha
-    if(flag == 1){
-      alpha = b - fDeriv(b)/((fDeriv(b) - fDeriv(a))/(b - a))
-      it = it + 1
-      h = rbind(h, c(it, alpha, f(alpha), fDeriv(alpha), sDeriv(alpha)))
-      if(fDeriv(alpha) > 0)
-        b = alpha
-      else 
-        a = alpha
-    }
+    else a = alpha;
+    h = c(h, alpha, f(alpha), fDeriv(alpha))
   }
-  cat('Alpha')
+  repeat{
+    alpha = b - fDeriv(b)/(fDeriv(b) - fDeriv(a))/(b - a)
+    if(fDeriv(alpha) > 0) b = alpha
+    else a = alpha
+    h = c(h, alpha, f(alpha), fDeriv(alpha))
+    if(abs(fDeriv(alpha)) < e) break
+  }
+  return(matrix(h, ncol = 3, byrow = TRUE))
 }
 f <- function(x){
-  x^2 + 2*exp(-x)
+  x^2 + 1
 }
-Secante(-4, -3, 1e-8)
+#Secante(-4, 3, 0.00000001)
+write.csv(Secante(-3, 4, 1e-8), file = "Git/School/Optimización y Metaheurísticas/Secante.csv") #CSV
