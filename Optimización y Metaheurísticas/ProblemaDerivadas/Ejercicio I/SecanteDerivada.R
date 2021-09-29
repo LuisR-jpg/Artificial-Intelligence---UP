@@ -41,5 +41,5 @@ Secante <- function(a, b, e, it = -1){
 f <- function(x){
   x^2 + x^4
 }
-Secante(-4, 2, 1e-8, 10)
+Secante(-4, 3, 1e-8, 10)
 #write.csv(Secante(-4, 2, 1e-8, 10), file = "Git/School/Optimización y Metaheurísticas/ProblemaDerivadas/Secante.csv") #CSV
