@@ -1,20 +1,18 @@
 # f(x_1, x_2) = x_1^2 + x_2^2 - 2*x_1
 # = f(x_1) = x_1^2 - 2*x_1 + f(x_2) = x_2^2
 
-f <- function(xUno, xDos){
-  xUno^2 + xDos^2 - 2*xUno
-}
-fUno <- function(x){
+
+fasdfsda <- function(x){
   x^2 - 2*x
 }
-fDos <- function(x){
+f <- function(x){
   x^2
 }
 
 NewtonRaphson <- function(x, e, it = -1){
   xPrev = 0
-  # fDeriv = Deriv(f)
-  # sDeriv = Deriv(fDeriv)
+  fDeriv = Deriv(f)
+  sDeriv = Deriv(fDeriv)
   v = xPlot = yPlot = c()
   xGraf = seq(-4, 3, 0.1)
   plot(xGraf, fDeriv(xGraf), type = "l", lwd = 1, main = "Newton-Raphson", xlab = expression('x'[i]), ylab = expression("f'(x"[i]*")"))
@@ -38,6 +36,6 @@ NewtonRaphson <- function(x, e, it = -1){
 }
 
 #NewtonRaphson(-4, 1e-8, 10)
-write.csv(NewtonRaphson(-4, 1e-8, 10), file = "Git/School/Optimización y Metaheurísticas/ProblemaDerivadas/Ejercicio II/NewtonRaphson.csv") #CSV
+write.csv(NewtonRaphson(-4, 1e-8, 10), file = "Git/School/Optimización y Metaheurísticas/ProblemaDerivadas/Ejercicio III/NewtonRaphsonDos.csv") #CSV
 
 
