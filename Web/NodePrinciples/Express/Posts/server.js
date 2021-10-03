@@ -6,11 +6,12 @@ app.use(express.urlencoded({ extended: true })); // for parsing application/x-ww
 app.set("views", path.join(__dirname, "views")); // for ejs
 app.set("view engine", "ejs"); // for ejs
 
-let posts = [
+let posts = [/*
   { username: "erickgtzh", post: "Hoy es un buen díaaaa!!!" },
   { username: "sebastian", post: "Ya hace hambre" },
   { username: "rafael", post: "Huele a gas" },
   { username: "saracar", post: "Tengo sueñooooo ZzZ" },
+  */  
 ];
 
 app.get("/posts", (req, res) => {
