@@ -56,8 +56,9 @@ app.post("/posts/modify", (req, res) => {
 });
 
 app.get("/posts/delete/:id", (req, res) => {
-  const {id} = req.body;
+  const {id} = req.params;
   console.log(posts);
+  console.log(id);
   console.log(posts.splice(id, 1));
   res.render("posts/index", {posts});
 });
