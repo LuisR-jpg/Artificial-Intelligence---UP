@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Este es nuestro template</h1>
+        <ul>
+            <% for(let p of posts){ %>
+            <li><%=p.username%> - <%=p.post%></li>
+            <%}%>
+        </ul>
+        <form method="GET" action="/posts/create">
+            <button type="submit">Add post</button>
+        </form>
+        <form method="GET" action="/posts/modify">
+            <button type="submit">Modify post</button>
+        </form>
+        <form method="GET" action="/posts/clear">
+            <button type="submit">Clear feed</button>
+        </form>
+        <form method="GET" action="/posts/update">
+            <button type="submit">Update feed</button>
+        </form>
+    </body>
+</html>
