@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Are you bored?</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.5/dist/sweetalert2.all.min.js"></script>
+    </head>
+    <body>
+        <div style="height: 100vh" class="d-flex flex-column justify-content-center">
+            <div class="d-flex flex-row justify-content-center">
+                <button onclick="bored()" type="button" class="btn btn-danger btn-lg">Are you bored?</button>
+            </div>
+            <br><br>
+
+            <div class="col col-4 align-self-center">
+                <div class="pegadito alert alert-warning" role="alert">
+                    Type of activity you wanna do.
+                </div>
+                <select class="form-select form-select-lg mb-3" id="actType">
+                    <option selected>Surprise Me!</option>
+                    <option>Education</option>
+                    <option>Recreational</option>
+                    <option>Social</option>
+                    <option>DIY</option>
+                    <option>Charity</option>
+                    <option>Cooking</option>
+                    <option>Relaxation</option>
+                    <option>Music</option>
+                    <option>Busywork</option>
+                </select>
+            </div>
+        </div>
+        <script>
+            var counter = 1;
+            function bored(){
+                var url = "https://www.boredapi.com/api/activity";
+                var activity = document.getElementById("actType").value;
+                if(activity != "Surprise Me!")
+                    url += "?type=" + activity.toLowerCase();
+                if(counter++ % 5 == 0) url = "lol";
+                fetch(url)
+                .then(response => response.json())
+                //.then(data => document.getElementById("Whattodo").innerHTML = data);
+                .then(data => Swal.fire({
+                    title: data.activity,
+                    text: data.type.toUpperCase(),
+                    icon: 'info',
+                    confirmButtonText: 'Cool'
+                }))
+                .catch(() => Swal.fire({
+                    title: "Only boring ppl get bored",
+                    text: "JS didn't want to do the request. Try again later.",
+                    icon: 'error',
+                    confirmButtonText: 'Agh'
+                }));
+            }
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    </body>
+</html>
