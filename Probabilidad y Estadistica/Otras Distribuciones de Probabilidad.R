@@ -1,11 +1,4 @@
-# Universidad Panamericana
-# Campus Bonaterra
-# Departamento de Matemáticas
-# Probabilidad y Estadística para Ingeniería
-# 
-# Paul RC
-# 2021 09 27
-# =====
+
 # Otras distribuciones continuas
 # Surgidas de la Distribución Normal
 # ===
