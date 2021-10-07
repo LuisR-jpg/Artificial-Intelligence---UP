@@ -1,7 +1,7 @@
 
 # Defino la funcion a optimizar
 fobjetivo = function(x){
-  0.5*((x[1]^4 - 16*x[1]^2 + 5*x[1]) + (x[2]^4 - 16*x[2]^2 + 5*x[2]))
+  (x[1]-1)^2 + (x[2]-5)^2
 }
 
 # Dibujar la funcion que quiero optimizar
@@ -11,8 +11,8 @@ require(colorRamps)
 my.cols <- matlab.like(9)
 
 # Limites de graficacion para x1 y x2
-x1 <- seq(-4, 4, length.out=100)
-x2 <- seq(-4, 4, length.out=100)
+x1 <- seq(-5, 5, length.out=100)
+x2 <- seq(-4, 10, length.out=100)
 
 # crear mallado con x1 y x2, y evaluar cada par de puntos en la funcion fr
 z <- fobjetivo(expand.grid(x1, x2))
