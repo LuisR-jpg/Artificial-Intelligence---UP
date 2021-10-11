@@ -1,3 +1,5 @@
+//File de Prueba
+
 const mongoose = require('mongoose');
 mongoose
     .connect('mongodb://localhost:27017/daw')
@@ -15,6 +17,7 @@ const movieSchema = new mongoose.Schema({
    rating: String,
 });
 
-const Movie = mongoose.model("Movie", movieSchema);
+const Movie = mongoose.model("Peli", movieSchema); //The collection in mongo will be called pelis (note the extra s)
 const toystory = new Movie({title: "Toy Story", year: "1996", score: 100, rating: "A"});    
+toystory.save();
 console.log(toystory);
