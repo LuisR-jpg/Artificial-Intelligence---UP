@@ -59,3 +59,65 @@ alpha = 1 - 0.99
 p - qnorm(alpha/2, lower.tail = FALSE)*sqrt(p*(1 - p)/n)
 p + qnorm(alpha/2, lower.tail = FALSE)*sqrt(p*(1 - p)/n)
 
+
+
+
+
+# Intervalo de confianza para la Varianza
+# Ejemplo 1.
+IC_Varianza = function(desv_std, n, coef_conf){
+  alfa = 1 - coef_conf
+  ji2_1_menos_alfa_medios = qchisq(1 - alfa/2, n - 1, lower.tail = FALSE)
+  print(ji2_1_menos_alfa_medios)
+  ji2_alfa_medios = qchisq(alfa/2, n - 1, lower.tail = FALSE)
+  print(ji2_alfa_medios)
+  
+  LIC = (n-1)*desv_std^2/ji2_alfa_medios
+  LSC = (n-1)*desv_std^2/ji2_1_menos_alfa_medios
+  return(list(lim_inf_conf = LIC, lim_sup_conf = LSC))
+}
+n = 36
+s = 1.8
+coefConf = 0.99
+IC1_var = IC_Varianza(s, n, coefConf)
+IC1_var
+
+# Ejemplo 2.
+IC_Varianza(sd(c(18, 21, 16, 22, 19, 24, 17, 21, 23, 18, 14, 16, 16, 19, 18, 20, 12, 22, 15, 17)), 20, 0.98)
+
+
+
+
+# Intervalos de confianza para comparar dos poblaciones
+
+IC_mu1_mu2_sigmas_conocidas = function(x_barra1, n1, sigma1, x_barra2, n2, sigma2, coef_conf){
+  alfa = 1 - coef_conf
+  z_alfa_medios = qnorm(alfa/2, lower.tail = FALSE)
+  LIC = (x_barra1 - x_barra2) - z_alfa_medios*sqrt(sigma1^2/n1 + sigma2^2/n2)
+  LSC = (x_barra1 - x_barra2) + z_alfa_medios*sqrt(sigma1^2/n1 + sigma2^2/n2)
+  resultado = list(lim_inf_conf = LIC, lim_sup_conf = LSC)
+  return(resultado)
+}
+
+x_barra1 = 4.1
+x_barra2 = 4.5
+n1 = 100
+n2 = 100
+sigma1 = 1.8
+sigma2 = 2
+coefConf = 0.9
+IC_mu1_mu2_sigmas_conocidas(x_barra1, n1, sigma1, x_barra2, n2, sigma2, coefConf)
+
+
+# Intervalo de confianza para la diferencia de proporciones
+
+IC_diferencia_proporciones = function(p1, p2, coef_conf, n1, n2){
+  alfa = 1 - coef_conf
+  z_alfa_medios = qnorm(alfa/2, lower.tail = FALSE)
+  LIC = p1-p2 - z_alfa_medios*sqrt(p1*(1 - p1)/n1 + p2*(1 - p2)/n2)
+  LSC = p1-p2 + z_alfa_medios*sqrt(p1*(1 - p1)/n1 + p2*(1 - p2)/n2)
+  resultado = list(lim_inf_conf = LIC, lim_sup_conf = LSC)
+  return(resultado)
+}
+
+IC_diferencia_proporciones(30/200, 180/600, 0.99, 200, 600)

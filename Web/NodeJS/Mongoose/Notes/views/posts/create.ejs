@@ -7,17 +7,17 @@
     <title>Create new post</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 </head>
-<body class = "bg-dark container d-flex flex-column">
+<body class = "bg-warning container d-flex flex-column">
     <div class="d-flex align-items-center justify-content-center" style = "height: 100vh;">
         <form method="POST" action="/posts">
-            <div class="alert alert-dark bg-dark text-light text-center fs-3 my-5" role="alert">
-                Post what you think!
+            <div class="alert alert-dark bg-secondary text-light text-center fs-3 my-5" role="alert">
+                Got something to do?
             </div>
             <div class="d-flex">
-                <div><input type="text" class="form-control" name="username" placeholder="Who?"></div>
-                <input type="text" class="form-control" name="post" placeholder="What are you thinking?">
+                <div><input type="text" size="100" class="form-control" name="username" placeholder="Task"></div>
+                <input type="text" size = "50" class="form-control" name="post" placeholder="Description">
             </div>
-            <button class = "btn btn-lg btn-outline-secondary my-3">Post</button>
+            <button class = "btn btn-lg btn-outline-secondary text-dark my-3">Create</button>
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
