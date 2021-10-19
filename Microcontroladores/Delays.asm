@@ -70,21 +70,21 @@ RETARDO50m:						//200,000 ciclos: 50ms 4MHz
 */
 
 /*
-RETARDO50m:						//400,000 ciclos: 50 ms 8MHz
+retardo50m:						//400,000 ciclos: 50 ms 8mhz
 	; ============================= 
 	;    delay loop generator 
 	;     400000 cycles:
 	; ----------------------------- 
 	; delaying 399999 cycles:
-			  ldi  R31, $97
-	WGLOOP0:  ldi  R30, $06
-	WGLOOP1:  ldi  R29, $92
-	WGLOOP2:  dec  R29
-			  brne WGLOOP2
-			  dec  R30
-			  brne WGLOOP1
-			  dec  R31
-			  brne WGLOOP0
+			  ldi  r31, $97
+	wgloop0:  ldi  r30, $06
+	wgloop1:  ldi  r29, $92
+	wgloop2:  dec  r29
+			  brne wgloop2
+			  dec  r30
+			  brne wgloop1
+			  dec  r31
+			  brne wgloop0
 	; ----------------------------- 
 	; delaying 1 cycle:
 			  nop

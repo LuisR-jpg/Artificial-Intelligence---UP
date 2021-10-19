@@ -1,10 +1,10 @@
 
-AVRASM ver. 2.2.8  C:\Users\lalor\Documents\Git\School\Microcontroladores\AssemblerApplication1\AssemblerApplication1\main.asm Sun Oct 17 13:17:35 2021
+AVRASM ver. 2.2.8  C:\Users\lalor\Documents\Git\School\Microcontroladores\Examen\II\ParcialII\ParcialII\main.asm Tue Oct 19 14:48:48 2021
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m16Adef.inc'
-C:\Users\lalor\Documents\Git\School\Microcontroladores\AssemblerApplication1\AssemblerApplication1\main.asm(8): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m16adef.inc'
+C:\Users\lalor\Documents\Git\School\Microcontroladores\Examen\II\ParcialII\ParcialII\main.asm(8): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m16adef.inc'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m16Adef.inc'
-C:\Users\lalor\Documents\Git\School\Microcontroladores\AssemblerApplication1\AssemblerApplication1\main.asm(8): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m16adef.inc'
+C:\Users\lalor\Documents\Git\School\Microcontroladores\Examen\II\ParcialII\ParcialII\main.asm(8): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m16adef.inc'
                                  
                                  ;
                                  
@@ -872,9 +872,9 @@ C:\Users\lalor\Documents\Git\School\Microcontroladores\AssemblerApplication1\Ass
                                  #endif  /* _M16ADEF_INC_ */
                                  
                                  
-                                 ; BaseKeyboard.asm
+                                 ; ParcialII.asm
                                  ;
-                                 ; Created: 05/10/2021 03:59:18 p. m.
+                                 ; Created: 19/10/2021 12:24:06 p. m.
                                  ; Author : lalor
                                  ;
                                  
@@ -937,26 +937,26 @@ C:\Users\lalor\Documents\Git\School\Microcontroladores\AssemblerApplication1\Ass
                                  .org 0x0000
                                  ;Comienza el vector de interrupciones...
 000000 940c 002a                 jmp RESET ; Reset Handler
-000002 940c 00bf                 jmp EXT_INT0 ; IRQ0 Handler
-000004 940c 00c0                 jmp EXT_INT1 ; IRQ1 Handler
-000006 940c 00c1                 jmp TIM2_COMP ; Timer2 Compare Handler
-000008 940c 00c2                 jmp TIM2_OVF ; Timer2 Overflow Handler
-00000a 940c 00c3                 jmp TIM1_CAPT ; Timer1 Capture Handler
-00000c 940c 00c4                 jmp TIM1_COMPA ; Timer1 CompareA Handler
-00000e 940c 00c5                 jmp TIM1_COMPB ; Timer1 CompareB Handler
-000010 940c 00c6                 jmp TIM1_OVF ; Timer1 Overflow Handler
-000012 940c 00c7                 jmp TIM0_OVF ; Timer0 Overflow Handler
-000014 940c 00c8                 jmp SPI_STC ; SPI Transfer Complete Handler
-000016 940c 00c9                 jmp USART_RXC ; USART RX Complete Handler
-000018 940c 00ca                 jmp USART_UDRE ; UDR Empty Handler
-00001a 940c 00cb                 jmp USART_TXC ; USART TX Complete Handler
-00001c 940c 00cc                 jmp ADC_COMP ; ADC Conversion Complete Handler
-00001e 940c 00cd                 jmp EE_RDY ; EEPROM Ready Handler
-000020 940c 00ce                 jmp ANA_COMP ; Analog Comparator Handler
-000022 940c 00cf                 jmp TWSI ; Two-wire Serial Interface Handler
-000024 940c 00d0                 jmp EXT_INT2 ; IRQ2 Handler
-000026 940c 00d1                 jmp TIM0_COMP ; Timer0 Compare Handler
-000028 940c 00d2                 jmp SPM_RDY ; Store Program Memory Ready Handler
+000002 940c 00f1                 jmp EXT_INT0 ; IRQ0 Handler
+000004 940c 00f2                 jmp EXT_INT1 ; IRQ1 Handler
+000006 940c 00f3                 jmp TIM2_COMP ; Timer2 Compare Handler
+000008 940c 00f4                 jmp TIM2_OVF ; Timer2 Overflow Handler
+00000a 940c 00f5                 jmp TIM1_CAPT ; Timer1 Capture Handler
+00000c 940c 00f6                 jmp TIM1_COMPA ; Timer1 CompareA Handler
+00000e 940c 00f7                 jmp TIM1_COMPB ; Timer1 CompareB Handler
+000010 940c 00f8                 jmp TIM1_OVF ; Timer1 Overflow Handler
+000012 940c 00f9                 jmp TIM0_OVF ; Timer0 Overflow Handler
+000014 940c 00fa                 jmp SPI_STC ; SPI Transfer Complete Handler
+000016 940c 00fb                 jmp USART_RXC ; USART RX Complete Handler
+000018 940c 00fc                 jmp USART_UDRE ; UDR Empty Handler
+00001a 940c 00fd                 jmp USART_TXC ; USART TX Complete Handler
+00001c 940c 00fe                 jmp ADC_COMP ; ADC Conversion Complete Handler
+00001e 940c 00ff                 jmp EE_RDY ; EEPROM Ready Handler
+000020 940c 0100                 jmp ANA_COMP ; Analog Comparator Handler
+000022 940c 0101                 jmp TWSI ; Two-wire Serial Interface Handler
+000024 940c 0102                 jmp EXT_INT2 ; IRQ2 Handler
+000026 940c 0103                 jmp TIM0_COMP ; Timer0 Compare Handler
+000028 940c 0104                 jmp SPM_RDY ; Store Program Memory Ready Handler
                                  
                                  ;**************
                                  ;Inicializar el Stack Pointer
@@ -972,191 +972,279 @@ C:\Users\lalor\Documents\Git\School\Microcontroladores\AssemblerApplication1\Ass
                                  ;Aqu? comienza el programa...
                                  ;No olvides configurar al inicio todo lo que utilizar?s
                                  ;*********************************
-00002e ef00                      LDI R16, $F0
+                                 
+                                 
+00002e e00e                      LDI R16, $0E
 00002f bb0a                      OUT DDRK, R16
 000030 ef0f                      LDI R16, $FF
-000031 bb0b                      OUT PORTK, R16
+000031 bb07                      OUT DDRB, R16
+000032 bb04                      OUT DDRC, R16
+000033 bb01                      OUT DDRD, R16
+000034 d0ac                      RCALL RST
                                  ;...
                                  
-                                 TECLADO: 
-000032 ee0f                      LDI R16, $EF ;PULL-UPS ENTRADAS, MANDO PRIMER TIERRA A PIN 4
-000033 bb0b                      OUT PORTK, R16
-000034 0000                      NOP ;PIERDE CICLO DE RELOJ
-000035 0000                      NOP
-000036 9bc8                      SBIS PINK, 0
-000037 c02b                      RJMP UNO
-000038 9bc9                      SBIS PINK, 1
-000039 c03d                      RJMP CUATRO
-00003a 9bca                      SBIS PINK, 2
-00003b c04f                      RJMP SIETE
-00003c 9bcb                      SBIS PINK, 3
-00003d c061                      RJMP ASTERISCO
-00003e 9adc                      SBI PORTK, 4 ;REGRESA 5v
-00003f 98dd                      CBI PORTK, 5 ;CAMBIA GND
-000040 0000                      NOP
-000041 0000                      NOP
-000042 9bc8                      SBIS PINK, 0
-000043 c024                      RJMP DOS
-000044 9bc9                      SBIS PINK, 1
-000045 c036                      RJMP CINCO
-000046 9bca                      SBIS PINK, 2
-000047 c048                      RJMP OCHO
-000048 9bcb                      SBIS PINK, 3
-000049 c05a                      RJMP CERO
-00004a 9add                      SBI PORTK, 5 
-00004b 98de                      CBI PORTK, 6 
-00004c 0000                      NOP
-00004d 0000                      NOP
-00004e 9bc8                      SBIS PINK, 0
-00004f c01d                      RJMP TRES
-000050 9bc9                      SBIS PINK, 1
-000051 c02f                      RJMP SEIS
-000052 9bca                      SBIS PINK, 2
-000053 c041                      RJMP NUEVE
-000054 9bcb                      SBIS PINK, 3
-000055 c053                      RJMP GATITO
-000056 9ade                      SBI PORTK, 6 
-000057 98df                      CBI PORTK, 7 
-000058 0000                      NOP
-000059 0000                      NOP
-00005a 9bc8                      SBIS PINK, 0
-00005b c016                      RJMP A
-00005c 9bc9                      SBIS PINK, 1
-00005d c028                      RJMP B
-00005e 9bca                      SBIS PINK, 2
-00005f c03a                      RJMP C
-000060 9bcb                      SBIS PINK, 3
-000061 c04c                      RJMP D
-000062 cfcf                      RJMP TECLADO
+                                 TECLADO:
+000035 bb18                      	OUT PORTB, R17
+000036 bb25                      	OUT PORTC, R18
+000037 bb32                      	OUT PORTD, R19
+                                  
+000038 ef0d                      	LDI R16, $FD ;PULL-UPS ENTRADAS, MANDO PRIMER TIERRA A PIN 1
+000039 bb0b                      	OUT PORTK, R16
+00003a 0000                      	NOP ;PIERDE CICLO DE RELOJ
+00003b 0000                      	NOP
+00003c 9bcc                      	SBIS PINK, 4
+00003d c021                      	RJMP UNO
+00003e 9bcd                      	SBIS PINK, 5
+00003f c031                      	RJMP CUATRO
+000040 9bce                      	SBIS PINK, 6
+000041 c041                      	RJMP SIETE
+000042 9bcf                      	SBIS PINK, 7
+000043 c051                      	RJMP ASTERISCO
+000044 9ad9                      	SBI PORTK, 1 ;REGRESA 5v
+000045 98da                      	CBI PORTK, 2 ;CAMBIA GND
+000046 0000                      	NOP
+000047 0000                      	NOP
+000048 9bcc                      	SBIS PINK, 4
+000049 c01b                      	RJMP DOS
+00004a 9bcd                      	SBIS PINK, 5
+00004b c02b                      	RJMP CINCO
+00004c 9bce                      	SBIS PINK, 6
+00004d c03b                      	RJMP OCHO
+00004e 9bcf                      	SBIS PINK, 7
+00004f c04b                      	RJMP CERO
+000050 9ada                      	SBI PORTK, 2 
+000051 98db                      	CBI PORTK, 3 
+000052 0000                      	NOP
+000053 0000                      	NOP
+000054 9bcc                      	SBIS PINK, 4
+000055 c015                      	RJMP TRES
+000056 9bcd                      	SBIS PINK, 5
+000057 c025                      	RJMP SEIS
+000058 9bce                      	SBIS PINK, 6
+000059 c035                      	RJMP NUEVE
+00005a 9bcf                      	SBIS PINK, 7
+00005b c045                      	RJMP GATITO
+                                 
+00005c 9bc8                      	SBIS PINA, 0
+00005d d083                      	RCALL RST
+00005e cfd6                      RJMP TECLADO
                                  
                                  UNO:
                                  	;CODIGO AL PRESIONAR
-000063 d04f                      	RCALL DELAY
+00005f e051                      	LDI R21, 1
+000060 d085                      	RCALL DELAY
                                  	TRABA_UNO:
-000064 9bc8                      		SBIS PINK, 0
-000065 cffe                      	RJMP TRABA_UNO
-000066 d04c                      	RCALL DELAY
+000061 9bcc                      		SBIS PINK, 4
+000062 cffe                      	RJMP TRABA_UNO
+000063 d082                      	RCALL DELAY
                                  	;CODIGO AL SOLTAR
-000067 cfca                      RJMP TECLADO
+000064 c042                      RJMP PROCESAN
                                  DOS:
-000068 d04a                      	RCALL DELAY
-                                 	TRABA_DOS:
-000069 9bc8                      		SBIS PINK, 0
-00006a cffe                      	RJMP TRABA_DOS
-00006b d047                      	RCALL DELAY
-00006c cfc5                      RJMP TECLADO
-                                 TRES:
-00006d d045                      	RCALL DELAY
-                                 	TRABA_TRES:
-00006e 9bc8                      		SBIS PINK, 0
-00006f cffe                      	RJMP TRABA_TRES
-000070 d042                      	RCALL DELAY
-000071 cfc0                      RJMP TECLADO
-                                 A:
-000072 d040                      	RCALL DELAY
-                                 	TRABA_A:
-000073 9bc8                      		SBIS PINK, 0
-000074 cffe                      	RJMP TRABA_A
-000075 d03d                      	RCALL DELAY
-000076 cfbb                      RJMP TECLADO
-                                 CUATRO:
-000077 d03b                      	RCALL DELAY
-                                 	TRABA_CUATRO:
-000078 9bc9                      		SBIS PINK, 1
-000079 cffe                      	RJMP TRABA_CUATRO
-00007a d038                      	RCALL DELAY
-00007b cfb6                      RJMP TECLADO
-                                 CINCO:
-00007c d036                      	RCALL DELAY
-                                 	TRABA_CINCO:
-00007d 9bc9                      		SBIS PINK, 1
-00007e cffe                      	RJMP TRABA_CINCO
-00007f d033                      	RCALL DELAY
-000080 cfb1                      RJMP TECLADO
-                                 SEIS:
-000081 d031                      	RCALL DELAY
-                                 	TRABA_SEIS:
-000082 9bc9                      		SBIS PINK, 1
-000083 cffe                      	RJMP TRABA_SEIS
-000084 d02e                      	RCALL DELAY
-000085 cfac                      RJMP TECLADO
-                                 B:
-000086 d02c                      	RCALL DELAY
-                                 	TRABA_B:
-000087 9bc9                      		SBIS PINK, 1
-000088 cffe                      	RJMP TRABA_B
-000089 d029                      	RCALL DELAY
-00008a cfa7                      RJMP TECLADO
-                                 SIETE:
-00008b d027                      	RCALL DELAY
-                                 	TRABA_SIETE:
-00008c 9bca                      		SBIS PINK, 2
-00008d cffe                      	RJMP TRABA_SIETE
-00008e d024                      	RCALL DELAY
-00008f cfa2                      RJMP TECLADO
-                                 OCHO:
-000090 d022                      	RCALL DELAY
-                                 	TRABA_OCHO:
-000091 9bca                      		SBIS PINK, 2
-000092 cffe                      	RJMP TRABA_OCHO
-000093 d01f                      	RCALL DELAY
-000094 cf9d                      RJMP TECLADO
-                                 NUEVE:
-000095 d01d                      	RCALL DELAY
-                                 	TRABA_NUEVE:
-000096 9bca                      		SBIS PINK, 2
-000097 cffe                      	RJMP TRABA_NUEVE
-000098 d01a                      	RCALL DELAY
-000099 cf98                      RJMP TECLADO
-                                 C:
-00009a d018                      	RCALL DELAY
-                                 	TRABA_C:
-00009b 9bca                      		SBIS PINK, 2
-00009c cffe                      	RJMP TRABA_C
-00009d d015                      	RCALL DELAY
-00009e cf93                      RJMP TECLADO
-                                 ASTERISCO:
-00009f d013                      	RCALL DELAY
-                                 	TRABA_ASTERISCO:
-0000a0 9bcb                      		SBIS PINK, 3
-0000a1 cffe                      	RJMP TRABA_ASTERISCO
-0000a2 d010                      	RCALL DELAY
-0000a3 cf8e                      RJMP TECLADO
-                                 CERO:
-0000a4 d00e                      	RCALL DELAY
-                                 	TRABA_CERO:
-0000a5 9bcb                      		SBIS PINK, 3
-0000a6 cffe                      	RJMP TRABA_CERO
-0000a7 d00b                      	RCALL DELAY
-0000a8 cf89                      RJMP TECLADO
-                                 GATITO:
-0000a9 d009                      	RCALL DELAY
-                                 	TRABA_GATITO:
-0000aa 9bcb                      		SBIS PINK, 3
-0000ab cffe                      	RJMP TRABA_GATITO
-0000ac d006                      	RCALL DELAY
-0000ad cf84                      RJMP TECLADO
-                                 D:
-0000ae d004                      	RCALL DELAY
-                                 	TRABA_D:
-0000af 9bcb                      		SBIS PINK, 3
-0000b0 cffe                      	RJMP TRABA_D
-0000b1 d001                      	RCALL DELAY
-0000b2 cf7f                      RJMP TECLADO
+000065 e052                      	LDI R21, 2
                                  
-                                 DELAY:
-0000b3 e6d5                                ldi  R29, $65
-0000b4 eae4                      WGLOOP0:  ldi  R30, $A4
-0000b5 95ea                      WGLOOP1:  dec  R30
-0000b6 f7f1                                brne WGLOOP1
-0000b7 95da                                dec  R29
-0000b8 f7d9                                brne WGLOOP0
-0000b9 e0d1                                ldi  R29, $01
-0000ba 95da                      WGLOOP2:  dec  R29
-0000bb f7f1                                brne WGLOOP2
-0000bc 0000                                nop
-0000bd 0000                                nop
-0000be 9508                      RET
+000066 d07f                      	RCALL DELAY
+                                 	TRABA_DOS:
+000067 9bcc                      		SBIS PINK, 4
+000068 cffe                      	RJMP TRABA_DOS
+000069 d07c                      	RCALL DELAY
+00006a c03c                      RJMP PROCESAN
+                                 TRES:
+00006b e053                      	LDI R21, 3
+                                 
+00006c d079                      	RCALL DELAY
+                                 	TRABA_TRES:
+00006d 9bcc                      		SBIS PINK, 4
+00006e cffe                      	RJMP TRABA_TRES
+00006f d076                      	RCALL DELAY
+000070 c036                      RJMP PROCESAN
+                                 CUATRO:
+000071 e054                      	LDI R21, 4
+000072 d073                      	RCALL DELAY
+                                 	TRABA_CUATRO:
+000073 9bcd                      		SBIS PINK, 5
+000074 cffe                      	RJMP TRABA_CUATRO
+000075 d070                      	RCALL DELAY
+000076 c030                      RJMP PROCESAN
+                                 CINCO:
+000077 e055                      	LDI R21, 5
+                                 
+000078 d06d                      	RCALL DELAY
+                                 	TRABA_CINCO:
+000079 9bcd                      		SBIS PINK, 5
+00007a cffe                      	RJMP TRABA_CINCO
+00007b d06a                      	RCALL DELAY
+00007c c02a                      RJMP PROCESAN
+                                 SEIS:
+00007d e056                      	LDI R21, 6
+                                 
+00007e d067                      	RCALL DELAY
+                                 	TRABA_SEIS:
+00007f 9bcd                      		SBIS PINK, 5
+000080 cffe                      	RJMP TRABA_SEIS
+000081 d064                      	RCALL DELAY
+000082 c024                      RJMP PROCESAN
+                                 
+                                 SIETE:
+000083 e057                      	LDI R21, 7
+                                 
+000084 d061                      	RCALL DELAY
+                                 	TRABA_SIETE:
+000085 9bce                      		SBIS PINK, 6
+000086 cffe                      	RJMP TRABA_SIETE
+000087 d05e                      	RCALL DELAY
+000088 c01e                      RJMP PROCESAN
+                                 OCHO:
+000089 e058                      	LDI R21, 8
+                                 
+00008a d05b                      	RCALL DELAY
+                                 	TRABA_OCHO:
+00008b 9bce                      		SBIS PINK, 6
+00008c cffe                      	RJMP TRABA_OCHO
+00008d d058                      	RCALL DELAY
+00008e c018                      RJMP PROCESAN
+                                 NUEVE:
+00008f e059                      	LDI R21, 9
+                                 
+000090 d055                      	RCALL DELAY
+                                 	TRABA_NUEVE:
+000091 9bce                      		SBIS PINK, 6
+000092 cffe                      	RJMP TRABA_NUEVE
+000093 d052                      	RCALL DELAY
+000094 c012                      RJMP PROCESAN
+                                 ASTERISCO: ; + 
+000095 e050                      	LDI R21, 0
+                                 	
+000096 d04f                      	RCALL DELAY
+                                 	TRABA_ASTERISCO:
+000097 9bcf                      		SBIS PINK, 7
+000098 cffe                      	RJMP TRABA_ASTERISCO
+000099 d04c                      	RCALL DELAY
+00009a c01c                      RJMP PROCESAOP
+                                 CERO:
+00009b 2755                      	CLR R21
+                                 
+00009c d049                      	RCALL DELAY
+                                 	TRABA_CERO:
+00009d 9bcf                      		SBIS PINK, 7
+00009e cffe                      	RJMP TRABA_CERO
+00009f d046                      	RCALL DELAY
+0000a0 c006                      RJMP PROCESAN
+                                 GATITO: ; -
+0000a1 e051                      	LDI R21, 1
+                                 
+0000a2 d043                      	RCALL DELAY
+                                 	TRABA_GATITO:
+0000a3 9bcf                      		SBIS PINK, 7
+0000a4 cffe                      	RJMP TRABA_GATITO
+0000a5 d040                      	RCALL DELAY
+0000a6 c010                      RJMP PROCESAOP
+                                 
+                                 PROCESAN:
+0000a7 fd40                      	SBRC R20, 0
+0000a8 2b25                      	OR R18, R21
+0000a9 fd43                      	SBRC R20, 3
+0000aa 2b35                      	OR R19, R21
+0000ab 9552                      	SWAP R21
+0000ac fd41                      	SBRC R20, 1
+0000ad 2b25                      	OR R18, R21
+0000ae fd44                      	SBRC R20, 4
+0000af 2b35                      	OR R19, R21
+0000b0 fd44                      	SBRC R20, 4 ; HORA DE CALCULAR
+0000b1 d00a                      	RCALL CALCULATE
+0000b2 fd42                      	SBRC R20, 2
+0000b3 9546                      	LSR R20
+0000b4 ff45                      	SBRS R20, 5
+0000b5 0f44                      	LSL R20
+0000b6 cf7e                      RJMP TECLADO
+                                 
+                                 PROCESAOP:
+0000b7 ff42                      	SBRS R20, 2
+0000b8 cf7c                      	RJMP TECLADO
+0000b9 2f65                      	MOV R22, R21
+0000ba 0f44                      	LSL R20
+0000bb cf79                      RJMP TECLADO
+                                 
+                                 CALCULATE:
+0000bc 2f72                      	MOV R23, R18
+0000bd 9572                      	SWAP R23
+0000be 707f                      	ANDI R23, $0F
+0000bf 2f83                      	MOV R24, R19
+0000c0 9582                      	SWAP R24
+0000c1 708f                      	ANDI R24, $0F
+                                 	
+0000c2 2f92                      	MOV R25, R18
+0000c3 709f                      	ANDI R25, $0F
+0000c4 2fa3                      	MOV R26, R19
+0000c5 70af                      	ANDI R26, $0F
+                                 
+0000c6 ff60                      	SBRS R22, 0
+0000c7 d009                      	RCALL CALCULATEADD
+0000c8 fd60                      	SBRC R22, 0
+0000c9 d00f                      	RCALL CALCULATESUB
+                                 	
+0000ca 9592                      	SWAP R25
+0000cb 7f90                      	ANDI R25, $F0
+0000cc 2711                      	CLR R17
+0000cd 2b17                      	OR R17, R23
+0000ce 2b19                      	OR R17, R25
+0000cf 9512                      	SWAP R17
+0000d0 9508                      RET
+                                 
+                                 CALCULATEADD:
+0000d1 0f78                      	ADD R23, R24
+0000d2 307a                      	CPI R23, 10
+0000d3 f414                      	BRGE SUMUNI
+                                 CONTINUESUM:
+0000d4 0f9a                      	ADD R25, R26
+                                 
+0000d5 9508                      RET
+                                 SUMUNI:
+0000d6 9593                      	INC R25
+0000d7 507a                      	SUBI R23, 10
+0000d8 cffb                      RJMP CONTINUESUM
+                                 
+                                 CALCULATESUB:
+0000d9 1b78                      	SUB R23, R24
+0000da f012                      	BRMI SUBUNI
+                                 CONTINUESUB:
+0000db 1b9a                      	SUB R25, R26
+0000dc 9508                      RET
+                                 
+                                 SUBUNI:
+0000dd 959a                      	DEC R25
+0000de e00a                      	LDI R16, 10
+0000df 0f70                      	ADD R23, R16
+0000e0 cffa                      RJMP CONTINUESUB
+                                 
+                                 RST:
+0000e1 2711                      	CLR R17
+0000e2 2722                      	CLR R18
+0000e3 2733                      	CLR R19
+0000e4 e041                      	LDI R20, 1 //Waits for first number
+0000e5 9508                      RET
+                                 	
+                                 
+                                 
+                                 DELAY:						//400,000 ciclos: 50 ms 8mhz
+                                 	; ============================= 
+                                 	;    delay loop generator 
+                                 	;     400000 cycles:
+                                 	; ----------------------------- 
+                                 	; delaying 399999 cycles:
+0000e6 e9f7                      			  ldi  r31, $97
+0000e7 e0e6                      	wgloop0:  ldi  r30, $06
+0000e8 e9d2                      	wgloop1:  ldi  r29, $92
+0000e9 95da                      	wgloop2:  dec  r29
+0000ea f7f1                      			  brne wgloop2
+0000eb 95ea                      			  dec  r30
+0000ec f7d9                      			  brne wgloop1
+0000ed 95fa                      			  dec  r31
+0000ee f7c1                      			  brne wgloop0
+                                 	; ----------------------------- 
+                                 	; delaying 1 cycle:
+0000ef 0000                      			  nop
+                                 	; ============================= 
+0000f0 9508                      RET
                                  
                                  
                                  
@@ -1166,45 +1254,46 @@ C:\Users\lalor\Documents\Git\School\Microcontroladores\AssemblerApplication1\Ass
                                  ;Aqu? est? el manejo de las interrupciones concretas
                                  ;*********************************
                                  EXT_INT0: ; IRQ0 Handler
-0000bf 9518                      reti
+0000f1 9518                      reti
                                  EXT_INT1: 
-0000c0 9518                      reti ; IRQ1 Handler
+0000f2 9518                      reti ; IRQ1 Handler
                                  TIM2_COMP: 
-0000c1 9518                      reti ; Timer2 Compare Handler
+0000f3 9518                      reti ; Timer2 Compare Handler
                                  TIM2_OVF: 
-0000c2 9518                      reti ; Timer2 Overflow Handler
+0000f4 9518                      reti ; Timer2 Overflow Handler
                                  TIM1_CAPT: 
-0000c3 9518                      reti ; Timer1 Capture Handler
+0000f5 9518                      reti ; Timer1 Capture Handler
                                  TIM1_COMPA: 
-0000c4 9518                      reti ; Timer1 CompareA Handler
+0000f6 9518                      reti ; Timer1 CompareA Handler
                                  TIM1_COMPB: 
-0000c5 9518                      reti ; Timer1 CompareB Handler
+0000f7 9518                      reti ; Timer1 CompareB Handler
                                  TIM1_OVF: 
-0000c6 9518                      reti ; Timer1 Overflow Handler
+0000f8 9518                      reti ; Timer1 Overflow Handler
                                  TIM0_OVF: 
-0000c7 9518                      reti ; Timer0 Overflow Handler
+0000f9 9518                      reti ; Timer0 Overflow Handler
                                  SPI_STC: 
-0000c8 9518                      reti ; SPI Transfer Complete Handler
+0000fa 9518                      reti ; SPI Transfer Complete Handler
                                  USART_RXC: 
-0000c9 9518                      reti ; USART RX Complete Handler
+0000fb 9518                      reti ; USART RX Complete Handler
                                  USART_UDRE: 
-0000ca 9518                      reti ; UDR Empty Handler
+0000fc 9518                      reti ; UDR Empty Handler
                                  USART_TXC: 
-0000cb 9518                      reti ; USART TX Complete Handler
+0000fd 9518                      reti ; USART TX Complete Handler
                                  ADC_COMP: 
-0000cc 9518                      reti ; ADC Conversion Complete Handler
+0000fe 9518                      reti ; ADC Conversion Complete Handler
                                  EE_RDY: 
-0000cd 9518                      reti ; EEPROM Ready Handler
+0000ff 9518                      reti ; EEPROM Ready Handler
                                  ANA_COMP: 
-0000ce 9518                      reti ; Analog Comparator Handler
+000100 9518                      reti ; Analog Comparator Handler
                                  TWSI: 
-0000cf 9518                      reti ; Two-wire Serial Interface Handler
+000101 9518                      reti ; Two-wire Serial Interface Handler
                                  EXT_INT2: 
-0000d0 9518                      reti ; IRQ2 Handler
+000102 9518                      reti ; IRQ2 Handler
                                  TIM0_COMP: 
-0000d1 9518                      reti
+000103 9518                      reti
                                  SPM_RDY: 
-0000d2 9518                      reti ; Store Program Memory Ready Handler
+000104 9518                      reti ; Store Program Memory Ready Handler
+                                 
                                  
 
 
@@ -1225,37 +1314,37 @@ counted separately from r26..r31 here.
 "ATmega16A" register use summary:
 x  :   0 y  :   0 z  :   0 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:  10 r17:   0 r18:   0 r19:   0 r20:   0 
-r21:   0 r22:   0 r23:   0 r24:   0 r25:   0 r26:   0 r27:   0 r28:   0 
-r29:   4 r30:   2 r31:   0 
-Registers used: 3 out of 35 (8.6%)
+r13:   0 r14:   0 r15:   0 r16:  14 r17:   6 r18:   6 r19:   6 r20:  12 
+r21:  18 r22:   3 r23:   9 r24:   5 r25:   9 r26:   4 r27:   0 r28:   0 
+r29:   2 r30:   2 r31:   2 
+Registers used: 14 out of 35 (40.0%)
 
 "ATmega16A" instruction use summary:
-.lds  :   0 .sts  :   0 adc   :   0 add   :   0 adiw  :   0 and   :   0 
-andi  :   0 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
-brcc  :   0 brcs  :   0 break :   0 breq  :   0 brge  :   0 brhc  :   0 
-brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   0 
+.lds  :   0 .sts  :   0 adc   :   0 add   :   3 adiw  :   0 and   :   0 
+andi  :   5 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
+brcc  :   0 brcs  :   0 break :   0 breq  :   0 brge  :   1 brhc  :   0 
+brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   1 
 brne  :   3 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
-brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :   3 cbr   :   0 
-clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   0 cls   :   0 
+brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :   2 cbr   :   0 
+clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   5 cls   :   0 
 clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   0 cpc   :   0 
-cpi   :   0 cpse  :   0 dec   :   3 eor   :   0 fmul  :   0 fmuls :   0 
-fmulsu:   0 icall :   0 ijmp  :   0 in    :   0 inc   :   0 jmp   :  21 
-ld    :   0 ldd   :   0 ldi   :   8 lds   :   0 lpm   :   0 lsl   :   0 
-lsr   :   0 mov   :   0 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
-neg   :   0 nop   :  10 or    :   0 ori   :   0 out   :   5 pop   :   0 
-push  :   0 rcall :  32 ret   :   1 reti  :  20 rjmp  :  49 rol   :   0 
-ror   :   0 sbc   :   0 sbci  :   0 sbi   :   3 sbic  :   0 sbis  :  32 
-sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   0 sec   :   0 seh   :   0 
+cpi   :   1 cpse  :   0 dec   :   4 eor   :   0 fmul  :   0 fmuls :   0 
+fmulsu:   0 icall :   0 ijmp  :   0 in    :   0 inc   :   1 jmp   :  21 
+ld    :   0 ldd   :   0 ldi   :  21 lds   :   0 lpm   :   0 lsl   :   2 
+lsr   :   1 mov   :   5 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
+neg   :   0 nop   :   7 or    :   6 ori   :   0 out   :  10 pop   :   0 
+push  :   0 rcall :  29 ret   :   5 reti  :  20 rjmp  :  42 rol   :   0 
+ror   :   0 sbc   :   0 sbci  :   0 sbi   :   2 sbic  :   0 sbis  :  25 
+sbiw  :   0 sbr   :   0 sbrc  :   7 sbrs  :   3 sec   :   0 seh   :   0 
 sei   :   0 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
 sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 sts   :   0 
-sub   :   0 subi  :   0 swap  :   0 tst   :   0 wdr   :   0 
-Instructions used: 13 out of 113 (11.5%)
+sub   :   2 subi  :   1 swap  :   5 tst   :   0 wdr   :   0 
+Instructions used: 29 out of 113 (25.7%)
 
 "ATmega16A" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x0001a6    422      0    422   16384   2.6%
+[.cseg] 0x000000 0x00020a    522      0    522   16384   3.2%
 [.dseg] 0x000060 0x000060      0      0      0    1024   0.0%
 [.eseg] 0x000000 0x000000      0      0      0     512   0.0%
 
