@@ -1,0 +1,15 @@
+-Diseño de las colecciones para la base de datos
+-Creación y conexión con Base de datos. 
+-Diesño del front end:
+	*Layout
+	*Cards para cada nota
+		-Titulo
+		-Descripción (editable?)
+		-fecha de finalización? 
+		-botón para elimiar nota
+-"CRUD" para notas.
+-Inicio de Sesión
+	*Log in (diseño)
+	*signup (diseño)
+-"CURD" Inicio de Sesión 
+-Consulta y visualización de las notas respectivas para cada usuario. 
