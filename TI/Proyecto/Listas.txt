@@ -1,0 +1,71 @@
+
+172.23.5.2
+172.23.5.244
+wwwroot > Zoom
+Software hecho para validar el login.
+API Zoom
+  Interactuar con reuniones que tengo o que tendré
+  Muy poderosa
+    Programar
+    Grabar
+  instances: lista de asistentes
+  Acciones:
+    patch, post, get, (put) 
+    Post y Get manda parametros por headers o URLs
+    Access token necesario para las acciones
+    Hay limite de acciones por minuto
+  Ya hay un script que descarga las grabaciones y se ponen en la nube de google
+
+  Get traer cosas
+  Post añadir
+  Update puede ser put o patch //Patch pide parameter (dice requerido u opcional)
+  Delete
+
+  Acceso para pruebas son claves OAUTH y para codigo se necesita JWT
+
+Cargar librerías en js
+  Es con require o require_once
+    Se puede llamar desde la carpetas
+    __DIR__ se usa para tomar la dirección en la que estoy
+  use para usar composer, que hace conexiones con externos
+
+WebService
+  Archivo PHP 
+  Usas una pagina web como intermediario para escribir en un archivo local 
+  
+Pagina
+  Maestro puede rescatar las listas.
+    Download
+  Puede ver clases futuras 
+  Crear polls.
+    Polls: agregar, editar, eliminar
+  Administradores: Solo tiene acceso funcionario o profesor
+
+  Pasadas: Lista de participantes que trae la pista (list ended meeting instances) 
+  Futuras: List meetings (parametro upcoming) para encuestas
+
+YO: MODIFICAR DISEÑO:
+  AGREGAR IMAGEN DE ZOOM
+  QUITAR LO QUE NO VAMOS A OCUPAR
+  MOMENTS 
+
+
+Correr el programa: //Simula servidor
+  WAMP //Exclusivo para windows LOCALHOST
+    Se encuentra como wamp
+  XAMPP //Windows, Linux y MAC
+    En linux: /opt/lampp
+    To run XAMPP:
+      sudo /opt/lampp/lampp start
+      sudo /opt/lampp/lampp stop
+      Con interfaz: 
+	cd /opt/lampp
+        sudo ./manager-linux.run (or manager-linux-x64.run)
+
+    Se encuentra como inetpub
+    APACHE para PHP
+  Procurar que no corran al mismo que IIS
+  
+IconArchive iconos gratuitos
+https://iconarchive.com/show/papirus-apps-icons-by-papirus-team/Zoom-icon.html
+https://iconarchive.com/

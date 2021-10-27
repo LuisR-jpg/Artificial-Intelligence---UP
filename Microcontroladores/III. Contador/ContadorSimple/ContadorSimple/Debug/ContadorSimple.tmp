@@ -1,0 +1,57 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega16A"</DEVICE>
+ <WORKING_DIR>C:\Users\lalor\Documents\Git\School\Microcontroladores\III. Contador\ContadorSimple\ContadorSimple\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\III. Contador\ContadorSimple\ContadorSimple\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m16Adef.inc</FILE>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m16adef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\III. Contador\ContadorSimple\ContadorSimple\Debug\ContadorSimple.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>ContadorSimple.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>ContadorSimple.map</FILE>
+  <FILE>ContadorSimple.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <RESET><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\III. Contador\ContadorSimple\ContadorSimple\main.asm</FILE><LINE>45</LINE></RESET>
+  <EXT_INT0><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\III. Contador\ContadorSimple\ContadorSimple\main.asm</FILE><LINE>120</LINE></EXT_INT0>
+  <EXT_INT1><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\III. Contador\ContadorSimple\ContadorSimple\main.asm</FILE><LINE>122</LINE></EXT_INT1>
+  <TIM2_COMP><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\III. Contador\ContadorSimple\ContadorSimple\main.asm</FILE><LINE>124</LINE></TIM2_COMP>
+  <TIM2_OVF><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\III. Contador\ContadorSimple\ContadorSimple\main.asm</FILE><LINE>126</LINE></TIM2_OVF>
+  <TIM1_CAPT><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\III. Contador\ContadorSimple\ContadorSimple\main.asm</FILE><LINE>128</LINE></TIM1_CAPT>
+  <TIM1_COMPA><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\III. Contador\ContadorSimple\ContadorSimple\main.asm</FILE><LINE>130</LINE></TIM1_COMPA>
+  <TIM1_COMPB><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\III. Contador\ContadorSimple\ContadorSimple\main.asm</FILE><LINE>132</LINE></TIM1_COMPB>
+  <TIM1_OVF><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\III. Contador\ContadorSimple\ContadorSimple\main.asm</FILE><LINE>134</LINE></TIM1_OVF>
+  <TIM0_OVF><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\III. Contador\ContadorSimple\ContadorSimple\main.asm</FILE><LINE>136</LINE></TIM0_OVF>
+  <SPI_STC><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\III. Contador\ContadorSimple\ContadorSimple\main.asm</FILE><LINE>138</LINE></SPI_STC>
+  <USART_RXC><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\III. Contador\ContadorSimple\ContadorSimple\main.asm</FILE><LINE>140</LINE></USART_RXC>
+  <USART_UDRE><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\III. Contador\ContadorSimple\ContadorSimple\main.asm</FILE><LINE>142</LINE></USART_UDRE>
+  <USART_TXC><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\III. Contador\ContadorSimple\ContadorSimple\main.asm</FILE><LINE>144</LINE></USART_TXC>
+  <ADC_COMP><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\III. Contador\ContadorSimple\ContadorSimple\main.asm</FILE><LINE>146</LINE></ADC_COMP>
+  <EE_RDY><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\III. Contador\ContadorSimple\ContadorSimple\main.asm</FILE><LINE>148</LINE></EE_RDY>
+  <ANA_COMP><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\III. Contador\ContadorSimple\ContadorSimple\main.asm</FILE><LINE>150</LINE></ANA_COMP>
+  <TWSI><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\III. Contador\ContadorSimple\ContadorSimple\main.asm</FILE><LINE>152</LINE></TWSI>
+  <EXT_INT2><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\III. Contador\ContadorSimple\ContadorSimple\main.asm</FILE><LINE>154</LINE></EXT_INT2>
+  <TIM0_COMP><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\III. Contador\ContadorSimple\ContadorSimple\main.asm</FILE><LINE>156</LINE></TIM0_COMP>
+  <SPM_RDY><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\III. Contador\ContadorSimple\ContadorSimple\main.asm</FILE><LINE>158</LINE></SPM_RDY>
+  <BUTTON><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\III. Contador\ContadorSimple\ContadorSimple\main.asm</FILE><LINE>65</LINE></BUTTON>
+  <RESETBUTTON><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\III. Contador\ContadorSimple\ContadorSimple\main.asm</FILE><LINE>76</LINE></RESETBUTTON>
+  <SETDISPLAY><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\III. Contador\ContadorSimple\ContadorSimple\main.asm</FILE><LINE>71</LINE></SETDISPLAY>
+  <RTR><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\III. Contador\ContadorSimple\ContadorSimple\main.asm</FILE><LINE>80</LINE></RTR>
+  <DELAY><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\III. Contador\ContadorSimple\ContadorSimple\main.asm</FILE><LINE>88</LINE></DELAY>
+  <STAY><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\III. Contador\ContadorSimple\ContadorSimple\main.asm</FILE><LINE>82</LINE></STAY>
+  <WGLOOP0><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\III. Contador\ContadorSimple\ContadorSimple\main.asm</FILE><LINE>95</LINE></WGLOOP0>
+  <WGLOOP1><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\III. Contador\ContadorSimple\ContadorSimple\main.asm</FILE><LINE>96</LINE></WGLOOP1>
+  <WGLOOP2><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\III. Contador\ContadorSimple\ContadorSimple\main.asm</FILE><LINE>103</LINE></WGLOOP2>
+ </LABELS>
+</ASSEMBLER_INFO>

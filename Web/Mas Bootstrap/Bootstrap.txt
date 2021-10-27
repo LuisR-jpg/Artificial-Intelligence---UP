@@ -1,0 +1,12 @@
+Funciona con cajitas.
+Útil para hacer responsivas nuestras páginas.
+Container.
+  Cajita.
+    class="container" es un contenedor responsivo
+    class="container-fluid" contenedor con menor espaciado
+Navbar.
+  Barrita de navegación
+  https://getbootstrap.com/docs/5.1/components/navbar/
+Carousel.
+  https://getbootstrap.com/docs/5.1/components/carousel/
+  

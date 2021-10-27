@@ -1,0 +1,75 @@
+<!--
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+      <title>My pages</title>
+  </head>
+  <body>
+    <ul>
+      <li><a href="Web/Calculadora/index.html">Calculadora</a></li>
+      <li><a href="Web\HTMLandCSS. My CV\MyCV.html">My CV</a></li>
+    </ul>
+    <script>
+      //requiring path and fs modules
+      const path = require('path');
+      const fs = require('fs');
+      //joining path of directory 
+      const directoryPath = path.join(__dirname, 'Documents');
+      //passsing directoryPath and callback function
+      fs.readdir(directoryPath, function (err, files) {
+          //handling error
+          if (err) {
+              return console.log('Unable to scan directory: ' + err);
+          } 
+          //listing all files using forEach
+          files.forEach(function (file) {
+              // Do whatever you want to do with the file
+              console.log(file); 
+          });
+      });
+    </script>
+  </body>
+</html>
+-->
+<!--
+<html>
+  <head>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <script>
+var dir = "/videos";
+var fileextension = ".mp4";
+$.ajax({
+    //This will retrieve the contents of the folder if the folder is configured as 'browsable'
+    url: dir,
+    success: function (data) {
+        // List all mp4 file names in the page
+        $(data).find("a:contains(" + fileextension + ")").each(function () {
+            var filename = this.href.replace(window.location.host, "").replace("http:///", "");
+            $("body").append($("<img src=" + dir + filename + "></img>"));
+        });
+    }
+});
+    </script>
+  </body>
+</html>
+-->
+<html>
+<body>
+    <div id='fileNames'></div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () 
+    {
+        $.get(".", function(data) 
+        {
+            $("#fileNames").append(data);
+        });
+    })
+</script>

@@ -1,0 +1,95 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega16A"</DEVICE>
+ <WORKING_DIR>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m16Adef.inc</FILE>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m16adef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\Debug\CandadoDigital.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>CandadoDigital.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>CandadoDigital.map</FILE>
+  <FILE>CandadoDigital.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <RESET><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>48</LINE></RESET>
+  <EXT_INT0><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>385</LINE></EXT_INT0>
+  <EXT_INT1><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>387</LINE></EXT_INT1>
+  <TIM2_COMP><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>389</LINE></TIM2_COMP>
+  <TIM2_OVF><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>391</LINE></TIM2_OVF>
+  <TIM1_CAPT><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>393</LINE></TIM1_CAPT>
+  <TIM1_COMPA><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>395</LINE></TIM1_COMPA>
+  <TIM1_COMPB><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>397</LINE></TIM1_COMPB>
+  <TIM1_OVF><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>399</LINE></TIM1_OVF>
+  <TIM0_OVF><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>401</LINE></TIM0_OVF>
+  <SPI_STC><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>403</LINE></SPI_STC>
+  <USART_RXC><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>405</LINE></USART_RXC>
+  <USART_UDRE><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>407</LINE></USART_UDRE>
+  <USART_TXC><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>409</LINE></USART_TXC>
+  <ADC_COMP><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>411</LINE></ADC_COMP>
+  <EE_RDY><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>413</LINE></EE_RDY>
+  <ANA_COMP><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>415</LINE></ANA_COMP>
+  <TWSI><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>417</LINE></TWSI>
+  <EXT_INT2><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>419</LINE></EXT_INT2>
+  <TIM0_COMP><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>421</LINE></TIM0_COMP>
+  <SPM_RDY><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>423</LINE></SPM_RDY>
+  <TECLADO><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>71</LINE></TECLADO>
+  <UNO><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>122</LINE></UNO>
+  <CUATRO><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>168</LINE></CUATRO>
+  <SIETE><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>213</LINE></SIETE>
+  <ASTERISCO><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>259</LINE></ASTERISCO>
+  <DOS><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>135</LINE></DOS>
+  <CINCO><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>179</LINE></CINCO>
+  <OCHO><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>225</LINE></OCHO>
+  <CERO><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>271</LINE></CERO>
+  <TRES><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>146</LINE></TRES>
+  <SEIS><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>191</LINE></SEIS>
+  <NUEVE><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>236</LINE></NUEVE>
+  <GATITO><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>282</LINE></GATITO>
+  <A><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>157</LINE></A>
+  <B><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>202</LINE></B>
+  <C><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>248</LINE></C>
+  <D><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>294</LINE></D>
+  <DELAY><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>364</LINE></DELAY>
+  <TRABA_UNO><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>129</LINE></TRABA_UNO>
+  <CHECK><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>310</LINE></CHECK>
+  <TRABA_DOS><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>141</LINE></TRABA_DOS>
+  <TRABA_TRES><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>152</LINE></TRABA_TRES>
+  <TRABA_A><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>163</LINE></TRABA_A>
+  <TRABA_CUATRO><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>174</LINE></TRABA_CUATRO>
+  <TRABA_CINCO><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>186</LINE></TRABA_CINCO>
+  <TRABA_SEIS><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>197</LINE></TRABA_SEIS>
+  <TRABA_B><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>208</LINE></TRABA_B>
+  <TRABA_SIETE><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>220</LINE></TRABA_SIETE>
+  <TRABA_OCHO><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>231</LINE></TRABA_OCHO>
+  <TRABA_NUEVE><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>243</LINE></TRABA_NUEVE>
+  <TRABA_C><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>254</LINE></TRABA_C>
+  <ASTERISCORST><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>306</LINE></ASTERISCORST>
+  <RTRASTERISCO><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>264</LINE></RTRASTERISCO>
+  <TRABA_ASTERISCO><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>266</LINE></TRABA_ASTERISCO>
+  <TRABA_CERO><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>277</LINE></TRABA_CERO>
+  <TRABA_GATITO><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>288</LINE></TRABA_GATITO>
+  <TRABA_D><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>300</LINE></TRABA_D>
+  <RST><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>343</LINE></RST>
+  <ALARMED><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>354</LINE></ALARMED>
+  <FINISHED><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>328</LINE></FINISHED>
+  <UNLOCK><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>337</LINE></UNLOCK>
+  <ALARM><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>348</LINE></ALARM>
+  <TURNOFFALARM><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>359</LINE></TURNOFFALARM>
+  <RETALARMED><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>357</LINE></RETALARMED>
+  <WGLOOP0><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>366</LINE></WGLOOP0>
+  <WGLOOP1><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>367</LINE></WGLOOP1>
+  <WGLOOP2><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\VII. Candado Digital\CandadoDigital\CandadoDigital\main.asm</FILE><LINE>372</LINE></WGLOOP2>
+ </LABELS>
+</ASSEMBLER_INFO>

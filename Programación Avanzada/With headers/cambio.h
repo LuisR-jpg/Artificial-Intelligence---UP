@@ -1,0 +1,1 @@
+void cambio(int, int&, int&, int&, int&, int&, int&);
