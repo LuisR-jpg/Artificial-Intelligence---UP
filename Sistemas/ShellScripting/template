@@ -1,7 +1,0 @@
-#!/bin/bash
-ext=$1
-name=$2
-f=$2"."$1
-path=~/templateTacOS/template.$ext
-[ $path ] && echo "foundit" && cp $path $f
-nvim $f

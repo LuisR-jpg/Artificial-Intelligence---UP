@@ -1,5 +1,0 @@
-#Se ignoran ejecutables de los programas para C++
-*.exe
-*.out
-*.gch
-test.cpp

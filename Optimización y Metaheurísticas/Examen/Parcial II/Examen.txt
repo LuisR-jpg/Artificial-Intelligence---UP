@@ -1,9 +1,0 @@
-Examen
-	Lectura
-
-Representacion
-	Vector de puntos, a cada punto se le asigna un centro
-
-Problema:
-	Qué puntos van a ser centros
-	A quiénes les asigno ese punto
