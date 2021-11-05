@@ -73,3 +73,12 @@ reg1
 # ----
 reg1 = regresion_lineal_simple(procesamiento_datos)
 reg1
+# Grafica de dispersión
+#  Los residuos no muestran tendencias claras y en general están por todo el espacio de la gráfica. Los podemos considerar correctos.
+# Histograma de residuos
+#  Ligeramente sesgado a la derecha, en general se ve bien.
+# Aparentemente los residuos son normales
+# Gráfica de probabilidad normal
+#  Los residuos parecen estar aleatoriamente por arriba y por abajo de la recta, ademaás de que en general están muy cerca de esta. Los residuos parecen ser normales.
+# Grafica secuencial de residuos
+#  No se aprecia claramente que haya correlación positiva, ni negativa. Por lo tanto se pueden considerar correctos.

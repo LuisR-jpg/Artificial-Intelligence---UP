@@ -32,6 +32,7 @@ regresion_lineal_simple = function(datos, x_nueva=NULL) {
   
   # ---
   # Gráfica de dispersión
+  par(mfrow = c(1, 1))
   plot(x, y, main="Gráfica de Dispersión",
        xlab=names(datos)[1], ylab=names(datos)[2],
        pch=16, col="blue")
@@ -49,11 +50,21 @@ regresion_lineal_simple = function(datos, x_nueva=NULL) {
   
   # Dispersión de Residuos vs x
   titulo = paste("Residuos vs", names(datos)[1])
-  plot(x, residuos, pch=16, col="green", main=titulo, xlab=names(datos)[1],
+  plot(x, residuosEstandarizados, pch=16, col="green", main=titulo, xlab=names(datos)[1],
        ylab="Residuos")
   # Histograma de residuos
-  hist(residuos, main="Histograma de Residuos", xlab="Residuos", ylab="Frecuencia", col="green")
-  
+  hist(residuosEstandarizados, main="Histograma de Residuos", xlab="Residuos", ylab="Frecuencia", col="green")
+  # Gráfica de probabilidad normal (Q-Q Plot)
+  qqnorm(residuosEstandarizados, pch = 16, col = "green", 
+         main = "Grafica de probabilidad normal \n Residuos estandarizados",
+         xlab = "Cuantiles Esperados", ylab = "Cuantiles Observados")
+  qqline(residuosEstandarizados, col = "red")
+  # Grafica secuencial de residuos
+  plot(residuosEstandarizados, col = "green", 
+       main = "Grafica secuencial de residuos std", 
+       xlab = "Posicion", ylab = "Residuos Estandarizados",
+       type = "b")
+  abline(h = 0, col = "red", lty = 2)
   
   par(mfrow=c(1,1))
   
@@ -68,7 +79,7 @@ regresion_lineal_simple = function(datos, x_nueva=NULL) {
   # ---
   # Devolvemos el resultado al programa principal
   resultado = list(beta_gorro0=beta_gorro0, beta_gorro1=beta_gorro1,
-                   r=r, r2=r2, y_nueva=y_nueva)
+                   r=r, r2=r2, y_nueva=y_nueva, residuos = residuos,residuosEstandarizados = residuosEstandarizados)
   
   return(resultado)
 }
