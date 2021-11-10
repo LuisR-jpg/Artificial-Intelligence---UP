@@ -1,0 +1,59 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.8</VERSION>
+ <DEVICE>"ATmega16A"</DEVICE>
+ <WORKING_DIR>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc</DIR>
+  <DIR>C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m16Adef.inc</FILE>
+  <FILE>C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m16adef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\Debug\Cronometro.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Cronometro.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Cronometro.map</FILE>
+  <FILE>Cronometro.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <RESET><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm</FILE><LINE>45</LINE></RESET>
+  <EXT_INT0><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm</FILE><LINE>130</LINE></EXT_INT0>
+  <EXT_INT1><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm</FILE><LINE>132</LINE></EXT_INT1>
+  <TIM2_COMP><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm</FILE><LINE>134</LINE></TIM2_COMP>
+  <TIM2_OVF><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm</FILE><LINE>136</LINE></TIM2_OVF>
+  <TIM1_CAPT><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm</FILE><LINE>138</LINE></TIM1_CAPT>
+  <TIM1_COMPA><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm</FILE><LINE>140</LINE></TIM1_COMPA>
+  <TIM1_COMPB><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm</FILE><LINE>142</LINE></TIM1_COMPB>
+  <TIM1_OVF><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm</FILE><LINE>144</LINE></TIM1_OVF>
+  <TIM0_OVF><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm</FILE><LINE>146</LINE></TIM0_OVF>
+  <SPI_STC><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm</FILE><LINE>148</LINE></SPI_STC>
+  <USART_RXC><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm</FILE><LINE>150</LINE></USART_RXC>
+  <USART_UDRE><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm</FILE><LINE>152</LINE></USART_UDRE>
+  <USART_TXC><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm</FILE><LINE>154</LINE></USART_TXC>
+  <ADC_COMP><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm</FILE><LINE>156</LINE></ADC_COMP>
+  <EE_RDY><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm</FILE><LINE>158</LINE></EE_RDY>
+  <ANA_COMP><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm</FILE><LINE>160</LINE></ANA_COMP>
+  <TWSI><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm</FILE><LINE>162</LINE></TWSI>
+  <EXT_INT2><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm</FILE><LINE>164</LINE></EXT_INT2>
+  <TIM0_COMP><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm</FILE><LINE>166</LINE></TIM0_COMP>
+  <SPM_RDY><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm</FILE><LINE>175</LINE></SPM_RDY>
+  <CLEAR><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm</FILE><LINE>87</LINE></CLEAR>
+  <BOTONES><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm</FILE><LINE>80</LINE></BOTONES>
+  <INICIAR><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm</FILE><LINE>92</LINE></INICIAR>
+  <SECONDU><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm</FILE><LINE>96</LINE></SECONDU>
+  <SECONDD><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm</FILE><LINE>109</LINE></SECONDD>
+  <CONTSECU><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm</FILE><LINE>101</LINE></CONTSECU>
+  <CONTINUA><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm</FILE><LINE>171</LINE></CONTINUA>
+  <MINUTE><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm</FILE><LINE>116</LINE></MINUTE>
+  <CONTSECD><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm</FILE><LINE>113</LINE></CONTSECD>
+  <FINISH><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm</FILE><LINE>123</LINE></FINISH>
+  <CONTMINUTE><FILE>C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm</FILE><LINE>120</LINE></CONTMINUTE>
+ </LABELS>
+</ASSEMBLER_INFO>
