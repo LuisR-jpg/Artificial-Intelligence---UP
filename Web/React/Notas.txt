@@ -20,9 +20,45 @@ Ventajas de react:
     -> Solo refresca cada cambio, no todo DOM
   Componentización
     -> Permite diseñar los templates, un solo cambio modifica en todas las partes donde se ocupa
+    -> Bloques de código que se pueden reutilizar, deben cumplir lo siguiente:
+	Representarse a sí mismo
+	Capacidad de manejar su estado interno (esto en caso de tenerlo)
+	Capacidad de recibir propiedades inmutables (llamadas props)
+
   Templates dentro de Javascript
     -> Se programa un solo estilo que aplica para cada componente
 
+Props:
+  Es la forma que tenemos de pasar informacion entre componentes. Para recibir una prop (propiedad) en los componentes, se hace por parametro en un objeto llamado props
+  Ejemplo:
+    Child:
+      function Child(props) {
+	console.log(props)
+	return (
+	  <p>{props.propDePrueba}</p>
+	)
+      }
+    Parent:
+      <Child propdePrueba = "ValordePrueba/>
+
+Hook: useState o Estado interno de un componente:
+  Es la forma que tenemos de pasar información a lo largo de este. 
+  Se divide en 3 etapas: 
+    Inicialización, actualización (set) y lectura (get)
+  En componentes funcionales se hace por medio del hook de React llamado: useState, para componentes de clase se hace haciendo un set del objeto state y actualizándolo con la función setState.
+  Ejemplo:
+    const [state, setState] = React.useState();
+    State es el getter y setState el setter
+
+Hook: useEffect:
+  Es el hook que se encarga de manejar el ciclo de vida de un componente a través de una condición. 
+  En este, vamos a poder ejecutar código al momento de terminar de montar el componente, con cada actualización del mismo basado en la condición. 
+  Ejemplo:
+    function Test() {
+      useEffect(() => {
+        // Código que se ejecuta al primer render (cuando se entra por primera vez a la pantalla)
+      }, []) // aquí va la condición, si no se agrega quiere decir que sólo correrá la primer vez que se carga la página
+    }
 
 # Crear nuevo proyecto
 npx create-react-app first-app
@@ -49,5 +85,7 @@ npm start
 
 # Tips and tricks
   ctrl + CursorsobreComponente: Muestra un desgloce 
-  ctrl + clicksobreCompontente: Dirige a declaración de componnte
+  ctrl + clicksobreCompontente: Dirige a declaración de componnte 
+  For the react components we can use:
+    <div> or <> or <React.Fragment> or <Fragment>
 
