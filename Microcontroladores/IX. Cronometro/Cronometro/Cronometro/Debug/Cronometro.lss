@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm Tue Nov 09 16:56:00 2021
+AVRASM ver. 2.2.8  C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm Thu Nov 11 13:54:24 2021
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m16Adef.inc'
 C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro\Cronometro\main.asm(8): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m16adef.inc'
@@ -934,26 +934,26 @@ C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro
                                  .org 0x0000
                                  ;Comienza el vector de interrupciones...
 000000 940c 002a                 jmp RESET ; Reset Handler
-000002 940c 0064                 jmp EXT_INT0 ; IRQ0 Handler
-000004 940c 0065                 jmp EXT_INT1 ; IRQ1 Handler
-000006 940c 0066                 jmp TIM2_COMP ; Timer2 Compare Handler
-000008 940c 0067                 jmp TIM2_OVF ; Timer2 Overflow Handler
-00000a 940c 0068                 jmp TIM1_CAPT ; Timer1 Capture Handler
-00000c 940c 0069                 jmp TIM1_COMPA ; Timer1 CompareA Handler
-00000e 940c 006a                 jmp TIM1_COMPB ; Timer1 CompareB Handler
-000010 940c 006b                 jmp TIM1_OVF ; Timer1 Overflow Handler
-000012 940c 006c                 jmp TIM0_OVF ; Timer0 Overflow Handler
-000014 940c 006d                 jmp SPI_STC ; SPI Transfer Complete Handler
-000016 940c 006e                 jmp USART_RXC ; USART RX Complete Handler
-000018 940c 006f                 jmp USART_UDRE ; UDR Empty Handler
-00001a 940c 0070                 jmp USART_TXC ; USART TX Complete Handler
-00001c 940c 0071                 jmp ADC_COMP ; ADC Conversion Complete Handler
-00001e 940c 0072                 jmp EE_RDY ; EEPROM Ready Handler
-000020 940c 0073                 jmp ANA_COMP ; Analog Comparator Handler
-000022 940c 0074                 jmp TWSI ; Two-wire Serial Interface Handler
-000024 940c 0075                 jmp EXT_INT2 ; IRQ2 Handler
-000026 940c 0076                 jmp TIM0_COMP ; Timer0 Compare Handler
-000028 940c 007c                 jmp SPM_RDY ; Store Program Memory Ready Handler
+000002 940c 0083                 jmp EXT_INT0 ; IRQ0 Handler
+000004 940c 0084                 jmp EXT_INT1 ; IRQ1 Handler
+000006 940c 0085                 jmp TIM2_COMP ; Timer2 Compare Handler
+000008 940c 0086                 jmp TIM2_OVF ; Timer2 Overflow Handler
+00000a 940c 0087                 jmp TIM1_CAPT ; Timer1 Capture Handler
+00000c 940c 0088                 jmp TIM1_COMPA ; Timer1 CompareA Handler
+00000e 940c 0089                 jmp TIM1_COMPB ; Timer1 CompareB Handler
+000010 940c 008a                 jmp TIM1_OVF ; Timer1 Overflow Handler
+000012 940c 008b                 jmp TIM0_OVF ; Timer0 Overflow Handler
+000014 940c 008c                 jmp SPI_STC ; SPI Transfer Complete Handler
+000016 940c 008d                 jmp USART_RXC ; USART RX Complete Handler
+000018 940c 008e                 jmp USART_UDRE ; UDR Empty Handler
+00001a 940c 008f                 jmp USART_TXC ; USART TX Complete Handler
+00001c 940c 0090                 jmp ADC_COMP ; ADC Conversion Complete Handler
+00001e 940c 0091                 jmp EE_RDY ; EEPROM Ready Handler
+000020 940c 0092                 jmp ANA_COMP ; Analog Comparator Handler
+000022 940c 0093                 jmp TWSI ; Two-wire Serial Interface Handler
+000024 940c 0094                 jmp EXT_INT2 ; IRQ2 Handler
+000026 940c 0095                 jmp TIM0_COMP ; Timer0 Compare Handler
+000028 940c 009b                 jmp SPM_RDY ; Store Program Memory Ready Handler
                                  
                                  ;**************
                                  ;Inicializar el Stack Pointer
@@ -967,26 +967,26 @@ C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro
 00002e ef0f                      LDI R16, $FF
 00002f bb04                      OUT DDRC, R16
 000030 bb01                      OUT DDRD, R16
-000031 e70e                      LDI R16, $7E
+000031 e000                      LDI R16, 0
 000032 bb0a                      OUT DDRA, R16
-000033 ef0f                      LDI R16, $FF
-000034 bb0b                      OUT PORTA, R16
-000035 2700                      CLR R16
-000036 bb05                      OUT PORTC, R16
-000037 bb02                      OUT PORTD, R16
+000033 bb05                      OUT PORTC, R16
+000034 bb02                      OUT PORTD, R16
+000035 ef0f                      LDI R16, $FF
+000036 bb0b                      OUT PORTA, R16
                                  
                                  ; Programar t = 0.01s Necesitamos 100 de esos
-000038 e90b                      LDI R16, 155
-000039 bf0c                      OUT OCR0, R16
-00003a e003                      LDI R16, 3
-00003b bf08                      OUT TIFR, R16
-00003c e002                      LDI R16, 2
-00003d bf09                      OUT TIMSK, R16
-00003e e000                      LDI R16, 0
-00003f bf02                      OUT TCNT0, R16
-000040 e00c                      LDI R16, 0b00001100 ; Prescaler 256
-000041 d006                      RCALL CLEAR
-000042 2744                      CLR R20	;Seg
+000037 e90b                      LDI R16, 155
+000038 bf0c                      OUT OCR0, R16			;Flag comparacion
+000039 e003                      LDI R16, 3
+00003a bf08                      OUT TIFR, R16			;Sin interrupcion
+00003b e002                      LDI R16, 2
+00003c bf09                      OUT TIMSK, R16			;Habilita interrupcion por comparacion
+00003d e000                      LDI R16, 0
+00003e bf02                      OUT TCNT0, R16			;Por si las moscas, cuenta desde 0
+00003f 2711                      CLR R17					;Unidades segundo
+000040 2722                      CLR R18					;Decenas segundo
+000041 2733                      CLR R19					;Minuto
+000042 2744                      CLR R20					;Cuando pasa un segundo
                                  
                                  ;*********************************
                                  ;Aqu? comienza el programa...
@@ -994,9 +994,9 @@ C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro
                                  ;*********************************
                                  
                                  BOTONES:
-000043 99c8                      	SBIC PINA, 0
-000044 d007                      	RCALL INICIAR
-000045 99cf                      	SBIC PINA, 7
+000043 9bc8                      	SBIS PINA, 0
+000044 d00c                      	RCALL INICIAR
+000045 9bcf                      	SBIS PINA, 7
 000046 d001                      	RCALL CLEAR
 000047 cffb                      RJMP BOTONES
                                  
@@ -1004,92 +1004,139 @@ C:\Users\lalor\Documents\Git\School\Microcontroladores\IX. Cronometro\Cronometro
 000048 2711                      	CLR R17
 000049 2722                      	CLR R18
 00004a 2733                      	CLR R19
-00004b 9508                      RET
+00004b d024                      	RCALL PRINT
+00004c d02a                      	RCALL RETARDO50m
+                                 	STAYC:
+00004d 9bcf                      		SBIS PINA, 7
+00004e cffe                      	RJMP STAYC
+00004f d027                      	RCALL RETARDO50m
+000050 9508                      RET
                                  INICIAR:
-00004c 9478                      	SEI
-00004d bf03                      	OUT TCCR0, R16
-00004e 9508                      RET
-                                 SECONDU:
-00004f 2744                      	CLR R20
-000050 9513                      	INC R17
-000051 301a                      	CPI R17, 10
-000052 f039                      	BREQ SECONDD
-                                 	CONTSECU:
-000053 bb35                      	OUT PORTC, R19
-000054 2766                      	CLR R22
-000055 2b62                      	OR R22, R18
-000056 9562                      	SWAP R22
-000057 2b61                      	OR R22, R17
-000058 bb62                      	OUT PORTD, R22
-000059 c020                      RJMP CONTINUA
+000051 3035                      	CPI R19, 5
+000052 f041                      	BREQ DONTSTART
+000053 9478                      	SEI
+000054 e00c                      	LDI R16, 0b00001100 ; Prescaler 256
+000055 bf03                      	OUT TCCR0, R16
+000056 d020                      	RCALL RETARDO50m
+                                 	STAYS:
+000057 9bc8                      		SBIS PINA, 0
+000058 cffe                      	RJMP STAYS
+000059 d01d                      	RCALL RETARDO50m
+                                 	SIGUE:
+00005a 9508                      RET
+                                 DONTSTART:
+00005b cffe                      RJMP SIGUE
                                  SECONDD:
-00005a 9523                      	INC R18
-00005b 3026                      	CPI R18, 6
-00005c f009                      	BREQ MINUTE
+00005c 2711                      	CLR R17
+00005d 9523                      	INC R18
+00005e 3026                      	CPI R18, 6
+00005f f009                      	BREQ MINUTE
                                  	CONTSECD:
-00005d cff5                      RJMP CONTSECU
+000060 c00d                      RJMP VUELVE
                                  
                                  MINUTE: 
-00005e 9533                      	INC R19
-00005f 3035                      	CPI R19, 5
-000060 f009                      	BREQ FINISH
+000061 2722                      	CLR R18
+000062 9533                      	INC R19
+000063 3035                      	CPI R19, 5
+000064 f009                      	BREQ FINISH
                                  	CONTMINUTE:
-000061 cffb                      RJMP CONTSECD
+000065 cffa                      RJMP CONTSECD
                                  
                                  FINISH:
-000062 94f8                      	CLI
-000063 cffd                      RJMP CONTMINUTE
+000066 94f8                      	CLI
+000067 2700                      	CLR R16
+000068 bf03                      	OUT TCCR0, R16
+000069 c02f                      RJMP CONTINUA
+                                 
+                                 PASOSEGUNDO:
+00006a 2744                      	CLR R20
+00006b 9513                      	INC R17
+00006c 301a                      	CPI R17, 10
+00006d f371                      	BREQ SECONDD
+                                 	VUELVE: 
+00006e d001                      		RCALL PRINT
+00006f c029                      RJMP CONTINUA
+                                 
+                                 PRINT:
+000070 bb35                      	OUT PORTC, R19
+000071 2766                      	CLR R22
+000072 2b62                      	OR R22, R18
+000073 9562                      	SWAP R22
+000074 2b61                      	OR R22, R17
+000075 bb62                      	OUT PORTD, R22
+000076 9508                      RET
+                                 
+                                 RETARDO50m:						//200,000 ciclos: 50ms 4MHz
+                                 	; ============================= 
+                                 	;    delay loop generator 
+                                 	;     200000 cycles:
+                                 	; ----------------------------- 
+                                 	; delaying 199998 cycles:
+000077 e0f6                      			  ldi  R31, $06
+000078 e3e7                      	WGLOOP0:  ldi  R30, $37
+000079 ecd9                      	WGLOOP1:  ldi  R29, $C9
+00007a 95da                      	WGLOOP2:  dec  R29
+00007b f7f1                      			  brne WGLOOP2
+00007c 95ea                      			  dec  R30
+00007d f7d9                      			  brne WGLOOP1
+00007e 95fa                      			  dec  R31
+00007f f7c1                      			  brne WGLOOP0
+                                 	; ----------------------------- 
+                                 	; delaying 2 cycles:
+000080 0000                      			  nop
+000081 0000                      			  nop
+                                 	; =============================
+000082 9508                      	RET 
                                  
                                  ;*********************************
                                  ;Aqu? est? el manejo de las interrupciones concretas
                                  ;*********************************
                                  EXT_INT0: ; IRQ0 Handler
-000064 9518                      reti
+000083 9518                      reti
                                  EXT_INT1: 
-000065 9518                      reti ; IRQ1 Handler
+000084 9518                      reti ; IRQ1 Handler
                                  TIM2_COMP: 
-000066 9518                      reti ; Timer2 Compare Handler
+000085 9518                      reti ; Timer2 Compare Handler
                                  TIM2_OVF: 
-000067 9518                      reti ; Timer2 Overflow Handler
+000086 9518                      reti ; Timer2 Overflow Handler
                                  TIM1_CAPT: 
-000068 9518                      reti ; Timer1 Capture Handler
+000087 9518                      reti ; Timer1 Capture Handler
                                  TIM1_COMPA: 
-000069 9518                      reti ; Timer1 CompareA Handler
+000088 9518                      reti ; Timer1 CompareA Handler
                                  TIM1_COMPB: 
-00006a 9518                      reti ; Timer1 CompareB Handler
+000089 9518                      reti ; Timer1 CompareB Handler
                                  TIM1_OVF: 
-00006b 9518                      reti ; Timer1 Overflow Handler
+00008a 9518                      reti ; Timer1 Overflow Handler
                                  TIM0_OVF: 
-00006c 9518                      reti ; Timer0 Overflow Handler
+00008b 9518                      reti ; Timer0 Overflow Handler
                                  SPI_STC: 
-00006d 9518                      reti ; SPI Transfer Complete Handler
+00008c 9518                      reti ; SPI Transfer Complete Handler
                                  USART_RXC: 
-00006e 9518                      reti ; USART RX Complete Handler
+00008d 9518                      reti ; USART RX Complete Handler
                                  USART_UDRE: 
-00006f 9518                      reti ; UDR Empty Handler
+00008e 9518                      reti ; UDR Empty Handler
                                  USART_TXC: 
-000070 9518                      reti ; USART TX Complete Handler
+00008f 9518                      reti ; USART TX Complete Handler
                                  ADC_COMP: 
-000071 9518                      reti ; ADC Conversion Complete Handler
+000090 9518                      reti ; ADC Conversion Complete Handler
                                  EE_RDY: 
-000072 9518                      reti ; EEPROM Ready Handler
+000091 9518                      reti ; EEPROM Ready Handler
                                  ANA_COMP: 
-000073 9518                      reti ; Analog Comparator Handler
+000092 9518                      reti ; Analog Comparator Handler
                                  TWSI: 
-000074 9518                      reti ; Two-wire Serial Interface Handler
+000093 9518                      reti ; Two-wire Serial Interface Handler
                                  EXT_INT2: 
-000075 9518                      reti ; IRQ2 Handler
+000094 9518                      reti ; IRQ2 Handler
                                  TIM0_COMP: 
-000076 b75f                      	IN R21, SREG
-000077 9543                      	INC R20
-000078 304a                      	CPI R20, 10
-000079 f2a9                      	BREQ SECONDU
+000095 b75f                      	IN R21, SREG
+000096 9543                      	INC R20
+000097 3644                      	CPI R20, 100
+000098 f289                      	BREQ PASOSEGUNDO
                                  	CONTINUA:
-                                 		
-00007a bf5f                      	OUT SREG, R21
-00007b 9518                      reti
+000099 bf5f                      		OUT SREG, R21
+00009a 9518                      reti
                                  SPM_RDY: 
-00007c 9518                      reti ; Store Program Memory Ready Handler
+00009b 9518                      reti ; Store Program Memory Ready Handler
                                  
                                  
 
@@ -1111,37 +1158,37 @@ counted separately from r26..r31 here.
 "ATmega16A" register use summary:
 x  :   0 y  :   0 z  :   0 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:  24 r17:   4 r18:   4 r19:   4 r20:   4 
+r13:   0 r14:   0 r15:   0 r16:  25 r17:   6 r18:   6 r19:   6 r20:   4 
 r21:   2 r22:   5 r23:   0 r24:   0 r25:   0 r26:   0 r27:   0 r28:   0 
-r29:   0 r30:   0 r31:   0 
-Registers used: 7 out of 35 (20.0%)
+r29:   2 r30:   2 r31:   2 
+Registers used: 10 out of 35 (28.6%)
 
 "ATmega16A" instruction use summary:
 .lds  :   0 .sts  :   0 adc   :   0 add   :   0 adiw  :   0 and   :   0 
 andi  :   0 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
-brcc  :   0 brcs  :   0 break :   0 breq  :   4 brge  :   0 brhc  :   0 
+brcc  :   0 brcs  :   0 break :   0 breq  :   5 brge  :   0 brhc  :   0 
 brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   0 
-brne  :   0 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
+brne  :   3 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
 brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :   0 cbr   :   0 
-clc   :   0 clh   :   0 cli   :   1 cln   :   0 clr   :   7 cls   :   0 
+clc   :   0 clh   :   0 cli   :   1 cln   :   0 clr   :  12 cls   :   0 
 clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   0 cpc   :   0 
-cpi   :   4 cpse  :   0 dec   :   0 eor   :   0 fmul  :   0 fmuls :   0 
+cpi   :   5 cpse  :   0 dec   :   3 eor   :   0 fmul  :   0 fmuls :   0 
 fmulsu:   0 icall :   0 ijmp  :   0 in    :   1 inc   :   4 jmp   :  21 
-ld    :   0 ldd   :   0 ldi   :  10 lds   :   0 lpm   :   0 lsl   :   0 
+ld    :   0 ldd   :   0 ldi   :  13 lds   :   0 lpm   :   0 lsl   :   0 
 lsr   :   0 mov   :   0 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
-neg   :   0 nop   :   0 or    :   2 ori   :   0 out   :  16 pop   :   0 
-push  :   0 rcall :   3 ret   :   2 reti  :  20 rjmp  :   5 rol   :   0 
-ror   :   0 sbc   :   0 sbci  :   0 sbi   :   0 sbic  :   2 sbis  :   0 
+neg   :   0 nop   :   2 or    :   2 ori   :   0 out   :  17 pop   :   0 
+push  :   0 rcall :   8 ret   :   4 reti  :  20 rjmp  :   8 rol   :   0 
+ror   :   0 sbc   :   0 sbci  :   0 sbi   :   0 sbic  :   0 sbis  :   4 
 sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   0 sec   :   0 seh   :   0 
 sei   :   1 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
 sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 sts   :   0 
 sub   :   0 subi  :   0 swap  :   1 tst   :   0 wdr   :   0 
-Instructions used: 17 out of 113 (15.0%)
+Instructions used: 20 out of 113 (17.7%)
 
 "ATmega16A" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x0000fa    250      0    250   16384   1.5%
+[.cseg] 0x000000 0x000138    312      0    312   16384   1.9%
 [.dseg] 0x000060 0x000060      0      0      0    1024   0.0%
 [.eseg] 0x000000 0x000000      0      0      0     512   0.0%
 

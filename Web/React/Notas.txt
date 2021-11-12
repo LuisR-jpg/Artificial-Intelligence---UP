@@ -1,0 +1,53 @@
+¿Qué es react?
+Es una librería open-source diseñada para crear interfaces de usuario con el objetivo de facilitar el desarrollo de SPA's (Single Page Applications).
+
+¿Qué es una SPA?
+Una single page application o por sus siglas, SPA, se traduce a: aplicación de página única que basicamente es una aplicación web que cabe en una sola página con el proposito de dar una experienca mas fluida a los usuarios.
+Página única != Ruta única
+
+Pilares de React:
+  Componentes
+    Sirve para escalabilidad.
+    Una sola página se divide en pequeños componentes, llamados átomos.
+    Se programan con jsx, ya no se ocupará html.
+  Estado interno
+    Funciona como un conjunto de templates, donde cada uno tiene un estado interno específico.
+  Propiedades inmutables
+    Cómo se pasa la información de un componente a otro
+
+Ventajas de react:
+  Virtual DOM
+    -> Solo refresca cada cambio, no todo DOM
+  Componentización
+    -> Permite diseñar los templates, un solo cambio modifica en todas las partes donde se ocupa
+  Templates dentro de Javascript
+    -> Se programa un solo estilo que aplica para cada componente
+
+
+# Crear nuevo proyecto
+npx create-react-app first-app
+# Cuando corremos el proyecto de alguien: instala lo que venga en node_modules
+npm install
+# Correr la aplicacion
+npm start
+
+
+# Files
+  //Se puede borrar
+    app.test.js 
+    reportWebVitals.js //Reporta cosas de cache
+    setUpTest.js 
+  //Qué y cómo se va a correr
+    package.json
+  //
+    index.js //Borrar el último reportwebvitals
+  //
+    App.js
+      Parece html pero es jsx
+      Antes funcionaba con clases, ahora con funciones
+      class (html) -> className (jsx)
+
+# Tips and tricks
+  ctrl + CursorsobreComponente: Muestra un desgloce 
+  ctrl + clicksobreCompontente: Dirige a declaración de componnte
+

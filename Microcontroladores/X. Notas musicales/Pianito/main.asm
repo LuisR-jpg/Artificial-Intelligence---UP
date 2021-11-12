@@ -1,7 +1,7 @@
 ;
-; Cronometro.asm
+; Pianito.asm
 ;
-; Created: 09/11/2021 03:52:39 p. m.
+; Created: 11/11/2021 03:51:18 p. m.
 ; Author : lalor
 ;
 
@@ -48,129 +48,16 @@ out SPH, r16
 ldi r16, low(RAMEND)
 out SPL, r16 
 
-LDI R16, $FF
-OUT DDRC, R16
-OUT DDRD, R16
-LDI R16, 0
-OUT DDRA, R16
-OUT PORTC, R16
-OUT PORTD, R16
-LDI R16, $FF
-OUT PORTA, R16
-
-; Programar t = 0.01s Necesitamos 100 de esos
-LDI R16, 155
-OUT OCR0, R16			;Flag comparacion
-LDI R16, 3
-OUT TIFR, R16			;Sin interrupcion
-LDI R16, 2
-OUT TIMSK, R16			;Habilita interrupcion por comparacion
-LDI R16, 0
-OUT TCNT0, R16			;Por si las moscas, cuenta desde 0
-CLR R17					;Unidades segundo
-CLR R18					;Decenas segundo
-CLR R19					;Minuto
-CLR R20					;Cuando pasa un segundo
 
 ;*********************************
 ;Aqu? comienza el programa...
 ;No olvides configurar al inicio todo lo que utilizar?s
 ;*********************************
 
-BOTONES:
-	SBIS PINA, 0
-	RCALL INICIAR
-	SBIS PINA, 7
-	RCALL CLEAR
-RJMP BOTONES
 
-CLEAR:
-	CLR R17
-	CLR R18
-	CLR R19
-	RCALL PRINT
-	RCALL RETARDO50m
-	STAYC:
-		SBIS PINA, 7
-	RJMP STAYC
-	RCALL RETARDO50m
-RET
-INICIAR:
-	CPI R19, 5
-	BREQ DONTSTART
-	SEI
-	LDI R16, 0b00001100 ; Prescaler 256
-	OUT TCCR0, R16
-	RCALL RETARDO50m
-	STAYS:
-		SBIS PINA, 0
-	RJMP STAYS
-	RCALL RETARDO50m
-	SIGUE:
-RET
-DONTSTART:
-RJMP SIGUE
-SECONDD:
-	CLR R17
-	INC R18
-	CPI R18, 6
-	BREQ MINUTE
-	CONTSECD:
-RJMP VUELVE
 
-MINUTE: 
-	CLR R18
-	INC R19
-	CPI R19, 5
-	BREQ FINISH
-	CONTMINUTE:
-RJMP CONTSECD
 
-FINISH:
-	CLI
-	CLR R16
-	OUT TCCR0, R16
-RJMP CONTINUA
 
-PASOSEGUNDO:
-	CLR R20
-	INC R17
-	CPI R17, 10
-	BREQ SECONDD
-	VUELVE: 
-		RCALL PRINT
-RJMP CONTINUA
-
-PRINT:
-	OUT PORTC, R19
-	CLR R22
-	OR R22, R18
-	SWAP R22
-	OR R22, R17
-	OUT PORTD, R22
-RET
-
-RETARDO50m:						//200,000 ciclos: 50ms 4MHz
-	; ============================= 
-	;    delay loop generator 
-	;     200000 cycles:
-	; ----------------------------- 
-	; delaying 199998 cycles:
-			  ldi  R31, $06
-	WGLOOP0:  ldi  R30, $37
-	WGLOOP1:  ldi  R29, $C9
-	WGLOOP2:  dec  R29
-			  brne WGLOOP2
-			  dec  R30
-			  brne WGLOOP1
-			  dec  R31
-			  brne WGLOOP0
-	; ----------------------------- 
-	; delaying 2 cycles:
-			  nop
-			  nop
-	; =============================
-	RET 
 
 ;*********************************
 ;Aqu? est? el manejo de las interrupciones concretas
@@ -212,12 +99,6 @@ reti ; Two-wire Serial Interface Handler
 EXT_INT2: 
 reti ; IRQ2 Handler
 TIM0_COMP: 
-	IN R21, SREG
-	INC R20
-	CPI R20, 100
-	BREQ PASOSEGUNDO
-	CONTINUA:
-		OUT SREG, R21
 reti
 SPM_RDY: 
 reti ; Store Program Memory Ready Handler
