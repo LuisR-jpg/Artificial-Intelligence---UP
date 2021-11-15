@@ -1,0 +1,13 @@
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+    color: white;
+}
+.user { 
+    text-align: center;
+    background-color: black;
+    width: 50%;
+    margin: auto;
+    margin-top: 10vw;
+    padding: 25px;
+}
+  
