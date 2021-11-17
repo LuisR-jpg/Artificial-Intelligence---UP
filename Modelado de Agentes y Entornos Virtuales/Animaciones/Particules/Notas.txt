@@ -1,0 +1,6 @@
+Particles properties in the right menu, above physics properties.
+We have to add a new one, with space the animation starts and particles fall.
+Number: Number of particles
+Frame start: In case I dont want to see the particles start falling
+Lifetime: How long you want them to live.
+

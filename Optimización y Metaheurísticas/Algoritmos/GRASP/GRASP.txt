@@ -1,0 +1,24 @@
+GRASP: Greedy Randomized Adaptive Search Procedure
+  Consiste en dos fases principales
+    1. Fase constructiva (Greedy Randomize Adaptive): Consiste en generar una buena solución factible.
+      a) Algoritmo voraz.
+	Toma la mejor elección en cada paso.
+      b) Función adaptativa.
+	Se conoce como función greedy y mide la contribución de cada elemento a la solución parcial. Guía a la parte greedy para ver qué elemento toma. 
+      c) Seleccion probabilista.
+	Selecciona a los candidatos que tengan mejor resultado en la función adaptativa; esto se llama lista restringida de candidatos. Y escoge de forma aleatoria a algún elemento de esta lista (1 del top x).
+	Lista restringida de candidatos:
+	  Se puede definir algun tamaño: top 3 o top 5
+	  O se puede conformar si los resultados pertenecen a algún rango. Busca el equilibrio entre calidad y aletoriedad. Depende de un parámetro alfa.
+	  Alfa: 
+	    Diseño básico.
+	      Alfa constante
+	      RCL tamaño constante
+	    Alfa variable.
+	      Reducir alfa después de un cierto número de iteraciones sin mejora
+	      Seleccionar alfa al azar [0, 1]
+	    GRASP Reactivo.
+	      Alterar probabilidades de escoger algún alfa dependiendo del proelbmea en específico.
+    2. La fase de mejora local (Local Search): Consiste en mejorar localmente la solución inicial.
+  Se guarda el resultado y se repiten los pasos en la siguiente iteración.
+  
