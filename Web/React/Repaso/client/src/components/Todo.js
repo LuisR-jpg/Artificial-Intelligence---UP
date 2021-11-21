@@ -1,14 +1,5 @@
-import React, {useEffect, useState} from "react";
-import {getTodos} from "../functions/index.js";
+import {useState} from "react";
 function Todo(){
-    useEffect(() => {
-        console.log("Todos");
-        const fetchData = async() => {
-            const result = await getTodos();
-            console.log('Fetched data', result);
-        };
-        fetchData();
-    }, []);
     const [titleValue, setTitle] = useState();
     const [descValue, setDesc] = useState();
     function titleChanged(e){

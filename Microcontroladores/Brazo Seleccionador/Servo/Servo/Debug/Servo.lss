@@ -1,10 +1,10 @@
 
-AVRASM ver. 2.2.8  C:\Users\lalor\Documents\Git\School\Microcontroladores\Brazo Seleccionador\StepperMotor\StepperMotor\main.asm Sun Nov 21 14:22:28 2021
+AVRASM ver. 2.2.8  C:\Users\lalor\Documents\Git\School\Microcontroladores\Brazo Seleccionador\Servo\Servo\main.asm Sun Nov 21 14:18:03 2021
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m16Adef.inc'
-C:\Users\lalor\Documents\Git\School\Microcontroladores\Brazo Seleccionador\StepperMotor\StepperMotor\main.asm(14): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m16adef.inc'
+C:\Users\lalor\Documents\Git\School\Microcontroladores\Brazo Seleccionador\Servo\Servo\main.asm(8): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m16adef.inc'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m16Adef.inc'
-C:\Users\lalor\Documents\Git\School\Microcontroladores\Brazo Seleccionador\StepperMotor\StepperMotor\main.asm(14): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m16adef.inc'
+C:\Users\lalor\Documents\Git\School\Microcontroladores\Brazo Seleccionador\Servo\Servo\main.asm(8): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m16adef.inc'
                                  
                                  ;
                                  
@@ -872,15 +872,9 @@ C:\Users\lalor\Documents\Git\School\Microcontroladores\Brazo Seleccionador\Stepp
                                  #endif  /* _M16ADEF_INC_ */
                                  
                                  
-                                 ; StepperMotor.asm
+                                 ; Servo.asm
                                  ;
-                                 ; Created: 18/11/2021 08:18:19 a. m.
-                                 ; Author : lalor
-                                 ;
-                                 ;
-                                 ; Stepper Motor.asm
-                                 ;
-                                 ; Created: 13/10/2021 11:06:55 p. m.
+                                 ; Created: 21/11/2021 09:59:05 a. m.
                                  ; Author : lalor
                                  ;
                                  
@@ -930,36 +924,36 @@ C:\Users\lalor\Documents\Git\School\Microcontroladores\Brazo Seleccionador\Stepp
                                  
                                     
                                  ;*******************
-                                 ;Registros (aquí pueden definirse)
+                                 ;Registros (aqu? pueden definirse)
                                  ;.def temporal=r19
                                  
-                                 ;Palabras claves (aquí pueden definirse)
+                                 ;Palabras claves (aqu? pueden definirse)
                                  ;.equ LCD_DAT=DDRC
                                  ;********************
                                  
                                  .org 0x0000
                                  ;Comienza el vector de interrupciones...
 000000 940c 002a                 jmp RESET ; Reset Handler
-000002 940c 0049                 jmp EXT_INT0 ; IRQ0 Handler
-000004 940c 004a                 jmp EXT_INT1 ; IRQ1 Handler
-000006 940c 004b                 jmp TIM2_COMP ; Timer2 Compare Handler
-000008 940c 004c                 jmp TIM2_OVF ; Timer2 Overflow Handler
-00000a 940c 004d                 jmp TIM1_CAPT ; Timer1 Capture Handler
-00000c 940c 004e                 jmp TIM1_COMPA ; Timer1 CompareA Handler
-00000e 940c 004f                 jmp TIM1_COMPB ; Timer1 CompareB Handler
-000010 940c 0050                 jmp TIM1_OVF ; Timer1 Overflow Handler
-000012 940c 0051                 jmp TIM0_OVF ; Timer0 Overflow Handler
-000014 940c 0052                 jmp SPI_STC ; SPI Transfer Complete Handler
-000016 940c 0053                 jmp USART_RXC ; USART RX Complete Handler
-000018 940c 0054                 jmp USART_UDRE ; UDR Empty Handler
-00001a 940c 0055                 jmp USART_TXC ; USART TX Complete Handler
-00001c 940c 0056                 jmp ADC_COMP ; ADC Conversion Complete Handler
-00001e 940c 0057                 jmp EE_RDY ; EEPROM Ready Handler
-000020 940c 0058                 jmp ANA_COMP ; Analog Comparator Handler
-000022 940c 0059                 jmp TWSI ; Two-wire Serial Interface Handler
-000024 940c 005a                 jmp EXT_INT2 ; IRQ2 Handler
-000026 940c 005b                 jmp TIM0_COMP ; Timer0 Compare Handler
-000028 940c 005c                 jmp SPM_RDY ; Store Program Memory Ready Handler
+000002 940c 0058                 jmp EXT_INT0 ; IRQ0 Handler
+000004 940c 0059                 jmp EXT_INT1 ; IRQ1 Handler
+000006 940c 005a                 jmp TIM2_COMP ; Timer2 Compare Handler
+000008 940c 005b                 jmp TIM2_OVF ; Timer2 Overflow Handler
+00000a 940c 005c                 jmp TIM1_CAPT ; Timer1 Capture Handler
+00000c 940c 005d                 jmp TIM1_COMPA ; Timer1 CompareA Handler
+00000e 940c 005e                 jmp TIM1_COMPB ; Timer1 CompareB Handler
+000010 940c 005f                 jmp TIM1_OVF ; Timer1 Overflow Handler
+000012 940c 0060                 jmp TIM0_OVF ; Timer0 Overflow Handler
+000014 940c 0061                 jmp SPI_STC ; SPI Transfer Complete Handler
+000016 940c 0062                 jmp USART_RXC ; USART RX Complete Handler
+000018 940c 0063                 jmp USART_UDRE ; UDR Empty Handler
+00001a 940c 0064                 jmp USART_TXC ; USART TX Complete Handler
+00001c 940c 0065                 jmp ADC_COMP ; ADC Conversion Complete Handler
+00001e 940c 0066                 jmp EE_RDY ; EEPROM Ready Handler
+000020 940c 0067                 jmp ANA_COMP ; Analog Comparator Handler
+000022 940c 0068                 jmp TWSI ; Two-wire Serial Interface Handler
+000024 940c 0069                 jmp EXT_INT2 ; IRQ2 Handler
+000026 940c 006a                 jmp TIM0_COMP ; Timer0 Compare Handler
+000028 940c 006b                 jmp SPM_RDY ; Store Program Memory Ready Handler
                                  
                                  ;**************
                                  ;Inicializar el Stack Pointer
@@ -972,177 +966,123 @@ C:\Users\lalor\Documents\Git\School\Microcontroladores\Brazo Seleccionador\Stepp
                                  
                                  
                                  ;*********************************
-                                 ;Aquí comienza el programa...
-                                 ;No olvides configurar al inicio todo lo que utilizarás
+                                 ;Aqu? comienza el programa...
+                                 ;No olvides configurar al inicio todo lo que utilizar?s
                                  ;*********************************
                                  
-                                 
-00002e ef0f                      LDI R16, $FF
+00002e 2700                      CLR R16
 00002f bb0a                      OUT DDRA, R16
-000030 e000                      LDI R16, 0
+000030 ef0f                      SER R16
 000031 bb0b                      OUT PORTA, R16
+000032 bb07                      OUT DDRB, R16
+000033 e001                      LDI R16, 1
+000034 bb08                      OUT PORTB, R16
                                  
-                                 RIGHT:
-000032 e008                      	LDI R16, 0b0000_1000
-000033 bb0b                      	OUT PORTA, R16
-000034 d00a                      	RCALL DELAY
-000035 e004                      	LDI R16, 0b0000_0100
-000036 bb0b                      	OUT PORTA, R16
-000037 d007                      	RCALL DELAY
-000038 e002                      	LDI R16, 0b0000_0010
-000039 bb0b                      	OUT PORTA, R16
-00003a d004                      	RCALL DELAY
-00003b e001                      	LDI R16, 0b0000_0001
-00003c bb0b                      	OUT PORTA, R16
-00003d d001                      	RCALL DELAY
-00003e cff3                      RJMP RIGHT
+000035 2700                      CLR R16
+000036 bf02                      OUT TCNT0, R16		;EMPIEZA A CONTAR EN 0
+000037 e114                      LDI R17, 20				;VARIABLE DE OCR0
+000038 e60b                      LDI R16, 0b0110_1011
+000039 bf03                      OUT TCCR0, R16		;CONFIGURO 
+                                  
+                                 BOTONES:
+00003a bf1c                      	OUT OCR0, R17
+00003b 9bc8                      	SBIS PINA, 0
+00003c d003                      	RCALL INCREMENTA
+00003d 9bc9                      	SBIS PINA, 1
+00003e d007                      	RCALL DECREMENTA
+00003f cffa                      RJMP BOTONES
                                  
-                                 DELAY:
-                                 ; ============================= 
-                                 ;    delay loop generator 
-                                 ;     3000 cycles:
-                                 ; ----------------------------- 
-                                 ; delaying 2997 cycles:
-00003f e0d9                                ldi  R29, $09
-000040 e6ee                      WGLOOP0:  ldi  R30, $6E
-000041 95ea                      WGLOOP1:  dec  R30
-000042 f7f1                                brne WGLOOP1
-000043 95da                                dec  R29
-000044 f7d9                                brne WGLOOP0
-                                 ; ----------------------------- 
-                                 ; delaying 3 cycles:
-000045 e0d1                                ldi  R29, $01
-000046 95da                      WGLOOP2:  dec  R29
-000047 f7f1                                brne WGLOOP2
-                                 ; ============================= 
-000048 9508                      ret
-                                 /*; ============================= 
-                                 ;    delay loop generator 
-                                 ;     16000 cycles:
-                                 ; ----------------------------- 
-                                 ; delaying 15996 cycles:
-                                           ldi  R26, $1F
-                                 LOOP0:  ldi  R27, $AB
-                                 LOOP1:  dec  R27
-                                           brne LOOP1
-                                           dec  R26
-                                           brne LOOP0
-                                 ; ----------------------------- 
-                                 ; delaying 3 cycles:
-                                           ldi  R26, $01
-                                 LOOP2:  dec  R26
-                                           brne LOOP2
-                                 ; ----------------------------- 
-                                 ; delaying 1 cycle:
-                                           nop
-                                 ; ============================= 
+                                 INCREMENTA:
+000040 e11e                      	LDI R17, 30
+                                 	REGRESAI:
+000041 d00a                      		RCALL DELAY
+                                 		STAYI:
+000042 9bc8                      			SBIS PINA, 0
+000043 cffe                      		RJMP STAYI
+000044 d007                      		RCALL DELAY
+000045 9508                      RET
                                  
+                                 DECREMENTA:
+000046 e01a                      	LDI R17, 10
+                                 	REGRESAD:
+000047 d004                      		RCALL DELAY
+                                 		STAYD:
+000048 9bc9                      			SBIS PINA, 1
+000049 cffe                      		RJMP STAYD
+00004a d001                      		RCALL DELAY
+00004b 9508                      RET
                                  
-                                 
-                                 ; ============================= */
-                                 /*; ============================= 
-                                 ;    delay loop generator 
-                                 ;     5000 cycles:
-                                 ; ----------------------------- 
-                                 ; delaying 4998 cycles:
-                                           ldi  R29, $07
-                                 WGLOOP0:  ldi  R30, $ED
-                                 WGLOOP1:  dec  R30
-                                           brne WGLOOP1
-                                           dec  R29
-                                           brne WGLOOP0
-                                 ; ----------------------------- 
-                                 ; delaying 2 cycles:
-                                           nop
-                                           nop
-                                 ; ============================= 
-                                 */
-                                 /*
-                                 ; ============================= 
-                                 ;    delay loop generator 
-                                 ;     1600 cycles:
-                                 ; ----------------------------- 
-                                 ; delaying 1599 cycles:
-                                           ldi  R29, $0D
-                                 WGLOOP0:  ldi  R30, $28
-                                 WGLOOP1:  dec  R30
-                                           brne WGLOOP1
-                                           dec  R29
-                                           brne WGLOOP0
-                                 ; ----------------------------- 
-                                 ; delaying 1 cycle:
-                                           nop
-                                 ; ============================= */
-                                 
-                                 
-                                 /*RETARDO50m:						//50,000 ciclos: 50ms 1MHz
+                                 DELAY:						//50,000 ciclos: 50ms 1MHz
                                  	; ============================= 
                                  	;    delay loop generator 
                                  	;     50000 cycles:
                                  	; ----------------------------- 
                                  	; delaying 49995 cycles:
-                                 			  ldi  R29, $65
-                                 	WGLOOP0:  ldi  R30, $A4
-                                 	WGLOOP1:  dec  R30
-                                 			  brne WGLOOP1
-                                 			  dec  R29
-                                 			  brne WGLOOP0
+00004c e6d5                      			  ldi  R29, $65
+00004d eae4                      	WGLOOP0:  ldi  R30, $A4
+00004e 95ea                      	WGLOOP1:  dec  R30
+00004f f7f1                      			  brne WGLOOP1
+000050 95da                      			  dec  R29
+000051 f7d9                      			  brne WGLOOP0
                                  	; ----------------------------- 
                                  	; delaying 3 cycles:
-                                 			  ldi  R29, $01
-                                 	WGLOOP2:  dec  R29
-                                 			  brne WGLOOP2
+000052 e0d1                      			  ldi  R29, $01
+000053 95da                      	WGLOOP2:  dec  R29
+000054 f7f1                      			  brne WGLOOP2
                                  	; ----------------------------- 
                                  	; delaying 2 cycles:
-                                 			  nop
-                                 			  nop
-                                 		ret
-                                 	; ============================= */
+000055 0000                      			  nop
+000056 0000                      			  nop
+                                 	; ============================= 
+                                 
+000057 9508                      RET
                                  
                                  
                                  
                                  ;*********************************
-                                 ;Aquí está el manejo de las interrupciones concretas
+                                 ;Aqu? est? el manejo de las interrupciones concretas
                                  ;*********************************
                                  EXT_INT0: ; IRQ0 Handler
-000049 9518                      reti
+000058 9518                      reti
                                  EXT_INT1: 
-00004a 9518                      reti ; IRQ1 Handler
+000059 9518                      reti ; IRQ1 Handler
                                  TIM2_COMP: 
-00004b 9518                      reti ; Timer2 Compare Handler
+00005a 9518                      reti ; Timer2 Compare Handler
                                  TIM2_OVF: 
-00004c 9518                      reti ; Timer2 Overflow Handler
+00005b 9518                      reti ; Timer2 Overflow Handler
                                  TIM1_CAPT: 
-00004d 9518                      reti ; Timer1 Capture Handler
+00005c 9518                      reti ; Timer1 Capture Handler
                                  TIM1_COMPA: 
-00004e 9518                      reti ; Timer1 CompareA Handler
+00005d 9518                      reti ; Timer1 CompareA Handler
                                  TIM1_COMPB: 
-00004f 9518                      reti ; Timer1 CompareB Handler
+00005e 9518                      reti ; Timer1 CompareB Handler
                                  TIM1_OVF: 
-000050 9518                      reti ; Timer1 Overflow Handler
+00005f 9518                      reti ; Timer1 Overflow Handler
                                  TIM0_OVF: 
-000051 9518                      reti ; Timer0 Overflow Handler
+000060 9518                      reti ; Timer0 Overflow Handler
                                  SPI_STC: 
-000052 9518                      reti ; SPI Transfer Complete Handler
+000061 9518                      reti ; SPI Transfer Complete Handler
                                  USART_RXC: 
-000053 9518                      reti ; USART RX Complete Handler
+000062 9518                      reti ; USART RX Complete Handler
                                  USART_UDRE: 
-000054 9518                      reti ; UDR Empty Handler
+000063 9518                      reti ; UDR Empty Handler
                                  USART_TXC: 
-000055 9518                      reti ; USART TX Complete Handler
+000064 9518                      reti ; USART TX Complete Handler
                                  ADC_COMP: 
-000056 9518                      reti ; ADC Conversion Complete Handler
+000065 9518                      reti ; ADC Conversion Complete Handler
                                  EE_RDY: 
-000057 9518                      reti ; EEPROM Ready Handler
+000066 9518                      reti ; EEPROM Ready Handler
                                  ANA_COMP: 
-000058 9518                      reti ; Analog Comparator Handler
+000067 9518                      reti ; Analog Comparator Handler
                                  TWSI: 
-000059 9518                      reti ; Two-wire Serial Interface Handler
+000068 9518                      reti ; Two-wire Serial Interface Handler
                                  EXT_INT2: 
-00005a 9518                      reti ; IRQ2 Handler
+000069 9518                      reti ; IRQ2 Handler
                                  TIM0_COMP: 
-00005b 9518                      reti
+00006a 9518                      reti
                                  SPM_RDY: 
+00006b 9518                      reti ; Store Program Memory Ready Handler
+                                 
 
 
 RESOURCE USE INFORMATION
@@ -1162,10 +1102,10 @@ counted separately from r26..r31 here.
 "ATmega16A" register use summary:
 x  :   0 y  :   0 z  :   0 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:  16 r17:   0 r18:   0 r19:   0 r20:   0 
+r13:   0 r14:   0 r15:   0 r16:  15 r17:   4 r18:   0 r19:   0 r20:   0 
 r21:   0 r22:   0 r23:   0 r24:   0 r25:   0 r26:   0 r27:   0 r28:   0 
 r29:   4 r30:   2 r31:   0 
-Registers used: 3 out of 35 (8.6%)
+Registers used: 4 out of 35 (11.4%)
 
 "ATmega16A" instruction use summary:
 .lds  :   0 .sts  :   0 adc   :   0 add   :   0 adiw  :   0 and   :   0 
@@ -1174,25 +1114,25 @@ brcc  :   0 brcs  :   0 break :   0 breq  :   0 brge  :   0 brhc  :   0
 brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   0 
 brne  :   3 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
 brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :   0 cbr   :   0 
-clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   0 cls   :   0 
+clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   2 cls   :   0 
 clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   0 cpc   :   0 
 cpi   :   0 cpse  :   0 dec   :   3 eor   :   0 fmul  :   0 fmuls :   0 
 fmulsu:   0 icall :   0 ijmp  :   0 in    :   0 inc   :   0 jmp   :  21 
-ld    :   0 ldd   :   0 ldi   :  11 lds   :   0 lpm   :   0 lsl   :   0 
+ld    :   0 ldd   :   0 ldi   :  10 lds   :   0 lpm   :   0 lsl   :   0 
 lsr   :   0 mov   :   0 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
-neg   :   0 nop   :   0 or    :   0 ori   :   0 out   :   8 pop   :   0 
-push  :   0 rcall :   4 ret   :   1 reti  :  20 rjmp  :   1 rol   :   0 
-ror   :   0 sbc   :   0 sbci  :   0 sbi   :   0 sbic  :   0 sbis  :   0 
+neg   :   0 nop   :   2 or    :   0 ori   :   0 out   :   9 pop   :   0 
+push  :   0 rcall :   6 ret   :   3 reti  :  20 rjmp  :   3 rol   :   0 
+ror   :   0 sbc   :   0 sbci  :   0 sbi   :   0 sbic  :   0 sbis  :   4 
 sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   0 sec   :   0 seh   :   0 
-sei   :   0 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
+sei   :   0 sen   :   0 ser   :   1 ses   :   0 set   :   0 sev   :   0 
 sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 sts   :   0 
 sub   :   0 subi  :   0 swap  :   0 tst   :   0 wdr   :   0 
-Instructions used: 9 out of 113 (8.0%)
+Instructions used: 13 out of 113 (11.5%)
 
 "ATmega16A" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x0000ba    186      0    186   16384   1.1%
+[.cseg] 0x000000 0x0000d8    216      0    216   16384   1.3%
 [.dseg] 0x000060 0x000060      0      0      0    1024   0.0%
 [.eseg] 0x000000 0x000000      0      0      0     512   0.0%
 
