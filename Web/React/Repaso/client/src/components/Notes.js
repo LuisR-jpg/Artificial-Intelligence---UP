@@ -1,9 +1,10 @@
 import {getTodos} from "../functions/index.js";
-import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { IconName } from "react-icons/bi";
+
 import React, {useEffect, useState} from "react";
 function Notes(){
     var rows = [];
@@ -35,6 +36,7 @@ function Notes(){
                                 </Card>
                             )
                     })}
+
             </Container>
         </>
     );
