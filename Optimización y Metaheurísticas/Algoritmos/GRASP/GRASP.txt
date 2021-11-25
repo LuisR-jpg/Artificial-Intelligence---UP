@@ -9,7 +9,7 @@ GRASP: Greedy Randomized Adaptive Search Procedure
 	Selecciona a los candidatos que tengan mejor resultado en la función adaptativa; esto se llama lista restringida de candidatos. Y escoge de forma aleatoria a algún elemento de esta lista (1 del top x).
 	Lista restringida de candidatos:
 	  Se puede definir algun tamaño: top 3 o top 5
-	  O se puede conformar si los resultados pertenecen a algún rango. Busca el equilibrio entre calidad y aletoriedad. Depende de un parámetro alfa.
+	  O se puede conformar si los resultados pertenecen a algún rango. Busca el equilibrio entre calidad y aleatoriedad. Depende de un parámetro alfa.
 	  Alfa: 
 	    Diseño básico.
 	      Alfa constante

@@ -3,7 +3,6 @@ import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { IconName } from "react-icons/bi";
 
 import React, {useEffect, useState} from "react";
 function Notes(){
@@ -35,6 +34,7 @@ function Notes(){
                                     </Card.Body>
                                 </Card>
                             )
+                        else return ""
                     })}
 
             </Container>
