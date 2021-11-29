@@ -1,0 +1,7 @@
+**/node_modules/
+**/.ipynb_checkpoints/
+**/Escultura/Examen II/Checkpoints
+.env
+package-lock.json
+yarn.lock
+

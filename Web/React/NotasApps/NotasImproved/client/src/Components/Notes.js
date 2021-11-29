@@ -28,6 +28,7 @@ useEffect(() => {
                                 </div>
                             </li>
                         )
+                    else return(<div></div>)
                 })}
             </ul>
         </>
