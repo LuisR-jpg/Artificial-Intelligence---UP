@@ -16,6 +16,8 @@
     3. Grafo
       Se crea nueva matriz, donde cada casilla es el promedio del tiempo de ajusta de las otras matrices.
       Después se parte de la operación que tome menos tiempo global, y se define la siguiente operacion de forma aleatoria a partir de uno random de sus mejores 3 vecinos en la mejor matriz (considerando promedio de operación y de tiempo de ajuste). Después se asigna la siguiente operación que se definió antes, a la máquina donde afecte menos el resultado.
+      Problema: 
+	Se corre el riesgo de ignorar buenos tiempos de ajuste
 
   Malas ideas: 
     Sumar por columna
