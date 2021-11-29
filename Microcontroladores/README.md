@@ -1,7 +1,7 @@
 # Registros
 # Temas por práctica
 1. Microcontrolador como cable
-- I/O
+  - I/O
 2. BCD a 7 segmentos
 - DipSwitch
 - 7447
