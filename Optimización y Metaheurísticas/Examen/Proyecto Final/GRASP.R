@@ -1,4 +1,5 @@
-myFile = read.delim(file.choose(), header = FALSE, sep = " ")
+#myFile = read.delim(file.choose(), header = FALSE, sep = " ")
+myFile = read.delim("C:\\Users\\lalor\\Documents\\Git\\School\\Optimización y Metaheurísticas\\Examen\\Proyecto Final\\Instancias_sjupm\\Mine\\Instancia10.sjupm", header = FALSE, sep = " ")
 nOperaciones = myFile[1, 1]
 nMaquinas = myFile[1, 2]
 rows = 1 + nMaquinas
@@ -30,24 +31,61 @@ currOp = minOp[2]
 print(matAvg)
 repeat {
   assignedOp = c(assignedOp, currOp)
+  cat("NUEVA ITERACION", "\n")
+  print(currOp)
   assignedM = which.min(times + tOperaciones[, currOp])
+  #print("Sol")
+  #print(times + tOperaciones[, currOp])
+  #print(which.min(times + tOperaciones[, currOp]))
   sol[[assignedM]] = c(sol[[assignedM]], currOp)
   times[assignedM] = times[assignedM] + tOperaciones[assignedM, currOp]
   nOM = length(sol[[assignedM]]) #Número de operaciones en la máquina asignada
   if(nOM > 1)
     times[assignedM] = times[assignedM] + tAjuste[[assignedM]][sol[[assignedM]][nOM - 1], sol[[assignedM]][nOM]]
+  
+  if(length(assignedOp) == nOperaciones) break
+  
   vecFila = sort(matAvg[currOp, ])
-  print(vecFila)
   neighborhood = c()
+  #cat("assignedOp:", assignedOp, "\\n")
   for(i in 1: nOperaciones){
     element = vecFila[i]
-    if(!(which(element == matAvg[currOp, ]) %in% assignedOp))
+    index = which(element == matAvg[currOp, ])
+    if(length(index) > 1) index = sample(index, 1)
+    if(!(index %in% assignedOp))
       neighborhood = c(neighborhood, element)
   }
-  cat("Neigh", neighborhood, "\n")
-  ranElement = sample(neighborhood[1: min(c(length(neighborhood), top))], 1)
-  currOp = which(ranElement == matAvg[currOp, ])
-  if(length(assignedOp) == nOperaciones) break
+  cat("Tamaño:", nOperaciones, length(assignedOp), "\n")
+  cat("Neighboor", neighborhood, "\n")
+  
+  ranElement = sample(neighborhood, 1)
+  if(length(neighborhood) == 1) ranElement = neighborhood[1]
+  currOp = match(ranElement, matAvg[currOp, ])
+  #print(currOp)
 }
 sol
 
+
+timeList <- function(solution, prosecutionTime, adjustmentTime)
+{
+  times = c()
+  #print(length(solution))
+  for(i in 1:length(solution))
+  {
+    #cat("i",i)
+    time = 0
+    for(j in 1:length(solution[[i]]))
+    {
+      #cat("j",j)
+      time = time + prosecutionTime[i,solution[[i]][j]]
+      if(j >= 2)
+      {
+        time = time + adjustmentTime[[i]][solution[[i]][j-1],solution[[i]][j]]
+      }
+    }
+    times = c(times, time)
+  }
+  #print(times) 
+  return(times)
+}
+timeList(sol, tOperaciones, tAjuste)
