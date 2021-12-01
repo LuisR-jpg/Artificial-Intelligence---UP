@@ -1,0 +1,37 @@
+Soy número 27
+Configurar servo
+Configurar frecuencia de micro
+
+Registros.
+  R16-R19 Temporales
+  R20 Displays
+  R21 Estado
+      0000_0001 Primer digito
+      0000_0010 Segundo digito
+      0000_0100 Esperando asterisco
+  R22 Numeros reales display
+      
+
+Operaciones.
+  Frecuencia micro = 8 MHz
+  Prescaler = 256
+
+  Angulo	Tiempo		OCR0
+  0° 		0.000992	30
+  20°		0.001024	31
+  40°		0.001056	32
+  60°		0.001088	33
+  80°		0.00112		34
+  100°		0.001152	35
+
+  120°
+  140°
+  160°
+  180°		0.00128
+  
+
+  180°/20° = 9 partes iguales.
+    t(20°)
+      (0.00128 - 0.000992)/9 + 0.000992 = 20°
+      0.000032 + 0.000992 = 0.001024
+    t(40°) = t(20°) + 0.000032 = 0.001024 + 0.000992
