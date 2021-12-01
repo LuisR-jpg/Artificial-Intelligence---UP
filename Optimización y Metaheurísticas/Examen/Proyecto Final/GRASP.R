@@ -1,5 +1,5 @@
-#myFile = read.delim(file.choose(), header = FALSE, sep = " ")
-myFile = read.delim("C:\\Users\\lalor\\Documents\\Git\\School\\Optimización y Metaheurísticas\\Examen\\Proyecto Final\\Instancias_sjupm\\Mine\\Instancia2.sjupm", header = FALSE, sep = " ")
+myFile = read.delim(file.choose(), header = FALSE, sep = " ")
+#myFile = read.delim("C:\\Users\\lalor\\Documents\\Git\\School\\Optimización y Metaheurísticas\\Examen\\Proyecto Final\\Instancias_sjupm\\Mine\\Instancia1.sjupm", header = FALSE, sep = " ")
 nOperaciones = myFile[1, 1]
 nMaquinas = myFile[1, 2]
 rows = 1 + nMaquinas
@@ -169,13 +169,14 @@ local_search_tabu <- function(iter, initialSol, tenor){
 }
 
 soluciones = c()
+bSolution = c()
 for(i in 1: 50){
   mejor = local_search_tabu(150, Greedy(), 2)
+  tiempo = max(timeList(mejor,tOperaciones,tAjuste))
   #print(mejor)
-  soluciones = c(soluciones, max(timeList(mejor,tOperaciones,tAjuste)))
+  soluciones = c(soluciones, tiempo)
+  if(tiempo == max(soluciones)) 
+    bSolution = mejor
 }
 soluciones
-mean(soluciones)
-sd(soluciones)
-min(soluciones)
-max(soluciones)
+cat(mean(soluciones), sd(soluciones), min(soluciones), max(soluciones))
