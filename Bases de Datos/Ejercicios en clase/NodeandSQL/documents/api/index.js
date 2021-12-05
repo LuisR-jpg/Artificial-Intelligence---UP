@@ -1,6 +1,7 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const app = express();
-
+app.use(bodyParser.json());
 const configsql = {
     user: 'UserRamen',
     password: 'Ramen123',
@@ -17,7 +18,10 @@ const configsql = {
 app.get('/', function(request, response){
     response.send("API desde NodeJS")
 });
-
+app.post('/testpost', function(request, response){
+    var objeto = request.body;
+    response.send(objeto.nombre);
+});
 app.get('/brand', function(request,response){
 
     var filter = request.query.filter;
@@ -43,7 +47,69 @@ app.get('/brand', function(request,response){
         })
     })
 });
+app.post("/brand", function(request, response){
+    var brand = request.body;
+    if(brand.brandname){
+        var sql = require("mssql");
+        sql.connect(configsql, function(error){
+            if(error) console.log(error);
+            var querystring = "insert into brand (brandname) values ('" + brand.brandname + "')";
+            var result = new sql.Request();
+            result.query(querystring, function(error, recordSet){
+                response.send(recordSet);
+            });
+        });
+    }
+    else{
+        response.status(400);
+        response.send('Objeto Incorrecto');
+    }
+});
+app.patch('/brand', function(request, response){
+    var brand = request.body;
+    if(brand.brandname && brand.idbrand){
+        var sql = require("mssql");
+        sql.connect(configsql, function(error){
+            if(error) console.log(error);
+            var querystring = "update brand set brandname = '" + brand.brandname + "' where idbrand = " + brand.idbrand;
+            var result = new sql.Request();
+            result.query(querystring, function(err, recordSet){
+                if(err) console.log(err);
+                response.send(recordSet);
+            })
+        })
+    }
+    else {
+        response.status(400);
+        response.send('Objeto Incorrecto');
+    }
+})
+app.delete('/brand', function(request, response){
+    var idbrand = request.query.idbrand;
+    if(idbrand){
+        var sql = require("mssql");
+        sql.connect(configsql, function(err){
+            if(err) console.log(err);
+            var querystring = "delete from brand where idbrand =" + idbrand;
+            var result = new sql.Request();
+            result.query(querystring, function(err, recordSet){
+                if(err){
+                    console.log(err);
+                    response.status(500);
+                    response.send(err);
+                }
+                else {
+                    response.send(recordSet);
+                }
+            });
+        })
 
+    }
+    else {
+        response.status(400);
+        response.send('No se proporcionó el idbrand');
+    }
+});
 app.get('/topten', function(request, response){
     var idcountry = request.query.idcountry;
 
