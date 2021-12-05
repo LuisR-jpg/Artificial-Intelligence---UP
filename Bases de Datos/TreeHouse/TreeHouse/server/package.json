@@ -1,5 +1,5 @@
 {
-  "name": "Page",
+  "name": "server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,10 +8,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.17.1",
-    "mssql": "^7.3.0",
-    "nodemon": "^2.0.15"
-  }
+  "license": "ISC"
 }
