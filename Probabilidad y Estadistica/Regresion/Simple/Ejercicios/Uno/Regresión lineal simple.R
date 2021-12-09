@@ -47,6 +47,13 @@ regresion_lineal_simple = function(datos, x_nueva=NULL) {
 }
 # =====
 # Programa principal
+
+# Para estimar el inventario de este año (inventario en exceso), una compañía de neumáticos muestreó 5 comerciantes, obteniendo en cada caso las cifras de inventario tanto para el año pasado como para el presente. Los datos están en la tabla
+# Elabore un modelo de regresión lineal simple para los datos.
+# Interprete el valor de los coeficientes de regresión
+# Estime el inventario para el año presente si el inventario del año pasado fue de 125 unidades
+
+
 articulos = read.csv(file.choose(), header=TRUE)
 articulos
 

@@ -10,7 +10,7 @@
 # -----
 # Lectura de archivo de funciones
 # -----
-source("C:\\Users\\lalor\\Documents\\Git\\School\\Probabilidad y Estadistica\\Regresion\\Ejercicios\\Dos\\Regresion_util.r")
+source("C:\\Users\\lalor\\Documents\\Git\\School\\Probabilidad y Estadistica\\Regresion\\Simple\\Ejercicios\\Dos\\Regresion_util.R")
 # -----
 # Funciones
 # -----
@@ -23,7 +23,7 @@ source("C:\\Users\\lalor\\Documents\\Git\\School\\Probabilidad y Estadistica\\Re
 # E/S disco	36	20	45	5	40	18	38	32	21	54	11	43	19	7	26
 # a.	Elabore la gráfica de dispersión. ¿Parece existir una relación lineal entre las variables?
 # --
-procesamiento_datos = read.csv("C:\\Users\\lalor\\Documents\\Git\\School\\Probabilidad y Estadistica\\Regresion\\Ejercicios\\Dos\\Procesamiento_datos.csv")
+procesamiento_datos = read.csv("C:\\Users\\lalor\\Documents\\Git\\School\\Probabilidad y Estadistica\\Regresion\\Simple\\Ejercicios\\Dos\\Procesamiento_datos.csv")
 procesamiento_datos
 reg1 = regresion_lineal_simple(procesamiento_datos)
 # R: Aparentemente los datos tienen un comportamiento lineal

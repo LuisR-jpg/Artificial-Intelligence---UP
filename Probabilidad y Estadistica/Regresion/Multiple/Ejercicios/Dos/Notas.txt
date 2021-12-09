@@ -1,0 +1,5 @@
+Dado Xp.
+  Intervalo de confianza. Estimación de la recta
+  Intervalo de predicción. Estimación de un Y individual
+Matriz de diseño. 
+  Matriz que tiene una fila de puros unos y después X1, X2...
