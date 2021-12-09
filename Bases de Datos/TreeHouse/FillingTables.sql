@@ -1,4 +1,24 @@
 --insert into Producto (Categoria) select Categoria from CategoriaSabor group by Categoria
 --select * from Producto
-insert into Sabor (Nombre, IDCategoria) select cs.Sabor, p.ID from CategoriaSabor cs, Producto p where cs.Categoria = p.Categoria
-select * from Sabor
+
+--insert into Sabor (Nombre, IDCategoria) select cs.Sabor, p.ID from CategoriaSabor cs, Producto p where cs.Categoria = p.Categoria
+--select * from Sabor
+
+--insert into Propiedades (Nombre, Descripcion) values
+--(
+--	'Mision',
+--	'Un día lleno de trabajo requiere una alimentación deliciosa y nutritiva, pensada
+--para iniciar el día con buena actitud.
+--Nuestra misión es otorgar alimentos prácticos que no distraen al comensal de
+--aquello que más importa, la convivencia y el trabajo responsable. Creamos los
+--distintos productos Tree House para que sean alimentos ideales en reuniones
+--empresariales y eventos.'
+--), 
+--(
+--	'Vision',
+--	'Tree House desea ofrecer alimentos frescos y naturales, cuya combinación de
+--ingredientes formen un menú con variedad de alimentos en conjunto con snacks y
+--bebidas; buscando lograr el equilibrio perfecto entre el disfrute del paladar y la
+--nutrición del comensal, manteniendo siempre excelente calidad y servicio.'
+--)
+--select * from Propiedades	
