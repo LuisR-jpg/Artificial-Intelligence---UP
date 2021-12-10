@@ -26,14 +26,15 @@ app.get('/', function(requets, response){
 });
 app.post('/event', function(request, response){
     console.log(request.body)
+    const {nombre, nPersonas} = request.body;
     var sql = require("mssql");
     sql.connect(configsql, function(err){
-        if(err) console.log(err);
-        var querystring = "SELECT * FROM PRODUCTO";
+        if(err) console.log("Error 1:", err);
+        var querystring = `insert into Eventos (Nombre, NumeroPersonas) values ('${nombre}', ${nPersonas})`;
         var result = new sql.Request();
         result.query(querystring, function(err, recordset){
-            if(err) console.log(err);
-            response.send(recordset);
+            if(err) console.log("Falló", err);
+            else response.send(recordset);
         })
     })
 });
