@@ -1,0 +1,34 @@
+@font-face {
+    font-family: titulo;
+    src: url(./titulo.otf);
+}
+
+.SubtituloMenu{
+    text-align: center;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    
+}
+.TituloMenu{
+    font-family: titulo;
+    font-size: 500%;
+    text-align: center;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+
+    color:#467a39;
+;
+    
+}
+.Options{
+    text-align: center;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+
+}

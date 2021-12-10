@@ -1,0 +1,18 @@
+@font-face {
+    font-family: titulo;
+    src: url(./titulo.otf);
+}
+
+.TituloEventos{
+    font-family: titulo;
+    font-size: 500%;
+    text-align: center;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+
+    color:#467a39;
+
+    
+}
