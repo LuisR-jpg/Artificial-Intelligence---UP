@@ -38,11 +38,25 @@ app.post('/event', function(request, response){
         })
     })
 });
-app.get('/menu', function(request,response){
+app.get('/sabores', function(request, response){
+    const categoria = request.query.categoria;
+    console.log(categoria);
     var sql = require("mssql");
     sql.connect(configsql, function(err){
         if(err) console.log(err);
-        var querystring = "SELECT * FROM PRODUCTO";
+        var querystring = `select Nombre from Sabor where IDCategoria = (select ID from Producto where Categoria = '${categoria}')`;
+        var result = new sql.Request();
+        result.query(querystring, function(err, recordset){
+            if(err) console.log(err);
+            response.send(recordset);
+        })
+    })
+});
+app.get('/categorias', function(request,response){
+    var sql = require("mssql");
+    sql.connect(configsql, function(err){
+        if(err) console.log(err);
+        var querystring = "select Categoria from Producto";
         var result = new sql.Request();
         result.query(querystring, function(err, recordset){
             if(err) console.log(err);

@@ -6,7 +6,6 @@ import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal);
 function Eventos(){
     const [date, setDate] = useState({myDate: new Date(Date.now()).toDateString().substring(4)});
-    const [rawDate, setRawDate] = useState();
     const [name, setName] = useState("");
     const [people, setPeople] = useState(3);
     const [mail, setMail] = useState("");
@@ -28,7 +27,6 @@ function Eventos(){
         const val = e.target.value;
         const newState = {...date};
         newState[key] = val.toDateString().substring(4);
-        setRawDate(val);
         setDate(newState);
     }
     const onSubmitHandler = async (e) => {
@@ -37,7 +35,6 @@ function Eventos(){
             nombre: name,
             correo: mail,
             nPersonas: people,
-            //fecha: rawDate
         };
         console.log(await sendEvent(send));
         setName("");
