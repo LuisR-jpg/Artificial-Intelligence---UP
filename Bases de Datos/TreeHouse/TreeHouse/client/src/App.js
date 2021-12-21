@@ -4,18 +4,20 @@ import Footer from './Components/Footer/footer.js'
 import Cont from './Components/Pages/Home/container.js'
 import Navb from './Components/NavBar/nav';
 import Rutas from './Components/Rutas';
+import Categoria from "./Components/Categoria";
+
 
 function App() {
   return (
     <>
     <Navb/>
-    <br/>
     <Rutas />
-    {/* <Cont/> */}
     <br/>
     <br/>
     <br/>
     <Footer />
+    {/* <Categoria categoria = "Smoothies"/> */}
+
     </>
   );
 }

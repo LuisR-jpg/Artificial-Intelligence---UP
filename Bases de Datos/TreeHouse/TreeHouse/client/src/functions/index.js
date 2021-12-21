@@ -18,12 +18,12 @@ export const getSabores = async(categoria) =>
         console.log(error)
     }
 }
-export const getCategorias = async() => {
-    try {
-        const {data} = await api.getCategorias(categoria);
-        return data;
-    }
-    catch (error) {
-        console.log(error);
-    }
-}
+// export const getCategorias = async() => {
+//     try {
+//         const {data} = await api.getCategorias(categoria);
+//         return data;
+//     }
+//     catch (error) {
+//         console.log(error);
+//     }
+// }
