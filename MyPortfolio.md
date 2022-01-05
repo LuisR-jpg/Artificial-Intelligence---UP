@@ -3,8 +3,8 @@
 ### Ahorro
 ### Dividendos
 ### Criptomonedas
-Es efectivo digital, no rastreable.
-##### Blockchain
+    Es efectivo digital, no rastreable.
+    ##### Blockchain
     Libro de transacciones, repartido por todos los usuarios.
     Permite las aplicaciones descentralizadas.
     Resuelve el problema del general Bizantino.
