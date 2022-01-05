@@ -1,0 +1,701 @@
+Bitcoin: Es efectivo digital, no rastreable.
+Blockchain: Libro de transacciones, repartido por todo el mundo
+  Permite todo tipo de aplicaciones decentralizadas.	
+  Llegó a resolver el problema del general bizantino
+https://www.youtube.com/watch?v=bN3seZiVJmk&t=620s
+
+Proyectos de desarrollo.
+  Algunos no tienen su propia blockchain. Corren sobre otra.
+  Primera generación.
+    Bitcoin.
+      Soporta a moneda con el mismo nombre. 
+      Es la blockchain de dinero descentralizado más importante.
+  Segunda generación. Capaces de correr código
+    Ethereum.
+      Es la blockchain de aplicaciones decentralizadas más importante.
+      Permite aplicaciones que corren en la blockchain. Llamadas smart contracts.
+      EVM. Máquina virtual de ethereum. Utilizan mismos stack de herramientas.
+  Tercera generación. A futuro: Comunicación entre blockchains
+Web
+  1.0 Estática
+    Sitios de solo lectura
+  2.0 Dinámica	
+    El usuario puede interactuar, es el protagonista, es generador de contenido.
+  3.0 Semántica
+Para poder trabajar
+  Frontend:
+    HTML, CSS, JS y algún framework
+  Cuando se junta una aplicación + blockchain surge una: DApp -> Decentralized application
+  Para conectar con blockchain: Hay librerias
+  Necesitarás usar billeteras: Metamask es la más común
+  Backend:
+    Node JS
+Hacer smart contracts
+  Leer en la red es gratis.
+  Guardar datos o ejecutar tu smart contract cuesta poder de cómputo, así que te cobran con la moneda de la red. (Ether para ethereum)
+  NFT: Funcionan gracias a smart contracts
+  Seguridad: Prácticamente inhackeable, se necesita poder del 51% de la red para modificarla
+  El lenguaje más común es solidity, el que usa ethereum. Similar a js (Remix IDE para practicar solidity)
+  Mainnet: Como se le conoce al blockchain real, es decir, no es ninguna simulación local (testnet)
+Especializaciones blockchain
+  Ethereum smart contract specialist
+  DEFI: Finanzas decentralizadas
+  Blockchain games/Metaverse developers
+
+https://www.youtube.com/watch?v=zVcwvCL2C2c&list=WL&index=51
+  Mentalidad:
+    Spend less money than you make.
+    Be careful with the myth of I don't have.
+    You need to make sacrifices
+    Don't confuse what you want with what you truly need.
+  Resources:
+    The total money makeover. Dave Ramsey
+    I will teach you to be rich. Ramit Sethi
+    Unshakeable. Tony Robbins
+
+https://www.youtube.com/watch?v=wJB90G-tsgo&list=WL&index=52
+  Money is a tool, nothing more, nothing less
+  It's not how much you earn, it's what you do with it
+
+https://www.youtube.com/watch?v=t1NxNInQW9Q&list=WL&index=54
+7 diferentes tipos de ingreso y cómo generarlos
+  Primero. Por un empleo
+    Más ineficiente
+  Segundo. Por un negocio
+    Poner algo que necesitas o necesitaste en algún punto
+  Tercero. Ingreso por regalías
+    Música/libro/patente
+  Cuarto. Ingreso por rentas
+    1% de los ingresos para invertir
+    Ejemplos
+      Fibras en México o US
+	Fibra - VNQ - VNQI
+      GBM+
+  Quinto. Ingreso por intereses
+    Prestar dinero
+      CetesDirecto. Prestarle dinero a México
+      Pagarés bancarios.
+      Doopla. Prestar dinero a gente
+  Sexto. Ingreso por dividendos
+    Invertir en empresas que pagan buenos dividendos (fondo que junte a muchas empresas)
+      VYM Empresas de USA
+      VYMI Empresas internacionales
+  Séptimo. Ingreso por capital
+    Incremento en el valor de las cosas que poseemos.
+    Tres tipos de activos.
+      Bienes raíces.
+      Acciones.
+	VOO. Un solo activo de 500 empresas de USA
+	VEA. Empresas en países desarrollados
+	VWO. Empresas en países con economía en desarrollo
+      Criptomonedas.
+
+  Primeros tres.
+    Relación lineal: tiempo-dinero
+  Últimos cuatro.
+    Relación dinero-dinero.
+    Si se reinvierte es relación exponencial
+
+31 de Diciembre:
+
+https://www.youtube.com/watch?v=LaQu6QyjKgY
+  Tres pasos para invertir
+    Inversiones en
+      Acciones
+      Inmuebles
+      Bonos
+    1. ¿Qué porcentaje invertir?
+      Modelo de diversificación de Swensen:
+	30% Acciones en EU
+	20% Acciones en resto del mundo
+	20% Inmuebles
+	30% Bonos
+	Para modificar:
+	  Incrementar en bienes raíces para protegerse de inflación
+	  O disminuir de bienes raíces si ya tenemos casa
+      Instrumentos
+	Fondos cotizados ETF
+	  Uno solo engloba a una cantidad de inversiones
+	  Como son cotizados, hacen las cosas muy fáciles
+	Nos interesa el Expense Ratio.
+	  Comisión que toma la empresa, entre más pequeña, mejor.
+	  ETFs
+	    Acciones
+	      VT. Acciones de todo el mundo (sin control)
+  	        Creado por vanguard.
+  	        Expense Ratio 0.08%
+  	        Number of stocks >9000 empresas
+  	      Divisiones de VT.
+  	        VTI. Acciones en USA
+  	        VEA. Países desarrollados
+  	        VWO. En países en desarrollo
+	    Bienes Raíces
+  	      VNQ. Bienes raíces en Estados Unidos
+  	        Comision 0.12% anual
+  	        171 Fibras - Fideicomisos para bienes raíces
+  	      VNQI. Bienes raíces de todo el mundo
+  	        Comisión 0.12%
+  	        Importan más las regiones que el número de fibras
+	    Bonos
+	      BNDW.
+		Comisión 0.06%
+		16694 Bonos
+	  GBM+ Permite hacer inversiones fraccionadas
+	    Es una casa de bolsa
+	    plus.gbm.com
+	    Insertar código para obtener recompensa
+https://www.youtube.com/watch?v=kYkl29Ppt5U
+  CetesDirecto
+    Nuevas opciones de inversión de protección al ahorro
+    Bonos. Herramienta para pedir dinero prestado
+      BPAG91
+	5 años
+	100 pesos
+	Interes cada 3 meses
+	Interés: max(cetes, tasa ponderada de fondeo gubernamental del periodo)
+      BPAG28
+	3 años
+	100 pesos
+	Interés mensual
+	Interés: max(cetes, tasa ponderada de fondeo gubernamental del periodo)
+      Cetes vs BPAG
+	Depende de la razón por la que se invierte
+	Cetes son a corto plazo
+	BPA inversión a mediano plazo
+    Cómo invertir
+      Abrir cuenta en cetesdirecto
+      Sección de invertir
+      Llenar formulario
+
+https://www.youtube.com/watch?v=u93VXem85Do
+  Mis ahorros se definen por el rendimiento y la inflación
+  La retención de impuestos es (creo).
+    Dinero retenido de tu cuenta de ahorro para el pago de impuestos
+    La tasa cambia año por año, pero al final del día, sólo cambia la ubicación del dinero
+  Cuentas para ahorro.
+    Cetesdirecto.
+      28 días
+      3 meses
+      6 meses
+      12 meses
+    Dinn.
+      Genera rendimiento
+      Dinero siempre disponible
+    GBM+ Smart Cash
+      Casa de bolsa pero tiene apartado
+    HeyBanco
+      Rendimiento 5%
+      Posible tasa de 7%
+
+https://www.youtube.com/watch?v=uvLN-ap_We4
+  Como protegerse de la inflación
+    Inflación:
+      Niveles no vistos en México
+	7.05% que puede incrementar
+	La última vez que estuvo así fue en 2000
+      ¿Qué es y cómo se calcula?
+	Significa que cada vez las cosas cuestan más
+	Si la inflación es de 7%
+	  Lo que comprabas con 1000 hace un año ahora te costaría 1070
+      ¿Cómo afecta a nuestros ahorros?
+	Si ahorras sin beneficio alguno, pierdes dinero porque cada vez vale menos
+      ¿Cómo afectan los impuestos?
+	El impuesto se paga por nuestro poder adquisitivo adicional, no pesos adicionales
+
+      CETES
+	A 28 días. Inversión más segura dentro del sistema financiero mexicano
+	  Paga mas o menos 5.05%
+	A 1 año.
+	  Paga mas o menos 6.5%
+      HeyBanco
+	Apartado inversión a 7 días
+	  Genera 5% posible 7% con restricciones
+      OFIPOS
+	Supertasas. 8.25% al año
+      Udibonos
+	Creados en México para que su valor crezca con la inflación
+	UDIs: Unidades de inversión
+	Rendimiento sobre la inflación
+      Bienes raíces
+	Fibras. Fideicomisos de inversiones en bienes raices
+	  Recomendación FUNO
+	    Tiene más inmuebles
+	Se invierte por medio de una casa de bolsa
+      Inversión en materias primas
+	Oro. Mejores formas de proteger dinero a la inflacion
+	  IAU. Es un fondo que invierte en oro
+
+https://www.youtube.com/watch?v=7w9X9UUbOtc
+  RFC obligatorio para mayores de edad
+  Régimen Simplificado de Confianza
+    ISR máximo de 2.5%
+
+https://www.youtube.com/watch?v=N9vPxoWgfQc&t=566s
+  Diversifica. Las criptos son muy volátiles. Eso te va a proteger
+  Conseguir una cartera.
+    Se encarga de guardar tus claves privadas y públicas.
+    Carteras calientes.
+      Siempre conectadas a internet y permiten transacciones rápidas.
+      Bitso.
+	Mexicana y confiable
+    Carteras frías.
+      No están conectadas a internet, es más seguro
+      Ledger
+
+https://www.youtube.com/watch?v=ex52S89KFOw
+  Credit Cards.
+  Saber usar tarjetas.
+    Conocer fecha de corte
+  6 tarjetas de crédito.
+    Liverpool.
+      Anualidad de $0
+      Ideal para contratar historial crediticio
+      Costo anual total: 23.62% (intereses)
+    Rappi.
+      Buen programa de cashback
+      $0 de anualidad
+      Costo anual total: 58.9%
+    Nu.
+      Mensualidades sin intereses
+	Da descuento si adelantas mensualidades
+      Anualidad $0
+      CAT: 33% - 77%
+    BBVA Platino.
+      Anualidad $2410
+    American Express Platino
+      6 Meses sin intereses en moneda extranjera o compras > $6000
+      Anualidad ~3000 mxn
+    Tarjeta de servicios American Express
+      Anualidad 1000 dólares + IVA
+
+https://www.youtube.com/watch?v=8gt6nM4LmjA
+  Guía para elegir tarjeta de crédito.
+    ¿Por qué quiero una tarjeta de crédito?
+      Tiene beneficios.
+	Mayor protección contra fraude con tarjetas de crédito
+	  Cargos desconocidos
+	  Robo de la compra
+    Primer paso. Saber que no gastarás más de lo que puedes pagar
+      Pagar el monto para no generar intereses
+	Entre fecha de corte y fecha límite de pago
+    Segundo paso. ¿Puedes obtener una tarjeta de crédito?
+      Si no tienes historial crediticio
+	Consigue tarjetas de crédito garantizadas o departamentales
+    Tercer paso. ¿Cuánto ganas al mes?
+      Para una tarjeta de crédito normal
+	Sueldo de 6000 a 10000 mxn
+      Oro
+	10000 a 20000 mxn
+      Platino
+	35000 a 100000 mxn
+    Cuarto paso. ¿Qué beneficios quieres obtener?
+      Cashback. Todo un pelín más barato
+      Viajes
+      MSI. Mensualidades sin intereses
+      Descuento en tiendas
+      0 Anualidad
+      Tarjetas.
+	Cashback.
+	  HSBC 2NOW.
+	    Cashback 2%
+	    No anualidad
+	MSI.
+	  American express. Gold Elite
+	    >2400 msi
+	    Anualidad
+	  NU.
+	    MSI en muchos comercios
+	    Si adelantas mensualidades, obtienes descuentos
+	Sin anualidad.
+	  El banco de tu nómina puede ofrecerte.
+      Pesar beneficios vs anualidad.
+	Verifica si se justifica la anualidad
+
+https://www.youtube.com/watch?v=HTQtUQ1JQso&list=WL&index=80
+  Tarjetas de crédito que no te negarán
+    Tips.
+      Pagar completo entre fecha de corte y fecha límite de pago
+      Zenfi. Consulta tu historial y calificación crediticia
+    La garantía es un depósito en el banco, que define tu 'banderazo' de la tarjeta
+    CAT: Costo anual total
+    Crédito bancoppel.
+      Pide historial crediticio
+      No necesita ingreso mínimo
+      No necesita garantía
+      CAT 80%
+      Anualidad $0
+      VISA
+      Pequeño pro:
+	Seguro de protección de precios
+    Vexi comienzos.
+      No pide historial crediticio
+      Ingresos mensuales mínimos $2000
+      No garantía
+      CAT 77%
+      Comisión por apertura: $450
+      Es de carnet. No visa
+    Hey banco garantizada.
+      No pide historial
+      No pide ingresos mínimos
+      Solicita garantía
+      CAT 44.8%
+      Anualidad $0
+      Pros:
+	Algunos meses sin intereses
+	Seguros visa
+      Permite migrar de garantizada a convencional
+    Banbajio Garantizada
+      No historial crediticio
+      No mínimos mensuales
+      Pide garantía, da 125%
+      CAT 80.8%
+      Anualidad: $550 + IVA
+      Pequeños pro:
+	Algo de cashback
+	Ciertas protecciones
+    Stori
+      No revisa historial crediticio
+      No mínimos mensuales
+      No garantía
+      Línea de crédito inicial aproximada de $500
+      CAT 99.9%
+      No anualidad, $500 inicial
+    Liverpool
+      No historial crediticio
+      Ingresos mínimos de $4000
+      No garantizada
+      CAT 23.62%
+      Anualidad $0, cargo extra por falta de pago
+
+https://www.youtube.com/watch?v=z29nST2JI_I&list=WL&index=77
+  Tarjetas con mejor cashback.
+    Platinum Citibanamex
+      CAT 40.3%
+      Anualidad: 2399 + IVA
+      Ingresos por $50,000
+      25 años cumplidos
+      Cashback: 1%
+      10% puntos premia
+    Banregio
+      CAT 41.8%
+      Anualidad $0
+      Ingresos $10,000 mxn
+      Beneficios
+	Seguro de fraude cibernético
+	Antiviru McAffee
+      Cashback 2% online, 1% físicas, 1% amigos
+    Rappicard
+      CAT 58.9%
+      Anualidad $0
+      Cashback
+	1% Cashback
+      	2% Tarjeta digital
+      	3% Rappi
+    Banregio Platinum
+      CAT 33.1%
+      Anualidad $0
+      Ingresos $35,000
+      Cashback
+	1.25% en todo
+    HSBC 2Now
+      CAT 82.7%
+      "Anualidad" $1860 + IVA
+      Cashback 2%
+
+https://www.youtube.com/watch?v=avTSOElN0IA&list=WL&index=78
+  Los bancos más seguros en México y en el mundo
+    Cada banco debe tener un índice de capitalización, es decir, un colchón de dinero
+      Canadá encabeza los bancos más seguros
+    También hay que considerar el seguro de los bancos
+      México tiene un seguro generoso
+    Ventajas de usar un banco en el extranjero
+      Diversificar siempre es bueno
+      Cuentas de bancos en otros países dan mejores tasas
+      Problemas:
+	Muchos bancos requieren residencia
+	Es necesario tener la disponibilidad para viajar
+	Busca una buena banca electronica
+
+https://www.youtube.com/watch?v=3HKzqLYJkf0&list=WL&index=76
+  Peores bancos en México
+    Peores para ahorrar
+      Son los que dan menos rendimiento
+      Todos son peores que cetes directo, y este es el más seguro
+      Así que para ahorros: cetes
+    Peores para pedir crédito
+      Las que tienen anualidad muy alta y CAT es alto
+
+  1️⃣Tasas de interés al ahorrar: https://bit.ly/3ho35t7
+  2️⃣Tarjetas hasta $4500: https://bit.ly/3brzmvI
+  3️⃣Tarjetas hasta $8000: https://bit.ly/3yctUq9
+  4️⃣Tarjetas hasta $15,000: https://bit.ly/3uKzJJc
+  5️⃣Tarjetas más de $15,000: https://bit.ly/33OAghe
+  6️⃣Tarjetas oro: https://bit.ly/3ht3UAH
+  7️⃣Tarjetas platino: https://bit.ly/3yd6WPB
+  8️⃣Créditos automotrices: https://bit.ly/2QiOfsD
+  9️⃣Hojas de cálculo CONDUSEF: https://bit.ly/3fyZ8iT
+  🔟Índice de reclamos: https://bit.ly/2RYkPQX
+  1️⃣1️⃣Sanciones: https://bit.ly/2RdtiQy
+
+https://www.youtube.com/watch?v=Ti1rmnJXBT0
+  6 hacks para ahorrar más dinero
+    1. Crear una cuenta exclusiva para el ahorro
+      Representa el primer paso
+      cetesdirecto.com
+	Es una cuenta separada y tarda algunos días en devolverte el dinero
+    2. Pagar con efectivo
+      Está demostrado que duele más pagar con efectivo
+      Usar tarjetas para cosas planeadas: comida, gas, etc
+      Para lugares más inciertos, llevar efectivo para controlarse más
+    3. Esperar unos días antes de comprar
+      Es para evitar comprar compulsivas
+      Esperar uno a dos días, te sirve para pensarlo mejor
+      Permite que entre el lado racional, no solo trabaja el emocional
+    4. Utilizar la prueba del extraño
+      Imagínate a un extraño que tiene en la mano el objeto o su valor en pesos
+      ¿Qué elegirías?
+    5. Cada que no gastes en algo, ahórralo
+      Hacer eso te da satisfacción
+    6. Automatizar tu ahorro
+      cetesdirecto puede crear un ahorro recurrente
+    Tip extra.
+      Ahorrar la mitad de tus aumentos
+      Evitar que tu estilo de vida crezca como tus ingresos
+https://www.youtube.com/watch?v=ghF8jwJkQTc&list=WL&index=72
+  El secreto de buenas finanzas personales
+    Pequeños tips
+      Ahorrar 10%
+      Invertir
+      Gastar menos de lo que gastamos
+    El secreto está en conocernos a nosotros mismos
+    ¿Por qué conocerse?
+      Como eres humano, al querer pertenecer, deseas copiar lo que hacen los demás
+      Decirnos que no constantemente, intensifica nuestras ganas de gastar
+    Encuentra lo que más te hace feliz y no te limites en comprar esas cosas
+    *Identificar las razones para las que ahorrar
+    Ejercicio
+      Revisar las últimas 5 compras más grandes
+      Preguntarse 5 veces seguidas por qué compraste eso
+      Verificar si sí es lo que nos apasiona
+
+https://www.youtube.com/watch?v=9IKmjjAMj80&list=WL&index=71
+  Cómo administra sus finanzas this sujeto
+    No permitir que los gastos crezcan más que los ingresos
+    Libro de cálculo
+      Primera hoja presupuesto
+    Empezar a ahorrar poco a poco
+    El fondo de emergencias en cetes, es aceptable si tienes tarjeta de crédito
+    Cuidado con compararse con las demás personas
+    Inversiones.
+      Plan personal de retiro (se puede deducir 10%)
+      Diversificar en otros lados
+    Ahorro
+      Goal: 20% (empezar poco a poco)
+
+      No es necesario, pero podrías poner una meta de ahorro
+      Ser pacientes
+      Comprar algo con dinero que ya tenemos
+
+https://www.youtube.com/watch?v=koWAbGN7yhQ&list=WL&index=67
+  Pagar menos impuestos LEGALMENTE
+    Entre más ganes, más impuestos se paga en México
+    El ISR se aplica sobre cada rango de precio, no es un impuesto encima de todo el cargo
+    Para pagar menos:
+      Deducciones personales
+        Gastos como educación, hospitalarios, etc...
+        No pagar con efectivo
+        Siempre pedir factura
+      Deducciones profesionales
+        Cuando estas ante hacienda con ingresos diferentes a empleado
+        Puedes deducir el gasto de las cosas que ocupas para tu trabajo
+      Aprovechar tratados fiscales
+	En caso de tener ingresos de otros países
+	  Con un documento, avisas para que te cobren menos impuestos, solo por un país
+	  Este pago doble se llama doble tributación
+
+INVERSIÓN Y AHORRO
+https://www.youtube.com/watch?v=44KwPVaRRsU&list=WL&index=72
+  El paso crucial para saber cómo invertir
+    Objetivo de inversión
+      Definir objetivo lo más detallado posible
+	"A los 64 años quiero un plan de retiro que me dé 2 millones de pesos mensuales después de impuestos y ajustados a la inflación"
+      ¿Cómo impacta mi objetivo a las inversiones?
+	Depende si queremos invertir a corto o largo plazo
+	  Largo: educación hijos
+	  Mediano: 10 años para poner un negocio
+	  Corto: 1 año para enganche
+	¿Mayor importancia, menos riesgo?
+	¿Ingresos? Dividendos: bienes raíces, acciones
+      Reto:
+	Escibir el objetivo de la inversión, muy detallado
+	Que incluya fecha y monto
+    ¿Qué pasa si me muero antes de mi retiro?
+      ¿Qué pasa si no?
+      Puedes establecer beneficiarios
+    Disfrutar la vida todo el proceso
+
+https://www.youtube.com/watch?v=WjtUnFl0tlY&list=WL&index=71
+  La estrategia de inversión fácil para principiantes
+    Las inversiones no son una ciencia, es solo una habilidad
+    Primer paso:
+      Para luchar con el miedo
+	Invertir en deuda gubernamental
+	  Tiene renta fija
+	  Respaldada por la economía del país
+	  Es la más segura
+	  En México: cetesdirecto.com
+	Pero no hay que quedarse aquí
+      Considerar: mayor riesgo -> mayor rendimiento
+    Segundo paso:
+      Invertir en acciones
+	S&P 500. Es el fondo de las 500 empresas más importantes de USA
+	  Algunos fondos
+	    VOO, IVV, SPLG, IVVPESO
+	VT. Inversión
+	 60.5% Norteamérica (USA)
+	 16.6% Europa
+	 11.3% Pacífico (oceanía)
+	 Favorece la diversificación, disminuye la volatilidad
+	Se puede hacer a través de una casa de bolsa
+	  GBM+
+	Se busca lo más inquebrantable, y eso te va a dar mejores rendimientos
+	Porcentajes:
+	  Inicial
+	    90% CETES
+	    10% VT *
+	  Ir modificando según tu comodidad
+	  Opcionales
+	    Después de un tiempo, puedes protegerte de la inflación con UDIBONOS
+	    Puedes agregar bienes raíces
+	    Añadir precisión (partes específicas de la economía)
+
+	Tolerancia al riesgo
+	  Cuánto puedes soportar
+	  Cuánto estás dispuesto a soportar
+
+https://www.youtube.com/watch?v=TKxlMGaOvws&list=WL&index=58
+  5 FORMAS distintas de GANAR DINERO con Criptomonedas
+    Es el mercado mas volatil
+    3 formas de ganar:
+      1. Hold. Comprar y esperar a que gane valor
+        Cuando haya mucha tension, cambiar a monedas estables, como bitcoin.
+      2. Prestamos como colateral
+        Dejar criptos garantizadas para conseguir un prestamo, y comprar mas con eso.
+        Es como poner dinero a trabajar
+      3. Cuentas de ahorro que pagan con bitcoin
+        Pagan 6% en bitcoin
+        App. LEDN
+      4. Yield Farming.
+        Ganancia con cada exchange decentralizadas
+        *Recomendado con las criptos mas fuertes
+          (En avalanch. Avanch vs Ether)
+      5. Juegos de NFT
+        Tokens en juegos que adquieren valor
+        Ejemplo:
+          AXS Axielnfinity
+    Como saber si vale la pena un token?
+      Desarrollo detras:
+        Actualizaciones
+        Que no haya sido hackeado
+      A largo plazo:
+        Supply: Finitos o infinitos
+        Utilidad para cosas reales. Ver las aplicaciones
+    Cuando no sabes nada.
+      Que es blockchain
+      Que criptos hay
+        Son activos digitales
+
+https://www.youtube.com/watch?v=VusfIJdAlH8&list=WL&index=57
+  ETF de bitcoin
+    Muchos años intentando esto
+    Authorized by: SEC Securities and Exchange Comission
+    ETF de derivados. Genial para los entusiastas de bitcoin
+    El ETF es: ProShares Bitcoin Strategy (BITO)
+      Comision: 0.95% MUY ALTO
+    Un futuro es: Un precio fijo para una compra en alguna fecha en específico
+      Tremendamente riesgosa
+    Es buena opcion?
+      Gran Comision
+      Gran riesgo
+    Bitso es una cartera para comprar bitcoin
+
+https://www.youtube.com/watch?v=_tY48qjAyhY&list=WL&index=56
+  Mejores rendimientos de bitcoin
+    ETF InvictusCapital ************SEGUIR
+      Crypto20 Mas agresivo
+        20 cryptos mas grandes
+      Crypto10 
+        Mejores 10
+        Cuando el mercado baja, cambia a dolares
+
+https://www.youtube.com/watch?v=SVGulF49BUA
+  Que es DeFi
+    Finanzas decentralizadas
+      No depende de nadie
+      Se necesita 
+        Una red
+          ie. Ethereum: Primera en permitir smart contracts
+        Dinero
+          Se usan stablecoins
+            USDC = dolar
+        DApps. Servicio financiero decentralizado
+        DEX. Decentralized Exchange
+          Intercambios sin regulaciones
+          Sin limites
+          No depositas tu dinero
+          Transparentes
+          Plataformas
+            dYdX
+            uniswap
+            PancakeSwap
+            1inch
+            Raydium
+      Smart contracts
+        Publicos
+        Automaticos
+        Irreversibles
+      Conocer riesgos
+    Sistema actual
+      Se sostiene de 
+        Intercambios
+        Prestamos
+        Seguros
+        Mercado financiero. Broker necesario
+      Depende de una unidad central
+
+
+https://www.youtube.com/watch?v=_aHxwbZkrYQ&list=WL&index=54
+  Tutorial Metamask
+    Billetera para interactuar con criptos de forma segura y anonima
+    Extension navegador y App
+    Para montos Pequeños
+    Compound
+      Permite prestar tus criptos y obtener rendimiento
+    uniswap
+      Intercambiar tokens
+    Cada operacion en ethereums cuesta ethers
+
+https://www.youtube.com/watch?v=sLm75G8KCYE&list=WL&index=53
+  Minar con un rig
+    Rig es una maquina que mina y transfiere a tu wallet
+    ¿Qué es la minería?
+      No todas se pueden minar
+      Es poner a tu maquina a hacer operaciones matemáticas para obtener una determinada cripto
+    Pool de minería
+      Conjunto de personas que minan juntas
+      
+
+
+
+Liquidez.
+  Capacidad de un bien de ser fácilmente transformado en dinero efectivo.
+Para explorar.
+  Lidiar con impuestos y salir ganando
+  RESICO
+  https://www.youtube.com/channel/UCfmXyH-KbD2yNMRm1hgL77w
+  https://adiosatujefe.thinkific.com/courses/take/inversiones/lessons/22288969-rendimientos-marginales-decrecientes
+To-do s
+  Reto del paso crucial para saber cómo invertir:
+    https://www.sat.gob.mx/consulta/23972/conoce-las-deducciones-personales
+  Llenar hojitas de administración de gastos
+  https://docs.google.com/spreadsheets/d/1Qf6kBM85EJASn5_jmEn56N5RzAUbc98MTl17howvVkQ/edit#gid=1585019696
