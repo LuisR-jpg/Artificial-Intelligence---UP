@@ -9,19 +9,19 @@ Libro de transacciones, repartido por todos los usuarios.
 Permite las aplicaciones descentralizadas.
 
 Resuelve el problema del general Bizantino.
-##### Primera generacion
-Red que soporta dinero.
+    Primera generacion
+    Red que soporta dinero.
 
-- Mayor representante: Bitcoin
+    - Mayor representante: Bitcoin
 
-##### Segunda generacion
-Soporta aplicaciones descentralizadas.
+    Segunda generacion
+    Soporta aplicaciones descentralizadas.
 
-Funcionan basadas en Smart Contracts
+    Funcionan basadas en Smart Contracts
 
-- Mayor representante: Ethereum
+    - Mayor representante: Ethereum
 
 
-##### Tercera generacion
-Plan a futuro: Comunicación entre blockchains.
+    Tercera generacion
+    Plan a futuro: Comunicación entre blockchains.
 ## Tarjetas de credito
