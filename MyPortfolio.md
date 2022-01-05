@@ -6,7 +6,7 @@
 Es efectivo digital, no rastreable.
 - Bitcoin
 
-    Hola
+        Hola
 - Ethereum
 
 aDios
