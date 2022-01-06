@@ -1,6 +1,28 @@
 # Notas
-## Ahorro
 ## Inversiones
+### Rentas
+Fondos de inversion:
+
+- VNQ. Fibras en USA
+- VNQI. Fibras Internacionales
+### Intereses
+
+- Cetes Directo. Prestar dinero al gobierno de Mexico
+### Dividendos
+Invertir en empresas.
+Fondos de inversion:
+- VYM. Empresas de USA
+- VYMI. Empresas Internacional
+
+### Por capital
+Incremento de valor en las cosas que poseemos.
+- Bienes Raíces
+- Criptomonedas
+- Acciones
+    VOO. Un activo de 500 empresas de USA.
+    VEA. Empresas en países desarrollados.
+    VWO. Empresas con economía en desarrollo.
+
 ## Criptomonedas
 Es efectivo digital, no rastreable.
 
@@ -22,7 +44,6 @@ Soporta aplicaciones descentralizadas.
 Funcionan basadas en Smart Contracts
 
 - Mayor representante: Ethereum
-
 
 #### Tercera generacion
 Plan a futuro: Comunicación entre blockchains.
