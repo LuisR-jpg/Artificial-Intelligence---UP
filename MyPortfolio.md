@@ -19,6 +19,7 @@ Incremento de valor en las cosas que poseemos.
 - Bienes Raíces
 - Criptomonedas
 - Acciones
+
     VOO. Un activo de 500 empresas de USA.
     VEA. Empresas en países desarrollados.
     VWO. Empresas con economía en desarrollo.
