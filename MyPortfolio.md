@@ -100,17 +100,17 @@ Plan a futuro: Comunicación entre blockchains.
 ### Tarjetas para construir historial crediticio.
 - Bancoppel.
 
-    No solicita ingreso mínimo.
+        No solicita ingreso mínimo.
 
-    No necesita garantía.
+        No necesita garantía.
 
-    CAT 80%
+        CAT 80%
 
-    Anualidad $0
+        Anualidad $0
 
-    VISA
+        VISA
 
-    Seguro de protección de precios.
+        Seguro de protección de precios.
 
 - Departamental de Liverpool.
 - Rappi.
