@@ -21,7 +21,9 @@ Incremento de valor en las cosas que poseemos.
 - Acciones
 
     VOO. Un activo de 500 empresas de USA.
+
     VEA. Empresas en países desarrollados.
+    
     VWO. Empresas con economía en desarrollo.
 
 ## Criptomonedas
