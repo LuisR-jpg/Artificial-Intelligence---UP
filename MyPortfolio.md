@@ -61,7 +61,7 @@ Se encarga de guardar tus claves privadas y públicas.
 
 - Frias.
         No están conectadas a internet, es más seguro.
-        
+
             Ledger.
 
 ### Blockchain
@@ -85,6 +85,38 @@ Funcionan basadas en Smart Contracts
 #### Tercera generacion
 Plan a futuro: Comunicación entre blockchains.
 ## Tarjetas de credito
+#### Muy importante saber usarlas.
+
+- Nunca deber, siempre pagos completos.
+- Conocer fecha de corte.
+
+#### CAT. Costo Anual Total
+    
+- Es el cargo de intereses al mes
+- Se calcula Deuda*CAT/1200
+
+#### Zenfi. App para ver historial crediticio.
+
+### Tarjetas para construir historial crediticio.
+- Bancoppel.
+
+    - No solicita ingreso mínimo.
+
+    - No necesita garantía.
+
+    - CAT 80%
+
+    - Anualidad $0
+    
+    - VISA
+
+    - Seguro de protección de precios.
+
+- Departamental de Liverpool.
+- Rappi.
+- Nu.
+
+
 ## Portafolio
 ### Modelo de Swensen
 - 30% Acciones EU
