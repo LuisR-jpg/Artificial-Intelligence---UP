@@ -100,7 +100,7 @@ Plan a futuro: Comunicación entre blockchains.
 ### Tarjetas para construir historial crediticio.
 - Bancoppel.
 
-        No solicita ingreso mínimo.
+        No solicita ingresos mensuales mínimo.
 
         No necesita garantía.
 
@@ -113,9 +113,16 @@ Plan a futuro: Comunicación entre blockchains.
         Seguro de protección de precios.
 
 - Departamental de Liverpool.
-- Rappi.
-- Nu.
 
+        No historial crediticio
+
+        Ingresos mínimos de $4000
+
+        No garantizada
+
+        CAT 23.62%
+
+        Anualidad $0, cargo extra por falta de pago
 
 ## Portafolio
 ### Modelo de Swensen
