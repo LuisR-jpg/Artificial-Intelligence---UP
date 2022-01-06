@@ -51,12 +51,12 @@ Es efectivo digital, no rastreable.
 ### Carteras
 Se encarga de guardar tus claves privadas y públicas.
 - Calientes.   
-    Siempre conectadas a internet y permiten transacciones rápidas.
-        Metamask. De las billeteras mas usadas para guardar criptomonedas.
-        Bitso. Mexicana y confiable.
+        Siempre conectadas a internet y permiten transacciones rápidas.
+                Metamask. De las billeteras mas usadas para guardar criptomonedas.
+                Bitso. Mexicana y confiable.
 - Frias.
-    No están conectadas a internet, es más seguro.
-        Ledger.
+        No están conectadas a internet, es más seguro.
+                Ledger.
 
 ### Blockchain
 Libro de transacciones, repartido por todos los usuarios.
