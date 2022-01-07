@@ -1,8 +1,14 @@
 # Notas
 ## Inversiones
-Los fondos de inversión engloban a una cantidad de activos distintos.
+- ETF
 
-Son seguros y convenientes.
+        Son fondos cotizados de inversión.
+        Engloban a una cantidad de activos distintos.
+        Son seguros y convenientes.
+
+- Liquidez
+
+        Capacidad de un bien de ser fácilmente transformado en dinero efectivo.
 ### Rentas
 Fondos de inversion:
 
@@ -45,10 +51,45 @@ Incremento de valor en las cosas que poseemos.
         VTI. Otro activo de 500 empresas de USA.
         VEA. Empresas en países desarrollados.
         VWO. Empresas con economía en desarrollo.
+        IVV.
+        SPGL.
+        IVVPESO.
 
 - IAU. Fondo que invierte en oro
 ## Criptomonedas
 Es efectivo digital, no rastreable.
+Es el mercado más volátil.
+
+### DeFi
+- Significa finanzas decentralizadas
+- No depende de nadie
+- Se necesita 
+
+        Una red
+                ie. Ethereum: Primera en permitir smart contracts
+        Dinero
+                Se usan stablecoins
+                        USDC = dolar
+        DApps.
+                Servicio financiero decentralizado
+        DEX. Decentralized Exchange
+                Intercambios sin regulaciones
+                Sin limites
+                No depositas tu dinero
+                Transparentes
+                Plataformas:
+                        dYdX
+                        uniswap
+                        PancakeSwap
+                        1inch
+                        Raydium
+
+- Smart contracts
+
+        Publicos
+        Automaticos
+        Irreversibles
+        Conocer riesgos
 
 ### Carteras
 Se encarga de guardar tus claves privadas y públicas.
@@ -60,6 +101,7 @@ Se encarga de guardar tus claves privadas y públicas.
             Bitso. Mexicana y confiable.
 
 - Frias.
+
         No están conectadas a internet, es más seguro.
             Ledger.
 
@@ -83,6 +125,49 @@ Funcionan basadas en Smart Contracts
 
 #### Tercera generacion
 Plan a futuro: Comunicación entre blockchains.
+
+### Formas de ganar 
+- HODL
+
+        Comprar y esperar a que gane valor
+        Cuando haya mucha tension, cambiar a monedas estables, como bitcoin.
+
+- Prestamos como colateral
+
+        Dejar criptos garantizadas para conseguir un prestamo, y mas con eso.
+        Es como poner dinero a trabajar
+
+- Cuentas de ahorro que pagan con bitcoin
+        
+        Pagan 6% en bitcoin
+        Apps.
+                LEDN
+                Compound
+
+- Yield Farming.
+
+        Ganancia con cada exchange decentralizadas
+        *Recomendado con las criptos mas fuertes
+          (En avalanch. Avanch vs Ether)
+
+- Juegos de NFT
+
+        Tokens en juegos que adquieren valor
+        Ejemplo: AXS Axielnfinity
+
+- ETF de Bitcoins
+
+- Minar
+
+        - Rig es una maquina que mina y transfiere a tu wallet
+        - ¿Qué es la minería?
+
+                Es poner a tu maquina a hacer operaciones matemáticas para obtener una determinada cripto
+                No todas las criptos se pueden minar
+
+        - Pool de minería
+                Conjunto de personas que minan juntas
+
 ## Tarjetas de credito
 #### Muy importante saber usarlas.
 
@@ -178,3 +263,6 @@ Plan a futuro: Comunicación entre blockchains.
 - Cada que resistas gastar en algo, ahorra esa cantidad.
 - Automatiza tu ahorro.
 - Ahorra la mitad de tus aumentos.
+- Haz el test de los 5 porqués para tus compras más grandes.
+- No te limites en gastar lo que más amas.
+- Diversifica tus inversiones.
