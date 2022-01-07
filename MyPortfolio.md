@@ -147,15 +147,19 @@ Plan a futuro: Comunicación entre blockchains.
                 3% Rappi
 
 - Banregio Platinum
-      CAT 33.1%
-      Anualidad $0
-      Ingresos $35,000
-      Cashback
-	1.25% en todo
+
+        CAT 33.1%
+        Anualidad $0
+        Ingresos $35,000
+        Cashback:
+                1.25% en todo
+
 - HSBC 2Now
-      CAT 82.7%
-      "Anualidad" $1860 + IVA
-      Cashback 2%
+
+        CAT 82.7%
+        "Anualidad" $1860 + IVA
+        Cashback:
+                2% en todo
 
 ## Portafolio
 ### Modelo de Swensen
