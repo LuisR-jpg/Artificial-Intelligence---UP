@@ -149,17 +149,11 @@ Plan a futuro: Comunicación entre blockchains.
 - Banregio
 
         CAT 41.8%
-
         Anualidad $0
-
         Ingresos $10,000 mxn
-
         Beneficios
-
                 - Proteccion de fraude cibernético
-
                 - Antivirus McAffee
-                 
                 - Cashback 2% online, 1% físicas, 1% amigos
 
 - Rappicard
