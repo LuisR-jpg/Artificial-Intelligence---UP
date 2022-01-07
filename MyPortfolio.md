@@ -14,13 +14,9 @@ Fondos de inversion:
 - Cetes Directo. 
         
         Prestar dinero al gobierno de Mexico
-
         Cuenta independiente
-
         Liquidez de unos cuantos días
-
         La inversión más segura
-
         Modalidad de ahorro recurrente
 
 - Un ETF es BNDW.
@@ -45,13 +41,9 @@ Incremento de valor en las cosas que poseemos.
 - Acciones
 
         VT. Acciones en todo el mundo.
-
         VOO. Un activo de 500 empresas de USA.
-        
         VTI. Otro activo de 500 empresas de USA.
-
         VEA. Empresas en países desarrollados.
-        
         VWO. Empresas con economía en desarrollo.
 
 - IAU. Fondo que invierte en oro
@@ -64,14 +56,11 @@ Se encarga de guardar tus claves privadas y públicas.
 - Calientes.   
 
         Siempre conectadas a internet y permiten transacciones rápidas.
-
             Metamask. De las billeteras mas usadas para guardar criptomonedas.
-
             Bitso. Mexicana y confiable.
 
 - Frias.
         No están conectadas a internet, es más seguro.
-
             Ledger.
 
 ### Blockchain
@@ -111,27 +100,18 @@ Plan a futuro: Comunicación entre blockchains.
 - Bancoppel.
 
         No solicita ingresos mensuales mínimos.
-
         No necesita garantía.
-
         CAT 80%
-
         Anualidad $0
-
         VISA
-
         Seguro de protección de precios.
 
 - Departamental de Liverpool.
 
         No historial crediticio
-
         Ingresos mínimos de $4000
-
         No garantizada
-
         CAT 23.62%
-
         Anualidad $0, cargo extra por falta de pago
 
 ### Tarjetas para meses sin intereses
@@ -139,9 +119,7 @@ Plan a futuro: Comunicación entre blockchains.
 - NU.
 
         MSI en muchos comercios
-
         Si adelantas mensualidades, obtienes descuentos 
-
         Sin anualidad.
 
 ### Tarjetas con mejor cashback
