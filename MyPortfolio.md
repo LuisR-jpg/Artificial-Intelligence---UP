@@ -136,13 +136,13 @@ Plan a futuro: Comunicación entre blockchains.
 
 - Rappicard
 
-      CAT 58.9%
-      Anualidad $0
-      Cashback
-      
-	1% Cashback
-      	2% Tarjeta digital
-      	3% Rappi
+        CAT 58.9%
+        Anualidad $0
+        Cashback
+
+                1% Cashback
+                2% Tarjeta digital
+                3% Rappi
 
 - Banregio Platinum
       CAT 33.1%
