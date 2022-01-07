@@ -132,14 +132,16 @@ Plan a futuro: Comunicación entre blockchains.
         Beneficios
                 - Proteccion de fraude cibernético
                 - Antivirus McAffee
-                - Cashback 2% online, 1% físicas, 1% amigos
+                - Cashback:
+                        2% Online
+                        1% Físicas
+                        1% Amigos
 
 - Rappicard
 
         CAT 58.9%
         Anualidad $0
-        Cashback
-
+        Cashback:
                 1% Cashback
                 2% Tarjeta digital
                 3% Rappi
