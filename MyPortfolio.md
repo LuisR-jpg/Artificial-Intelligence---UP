@@ -146,35 +146,36 @@ Plan a futuro: Comunicación entre blockchains.
 
 ### Tarjetas con mejor cashback
 
-  Platinum Citibanamex
-      CAT 40.3%
-      Anualidad: 2399 + IVA
-      Ingresos por $50,000
-      25 años cumplidos
-      Cashback: 1%
-      10% puntos premia
-    Banregio
-      CAT 41.8%
-      Anualidad $0
-      Ingresos $10,000 mxn
-      Beneficios
-	Seguro de fraude cibernético
-	Antiviru McAffee
-      Cashback 2% online, 1% físicas, 1% amigos
-    Rappicard
+- Banregio
+
+        CAT 41.8%
+
+        Anualidad $0
+
+        Ingresos $10,000 mxn
+
+        Beneficios
+
+                - Proteccion de fraude cibernético
+
+                - Antivirus McAffee
+                 
+                - Cashback 2% online, 1% físicas, 1% amigos
+                
+- Rappicard
       CAT 58.9%
       Anualidad $0
       Cashback
 	1% Cashback
       	2% Tarjeta digital
       	3% Rappi
-    Banregio Platinum
+- Banregio Platinum
       CAT 33.1%
       Anualidad $0
       Ingresos $35,000
       Cashback
 	1.25% en todo
-    HSBC 2Now
+- HSBC 2Now
       CAT 82.7%
       "Anualidad" $1860 + IVA
       Cashback 2%
