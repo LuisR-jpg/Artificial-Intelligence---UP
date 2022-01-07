@@ -11,7 +11,17 @@ Fondos de inversion:
 - FUNO.
 ### Intereses
 
-- Cetes Directo. Prestar dinero al gobierno de Mexico
+- Cetes Directo. 
+        
+        Prestar dinero al gobierno de Mexico
+
+        Cuenta independiente
+
+        Liquidez de unos cuantos días
+
+        La inversión más segura
+
+        Modalidad de ahorro recurrente
 
 - Un ETF es BNDW.
 
@@ -100,7 +110,7 @@ Plan a futuro: Comunicación entre blockchains.
 ### Tarjetas para construir historial crediticio.
 - Bancoppel.
 
-        No solicita ingresos mensuales mínimo.
+        No solicita ingresos mensuales mínimos.
 
         No necesita garantía.
 
@@ -124,6 +134,51 @@ Plan a futuro: Comunicación entre blockchains.
 
         Anualidad $0, cargo extra por falta de pago
 
+### Tarjetas para meses sin intereses
+
+- NU.
+
+        MSI en muchos comercios
+
+        Si adelantas mensualidades, obtienes descuentos 
+
+        Sin anualidad.
+
+### Tarjetas con mejor cashback
+
+  Platinum Citibanamex
+      CAT 40.3%
+      Anualidad: 2399 + IVA
+      Ingresos por $50,000
+      25 años cumplidos
+      Cashback: 1%
+      10% puntos premia
+    Banregio
+      CAT 41.8%
+      Anualidad $0
+      Ingresos $10,000 mxn
+      Beneficios
+	Seguro de fraude cibernético
+	Antiviru McAffee
+      Cashback 2% online, 1% físicas, 1% amigos
+    Rappicard
+      CAT 58.9%
+      Anualidad $0
+      Cashback
+	1% Cashback
+      	2% Tarjeta digital
+      	3% Rappi
+    Banregio Platinum
+      CAT 33.1%
+      Anualidad $0
+      Ingresos $35,000
+      Cashback
+	1.25% en todo
+    HSBC 2Now
+      CAT 82.7%
+      "Anualidad" $1860 + IVA
+      Cashback 2%
+
 ## Portafolio
 ### Modelo de Swensen
 - 30% Acciones EU
@@ -135,3 +190,9 @@ Plan a futuro: Comunicación entre blockchains.
 ## Tips
 - Spend less money than you make.
 - Don't confuse what you want with what you truly need.
+- Pagar con efectivo ayuda a controlarse más.
+- Esperar algunos días antes de comprar algo, para evitar compras compulsivas.
+- Al querer algo, piensa, ¿preferiría tener ese objeto o su valor en efectivo?
+- Cada que resistas gastar en algo, ahorra esa cantidad.
+- Automatiza tu ahorro.
+- Ahorra la mitad de tus aumentos.
