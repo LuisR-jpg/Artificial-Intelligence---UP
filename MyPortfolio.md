@@ -13,11 +13,11 @@ Fondos de inversion:
 
 - Cetes Directo. 
         
-        Prestar dinero al gobierno de Mexico
-        Cuenta independiente
+        Consiste en prestar dinero al gobierno de Mexico
+        Modalidad de ahorro recurrente
         Liquidez de unos cuantos días
         La inversión más segura
-        Modalidad de ahorro recurrente
+        Cuenta independiente
 
 - Un ETF es BNDW.
 
@@ -142,6 +142,7 @@ Plan a futuro: Comunicación entre blockchains.
 	1% Cashback
       	2% Tarjeta digital
       	3% Rappi
+
 - Banregio Platinum
       CAT 33.1%
       Anualidad $0
