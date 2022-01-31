@@ -19,12 +19,12 @@ Controls.
   Free movement. Right click + WASD or Arrow keys (mouse wheel to increase speed)
   Focus. Select in hierarchy + F
 Toolbar.
-  Hand. For panning around 		Q
-  Movement. Shows axis 			W
-  Rotate. 				E
-  Scale. 				R
-  Rect. Different way to school		T	
-  Combine.				Y
+  Hand. For panning around 		    Q
+  Movement. Shows axis 			      W
+  Rotate. 				                E
+  Scale. 				                  R
+  Rect. Different way to school	  T	
+  Combine.				                Y
 Game Object.
   Most basic unit of unity.
   It's possible to create more complex structures by adding components
