@@ -30,3 +30,27 @@ if(isClear(PINx, y)){
 #define dEIGHT	0b10000000
 #define dNINE	0b10010000
 
+//Teclado
+#define PINX PINA
+#define PORTX PORTA
+#define DDRX DDRA
+uint8_t hastaTecla(){
+    for(uint8_t i = 0;; i++){
+        PORTX = ~(1 << 0);
+        asm("nop");
+        asm("nop");
+        if(isClear(PINX, 4)) rtr, return 10;
+        ... 11, 12, 13
+        PORTX = ~(1 << 1);
+
+    }
+}
+int main(){
+    DDRX = 0x0F;
+    PORTX = 0xFF;
+    uint8_t tecla;
+    for(;;){
+        tecla = hastaTecla();
+        //Lo que quiera hacer con mi tecla
+    }
+}
