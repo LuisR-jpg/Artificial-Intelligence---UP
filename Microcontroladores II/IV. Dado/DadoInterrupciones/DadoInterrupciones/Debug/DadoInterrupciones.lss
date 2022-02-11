@@ -136,7 +136,7 @@ uint8_t print(uint8_t n){
 		case 1: return 0b00001000;
   d4:	88 e0       	ldi	r24, 0x08	; 8
   d6:	08 95       	ret
-		case 2: return 0b00010010;
+		case 2: return 0b00010100;
 		case 3: return 0b01001001;
   d8:	89 e4       	ldi	r24, 0x49	; 73
   da:	08 95       	ret
@@ -158,8 +158,8 @@ uint8_t print(uint8_t n){
 uint8_t print(uint8_t n){
 	switch(n){
 		case 1: return 0b00001000;
-		case 2: return 0b00010010;
-  ec:	82 e1       	ldi	r24, 0x12	; 18
+		case 2: return 0b00010100;
+  ec:	84 e1       	ldi	r24, 0x14	; 20
 		case 4: return 0b01100011;
 		case 5: return 0b01101011;
 		case 6: return 0b01110111;

@@ -16,7 +16,7 @@
 uint8_t print(uint8_t n){
 	switch(n){
 		case 1: return 0b00001000;
-		case 2: return 0b00010010;
+		case 2: return 0b00010100;
 		case 3: return 0b01001001;
 		case 4: return 0b01100011;
 		case 5: return 0b01101011;

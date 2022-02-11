@@ -32,18 +32,22 @@ if(isClear(PINx, y)){
 
 //Teclado
 #define PINX PINA
-#define PORTX PORTA
 #define DDRX DDRA
+#define PORTX PORTA
 uint8_t hastaTecla(){
-    for(uint8_t i = 0;; i++){
-        PORTX = ~(1 << 0);
-        asm("nop");
-        asm("nop");
-        if(isClear(PINX, 4)) rtr, return 10;
-        ... 11, 12, 13
-        PORTX = ~(1 << 1);
-
-    }
+	for(uint8_t i = 0;; i++, i %= 4){
+		PORTX = ~(1 << i);
+		asm("nop");
+		asm("nop");
+		for(uint8_t j = 4; j < 8; j++){
+			if(isClear(PINX, j)){
+				_delay_ms(50);
+				while(isClear(PINX, j));
+				_delay_ms(50);
+				return keyboard[7 - j][3 - i];
+			}
+		}
+	}
 }
 int main(){
     DDRX = 0x0F;
