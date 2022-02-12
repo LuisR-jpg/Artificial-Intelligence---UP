@@ -18,6 +18,12 @@ if(isClear(PINx, y)){
     //Al soltar
 }
 
+//Bitmasks to swap and reverse bytes
+#define swapB(r) ((r & 0xAA) >> 1 | (r & 0x55) << 1)
+#define swapP(r) ((r & 0xCC) >> 2 | (r & 0x33) << 2)
+#define swap(r) (r << 4 | r >> 4)
+#define reverse(r) swap(swapP(swapB(r)))
+
 //Display 7 segmentos anodo comun pines 0-6
 #define dZERO	0b11000000
 #define dONE	0b11111001

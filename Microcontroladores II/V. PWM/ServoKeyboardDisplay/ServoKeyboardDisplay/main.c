@@ -11,6 +11,11 @@
 #define PORTX PORTA
 #define isClear(r, i) (!(r & (1 << i)))
 #define isSet(r, i) (r & (1 << i))
+#define swapB(r) ((r & 0xAA) >> 1 | (r & 0x55) << 1)
+#define swapP(r) ((r & 0xCC) >> 2 | (r & 0x33) << 2)
+#define swap(r) (r << 4 | r >> 4)
+#define reverse(r) swap(swapP(swapB(r)))
+
 #include <avr/io.h>
 #include <stdint.h>
 #include <util/delay.h>
@@ -21,9 +26,6 @@ uint8_t keyboard[4][4] =
 	{0x1, 0x2, 0x3, 0xC},
 	{0xE, 0x0, 0xF, 0xD}
 };
-uint8_t print(uint8_t cont){
-	return (((cont & 1) << 5) | ((cont & 2) << 3) | ((cont & 4) << 1) | ((cont & 8) >> 1));
-}
 uint8_t hastaTecla(){
 	for(uint8_t i = 0;; i++, i %= 4){
 		PORTX = ~(1 << i);
@@ -41,15 +43,13 @@ uint8_t hastaTecla(){
 }
 int main(){
 	DDRX = 0x0F;
-	PORTX = 0xFF;
-	DDRC = 0xFF;
-	PORTC = (5 << 2);
+	PORTX = DDRC = 0xFF;
 	uint8_t tecla, cont = 0;
 	for(;;){
-		PORTC = print(cont);
+		PORTC = reverse(cont) >> 2;
 		tecla = hastaTecla();
-		if(tecla == 0x9 && cont < 9) cont++;
-		if(tecla == 0x1 && cont > 0) cont--;
-		//if(tecla == 0xD) servo(cont);
+		if(tecla == 0x09 && cont < 9) cont++;
+		if(tecla == 0x01 && cont > 0) cont--;
+		//if(tecla == 0x0D) servo(cont);
 	}
 }
