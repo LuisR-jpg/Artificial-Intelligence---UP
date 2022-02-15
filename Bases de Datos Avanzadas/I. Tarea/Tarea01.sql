@@ -1,0 +1,12 @@
+use store;
+select first_name, last_name, adress from customers order by id asc;
+select first_name, last_name, adress from customers order by points asc;
+select * from customers where birth_date < '2001-01-01';
+select * from customers where state = 'BC' or state = 'BS' or state = 'CO' or state = 'CH' or state = 'DU' or state = 'NL' or state = 'SI' or state = 'SO' or state = 'TA' or state = 'ZA';
+select * from customers where birth_date >= '1980-01-01' and birth_date <= '2000-12-31' and points > 1000;
+select * from customers where birth_date <= '2000-12-31' or points > 1000;
+select * from customers where (birth_date >= '1980-01-01' and birth_date <= '2000-12-31') and (points > 1000) and (state = 'BC' or state = 'BS' or state = 'CO' or state = 'CH' or state = 'DU' or state = 'NL' or state = 'SI' or state = 'SO' or state = 'TA' or state = 'ZA');
+select *, quantity*unit_price as Total from order_items;
+select *, quantity*unit_price as Total from order_items where product_id = 6 and quantity*unit_price > 3000 order by unit_price;
+select * from customers where birth_date > '31-12-2000' and points <= 1000;
+select * from customers where not (state = 'BC' or state = 'BS' or state = 'CO' or state = 'CH' or state = 'DU' or state = 'NL' or state = 'SI' or state = 'SO' or state = 'TA' or state = 'ZA');

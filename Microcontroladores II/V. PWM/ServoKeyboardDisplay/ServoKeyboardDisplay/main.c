@@ -43,13 +43,14 @@ uint8_t hastaTecla(){
 }
 int main(){
 	DDRX = 0x0F;
-	PORTX = DDRC = 0xFF;
+	PORTX = DDRC = DDRB = 0xFF;
 	uint8_t tecla, cont = 0;
+	TCNT0 = 0, OCR0 = 14, TCCR0 = 0b01101100;
 	for(;;){
 		PORTC = reverse(cont) >> 2;
 		tecla = hastaTecla();
-		if(tecla == 0x09 && cont < 9) cont++;
-		if(tecla == 0x01 && cont > 0) cont--;
-		//if(tecla == 0x0D) servo(cont);
+		if(tecla == 0x9 && cont < 9) cont++;
+		if(tecla == 0x1 && cont > 0) cont--;
+		if(tecla == 0xD) OCR0 = 14 + 2*cont;
 	}
 }

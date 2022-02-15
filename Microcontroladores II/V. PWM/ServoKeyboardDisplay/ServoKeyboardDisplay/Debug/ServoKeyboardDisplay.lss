@@ -3,29 +3,29 @@ ServoKeyboardDisplay.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         000001a6  00000000  00000000  00000074  2**1
+  0 .text         000001be  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000010  00800060  000001a6  0000021a  2**0
+  1 .data         00000010  00800060  000001be  00000232  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .comment      00000030  00000000  00000000  0000022a  2**0
+  2 .comment      00000030  00000000  00000000  00000242  2**0
                   CONTENTS, READONLY
-  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000025c  2**2
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000274  2**2
                   CONTENTS, READONLY
-  4 .debug_aranges 00000028  00000000  00000000  00000298  2**0
+  4 .debug_aranges 00000028  00000000  00000000  000002b0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   00000713  00000000  00000000  000002c0  2**0
+  5 .debug_info   00000715  00000000  00000000  000002d8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 00000629  00000000  00000000  000009d3  2**0
+  6 .debug_abbrev 0000061a  00000000  00000000  000009ed  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   000002e9  00000000  00000000  00000ffc  2**0
+  7 .debug_line   00000301  00000000  00000000  00001007  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000034  00000000  00000000  000012e8  2**2
+  8 .debug_frame  00000034  00000000  00000000  00001308  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    0000038a  00000000  00000000  0000131c  2**0
+  9 .debug_str    0000038a  00000000  00000000  0000133c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    00000103  00000000  00000000  000016a6  2**0
+ 10 .debug_loc    00000116  00000000  00000000  000016c6  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000018  00000000  00000000  000017a9  2**0
+ 11 .debug_ranges 00000018  00000000  00000000  000017dc  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -65,7 +65,7 @@ Disassembly of section .text:
   60:	10 e0       	ldi	r17, 0x00	; 0
   62:	a0 e6       	ldi	r26, 0x60	; 96
   64:	b0 e0       	ldi	r27, 0x00	; 0
-  66:	e6 ea       	ldi	r30, 0xA6	; 166
+  66:	ee eb       	ldi	r30, 0xBE	; 190
   68:	f1 e0       	ldi	r31, 0x01	; 1
   6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
   6c:	05 90       	lpm	r0, Z+
@@ -74,7 +74,7 @@ Disassembly of section .text:
   72:	b1 07       	cpc	r27, r17
   74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
   76:	0e 94 8d 00 	call	0x11a	; 0x11a <main>
-  7a:	0c 94 d1 00 	jmp	0x1a2	; 0x1a2 <_exit>
+  7a:	0c 94 dd 00 	jmp	0x1ba	; 0x1ba <_exit>
 
 0000007e <__bad_interrupt>:
   7e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -202,81 +202,102 @@ int main(){
 	DDRX = 0x0F;
  11a:	8f e0       	ldi	r24, 0x0F	; 15
  11c:	8a bb       	out	0x1a, r24	; 26
-	PORTX = DDRC = 0xFF;
+	PORTX = DDRC = DDRB = 0xFF;
  11e:	8f ef       	ldi	r24, 0xFF	; 255
- 120:	84 bb       	out	0x14, r24	; 20
- 122:	8b bb       	out	0x1b, r24	; 27
+ 120:	87 bb       	out	0x17, r24	; 23
+ 122:	84 bb       	out	0x14, r24	; 20
+ 124:	8b bb       	out	0x1b, r24	; 27
 	uint8_t tecla, cont = 0;
- 124:	c0 e0       	ldi	r28, 0x00	; 0
+	TCNT0 = 0, OCR0 = 14, TCCR0 = 0b01101100;
+ 126:	12 be       	out	0x32, r1	; 50
+ 128:	8e e0       	ldi	r24, 0x0E	; 14
+ 12a:	8c bf       	out	0x3c, r24	; 60
+ 12c:	8c e6       	ldi	r24, 0x6C	; 108
+ 12e:	83 bf       	out	0x33, r24	; 51
+	}
+}
+int main(){
+	DDRX = 0x0F;
+	PORTX = DDRC = DDRB = 0xFF;
+	uint8_t tecla, cont = 0;
+ 130:	c0 e0       	ldi	r28, 0x00	; 0
+	TCNT0 = 0, OCR0 = 14, TCCR0 = 0b01101100;
 	for(;;){
 		PORTC = reverse(cont) >> 2;
- 126:	2c 2f       	mov	r18, r28
- 128:	2a 7a       	andi	r18, 0xAA	; 170
- 12a:	30 e0       	ldi	r19, 0x00	; 0
- 12c:	35 95       	asr	r19
- 12e:	27 95       	ror	r18
- 130:	8c 2f       	mov	r24, r28
- 132:	85 75       	andi	r24, 0x55	; 85
- 134:	90 e0       	ldi	r25, 0x00	; 0
- 136:	88 0f       	add	r24, r24
- 138:	99 1f       	adc	r25, r25
- 13a:	28 2b       	or	r18, r24
- 13c:	39 2b       	or	r19, r25
- 13e:	c9 01       	movw	r24, r18
- 140:	8c 7c       	andi	r24, 0xCC	; 204
- 142:	99 27       	eor	r25, r25
- 144:	95 95       	asr	r25
- 146:	87 95       	ror	r24
- 148:	95 95       	asr	r25
- 14a:	87 95       	ror	r24
- 14c:	23 73       	andi	r18, 0x33	; 51
- 14e:	33 27       	eor	r19, r19
- 150:	22 0f       	add	r18, r18
- 152:	33 1f       	adc	r19, r19
- 154:	22 0f       	add	r18, r18
- 156:	33 1f       	adc	r19, r19
- 158:	82 2b       	or	r24, r18
- 15a:	93 2b       	or	r25, r19
- 15c:	9c 01       	movw	r18, r24
- 15e:	22 95       	swap	r18
- 160:	32 95       	swap	r19
- 162:	30 7f       	andi	r19, 0xF0	; 240
- 164:	32 27       	eor	r19, r18
- 166:	20 7f       	andi	r18, 0xF0	; 240
- 168:	32 27       	eor	r19, r18
- 16a:	95 95       	asr	r25
- 16c:	87 95       	ror	r24
- 16e:	95 95       	asr	r25
- 170:	87 95       	ror	r24
- 172:	95 95       	asr	r25
- 174:	87 95       	ror	r24
+ 132:	2c 2f       	mov	r18, r28
+ 134:	2a 7a       	andi	r18, 0xAA	; 170
+ 136:	30 e0       	ldi	r19, 0x00	; 0
+ 138:	35 95       	asr	r19
+ 13a:	27 95       	ror	r18
+ 13c:	8c 2f       	mov	r24, r28
+ 13e:	85 75       	andi	r24, 0x55	; 85
+ 140:	90 e0       	ldi	r25, 0x00	; 0
+ 142:	88 0f       	add	r24, r24
+ 144:	99 1f       	adc	r25, r25
+ 146:	28 2b       	or	r18, r24
+ 148:	39 2b       	or	r19, r25
+ 14a:	c9 01       	movw	r24, r18
+ 14c:	8c 7c       	andi	r24, 0xCC	; 204
+ 14e:	99 27       	eor	r25, r25
+ 150:	95 95       	asr	r25
+ 152:	87 95       	ror	r24
+ 154:	95 95       	asr	r25
+ 156:	87 95       	ror	r24
+ 158:	23 73       	andi	r18, 0x33	; 51
+ 15a:	33 27       	eor	r19, r19
+ 15c:	22 0f       	add	r18, r18
+ 15e:	33 1f       	adc	r19, r19
+ 160:	22 0f       	add	r18, r18
+ 162:	33 1f       	adc	r19, r19
+ 164:	82 2b       	or	r24, r18
+ 166:	93 2b       	or	r25, r19
+ 168:	9c 01       	movw	r18, r24
+ 16a:	22 95       	swap	r18
+ 16c:	32 95       	swap	r19
+ 16e:	30 7f       	andi	r19, 0xF0	; 240
+ 170:	32 27       	eor	r19, r18
+ 172:	20 7f       	andi	r18, 0xF0	; 240
+ 174:	32 27       	eor	r19, r18
  176:	95 95       	asr	r25
  178:	87 95       	ror	r24
- 17a:	82 2b       	or	r24, r18
- 17c:	93 2b       	or	r25, r19
+ 17a:	95 95       	asr	r25
+ 17c:	87 95       	ror	r24
  17e:	95 95       	asr	r25
  180:	87 95       	ror	r24
  182:	95 95       	asr	r25
  184:	87 95       	ror	r24
- 186:	85 bb       	out	0x15, r24	; 21
+ 186:	82 2b       	or	r24, r18
+ 188:	93 2b       	or	r25, r19
+ 18a:	95 95       	asr	r25
+ 18c:	87 95       	ror	r24
+ 18e:	95 95       	asr	r25
+ 190:	87 95       	ror	r24
+ 192:	85 bb       	out	0x15, r24	; 21
 		tecla = hastaTecla();
- 188:	0e 94 41 00 	call	0x82	; 0x82 <hastaTecla>
-		if(tecla == 0x09 && cont < 9) cont++;
- 18c:	89 30       	cpi	r24, 0x09	; 9
- 18e:	19 f4       	brne	.+6      	; 0x196 <main+0x7c>
- 190:	c9 30       	cpi	r28, 0x09	; 9
- 192:	08 f4       	brcc	.+2      	; 0x196 <main+0x7c>
- 194:	cf 5f       	subi	r28, 0xFF	; 255
-		if(tecla == 0x01 && cont > 0) cont--;
- 196:	81 30       	cpi	r24, 0x01	; 1
- 198:	31 f6       	brne	.-116    	; 0x126 <main+0xc>
- 19a:	cc 23       	and	r28, r28
- 19c:	21 f2       	breq	.-120    	; 0x126 <main+0xc>
- 19e:	c1 50       	subi	r28, 0x01	; 1
- 1a0:	c2 cf       	rjmp	.-124    	; 0x126 <main+0xc>
+ 194:	0e 94 41 00 	call	0x82	; 0x82 <hastaTecla>
+		if(tecla == 0x9 && cont < 9) cont++;
+ 198:	89 30       	cpi	r24, 0x09	; 9
+ 19a:	19 f4       	brne	.+6      	; 0x1a2 <main+0x88>
+ 19c:	c9 30       	cpi	r28, 0x09	; 9
+ 19e:	08 f4       	brcc	.+2      	; 0x1a2 <main+0x88>
+ 1a0:	cf 5f       	subi	r28, 0xFF	; 255
+		if(tecla == 0x1 && cont > 0) cont--;
+ 1a2:	81 30       	cpi	r24, 0x01	; 1
+ 1a4:	11 f4       	brne	.+4      	; 0x1aa <main+0x90>
+ 1a6:	c1 11       	cpse	r28, r1
+ 1a8:	c1 50       	subi	r28, 0x01	; 1
+		if(tecla == 0xD) OCR0 = 14 + 2*cont;
+ 1aa:	8d 30       	cpi	r24, 0x0D	; 13
+ 1ac:	11 f6       	brne	.-124    	; 0x132 <main+0x18>
+ 1ae:	8c 2f       	mov	r24, r28
+ 1b0:	90 e0       	ldi	r25, 0x00	; 0
+ 1b2:	07 96       	adiw	r24, 0x07	; 7
+ 1b4:	88 0f       	add	r24, r24
+ 1b6:	8c bf       	out	0x3c, r24	; 60
+ 1b8:	bc cf       	rjmp	.-136    	; 0x132 <main+0x18>
 
-000001a2 <_exit>:
- 1a2:	f8 94       	cli
+000001ba <_exit>:
+ 1ba:	f8 94       	cli
 
-000001a4 <__stop_program>:
- 1a4:	ff cf       	rjmp	.-2      	; 0x1a4 <__stop_program>
+000001bc <__stop_program>:
+ 1bc:	ff cf       	rjmp	.-2      	; 0x1bc <__stop_program>
