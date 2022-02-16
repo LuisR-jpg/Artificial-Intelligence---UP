@@ -21,10 +21,18 @@ public class PlayerController : MonoBehaviour
         Vector2 movementVector = movementValue.Get<Vector2>();
         movementX = movementVector.x;
         movementY = movementVector.y;
+        bool mov = true;
         if(movementX > 0) animator.SetInteger("direction", 1);
         if(movementX < 0) animator.SetInteger("direction", 3);
         if(movementY > 0) animator.SetInteger("direction", 2);
         if(movementY < 0) animator.SetInteger("direction", 0);
+        if( !Keyboard.current.wKey.isPressed &&
+            !Keyboard.current.aKey.isPressed &&
+            !Keyboard.current.sKey.isPressed &&
+            !Keyboard.current.dKey.isPressed
+        ) mov = false;
+        animator.SetBool("walking", mov);
+        
     }
     void FixedUpdate(){
         Vector2 movement = new Vector2(movementX, movementY);
