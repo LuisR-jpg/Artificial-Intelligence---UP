@@ -64,3 +64,6 @@ int main(){
         //Lo que quiera hacer con mi tecla
     }
 }
+
+//Servo
+//	OCR0 = 5 para 0 grados; 38 para 180 grados
