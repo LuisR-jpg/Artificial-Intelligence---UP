@@ -1,91 +1,10 @@
-#include <avr/io.h> //Loads basic C functions
-#include <stdint.h> //Includes fixed size integers
-#include <util/delay.h>
-#define F_CPU 1000000 //Sets frequency for delays
+/*
+ * LCDGame.c
+ *
+ * Created: 24/2/2022 15:08:23
+ * Author : lalor
+ */ 
 
-//[0 - 99] number to displays with units in most significant nibble
-#define print(n) (((n % 10) << 4) | (n / 10))
-
-//Bit in any register is set or clear
-#define isClear(r, i) (!(r & (1 << i)))
-#define isSet(r, i) (r & (1 << i))
-//RTR usando las funciones de arriba
-if(isClear(PINx, y)){
-    //Al presionar
-    _delay_ms(50);
-    while(isClear(PINx, y));
-    _delay_ms(50);
-    //Al soltar
-}
-
-//Bitmasks to swap and reverse bytes
-#define swapB(r) ((r & 0xAA) >> 1 | (r & 0x55) << 1)
-#define swapP(r) ((r & 0xCC) >> 2 | (r & 0x33) << 2)
-#define swap(r) (r << 4 | r >> 4)
-#define reverse(r) swap(swapP(swapB(r)))
-
-//Display 7 segmentos anodo comun pines 0-6
-#define dZERO	0b11000000
-#define dONE	0b11111001
-#define dTWO	0b10100100
-#define dTHREE	0b10110000
-#define dFOUR	0b10011001
-#define dFIVE	0b10010010
-#define dSIX	0b10000010
-#define dSEVEN	0b11111000
-#define dEIGHT	0b10000000
-#define dNINE	0b10010000
-
-//Teclado
-#define PINX PINA
-#define DDRX DDRA
-#define PORTX PORTA
-
-//uint8_t keyboard[4][4] = 
-//{
-	//{0x7, 0x8, 0x9, 0xA},
-	//{0x4, 0x5, 0x6, 0xB},
-	//{0x1, 0x2, 0x3, 0xC},
-	//{0xE, 0x0, 0xF, 0xD}
-//};
-uint8_t keyboard[4][4] =
-{
-	{0x1, 0x2, 0x3, 0xA},
-	{0x4, 0x5, 0x6, 0xB},
-	{0x7, 0x8, 0x9, 0xC},
-	{0xE, 0x0, 0xF, 0xD}
-};
-
-uint8_t hastaTecla(){
-	for(uint8_t i = 0;; i++, i %= 4){
-		PORTX = ~(1 << i);
-		asm("nop");
-		asm("nop");
-		for(uint8_t j = 4; j < 8; j++){
-			if(isClear(PINX, j)){
-				_delay_ms(50);
-				while(isClear(PINX, j));
-				_delay_ms(50);
-				return keyboard[7 - j][3 - i];
-			}
-		}
-	}
-}
-int main(){
-    DDRX = 0x0F;
-    PORTX = 0xFF;
-    uint8_t tecla;
-    for(;;){
-        tecla = hastaTecla();
-        //Lo que quiera hacer con mi tecla
-    }
-}
-
-//Servo
-//	OCR0 = 5 para 0 grados; 38 para 180 grados
-
-
-//LCD
 #define F_CPU 1000000
 #include <avr/io.h>
 #include <util/delay.h>
@@ -130,16 +49,101 @@ void LCD_wait_flag(void);
 void LCD_init(void);
 void LCD_wr_string(volatile uint8_t *s);
 
+//Teclado
+#define PINX PINA
+#define DDRX DDRA
+#define PORTX PORTA
+
+uint8_t keyboard[4][4] =
+{
+	{'7', '8', '9', 'A'},
+	{'4', '5', '6', 'B'},
+	{'1', '2', '3', 'C'},
+	{'E', '0', 'F', '+'}
+};
+
+uint8_t hastaTecla(){
+	for(uint8_t i = 0;; i++, i %= 4){
+		PORTX = ~(1 << i);
+		asm("nop");
+		asm("nop");
+		for(uint8_t j = 4; j < 8; j++){
+			if(isClear(PINX, j)){
+				_delay_ms(50);
+				while(isClear(PINX, j));
+				_delay_ms(50);
+				return keyboard[7 - j][3 - i];
+			}
+		}
+	}
+}
+void KB_init(){
+	DDRX = 0x0F;
+	PORTX = 0xFF;
+}
+
+uint8_t squares[2][10] = {0};
+
 int main(void)
 {
 	LCD_init();
-	
-	for(;;){}
+	KB_init();	
+	uint8_t t, points = 0, status = 0, try, wait = 0;
+	for(;;){
+		LCD_wr_string("Cuantas coordena");
+		do t = hastaTecla();			
+		while(t < '0' && t > '9');
+		try = t - '0';
+		LCD_wr_instruction(LCD_Cmd_Clear);
+		LCD_wr_instruction(LCD_Cmd_Home);
+		LCD_wr_string("Escondere ");
+		LCD_wr_char(t);
+		LCD_wr_instruction(0b11000000);
+		LCD_wr_string("coordenada");
+		if(try > 1) LCD_wr_char('s');
+		_delay_ms(wait);
+		LCD_wr_instruction(LCD_Cmd_Clear);
+		LCD_wr_instruction(LCD_Cmd_Home);
+		LCD_wr_string("Tu debes buscar ");
+		LCD_wr_instruction(0b11000000);
+		LCD_wr_char(t);
+		LCD_wr_string(" coordenada");
+		if(try > 1) LCD_wr_char('s');
+		LCD_wr_char('.');
+		_delay_ms(wait);
+		LCD_wr_instruction(LCD_Cmd_Clear);
+		LCD_wr_instruction(LCD_Cmd_Home);
+		LCD_wr_string("2 filas (0, 1)");
+		LCD_wr_instruction(0b11000000);
+		LCD_wr_string("10 cols (0, 9)");
+		_delay_ms(wait);
+		LCD_wr_instruction(LCD_Cmd_Clear);
+		LCD_wr_instruction(LCD_Cmd_Home);
+		LCD_wr_string("Presiona +");
+		LCD_wr_instruction(0b11000000);
+		LCD_wr_string("para continuar..");
+		do t = hastaTecla();
+		while(t != '+');
+		LCD_wr_instruction(LCD_Cmd_Clear);
+		LCD_wr_instruction(LCD_Cmd_Home);
+		LCD_wr_string("Trata de");
+		LCD_wr_instruction(0b11000000);
+		LCD_wr_string("memorizar...");
+		_delay_ms(wait);
+		for(uint8_t i = 0; i < try; i++){
+
+		}
+		if(t == 'E'){
+			LCD_wr_instruction(LCD_Cmd_Home);
+			LCD_wr_string("Tu puntaje es: ");
+			LCD_wr_char('0' + points);
+		}
+	}
 }
 
 void LCD_wr_string(volatile uint8_t *s){
 	uint8_t c;
-	while((c=*s++)){
+	while((c = *s++)){
 		LCD_wr_char(c);
 	}
 }
