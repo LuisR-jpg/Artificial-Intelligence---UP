@@ -42,7 +42,7 @@
 
 uint8_t seed = 0;
 uint8_t uno[16], dos[16], points;
-const uint8_t wait = 0;
+const uint8_t wait = 500;
 
 void saca_uno(volatile uint8_t *LUGAR, uint8_t BIT);
 void saca_cero(volatile uint8_t *LUGAR, uint8_t BIT);
@@ -57,7 +57,7 @@ void LCD_wr_string(volatile uint8_t *s);
 #define PINX PINA
 #define DDRX DDRA
 #define PORTX PORTA
-
+/*
 uint8_t keyboard[4][4] =
 {
 	{'7', '8', '9', 'A'},
@@ -65,7 +65,14 @@ uint8_t keyboard[4][4] =
 	{'1', '2', '3', 'C'},
 	{'E', '0', 'F', '+'}
 };
-
+*/
+uint8_t keyboard[4][4] =
+{
+	{'1', '2', '3', 'A'},
+	{'4', '5', '6', 'B'},
+	{'7', '8', '9', 'C'},
+	{'E', '0', 'F', '+'}
+};
 uint8_t hastaTecla(){
 	for(uint8_t i = 0;; i++, i %= 4, seed++){
 		PORTX = ~(1 << i);
@@ -84,7 +91,6 @@ uint8_t hastaTecla(){
 
 uint8_t hastaTeclaWrapper(){
 	uint8_t t = hastaTecla();
-	/*
 	if(t == 'E'){
 		LCD_wr_instruction(LCD_Cmd_Home);
 		LCD_wr_instruction(LCD_Cmd_Clear);
@@ -93,7 +99,6 @@ uint8_t hastaTeclaWrapper(){
 		_delay_ms(wait);
 		LCD_wr_lines(uno, dos);
 	}
-	*/
 	return t;
 }
 
