@@ -1,19 +1,28 @@
 /*
- * LCDGame.c
+ * Jaja.c
  *
- * Created: 24/2/2022 15:08:23
+ * Created: 27/2/2022 12:43:48
  * Author : lalor
  */ 
 
 #define F_CPU 1000000
-#include <avr/io.h>
-#include <util/delay.h>
-#include <stdint.h>
-#include <stdlib.h>
-#include <avr/interrupt.h>
-
 #define isClear(r, i) (!isSet(r, i))
 #define isSet(r, i) (r & (1 << i))
+#define swapB(r) ((r & 0xAA) >> 1 | (r & 0x55) << 1)
+#define swapP(r) ((r & 0xCC) >> 2 | (r & 0x33) << 2)
+#define swap(r) (r << 4 | r >> 4)
+#define reverse(r) swap(swapP(swapB(r)))
+#include <avr/io.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <util/delay.h>
+#include <avr/interrupt.h>
+
+uint8_t seed = 0;
+uint8_t uno[16], dos[16], points;
+const uint8_t wait = 500;
+uint8_t squares[2][10] = {0};
+
 #define DDRLCD DDRC
 #define PORTLCD PORTC
 #define PINLCD PINC
@@ -39,34 +48,120 @@
 #define LCD_Cmd_Func1LinCh 0b00100000
 #define LCD_Cmd_Func1LinG  0b00100100
 //#define LCD_Cmd_DDRAM    0b1xxxxxxx
+void LCD_wr_lines(uint8_t *a, uint8_t *b){
+	LCD_wr_instruction(LCD_Cmd_Clear);
+	LCD_wr_instruction(LCD_Cmd_Home);
+	LCD_wr_string(a);
+	LCD_wr_instruction(0b11000000);
+	LCD_wr_string(b);
+}
+void LCD_wr_string(volatile uint8_t *s){
+	uint8_t c;
+	while((c=*s++)){
+		LCD_wr_char(c);
+	}
+}
+void LCD_init(void){
+	DDRLCD=(15<<0)|(1<<RS)|(1<<RW)|(1<<E); //DDRLCD=DDRLCD|(0B01111111)
+	_delay_ms(15);
+	LCD_wr_inst_ini(0b00000011);
+	_delay_ms(5);
+	LCD_wr_inst_ini(0b00000011);
+	_delay_us(100);
+	LCD_wr_inst_ini(0b00000011);
+	_delay_us(100);
+	LCD_wr_inst_ini(0b00000010);
+	_delay_us(100);
+	LCD_wr_instruction(LCD_Cmd_Func2Lin); //4 Bits, n?mero de l?neas y tipo de letra
+	LCD_wr_instruction(LCD_Cmd_Off); //apaga el display
+	LCD_wr_instruction(LCD_Cmd_Clear); //limpia el display
+	LCD_wr_instruction(LCD_Cmd_ModeDnS); //Entry mode set ID S
+	LCD_wr_instruction(LCD_Cmd_OnsCsB); //Enciende el display
+}
+void LCD_wr_char(uint8_t data){
+	//saco la parte m?s significativa del dato
+	PORTLCD=data>>4; //Saco el dato y le digo que escribir? un dato
+	saca_uno(&PORTLCD,RS);
+	saca_cero(&PORTLCD,RW);
+	saca_uno(&PORTLCD,E);
+	_delay_ms(10);
+	saca_cero(&PORTLCD,E);
+	//saco la parte menos significativa del dato
+	PORTLCD=data&0b00001111; //Saco el dato y le digo que escribir? un dato
+	saca_uno(&PORTLCD,RS);
+	saca_cero(&PORTLCD,RW);
+	saca_uno(&PORTLCD,E);
+	_delay_ms(10);
+	saca_cero(&PORTLCD,E);
+	saca_cero(&PORTLCD,RS);
+	LCD_wait_flag();
+	
+}
+void LCD_wr_inst_ini(uint8_t instruccion){
+	PORTLCD=instruccion; //Saco el dato y le digo que escribir? un dato
+	saca_cero(&PORTLCD,RS);
+	saca_cero(&PORTLCD,RW);
+	saca_uno(&PORTLCD,E);
+	_delay_ms(10);
+	saca_cero(&PORTLCD,E);
+}
+void LCD_wr_instruction(uint8_t instruccion){
+	//saco la parte m?s significativa de la instrucci?n
+	PORTLCD=instruccion>>4; //Saco el dato y le digo que escribir? un dato
+	saca_cero(&PORTLCD,RS);
+	saca_cero(&PORTLCD,RW);
+	saca_uno(&PORTLCD,E);
+	_delay_ms(10);
+	saca_cero(&PORTLCD,E);
+	//saco la parte menos significativa de la instrucci?n
+	PORTLCD=instruccion&0b00001111; //Saco el dato y le digo que escribir? un dato
+	saca_cero(&PORTLCD,RS);
+	saca_cero(&PORTLCD,RW);
+	saca_uno(&PORTLCD,E);
+	_delay_ms(10);
+	saca_cero(&PORTLCD,E);
+	LCD_wait_flag();
+}
+void LCD_wait_flag(void){
+	//	_delay_ms(100);
+	DDRLCD&=0b11110000; //Para poner el pin BF como entrada para leer la bandera lo dem?s salida
+	saca_cero(&PORTLCD,RS);// Instrucci?n
+	saca_uno(&PORTLCD,RW); // Leer
+	while(1){
+		saca_uno(&PORTLCD,E); //pregunto por el primer nibble
+		_delay_ms(10);
+		saca_cero(&PORTLCD,E);
+		if(isSet(PINLCD,BF)) {break;} //uno_en_bit para protues, 0 para la vida real
+		_delay_us(10);
+		saca_uno(&PORTLCD,E); //pregunto por el segundo nibble
+		_delay_ms(10);
+		saca_cero(&PORTLCD,E);
+	}
+	saca_uno(&PORTLCD,E); //pregunto por el segundo nibble
+	_delay_ms(10);
+	saca_cero(&PORTLCD,E);
+	//entonces cuando tenga cero puede continuar con esto...
+	saca_cero(&PORTLCD,RS);
+	saca_cero(&PORTLCD,RW);
+	DDRLCD|=(15<<0)|(1<<RS)|(1<<RW)|(1<<E);
+}
+void saca_uno(volatile uint8_t *LUGAR, uint8_t BIT){
+	*LUGAR=*LUGAR|(1<<BIT);
+}
+void saca_cero(volatile uint8_t *LUGAR, uint8_t BIT){
+	*LUGAR=*LUGAR&~(1<<BIT);
+}
 
-uint8_t seed = 0;
-uint8_t uno[16], dos[16], points;
-const uint8_t wait = 500;
-uint8_t squares[2][10] = {0};
-
-void saca_uno(volatile uint8_t *LUGAR, uint8_t BIT);
-void saca_cero(volatile uint8_t *LUGAR, uint8_t BIT);
-void LCD_wr_inst_ini(uint8_t instruccion);
-void LCD_wr_char(uint8_t data);
-void LCD_wr_instruction(uint8_t instruccion);
-void LCD_wait_flag(void);
-void LCD_init(void);
-void LCD_wr_string(volatile uint8_t *s);
-
-//Teclado
 #define PINX PINA
 #define DDRX DDRA
 #define PORTX PORTA
-/*
-uint8_t keyboard[4][4] =
-{
-	{'7', '8', '9', 'A'},
-	{'4', '5', '6', 'B'},
-	{'1', '2', '3', 'C'},
-	{'E', '0', 'F', '+'}
-};
-*/
+//uint8_t keyboard[4][4] =
+//{
+//{0x7, 0x8, 0x9, 0xA},
+//{0x4, 0x5, 0x6, 0xB},
+//{0x1, 0x2, 0x3, 0xC},
+//{0xE, 0x0, 0xF, 0xD}
+//};
 uint8_t keyboard[4][4] =
 {
 	{'1', '2', '3', 'A'},
@@ -89,7 +184,6 @@ uint8_t hastaTecla(){
 		}
 	}
 }
-
 uint8_t hastaTeclaWrapper(){
 	uint8_t t = hastaTecla();
 	if(t == 'E'){
@@ -102,25 +196,15 @@ uint8_t hastaTeclaWrapper(){
 	}
 	return t;
 }
-
 void KB_init(){
 	DDRX = 0x0F;
 	PORTX = 0xFF;
 }
 
-	
-void LCD_wr_lines(uint8_t *a, uint8_t *b){
-	LCD_wr_instruction(LCD_Cmd_Clear);
-	LCD_wr_instruction(LCD_Cmd_Home);
-	LCD_wr_string(a);
-	LCD_wr_instruction(0b11000000);
-	LCD_wr_string(b);
-}
-
 int main(void)
 {
 	LCD_init();
-	KB_init();	
+	KB_init();
 	
 	for(;;){
 		srand(time(seed));
@@ -129,7 +213,7 @@ int main(void)
 		sprintf(uno, "Cuantas coordena");
 		sprintf(dos, "");
 		LCD_wr_lines(uno, dos);
-		do t = hastaTeclaWrapper();			
+		do t = hastaTeclaWrapper();
 		while(t < '0' || t > '9');
 		try = t - '0';
 		sprintf(uno, "Escondere %c", t);
@@ -181,7 +265,7 @@ int main(void)
 			LCD_wr_lines(uno, dos);
 			do t = hastaTeclaWrapper();
 			while(t < '0' || t > '9');
-			y = t - '0';			
+			y = t - '0';
 			sprintf(uno, "Intento %0d (%d, %d)", 2*try - nAtt, x, y);
 			if(x < 2 && y < 10){
 				if(squares[x][y] == 0) sprintf(dos, "Error");
@@ -215,110 +299,3 @@ int main(void)
 		_delay_ms(wait);
 	}
 }
-
-void LCD_wr_string(volatile uint8_t *s){
-	uint8_t c;
-	while((c = *s++)){
-		LCD_wr_char(c);
-	}
-}
-
-void LCD_init(void){
-	DDRLCD=(15<<0)|(1<<RS)|(1<<RW)|(1<<E); //DDRLCD=DDRLCD|(0B01111111)
-	_delay_ms(15);
-	LCD_wr_inst_ini(0b00000011);
-	_delay_ms(5);
-	LCD_wr_inst_ini(0b00000011);
-	_delay_us(100);
-	LCD_wr_inst_ini(0b00000011);
-	_delay_us(100);
-	LCD_wr_inst_ini(0b00000010);
-	_delay_us(100);
-	LCD_wr_instruction(LCD_Cmd_Func2Lin); //4 Bits, n?mero de l?neas y tipo de letra
-	LCD_wr_instruction(LCD_Cmd_Off); //apaga el display
-	LCD_wr_instruction(LCD_Cmd_Clear); //limpia el display
-	LCD_wr_instruction(LCD_Cmd_ModeDnS); //Entry mode set ID S
-	LCD_wr_instruction(LCD_Cmd_OnsCsB); //Enciende el display
-}
-
-void LCD_wr_char(uint8_t data){
-	//saco la parte m?s significativa del dato
-	PORTLCD=data>>4; //Saco el dato y le digo que escribir? un dato
-	saca_uno(&PORTLCD,RS);
-	saca_cero(&PORTLCD,RW);
-	saca_uno(&PORTLCD,E);
-	_delay_ms(10);
-	saca_cero(&PORTLCD,E);
-	//saco la parte menos significativa del dato
-	PORTLCD=data&0b00001111; //Saco el dato y le digo que escribir? un dato
-	saca_uno(&PORTLCD,RS);
-	saca_cero(&PORTLCD,RW);
-	saca_uno(&PORTLCD,E);
-	_delay_ms(10);
-	saca_cero(&PORTLCD,E);
-	saca_cero(&PORTLCD,RS);
-	LCD_wait_flag();
-	
-}
-
-void LCD_wr_inst_ini(uint8_t instruccion){
-	PORTLCD=instruccion; //Saco el dato y le digo que escribir? un dato
-	saca_cero(&PORTLCD,RS);
-	saca_cero(&PORTLCD,RW);
-	saca_uno(&PORTLCD,E);
-	_delay_ms(10);
-	saca_cero(&PORTLCD,E);
-}
-
-void LCD_wr_instruction(uint8_t instruccion){
-	//saco la parte m?s significativa de la instrucci?n
-	PORTLCD=instruccion>>4; //Saco el dato y le digo que escribir? un dato
-	saca_cero(&PORTLCD,RS);
-	saca_cero(&PORTLCD,RW);
-	saca_uno(&PORTLCD,E);
-	_delay_ms(10);
-	saca_cero(&PORTLCD,E);
-	//saco la parte menos significativa de la instrucci?n
-	PORTLCD=instruccion&0b00001111; //Saco el dato y le digo que escribir? un dato
-	saca_cero(&PORTLCD,RS);
-	saca_cero(&PORTLCD,RW);
-	saca_uno(&PORTLCD,E);
-	_delay_ms(10);
-	saca_cero(&PORTLCD,E);
-	LCD_wait_flag();
-}
-
-
-void LCD_wait_flag(void){
-	//	_delay_ms(100);
-	DDRLCD&=0b11110000; //Para poner el pin BF como entrada para leer la bandera lo dem?s salida
-	saca_cero(&PORTLCD,RS);// Instrucci?n
-	saca_uno(&PORTLCD,RW); // Leer
-	while(1){
-		saca_uno(&PORTLCD,E); //pregunto por el primer nibble
-		_delay_ms(10);
-		saca_cero(&PORTLCD,E);
-		if(isSet(PINLCD,BF)) {break;} //uno_en_bit para protues, 0 para la vida real
-		_delay_us(10);
-		saca_uno(&PORTLCD,E); //pregunto por el segundo nibble
-		_delay_ms(10);
-		saca_cero(&PORTLCD,E);
-	}
-	saca_uno(&PORTLCD,E); //pregunto por el segundo nibble
-	_delay_ms(10);
-	saca_cero(&PORTLCD,E);
-	//entonces cuando tenga cero puede continuar con esto...
-	saca_cero(&PORTLCD,RS);
-	saca_cero(&PORTLCD,RW);
-	DDRLCD|=(15<<0)|(1<<RS)|(1<<RW)|(1<<E);
-}
-
-
-void saca_uno(volatile uint8_t *LUGAR, uint8_t BIT){
-	*LUGAR=*LUGAR|(1<<BIT);
-}
-
-void saca_cero(volatile uint8_t *LUGAR, uint8_t BIT){
-	*LUGAR=*LUGAR&~(1<<BIT);
-}
-

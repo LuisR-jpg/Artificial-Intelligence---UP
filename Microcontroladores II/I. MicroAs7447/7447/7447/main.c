@@ -26,9 +26,12 @@ int main(void)
 	DDRC = 0xFF;
     for(;;){
 		//PINA >> 4 should work, but fails in proteus
+		/*
 		int8_t dip = 0, r = 0xFF, read = PINA;
 		for(int8_t i = 0; i < 4; i++)
 			dip += ((read >> 4) & (1 << i));
+		*/
+		int8_t dip = PINA >> 4, r = 0xFF;
 		if(dip == 0) r = dZERO;
 		if(dip == 1) r = dONE;
 		if(dip == 2) r = dTWO;
