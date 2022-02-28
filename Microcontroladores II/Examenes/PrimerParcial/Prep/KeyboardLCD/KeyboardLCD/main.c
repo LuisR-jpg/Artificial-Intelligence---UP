@@ -1,9 +1,16 @@
+/*
+ * KeyboardLCD.c
+ *
+ * Created: 27/2/2022 18:57:30
+ * Author : lalor
+ */ 
+
 #include <avr/io.h>
 #include <stdint.h>
 #include <stdlib.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>
-#define F_CPU 1000000
+#define F_CPU 8000000
 #define isClear(r, i) (!isSet(r, i))
 #define isSet(r, i) (r & (1 << i))
 #define swapB(r) ((r & 0xAA) >> 1 | (r & 0x55) << 1)
@@ -11,9 +18,9 @@
 #define swap(r) (r << 4 | r >> 4)
 #define reverse(r) swap(swapP(swapB(r)))
 
-#define DDRLCD DDRC
-#define PORTLCD PORTC
-#define PINLCD PINC
+#define DDRLCD DDRD
+#define PORTLCD PORTD
+#define PINLCD PIND
 #define RS 4
 #define RW 5
 #define E 6
@@ -150,34 +157,48 @@ void saca_cero(volatile uint8_t *LUGAR, uint8_t BIT){
 //{0x1, 0x2, 0x3, 0xC},
 //{0xE, 0x0, 0xF, 0xD}
 //};
-uint8_t keyboard[4][4] =
+uint8_t keyboard[4][3] =
 {
-	{0x1, 0x2, 0x3, 0xA},
-	{0x4, 0x5, 0x6, 0xB},
-	{0x7, 0x8, 0x9, 0xC},
-	{0xE, 0x0, 0xF, 0xD}
+	{0x1, 0x2, 0x3},
+	{0x4, 0x5, 0x6},
+	{0x7, 0x8, 0x9},
+	{0xE, 0x0, 0xF}
 };
+/*
+4 - 0, 3 - 1, 2 - 2, 1 - 3
+5 - 0, 6 - 1, 7 - 2
+*/
 uint8_t hastaTecla(){
-	for(uint8_t i = 0;; i++, i %= 4){
+	for(uint8_t i = 0;; i++, i %= 5){
+		if(!i) i++;
 		PORTX = ~(1 << i);
 		asm("nop");
 		asm("nop");
-		for(uint8_t j = 4; j < 8; j++){
+		for(uint8_t j = 5; j < 8; j++){
 			if(isClear(PINX, j)){
 				_delay_ms(50);
 				while(isClear(PINX, j));
 				_delay_ms(50);
-				return keyboard[7 - j][3 - i];
+				return keyboard[4 - i][j - 5];
 			}
 		}
 	}
 }
 void KB_init(){
-	DDRX = 0x0F;
+	DDRX = 0b00011111;
 	PORTX = 0xFF;
 }
 
 int main(void)
 {
-	for(;;);
+	KB_init();
+	LCD_init();
+	for(;;){
+		uint8_t t = hastaTecla();
+		LCD_wr_instruction(LCD_Cmd_Clear);
+		LCD_wr_instruction(0x85);
+		int8_t s[16];
+		sprintf(s, "Hola %c", t + '0');
+		LCD_wr_string(s);
+	}
 }

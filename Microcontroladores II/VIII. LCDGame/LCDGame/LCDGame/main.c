@@ -183,11 +183,12 @@ int main(void)
 			while(t < '0' || t > '9');
 			y = t - '0';			
 			sprintf(uno, "Intento %0d (%d, %d)", 2*try - nAtt, x, y);
-			if(x < 2 && y < 10){
+			if(x < 2){
 				if(squares[x][y] == 0) sprintf(dos, "Error");
 				else if(squares[x][y] == 1) sprintf(dos, "Acierto"), points++, squares[x][y]++;
 				else sprintf(dos, "Ya estaba!"), nAtt++;
 			}
+			else sprintf(dos, "No existe lugar");
 			LCD_wr_lines(uno, dos);
 			_delay_ms(wait);
 			if(points == try){
