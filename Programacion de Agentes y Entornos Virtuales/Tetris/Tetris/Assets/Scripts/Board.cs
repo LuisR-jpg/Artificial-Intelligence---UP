@@ -47,6 +47,7 @@ public class Board : MonoBehaviour
 
     private void GameOver(){
         this.tilemap.ClearAllTiles();
+        this.activePiece.stepDelay = 1f;
     }
 
     public void Set(Piece piece){

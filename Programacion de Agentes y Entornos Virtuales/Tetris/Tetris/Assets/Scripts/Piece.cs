@@ -31,6 +31,8 @@ public class Piece : MonoBehaviour {
         }
     }
     private void Update(){
+        IncreaseDifficulty(0.00001f);
+
         this.board.Clear(this);
 
         this.lockTime += Time.deltaTime;
@@ -69,6 +71,10 @@ public class Piece : MonoBehaviour {
         }
 
         this.board.Set(this);
+    }
+    private void IncreaseDifficulty(float step){
+        this.stepDelay -= step;
+        if(this.stepDelay < 0.05f) this.stepDelay = 0.05f;
     }
     private void Step(){
         this.stepTime = Time.time + this.stepDelay;

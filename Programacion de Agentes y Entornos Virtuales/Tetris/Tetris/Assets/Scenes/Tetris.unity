@@ -271,6 +271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stepDelay: 1
   lockDelay: 0.5
+  inputDelay: 0.2
 --- !u!114 &230634093
 MonoBehaviour:
   m_ObjectHideFlags: 0

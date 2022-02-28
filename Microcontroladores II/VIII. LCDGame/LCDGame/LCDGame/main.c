@@ -123,7 +123,7 @@ int main(void)
 	KB_init();	
 	
 	for(;;){
-		srand(time(seed));
+		srand(seed);
 		uint8_t t, try;
 		points = 0;
 		sprintf(uno, "Cuantas coordena");
