@@ -1,0 +1,14 @@
+Producto
+    A1 $3
+    A2 $9
+    B1 $23
+    B2 $31
+
+
+
+Specs
+    Botón
+        Sin rebote
+        Funciona con Interrupciones
+        Checar que funcione al presionar o al soltar
+    Led tiene que estar 2 segundos
