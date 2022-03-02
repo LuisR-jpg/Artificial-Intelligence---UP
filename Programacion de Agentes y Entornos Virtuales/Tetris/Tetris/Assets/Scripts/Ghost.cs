@@ -16,10 +16,12 @@ public class Ghost : MonoBehaviour
         this.cells = new Vector3Int[4];
     }
     private void LateUpdate(){
-        Clear();
-        Copy();
-        Drop();
-        Set();
+        if(PlayerPrefs.GetInt("hasGhost") == 1){
+            Clear();
+            Copy();
+            Drop();
+            Set();
+        }
     }
     private void Clear(){
         for(int i = 0; i < this.cells.Length; i++){

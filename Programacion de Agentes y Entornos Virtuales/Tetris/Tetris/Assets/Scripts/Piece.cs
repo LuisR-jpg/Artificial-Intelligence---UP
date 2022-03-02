@@ -9,6 +9,7 @@ public class Piece : MonoBehaviour {
     public int rotationIndex {get; private set;}
 
     public float stepDelay = 1f;
+    public static float difficultyStep = 0.00005f;
     public float lockDelay = 0.5f;
     public float inputDelay = 0.2f;
 
@@ -32,7 +33,7 @@ public class Piece : MonoBehaviour {
     }
     private void Update(){
         if(PauseMenu.isPaused || Board.hasEnded) return;
-        IncreaseDifficulty(0.0001f);
+        IncreaseDifficulty(difficultyStep);
 
         this.board.Clear(this);
 
