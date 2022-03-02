@@ -9,6 +9,9 @@ public class Board : MonoBehaviour
     public TetrominoData[] tetrominoes;
     public Vector3Int spawnPosition = new Vector3Int(-1, 8, 0);
     public Vector2Int boardSize = new Vector2Int(10, 20);
+
+    public GameObject endMenu;
+    public static bool hasEnded;
     
     public RectInt Bounds{
         get{
@@ -26,6 +29,10 @@ public class Board : MonoBehaviour
     }
 
     private void Start(){
+        Time.timeScale = 1f;
+        PauseMenu.isPaused = false;
+        endMenu.SetActive(false);
+        hasEnded = false;
         SpawnPiece();
     }
     
@@ -39,7 +46,12 @@ public class Board : MonoBehaviour
             Set(this.activePiece);
         }
         else {
-            GameOver();
+            this.activePiece.stepDelay = 1f;
+            endMenu.SetActive(true);
+            Time.timeScale = 0f;
+            PauseMenu.isPaused = true;
+            hasEnded = true;
+            return;
         }
 
         Set(this.activePiece);

@@ -31,7 +31,8 @@ public class Piece : MonoBehaviour {
         }
     }
     private void Update(){
-        IncreaseDifficulty(0.00001f);
+        if(PauseMenu.isPaused || Board.hasEnded) return;
+        IncreaseDifficulty(0.0001f);
 
         this.board.Clear(this);
 
