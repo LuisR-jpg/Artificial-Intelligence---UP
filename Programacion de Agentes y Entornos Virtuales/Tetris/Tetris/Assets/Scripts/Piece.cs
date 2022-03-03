@@ -90,7 +90,8 @@ public class Piece : MonoBehaviour {
         this.board.SpawnPiece();
     }
     private void HardDrop(){
-        while(Move(Vector2Int.down));
+        while(Move(Vector2Int.down)) Score.score++;
+        Score.score++;
         Lock();
     }
     private bool Move(Vector2Int translation){

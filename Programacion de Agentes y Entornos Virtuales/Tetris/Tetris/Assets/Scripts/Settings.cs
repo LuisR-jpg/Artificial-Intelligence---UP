@@ -26,11 +26,11 @@ public class Settings : MonoBehaviour
         } 
         if(v == 1){
             level += "Easy";
-            Piece.difficultyStep = 0.00005f; 
+            Piece.difficultyStep = 0.00001f; 
         }
         if(v == 2){
             level += "Not bad";
-            Piece.difficultyStep = 0.0005f;
+            Piece.difficultyStep = 0.00008f;
         }
         if(v == 3){
             level += "r u insane?";

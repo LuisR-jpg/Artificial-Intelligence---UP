@@ -91,13 +91,18 @@ public class Board : MonoBehaviour
     }
     public void ClearLines(){
         RectInt bounds = this.Bounds;
-        int row = bounds.yMin;
+        int row = bounds.yMin, clearedLines = 0;
         while(row < bounds.yMax){
             if(IsLineFull(row)){
                 LineClear(row);
+                clearedLines++;
             }
             else row++;
         }
+        if(clearedLines == 1) Score.score += 40;
+        if(clearedLines == 2) Score.score += 100;
+        if(clearedLines == 3) Score.score += 300;
+        if(clearedLines == 4) Score.score += 1200;
     }
     private bool IsLineFull(int row){
         RectInt bounds = this.Bounds;
