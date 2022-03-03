@@ -10,7 +10,7 @@ public class Score : MonoBehaviour
     [SerializeField] private TextMeshProUGUI text;
     void Start()
     {
-        text.text = "Score\n0";        
+        score = 0;
     }
     void Update()
     {
