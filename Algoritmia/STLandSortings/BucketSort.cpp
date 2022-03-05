@@ -10,6 +10,6 @@ int main(){
   }
   for(int i = 0; i < 1 + mxN; i++) 
       for(int j = 0; j < a[i]; j++)
-	cout << i << " ";
+	      cout << i << " ";
   return 0;
 }

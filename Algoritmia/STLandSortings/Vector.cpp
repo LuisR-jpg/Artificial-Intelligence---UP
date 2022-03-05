@@ -1,4 +1,5 @@
 #include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 int main(){
   int n = 3, k = 10;
@@ -17,14 +18,24 @@ int main(){
   v[1] = 10;
   
   v.front(); //Referencia al primer elemento del vector.
-  v.back(); //Ref al último.
+  v.back(); //Ref al último. 
 
   /* MODIFICADORES */
   v.push_back(k); //Inserta 'k' al final del vector.
   v.pop_back(); //Elimina el último elemento.
 
+
   v.assign(n, k); //Asigna el varlo k a los primeros n elementos.
   v.clear(); //Borra todos los elementos. 
+
+  for(int i = 0; i < v.size(); i++)
+    cout << v[i] << " ";
+  /*
+  */
+
+  vector<string> vec = {"Nissan", "Renault", "Lambo"};
+  for(auto x: vec)
+    cout << x << endl;
 
   return 0;
 }

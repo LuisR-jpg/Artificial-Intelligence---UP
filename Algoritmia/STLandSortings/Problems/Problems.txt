@@ -1,0 +1,15 @@
+Contest:
+    https://omegaup.com/arena/problem/Ordena-Basico-2/
+    https://omegaup.com/arena/problem/Producto-punto-de-dos-vectores
+    https://omegaup.com/arena/problem/Problemas-en-la-Fila
+    https://omegaup.com/arena/problem/estacionamiento
+    https://omegaup.com/arena/problem/La-Tiendita-de-don-Alberto
+    https://omegaup.com/arena/problem/Operaciones-triviales-sobre-un-a
+    https://omegaup.com/arena/problem/Frequency-Sort
+Extra:
+    https://codeforces.com/contest/339/problem/A
+        vector y sort
+    https://codeforces.com/problemset/problem/230/A
+        pair y bubble
+    https://codeforces.com/problemset/problem/228/A
+        arr y sort
