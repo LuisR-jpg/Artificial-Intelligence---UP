@@ -197,7 +197,6 @@ ISR(ADC_vect){ //entra aquí solito después de la interrupción
 		LCD_wr_string(txt);		
 		last = rej;
 	}
-	ADCSRA|=(1 << ADSC);//inicia una nueva conversión
 }
 
 int main(void) {
@@ -207,9 +206,10 @@ int main(void) {
 	DDRA = 0x7F;
 	PORTA = 0;
 	sei();
-	ADCSRA |= (1<<ADSC); //le digo que inicie
+	
 	
 	LCD_init();
 	LCD_wr_lines("Voltaje: 0.00v", "");
-	for(;;);
+	for(;;)
+		ADCSRA |= (1<<ADSC); //le digo que inicie
 }
