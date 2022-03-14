@@ -1,4 +1,6 @@
 import cv2
+import matplotlib.pyplot as plt
+import numpy as np
 
 
 def funcion(img):
@@ -11,11 +13,11 @@ def funcion(img):
   countours, hierarchy = cv2.findContours(imgt.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
   rectangles = [cv2.boundingRect(countour) for countour in countours]
   c = 0
-  sizeofImage = 500
+  sizeofImage = (500, 300)
   for rect in rectangles:
     if rect[2] > 50 and rect[3] > 50: #Takes only bigger objects
       imgn = img[rect[1]:rect[1] + rect[3], rect[0]:rect[0] + rect[2]]
-      imgn = cv2.resize(imgn, (sizeofImage, sizeofImage))
+      imgn = cv2.resize(imgn, (sizeofImage[0], sizeofImage[1]))
       c += 1
       cv2.imshow("Image rect", imgn)
 
@@ -31,6 +33,14 @@ while True:
     val, img = cam.read()
     img = funcion(img)
     cv2.imshow("Image funcion",img)
+    img = cv2.cvtColor(img, code = cv2.COLOR_BGR2RGB)
+    plt.figure(figsize = (15, 5))
+    plt.subplot(1, 3, 1)
+    plt.title("Original")
+    plt.imshow(img)
+    plt.show()
+    print(np.unique(cv2.cvtColor(img, code = cv2.COLOR_RGB2HSV)[0]))
+    print(img.shape)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 cam.release()
