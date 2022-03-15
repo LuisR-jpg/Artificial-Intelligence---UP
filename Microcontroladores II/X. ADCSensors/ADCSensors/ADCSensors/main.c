@@ -1,11 +1,20 @@
+/*
+ * ADCSensors.c
+ *
+ * Created: 15/3/2022 08:52:12
+ * Author : lalor
+ */ 
+
 #include <avr/io.h>
 #include <stdint.h>
 #include <stdlib.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>
-#define F_CPU 1000000
+#define F_CPU 4000000
 #define isClear(r, i) (!isSet(r, i))
 #define isSet(r, i) (r & (1 << i))
+#define setBit(r, i) (r | (1 << i))
+#define clearBit(r, i) (r & ~(1 << i))
 #define swapB(r) ((r & 0xAA) >> 1 | (r & 0x55) << 1)
 #define swapP(r) ((r & 0xCC) >> 2 | (r & 0x33) << 2)
 #define swap(r) (r << 4 | r >> 4)
@@ -181,20 +190,20 @@ void KB_init(){
 #define PINADC PINA
 #define DDRADC DDRA
 void ADC_init(){
-	ADMUX = 0b01000010; 
+	ADMUX = 0b01000000; 
 		/*
 			7, 6: 01 = Connect AREF to 5v, connect pins 10, 11, 30 and 31
 			5: 0 = 10 bits adjusted to the right (using full precision of the ADC)
 			2, 1, 0: Specify the PIN to be read in binary
 		*/
-	SFIOR = 0b00000011;
+	SFIOR = 0b00000000;
 		/* 
 			Last 3 bits: 
 				000 - Free running mode (we ask to do the conversion)
 				011 - Compare match timer 0
 			When using something different to free running mode: Bit 5 of ADCSRA has to be 1.
 		*/
-	ADCSRA =  0b11111011; //Fdiv = 32 CON INTERRUPCIONES
+	ADCSRA =  0b10011011; //Fdiv = 32 CON INTERRUPCIONES
 		/* 
 			7: ADC Enable. 1 ON; 0 OFF
 			6: When 'free running mode' a 1 indicates when to start the conversion
@@ -209,9 +218,9 @@ void ADC_init(){
 				000		2
 				001		2
 				010		4
-				011		8
+				011		8	//1 MHz
 				100		16
-				101		32
+				101		32	//4 MHz
 				110		64
 				111		128
 				Fmicro/Divisor has to be between the valid range.
@@ -220,13 +229,31 @@ void ADC_init(){
 	DDRADC = 0b00000000;
 	PORTADC = 0b00000000; //ADC doesnt need pull up
 }
-ISR(ADC_vect){ //Entra aqu� solito despu�s de la conversion
+ISR(ADC_vect){ //Entra aqu? solito despu?s de la conversion
 	uint16_t rej = ADC;
 	
-	//C�digo
+	ADC *= 5;
+	ADC /= 1023;
+	uint8_t n = 0;
+	switch(ADC) {
+		case 5: n;
+		case 4: n = setBit(n, 3);
+		case 3: n = setBit(n, 2);
+		case 2: n = setBit(n, 1);
+		case 1: n = setBit(n, 0);
+	}
 	
-	rej >>= 2;
-	PORTC = OCR2 = rej;
+	uint8_t select = ADMUX;
+	select <<= 5;
+	select >>= 5;
+	PORTC = n;
+	if(select == 0) 
+	if(select == 1)
+	if(select == 2)
+	select++;
+	select %= 3;
+	ADMUX &= 0b11111000;
+	ADMUX |= select;
 }
 
 void Timer0_init(){
@@ -243,6 +270,11 @@ ISR(TIMER0_COMP_vect){
 
 int main(void)
 {
+	ADC_init();
+	DDRC = 0xFF;
+	//ADCSRA = setBit(ADCSRA, ADSC);
+	ADCSRA |= (1<<ADSC);
+	
 	for(;;);
 		
 }
