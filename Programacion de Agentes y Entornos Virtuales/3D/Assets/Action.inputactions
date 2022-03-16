@@ -1,0 +1,34 @@
+{
+    "name": "Action",
+    "maps": [
+        {
+            "name": "fpsMap",
+            "id": "61f3820e-e096-4885-bfad-a77d4ace073f",
+            "actions": [
+                {
+                    "name": "MoveCamera",
+                    "type": "PassThrough",
+                    "id": "020aebfa-09e9-4835-94be-cd9d69ae09c3",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "435330ed-a558-4dd9-9f10-867216ed171c",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveCamera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
