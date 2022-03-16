@@ -4,21 +4,24 @@ using UnityEngine;
 
 public class FPSController : MonoBehaviour
 {
-    Action control;
-    Action.FpsMapActions actions;
+    FPSActions control;
+    FPSActions.FPSMapActions actions;
     private Vector2 mouseVector;
 
-    private void Awake(){
-        control = new Action();
-        actions = control.fpsMap;
+    private void Awake()
+    {
+        control = new FPSActions();
+        actions = control.FPSMap;
         actions.MoveCamera.performed += ctx => mouseVector = ctx.ReadValue<Vector2>();
     }
 
-    private void OnEnable(){
+    private void OnEnable()
+    {
         control.Enable();
     }
 
-    private void OnDestroy(){ 
+    private void OnDestroy()
+    {
         control.Disable();
     }
 

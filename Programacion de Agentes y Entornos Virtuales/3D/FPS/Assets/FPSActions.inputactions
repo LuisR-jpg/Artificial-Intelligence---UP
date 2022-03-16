@@ -1,14 +1,14 @@
 {
-    "name": "Action",
+    "name": "FPSActions",
     "maps": [
         {
-            "name": "fpsMap",
-            "id": "61f3820e-e096-4885-bfad-a77d4ace073f",
+            "name": "FPSMap",
+            "id": "a13bb5c2-9c85-45fc-968e-c46bfc46f90d",
             "actions": [
                 {
                     "name": "MoveCamera",
                     "type": "PassThrough",
-                    "id": "020aebfa-09e9-4835-94be-cd9d69ae09c3",
+                    "id": "8794d636-65e8-414f-8ea8-b48dddadc8c5",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -18,7 +18,7 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "435330ed-a558-4dd9-9f10-867216ed171c",
+                    "id": "b259daca-48e4-4b4a-955d-7264f9b23ff0",
                     "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
