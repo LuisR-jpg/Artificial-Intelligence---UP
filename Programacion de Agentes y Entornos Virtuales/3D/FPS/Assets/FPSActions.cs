@@ -35,6 +35,24 @@ public partial class @FPSActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MoveHorizontal"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""1edc6860-6991-497f-94d4-f9ad8ec8f897"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""9c3ce7b4-f94c-4ca0-920d-d33629a8f38b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -48,6 +66,72 @@ public partial class @FPSActions : IInputActionCollection2, IDisposable
                     ""action"": ""MoveCamera"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""cc4839f5-cd0f-4455-ae99-516c9c2a6bd1"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveHorizontal"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""7eb48bb8-d946-4081-983e-4a3506286366"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveHorizontal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""fc156168-e938-4ed7-b200-9631280c24e0"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveHorizontal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""13c20d2a-119f-4e31-bcbe-4aaa83615eec"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveHorizontal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""9e04fb2c-e2b6-44e5-bd98-4c42cd4ad36b"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveHorizontal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""809c5bdd-33d7-4a24-9606-8f164039f318"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -57,6 +141,8 @@ public partial class @FPSActions : IInputActionCollection2, IDisposable
         // FPSMap
         m_FPSMap = asset.FindActionMap("FPSMap", throwIfNotFound: true);
         m_FPSMap_MoveCamera = m_FPSMap.FindAction("MoveCamera", throwIfNotFound: true);
+        m_FPSMap_MoveHorizontal = m_FPSMap.FindAction("MoveHorizontal", throwIfNotFound: true);
+        m_FPSMap_Jump = m_FPSMap.FindAction("Jump", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -117,11 +203,15 @@ public partial class @FPSActions : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_FPSMap;
     private IFPSMapActions m_FPSMapActionsCallbackInterface;
     private readonly InputAction m_FPSMap_MoveCamera;
+    private readonly InputAction m_FPSMap_MoveHorizontal;
+    private readonly InputAction m_FPSMap_Jump;
     public struct FPSMapActions
     {
         private @FPSActions m_Wrapper;
         public FPSMapActions(@FPSActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @MoveCamera => m_Wrapper.m_FPSMap_MoveCamera;
+        public InputAction @MoveHorizontal => m_Wrapper.m_FPSMap_MoveHorizontal;
+        public InputAction @Jump => m_Wrapper.m_FPSMap_Jump;
         public InputActionMap Get() { return m_Wrapper.m_FPSMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -134,6 +224,12 @@ public partial class @FPSActions : IInputActionCollection2, IDisposable
                 @MoveCamera.started -= m_Wrapper.m_FPSMapActionsCallbackInterface.OnMoveCamera;
                 @MoveCamera.performed -= m_Wrapper.m_FPSMapActionsCallbackInterface.OnMoveCamera;
                 @MoveCamera.canceled -= m_Wrapper.m_FPSMapActionsCallbackInterface.OnMoveCamera;
+                @MoveHorizontal.started -= m_Wrapper.m_FPSMapActionsCallbackInterface.OnMoveHorizontal;
+                @MoveHorizontal.performed -= m_Wrapper.m_FPSMapActionsCallbackInterface.OnMoveHorizontal;
+                @MoveHorizontal.canceled -= m_Wrapper.m_FPSMapActionsCallbackInterface.OnMoveHorizontal;
+                @Jump.started -= m_Wrapper.m_FPSMapActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_FPSMapActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_FPSMapActionsCallbackInterface.OnJump;
             }
             m_Wrapper.m_FPSMapActionsCallbackInterface = instance;
             if (instance != null)
@@ -141,6 +237,12 @@ public partial class @FPSActions : IInputActionCollection2, IDisposable
                 @MoveCamera.started += instance.OnMoveCamera;
                 @MoveCamera.performed += instance.OnMoveCamera;
                 @MoveCamera.canceled += instance.OnMoveCamera;
+                @MoveHorizontal.started += instance.OnMoveHorizontal;
+                @MoveHorizontal.performed += instance.OnMoveHorizontal;
+                @MoveHorizontal.canceled += instance.OnMoveHorizontal;
+                @Jump.started += instance.OnJump;
+                @Jump.performed += instance.OnJump;
+                @Jump.canceled += instance.OnJump;
             }
         }
     }
@@ -148,5 +250,7 @@ public partial class @FPSActions : IInputActionCollection2, IDisposable
     public interface IFPSMapActions
     {
         void OnMoveCamera(InputAction.CallbackContext context);
+        void OnMoveHorizontal(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
     }
 }
