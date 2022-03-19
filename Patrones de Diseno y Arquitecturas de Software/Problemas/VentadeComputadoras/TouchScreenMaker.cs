@@ -1,8 +1,8 @@
 using System;
 namespace ComputerSales {
-    class MouseMaker: Provider {
+    class TouchScreenMaker: Provider {
         public override Component build() {
-            return new Mouse();
+            return new TouchScreen();
         }
     }
 }

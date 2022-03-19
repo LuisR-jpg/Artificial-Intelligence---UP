@@ -1,8 +1,8 @@
 using System;
 namespace ComputerSales {
-    class MouseMaker: Provider {
+    class KeyboardMaker: Provider {
         public override Component build() {
-            return new Mouse();
+            return new Keyboard();
         }
     }
 }

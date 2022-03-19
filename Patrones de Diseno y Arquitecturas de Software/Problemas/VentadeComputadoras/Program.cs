@@ -17,9 +17,6 @@ namespace ComputerSales
             Manufacture cellphoneMaker = new CellphoneMaker();
 			Computer cellphone = cellphoneMaker.build();
             cellphone.describe();
-
-            Component mouse = new Mouse();
-            mouse.describe();
 		}
 	}
 }

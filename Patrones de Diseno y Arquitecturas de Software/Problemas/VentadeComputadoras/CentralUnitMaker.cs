@@ -1,8 +1,8 @@
 using System;
 namespace ComputerSales {
-    class MouseMaker: Provider {
+    class CentralUnitMaker: Provider {
         public override Component build() {
-            return new Mouse();
+            return new CentralUnit();
         }
     }
 }
