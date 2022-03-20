@@ -1,3 +1,10 @@
+/*
+ * EEPROMetADC.c
+ *
+ * Created: 19/3/2022 21:27:05
+ * Author : lalor
+ */ 
+
 #include <avr/io.h>
 #include <stdint.h>
 #include <stdlib.h>
@@ -271,3 +278,4 @@ uint8_t EEPROM_read(uint8_t address) {
 int main(void) {
 	for(;;);
 }
+
