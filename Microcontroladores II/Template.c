@@ -6,6 +6,8 @@
 #define F_CPU 1000000
 #define isClear(r, i) (!isSet(r, i))
 #define isSet(r, i) (r & (1 << i))
+#define setBit(r, i) (r | (1 << i))
+#define clearBit(r, i) (r & ~(1 << i))
 #define swapB(r) ((r & 0xAA) >> 1 | (r & 0x55) << 1)
 #define swapP(r) ((r & 0xCC) >> 2 | (r & 0x33) << 2)
 #define swap(r) (r << 4 | r >> 4)
@@ -60,11 +62,11 @@ void LCD_init(void){
 	_delay_us(100);
 	LCD_wr_inst_ini(0b00000010);
 	_delay_us(100);
-	LCD_wr_instruction(LCD_Cmd_Func2Lin); //4 Bits, n?mero de l?neas y tipo de letra
-	LCD_wr_instruction(LCD_Cmd_Off); //apaga el display
-	LCD_wr_instruction(LCD_Cmd_Clear); //limpia el display
-	LCD_wr_instruction(LCD_Cmd_ModeDnS); //Entry mode set ID S
-	LCD_wr_instruction(LCD_Cmd_OnsCsB); //Enciende el display
+	LCD_wr_instruction(LCD_Cmd_Func2Lin);	//4 Bits, n?mero de l?neas y tipo de letra
+	LCD_wr_instruction(LCD_Cmd_Off);		//apaga el display
+	LCD_wr_instruction(LCD_Cmd_Clear);		//limpia el display
+	LCD_wr_instruction(LCD_Cmd_ModeDnS);	//Entry mode set ID S
+	LCD_wr_instruction(LCD_Cmd_OnsCsB);		//Enciende el display
 }
 void LCD_wr_char(uint8_t data){
 	//saco la parte m?s significativa del dato
@@ -140,9 +142,9 @@ void saca_cero(volatile uint8_t *LUGAR, uint8_t BIT){
 	*LUGAR=*LUGAR&~(1<<BIT);
 }
 
-#define PINX PINA
-#define DDRX DDRA
-#define PORTX PORTA
+#define PINX PIND
+#define DDRX DDRD
+#define PORTX PORTD
 //uint8_t keyboard[4][4] =
 //{
 //{0x7, 0x8, 0x9, 0xA},
@@ -150,12 +152,21 @@ void saca_cero(volatile uint8_t *LUGAR, uint8_t BIT){
 //{0x1, 0x2, 0x3, 0xC},
 //{0xE, 0x0, 0xF, 0xD}
 //};
+/*
 uint8_t keyboard[4][4] =
 {
 	{0x1, 0x2, 0x3, 0xA},
 	{0x4, 0x5, 0x6, 0xB},
 	{0x7, 0x8, 0x9, 0xC},
 	{0xE, 0x0, 0xF, 0xD}
+};
+*/
+uint8_t keyboard[4][4] =
+{
+	{'7', '8', '9', 'A'},
+	{'4', '5', '6', 'B'},
+	{'1', '2', '3', 'C'},
+	{'E', '0', 'F', 'D'}
 };
 uint8_t hastaTecla(){
 	for(uint8_t i = 0;; i++, i %= 4){
@@ -167,7 +178,7 @@ uint8_t hastaTecla(){
 				_delay_ms(50);
 				while(isClear(PINX, j));
 				_delay_ms(50);
-				return keyboard[7 - j][3 - i];
+				return keyboard[i][j-4];
 			}
 		}
 	}
@@ -220,10 +231,10 @@ void ADC_init(){
 	DDRADC = 0b00000000;
 	PORTADC = 0b00000000; //ADC doesnt need pull up
 }
-ISR(ADC_vect){ //Entra aqu� solito despu�s de la conversion
+ISR(ADC_vect){ //Entra aqu? solito despu?s de la conversion
 	uint16_t rej = ADC;
 	
-	//C�digo
+	//C?digo
 	
 	rej >>= 2;
 	PORTC = OCR2 = rej;
@@ -241,8 +252,20 @@ ISR(TIMER0_COMP_vect){
 	
 }
 
-int main(void)
-{
+void EEPROM_write(uint8_t address, uint8_t data) {
+	while(isSet(EECR, EEWE));
+	EEAR = address;
+	EEDR = data;
+	EECR = setBit(EECR, EEMWE);
+	EECR = setBit(EECR, EEWE);
+}
+uint8_t EEPROM_read(uint8_t address) {
+	while(isSet(EECR, EEWE));
+	EEAR = address;
+	EECR = setBit(EECR, EERE);
+	return EEDR;
+}
+
+int main(void) {
 	for(;;);
-		
 }
