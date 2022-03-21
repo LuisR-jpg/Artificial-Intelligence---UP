@@ -200,7 +200,7 @@ void ADC_init(){
 		*/
 	SFIOR = 0b00000011;
 		/* 
-			Last 3 bits: 
+			Bits 7 - 5: 
 				000 - Free running mode (we ask to do the conversion)
 				011 - Compare match timer 0
 			When using something different to free running mode: Bit 5 of ADCSRA has to be 1.
@@ -232,7 +232,11 @@ void ADC_init(){
 	PORTADC = 0b00000000; //ADC doesnt need pull up
 }
 ISR(ADC_vect){ //Entra aqu? solito despu?s de la conversion
-	uint16_t rej = ADC;
+	uint16_t rej = ADC;	//10 bits
+	//uint8_t r = ADCH;	//8 bits
+
+	//dtostrf(a, 1, 3, v); //Float to string
+
 	
 	//C?digo
 	

@@ -20,7 +20,8 @@
 #define swap(r) (r << 4 | r >> 4)
 #define reverse(r) swap(swapP(swapB(r)))
 
-volatile uint16_t d = 0;
+volatile uint16_t d = 0, l;
+uint8_t uno[16];
 
 void EEPROM_write(uint8_t address, uint8_t data) {
 	while(isSet(EECR, EEWE));
@@ -138,7 +139,7 @@ void LCD_wr_instruction(uint8_t instruccion){
 	LCD_wait_flag();
 }
 void LCD_wait_flag(void){
-	//	_delay_ms(100);
+	//_delay_ms(100);
 	DDRLCD&=0b11110000; //Para poner el pin BF como entrada para leer la bandera lo dem?s salida
 	saca_cero(&PORTLCD,RS);// Instrucci?n
 	saca_uno(&PORTLCD,RW); // Leer
@@ -225,14 +226,14 @@ void ADC_init(){
 				1 = 8 bits
 			2, 1, 0: Specify the PIN to be read in binary
 		*/
-	SFIOR = 0b00000011;
+	SFIOR = 0b01100000;
 		/* 
-			Last 3 bits: 
+			7 - 5 bits: 
 				000 - Free running mode (we ask to do the conversion)
 				011 - Compare match timer 0
 			When using something different to free running mode: Bit 5 of ADCSRA has to be 1.
 		*/
-	ADCSRA =  0b11111011;
+	ADCSRA =  0b10111011;
 		/* 
 			7: ADC Enable. 1 ON; 0 OFF
 			6: When 'free running mode' a 1 indicates when to start the conversion
@@ -261,11 +262,14 @@ void ADC_init(){
 ISR(ADC_vect){ //Entra aqui solito despues de la conversion
 	uint8_t r = ADCH; //8 bits
 	//uint16_t r = ADC; //10 bits
+	//dtostrf(a, 1, 3, v); //Float to string
+
 	
 	//Codigo
 	PORTB = d;
-	if(d == 255) LCD_wr_lines("EEPROM llena", "");
-	else d++;//EEPROM_write(d++, r);
+	if(d > 511) LCD_wr_lines("EEPROM llena", "");
+	else EEPROM_write(d++, r);
+	
 }
 
 void Timer0_init(){
@@ -277,17 +281,47 @@ void Timer0_init(){
 	TCCR0 = 0b00001101; //CTC, last 3 bits to set prescaler (1024)
 }
 ISR(TIMER0_COMP_vect){
-	
 }
 
 int main(void) {
 	LCD_init();
+	LCD_wr_instruction(LCD_Cmd_Clear);
 	LCD_wr_string("Sensando...");
 	KB_init();
-	//ADC_init();
+	ADC_init();
 	Timer0_init();
 	
 	DDRB = 0xFF;
-	for(;;);
+	PORTB = 0;
+	uint8_t t;
+	for(;;){
+		//A = <; B = >; C = +
+		while(hastaTecla() != 'C');
+		cli();
+		if(d) d--;
+		LCD_wr_lines("Ultimos val.", "");
+		uint16_t a = 1000;
+		t = 0, l = d;
+		do {
+			if(t == 'A' && d > 0) d--;
+			if(t == 'B' && d < l) d++;
+			if(a != d){
+				float p = EEPROM_read(d);
+				float v = p/255*5;
+				uint8_t s[5];
+				dtostrf(v, 1, 3, s); //Var, # digits, # decimales, cad
+				sprintf(uno, "%s v", s);
+				LCD_wr_instruction(0b11000000);
+				LCD_wr_string(uno);
+			}
+			a = d;
+			t = hastaTecla();
+		}
+		while(t != 'C');
+		LCD_wr_instruction(LCD_Cmd_Clear);
+		LCD_wr_string("Sensando...");
+		d = 0;
+		sei();
+	}
 }
 
