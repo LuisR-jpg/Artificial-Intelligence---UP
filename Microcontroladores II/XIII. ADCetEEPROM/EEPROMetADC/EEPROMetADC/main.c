@@ -20,6 +20,24 @@
 #define swap(r) (r << 4 | r >> 4)
 #define reverse(r) swap(swapP(swapB(r)))
 
+volatile uint16_t d = 0;
+
+void EEPROM_write(uint8_t address, uint8_t data) {
+	while(isSet(EECR, EEWE));
+	EEAR = address;
+	EEDR = data;
+	cli();
+	EECR = setBit(EECR, EEMWE);
+	EECR = setBit(EECR, EEWE);
+	sei();
+}
+uint8_t EEPROM_read(uint8_t address) {
+	while(isSet(EECR, EEWE));
+	EEAR = address;
+	EECR = setBit(EECR, EERE);
+	return EEDR;
+}
+
 #define DDRLCD DDRC
 #define PORTLCD PORTC
 #define PINLCD PINC
@@ -199,10 +217,12 @@ void KB_init(){
 #define PINADC PINA
 #define DDRADC DDRA
 void ADC_init(){
-	ADMUX = 0b01000010; 
+	ADMUX = 0b01100000; 
 		/*
 			7, 6: 01 = Connect AREF to 5v, connect pins 10, 11, 30 and 31
-			5: 0 = 10 bits adjusted to the right (using full precision of the ADC)
+			5:	
+				0 = 10 bits adjusted to the right (using full precision of the ADC). Use ADC register with a 16-bit variable.
+				1 = 8 bits
 			2, 1, 0: Specify the PIN to be read in binary
 		*/
 	SFIOR = 0b00000011;
@@ -212,11 +232,10 @@ void ADC_init(){
 				011 - Compare match timer 0
 			When using something different to free running mode: Bit 5 of ADCSRA has to be 1.
 		*/
-	ADCSRA =  0b11111011; //Fdiv = 32 CON INTERRUPCIONES
+	ADCSRA =  0b11111011;
 		/* 
 			7: ADC Enable. 1 ON; 0 OFF
 			6: When 'free running mode' a 1 indicates when to start the conversion
-				
 				ADCSRA |= (1<<ADSC); Needed whenever we want to start
 				
 			5: Has to be 1 when not in free running mode
@@ -233,49 +252,42 @@ void ADC_init(){
 				110		64
 				111		128
 				Fmicro/Divisor has to be between the valid range.
+					1MHz/8 = 125kHz
 		*/
 			
 	DDRADC = 0b00000000;
 	PORTADC = 0b00000000; //ADC doesnt need pull up
 }
-ISR(ADC_vect){ //Entra aqu? solito despu?s de la conversion
-	uint16_t rej = ADC;
+ISR(ADC_vect){ //Entra aqui solito despues de la conversion
+	uint8_t r = ADCH; //8 bits
+	//uint16_t r = ADC; //10 bits
 	
-	//C?digo
-	
-	rej >>= 2;
-	PORTC = OCR2 = rej;
+	//Codigo
+	PORTB = d;
+	if(d == 255) LCD_wr_lines("EEPROM llena", "");
+	else d++;//EEPROM_write(d++, r);
 }
 
 void Timer0_init(){
 	TIFR = 0b00000011; // Clear interruptions
 	TIMSK = 0b00000010; // Set interruption. Bit 0: Overflow; Bit 1: Compare
-	//sei();
+	sei();
 	TCNT0 = 0; //Counts
-	OCR0 = 97; //When the compare interruption will be called
+	OCR0 = 243; //When the compare interruption will be called
 	TCCR0 = 0b00001101; //CTC, last 3 bits to set prescaler (1024)
 }
 ISR(TIMER0_COMP_vect){
 	
 }
 
-void EEPROM_write(uint8_t address, uint8_t data) {
-	while(isSet(EECR, EEWE));
-	EEAR = address;
-	EEDR = data;
-	cli();
-	EECR = setBit(EECR, EEMWE);
-	EECR = setBit(EECR, EEWE);
-	sei();
-}
-uint8_t EEPROM_read(uint8_t address) {
-	while(isSet(EECR, EEWE));
-	EEAR = address;
-	EECR = setBit(EECR, EERE);
-	return EEDR;
-}
-
 int main(void) {
+	LCD_init();
+	LCD_wr_string("Sensando...");
+	KB_init();
+	//ADC_init();
+	Timer0_init();
+	
+	DDRB = 0xFF;
 	for(;;);
 }
 
