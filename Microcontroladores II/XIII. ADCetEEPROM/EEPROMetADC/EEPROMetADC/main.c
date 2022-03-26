@@ -22,6 +22,7 @@
 
 volatile uint16_t d = 0, l;
 uint8_t uno[16];
+volatile uint8_t full = 0;
 
 void EEPROM_write(uint8_t address, uint8_t data) {
 	while(isSet(EECR, EEWE));
@@ -267,7 +268,11 @@ ISR(ADC_vect){ //Entra aqui solito despues de la conversion
 	
 	//Codigo
 	PORTB = d;
-	if(d > 511) LCD_wr_lines("EEPROM llena", "");
+	if(d > 511 && !full){
+		LCD_wr_lines("EEPROM llena", "");
+		full = 1;
+		cli();
+	}
 	else EEPROM_write(d++, r);
 	
 }
@@ -298,7 +303,7 @@ int main(void) {
 		//A = <; B = >; C = +
 		while(hastaTecla() != 'C');
 		cli();
-		if(d) d--;
+		if(d) d--, full = 0;
 		LCD_wr_lines("Ultimos val.", "");
 		uint16_t a = 1000;
 		t = 0, l = d;

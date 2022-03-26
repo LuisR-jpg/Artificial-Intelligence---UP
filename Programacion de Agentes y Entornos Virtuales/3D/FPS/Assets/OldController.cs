@@ -2,31 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Controller : MonoBehaviour
+public class OldController : MonoBehaviour
 {
-    public float a = 50f;
-    public float force = 10f;
+    public float a = 150f, force = 10f; 
     private Transform camT;
-    private Rigidbody rb;
+    private Rigidbody rb; 
 
     void Start()
     {
-        camT = transform.GetChild(0);
-        rb = GetComponent<Rigidbody>();
+        camT = transform.GetChild(0); // transformada de la camara 
+        rb = GetComponent<Rigidbody>(); 
     }
-
     void Update()
     {
         float vRot = Input.GetAxis("Mouse Y") * a;
         float hRot = Input.GetAxis("Mouse X") * a;
         print(vRot + "," + hRot);
 
-        float vax = Input.GetAxis("Vertical");
-        float hax = Input.GetAxis("Horizontal");
+        float vAx = Input.GetAxis("Vertical");
+        float hAx = Input.GetAxis("Horizontal");
 
+
+        
         transform.Rotate(0f, hRot * Time.deltaTime, 0f);
         camT.Rotate(vRot * Time.deltaTime, 0f, 0f);
-
-        rb.AddForce(((transform.forward * vax) + (transform.right * hax)) * force);
+        rb.AddForce(((transform.forward * vAx) + (transform.right * hAx)) * force);   
     }
 }
