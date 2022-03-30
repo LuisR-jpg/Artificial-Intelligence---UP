@@ -15,10 +15,14 @@ namespace AlumniApp
         [STAThread]
         static void Main()
         {
-            Console.WriteLine(ConfigurationManager.AppSettings["exportTo"]);
+            //Console.WriteLine(ConfigurationManager.AppSettings["exportTo"]);
+            DataConnection source = DataConnection.GetInstance();
+            Data data = source.GetData();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Welcome());
+
         }
     } 
 }
