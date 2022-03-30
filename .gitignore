@@ -5,6 +5,7 @@
 package-lock.json
 yarn.lock
 *.json
+!gitAllow.json
 
 # UNITY
 # This .gitignore file should be placed at the root of your Unity project directory
