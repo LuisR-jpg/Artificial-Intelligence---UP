@@ -4,6 +4,7 @@
         {
             "id": 1,
             "fullName": "Karla Ivet Robles Jiménez",
+            "password": "e46a2779ceb2b754744502fcf1e5e0391066b228f7a7f8fa4a9ad09aefe5d41f", //Karlita
             "role": "student",
             "birthYear": "2007",
             "birthCity": "Pachuca",
@@ -19,6 +20,7 @@
         {
             "id": 2,
             "fullName": "Sara Carolina Gómez Delgado",
+            "password": "eb1b4f67cc65da49ae195611ffc55db37fa39dad70fd761287619523e640a2c2", //Sarita
             "role": "student",
             "birthYear": "2000",
             "birthCity": "Lagos de Moreno",
@@ -34,6 +36,7 @@
         {
             "id": 3,
             "fullName": "Luis Eduardo Robles Jiménez",
+            "password": "6d2b21db2acf60049714dd529867ad816aa154db7f065107c2f7251c1c9f4c64", //Lalito
             "role": "student",
             "birthYear": "2001",
             "birthCity": "Ecatepec de Morelos",
@@ -54,6 +57,7 @@
         {
             "id": 9000,
             "fullName": "Victor Manuel Alvarez Pato",
+            "password": "d21e71f1b48358810d1a8d40fa9713f8a29eca8543ac65d1ad992ea30931916a", //Patito
             "role": "teacher",
             "birthYear": "1980",
             "birthCity": "Aguascalientes",
@@ -62,6 +66,7 @@
         {
             "id": 9001,
             "fullName": "Lidia Chávez López",
+            "password": "21e23e6a9a396b7a133f8f83f4586e7a0c126b8e3565ac6e1935d2b6b8399454", //Lidiecita
             "role": "teacher",
             "birthYear": "1990",
             "birthCity": "Pachuca",
@@ -71,6 +76,7 @@
         {
             "id": 10000,
             "fullName": "Gabriela Jiménez Trejo",
+            "password": "e20bee30dc731952ccf5a6fb8f40012769f8a4166285a9474f80744c472a43aa", //Gabita
             "role": "supervisor"
         }
     ],

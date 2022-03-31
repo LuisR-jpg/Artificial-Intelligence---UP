@@ -16,6 +16,7 @@ namespace AlumniApp
     {
         public int id { get; set; }
         public string fullName { get; set; }
+        public string password { get; set; }
         public string role { get; set; }
         public string birthYear { get; set; }
         public string birthCity { get; set; }

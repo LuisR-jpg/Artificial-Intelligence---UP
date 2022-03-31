@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,7 +14,6 @@ namespace AlumniApp
         [STAThread]
         static void Main()
         {
-            //Console.WriteLine(ConfigurationManager.AppSettings["exportTo"]);
             DataConnection source = DataConnection.GetInstance();
             Data data = source.GetData();
 
@@ -24,5 +22,6 @@ namespace AlumniApp
             Application.Run(new Welcome());
 
         }
+
     } 
 }
