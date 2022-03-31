@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
+using System.IO;
 
 namespace AlumniApp
 {
@@ -29,6 +26,45 @@ namespace AlumniApp
             if(data == null) 
                 data = sourceConnection.GetData();
             return data;
+        }
+    }
+    abstract class ConnectionCreator
+    {
+        public abstract Connection CreateConnection();
+    }
+    abstract class Connection
+    {
+        protected abstract void Connect();
+
+        public abstract Data GetData();
+    }
+    class JSONConnection : Connection
+    {
+        private readonly string fileSource = "..\\..\\gitAllow.json";
+        StreamReader r;
+        public JSONConnection()
+        {
+            Connect();
+        }
+        protected override void Connect()
+        {
+            r = new StreamReader(fileSource);
+        }
+        public override Data GetData()
+        {
+            using (r)
+            {
+                string json = r.ReadToEnd();
+                Data data = JsonConvert.DeserializeObject<Data>(json);
+                return data;
+            }
+        }
+    }
+    class JSONConnectionCreator : ConnectionCreator
+    {
+        public override Connection CreateConnection()
+        {
+            return new JSONConnection();
         }
     }
 }

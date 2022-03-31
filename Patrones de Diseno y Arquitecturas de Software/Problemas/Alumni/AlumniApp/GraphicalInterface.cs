@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace AlumniApp
 {
     public class GraphicalInterface
@@ -12,6 +7,10 @@ namespace AlumniApp
         public GraphicalInterface()
         {
             user = InstitutionalUser.LogIn();
+        }
+        public void Options()
+        {
+
         }
         public void Information()
         {
