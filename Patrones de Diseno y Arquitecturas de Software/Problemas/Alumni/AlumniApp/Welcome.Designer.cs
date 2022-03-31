@@ -52,15 +52,15 @@ namespace AlumniApp
             // 
             // textName
             // 
-            this.textName.Location = new System.Drawing.Point(262, 139);
+            this.textName.Location = new System.Drawing.Point(239, 129);
             this.textName.Name = "textName";
-            this.textName.Size = new System.Drawing.Size(146, 20);
+            this.textName.Size = new System.Drawing.Size(192, 20);
             this.textName.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(194, 143);
+            this.label2.Location = new System.Drawing.Point(171, 133);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 2;
@@ -69,7 +69,7 @@ namespace AlumniApp
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(194, 183);
+            this.label3.Location = new System.Drawing.Point(171, 173);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 13);
             this.label3.TabIndex = 4;
@@ -77,14 +77,15 @@ namespace AlumniApp
             // 
             // textPassword
             // 
-            this.textPassword.Location = new System.Drawing.Point(262, 179);
+            this.textPassword.Location = new System.Drawing.Point(239, 169);
             this.textPassword.Name = "textPassword";
-            this.textPassword.Size = new System.Drawing.Size(146, 20);
+            this.textPassword.PasswordChar = '●';
+            this.textPassword.Size = new System.Drawing.Size(192, 20);
             this.textPassword.TabIndex = 3;
             // 
             // buttonLogIn
             // 
-            this.buttonLogIn.Location = new System.Drawing.Point(443, 218);
+            this.buttonLogIn.Location = new System.Drawing.Point(443, 227);
             this.buttonLogIn.Name = "buttonLogIn";
             this.buttonLogIn.Size = new System.Drawing.Size(75, 23);
             this.buttonLogIn.TabIndex = 5;

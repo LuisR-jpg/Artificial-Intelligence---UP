@@ -1,19 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AlumniApp
 {
     public partial class Welcome : Form
     {
-        private InstitutionalUser iUser = null;
         public Welcome()
         {
             InitializeComponent();
@@ -25,9 +16,8 @@ namespace AlumniApp
             missingInfo = (textName.Text == string.Empty || textPassword.Text == string.Empty);
             if (!missingInfo)
             {
-                User user = Data.FindUser(textName.Text, textPassword.Text);
-                if (user == null) notMatchingInfo = true;
-                else createUser(user);
+                bool isUser = InstitutionalUser.FindUser(textName.Text, textPassword.Text);
+                if (!isUser) notMatchingInfo = true;
             }
             if (missingInfo || notMatchingInfo)
             {
@@ -39,23 +29,7 @@ namespace AlumniApp
                 result = MessageBox.Show(eMessage, eCaption, button);
                 textName.Text = textPassword.Text = string.Empty;
             }
+            else this.Close();
         }
-        private void createUser(User user)
-        {
-            switch (user.role)
-            {
-                case "student":
-                    break;
-                case "teacher":
-                    break;
-                case "supervisor":
-                    break;
-            }
-        }
-        public InstitutionalUser GetUser()
-        {
-            return iUser;
-        }
-
     }
 }
