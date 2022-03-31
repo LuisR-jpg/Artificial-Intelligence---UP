@@ -12,6 +12,7 @@ namespace AlumniApp
     {
         private static DataConnection _instance;
         private readonly Connection sourceConnection;
+        private Data data = null;
         private DataConnection()
         {
             ConnectionCreator jsonCreator = new JSONConnectionCreator();
@@ -25,7 +26,9 @@ namespace AlumniApp
         }
         public Data GetData()
         {
-            return sourceConnection.GetData();
+            if(data == null) 
+                data = sourceConnection.GetData();
+            return data;
         }
     }
 }

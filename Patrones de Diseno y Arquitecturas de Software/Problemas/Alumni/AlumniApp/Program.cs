@@ -14,9 +14,6 @@ namespace AlumniApp
         [STAThread]
         static void Main()
         {
-            DataConnection source = DataConnection.GetInstance();
-            Data data = source.GetData();
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Welcome());
