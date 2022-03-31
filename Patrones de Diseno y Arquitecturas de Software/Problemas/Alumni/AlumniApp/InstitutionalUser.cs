@@ -10,7 +10,8 @@ namespace AlumniApp
     {
         public static InstitutionalUser LogIn()
         {
-            Application.Run(new Welcome());
+            Form logIn = new Welcome();
+            Application.Run(logIn);
             return null;
         }
 

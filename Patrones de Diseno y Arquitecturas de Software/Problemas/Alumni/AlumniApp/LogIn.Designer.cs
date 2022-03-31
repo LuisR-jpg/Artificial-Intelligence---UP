@@ -34,7 +34,7 @@ namespace AlumniApp
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textPassword = new System.Windows.Forms.TextBox();
-            this.buttonLogIn = new System.Windows.Forms.Button();
+            this.submitLogIn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -52,15 +52,15 @@ namespace AlumniApp
             // 
             // textName
             // 
-            this.textName.Location = new System.Drawing.Point(262, 139);
+            this.textName.Location = new System.Drawing.Point(251, 129);
             this.textName.Name = "textName";
-            this.textName.Size = new System.Drawing.Size(146, 20);
+            this.textName.Size = new System.Drawing.Size(161, 20);
             this.textName.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(194, 143);
+            this.label2.Location = new System.Drawing.Point(191, 132);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 2;
@@ -69,7 +69,7 @@ namespace AlumniApp
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(194, 183);
+            this.label3.Location = new System.Drawing.Point(191, 172);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 13);
             this.label3.TabIndex = 4;
@@ -77,27 +77,28 @@ namespace AlumniApp
             // 
             // textPassword
             // 
-            this.textPassword.Location = new System.Drawing.Point(262, 179);
+            this.textPassword.Location = new System.Drawing.Point(251, 167);
             this.textPassword.Name = "textPassword";
-            this.textPassword.Size = new System.Drawing.Size(146, 20);
+            this.textPassword.PasswordChar = '●';
+            this.textPassword.Size = new System.Drawing.Size(161, 20);
             this.textPassword.TabIndex = 3;
             // 
-            // buttonLogIn
+            // submitLogIn
             // 
-            this.buttonLogIn.Location = new System.Drawing.Point(443, 218);
-            this.buttonLogIn.Name = "buttonLogIn";
-            this.buttonLogIn.Size = new System.Drawing.Size(75, 23);
-            this.buttonLogIn.TabIndex = 5;
-            this.buttonLogIn.Text = "Log In";
-            this.buttonLogIn.UseVisualStyleBackColor = true;
-            this.buttonLogIn.Click += new System.EventHandler(this.buttonLogIn_Click);
+            this.submitLogIn.Location = new System.Drawing.Point(441, 233);
+            this.submitLogIn.Name = "submitLogIn";
+            this.submitLogIn.Size = new System.Drawing.Size(75, 23);
+            this.submitLogIn.TabIndex = 5;
+            this.submitLogIn.Text = "Log In";
+            this.submitLogIn.UseVisualStyleBackColor = true;
+            this.submitLogIn.Click += new System.EventHandler(this.submitClick);
             // 
             // Welcome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(603, 283);
-            this.Controls.Add(this.buttonLogIn);
+            this.Controls.Add(this.submitLogIn);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textPassword);
             this.Controls.Add(this.label2);
@@ -105,6 +106,7 @@ namespace AlumniApp
             this.Controls.Add(this.label1);
             this.Name = "Welcome";
             this.Text = "Alumni App";
+            this.Load += new System.EventHandler(this.Welcome_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -117,7 +119,7 @@ namespace AlumniApp
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textPassword;
-        private System.Windows.Forms.Button buttonLogIn;
+        private System.Windows.Forms.Button submitLogIn;
     }
 }
 
