@@ -3,7 +3,7 @@
     [
         {
             "id": 1,
-            "fullName": "Karla Ivet Robles Jiménez",
+            "fullName": "Karla Ivet Robles Jimenez",
             "password": "e46a2779ceb2b754744502fcf1e5e0391066b228f7a7f8fa4a9ad09aefe5d41f", //Karlita
             "role": "student",
             "birthYear": "2007",
@@ -19,7 +19,7 @@
         },
         {
             "id": 2,
-            "fullName": "Sara Carolina Gómez Delgado",
+            "fullName": "Sara Carolina Gomez Delgado",
             "password": "eb1b4f67cc65da49ae195611ffc55db37fa39dad70fd761287619523e640a2c2", //Sarita
             "role": "student",
             "birthYear": "2000",
@@ -35,7 +35,7 @@
         },
         {
             "id": 3,
-            "fullName": "Luis Eduardo Robles Jiménez",
+            "fullName": "Luis Eduardo Robles Jimenez",
             "password": "6d2b21db2acf60049714dd529867ad816aa154db7f065107c2f7251c1c9f4c64", //Lalito
             "role": "student",
             "birthYear": "2001",
@@ -65,7 +65,7 @@
         },
         {
             "id": 9001,
-            "fullName": "Lidia Chávez López",
+            "fullName": "Lidia Chavez Lopez",
             "password": "21e23e6a9a396b7a133f8f83f4586e7a0c126b8e3565ac6e1935d2b6b8399454", //Lidiecita
             "role": "teacher",
             "birthYear": "1990",
@@ -75,7 +75,7 @@
 
         {
             "id": 10000,
-            "fullName": "Gabriela Jiménez Trejo",
+            "fullName": "Gabriela Jimenez Trejo",
             "password": "e20bee30dc731952ccf5a6fb8f40012769f8a4166285a9474f80744c472a43aa", //Gabita
             "role": "supervisor"
         }
