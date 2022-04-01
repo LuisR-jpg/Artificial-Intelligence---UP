@@ -14,6 +14,7 @@ namespace AlumniApp
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             GraphicalInterface GUI = new GraphicalInterface();
+            GUI.Options();
         }
 
     } 

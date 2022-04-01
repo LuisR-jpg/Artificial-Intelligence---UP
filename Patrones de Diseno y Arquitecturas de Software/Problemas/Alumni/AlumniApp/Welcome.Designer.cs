@@ -95,9 +95,10 @@ namespace AlumniApp
             // 
             // Welcome
             // 
+            this.AcceptButton = this.buttonLogIn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(603, 283);
+            this.ClientSize = new System.Drawing.Size(604, 281);
             this.Controls.Add(this.buttonLogIn);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textPassword);
