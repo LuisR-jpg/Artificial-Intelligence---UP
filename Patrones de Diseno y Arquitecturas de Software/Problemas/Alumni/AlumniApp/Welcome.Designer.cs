@@ -106,6 +106,7 @@ namespace AlumniApp
             this.Controls.Add(this.textName);
             this.Controls.Add(this.label1);
             this.Name = "Welcome";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alumni App";
             this.ResumeLayout(false);
             this.PerformLayout();

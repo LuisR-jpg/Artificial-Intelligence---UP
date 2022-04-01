@@ -9,6 +9,7 @@ namespace AlumniApp
     public class GraphicalInterface
     {
         protected InstitutionalUser user;
+        public static readonly Size formSize = new Size(620, 320);
         public GraphicalInterface()
         {
             user = InstitutionalUser.LogIn();
@@ -27,7 +28,7 @@ namespace AlumniApp
         public void Information(object sender, EventArgs e)
         {
             Form Information = CreateForm("Information");
-            Information.Controls.Add(user.Information());
+            Information.Controls.Add(user.GetInformation());
             Information.ShowDialog();
         }
         public void Grades()
@@ -37,8 +38,9 @@ namespace AlumniApp
         private Form CreateForm(string title)
         {
             Form form = new Form();
-            form.Size = new Size(620, 320);
+            form.Size = formSize;
             form.Text = title;
+            form.StartPosition = FormStartPosition.CenterScreen;
             return form;
         }
     }

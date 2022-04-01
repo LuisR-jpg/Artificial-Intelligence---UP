@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
@@ -8,16 +9,18 @@ namespace AlumniApp
 {
     abstract class InstitutionalUserCreator
     {
-        public abstract InstitutionalUser createUser(); 
+        public abstract InstitutionalUser createUser(User user); 
     }
     public abstract class InstitutionalUser
     {
         private static InstitutionalUser currentUser = null;
         protected List<Button> buttons = new List<Button>();
-        protected ListView list = new ListView();
+        protected ListView list;
+        protected Size listSize;
         public static InstitutionalUser LogIn()
         {
             Form logIn = new Welcome();
+            logIn.Size = GraphicalInterface.formSize;
             Application.Run(logIn);
             return currentUser;
         }
@@ -49,7 +52,7 @@ namespace AlumniApp
                     creator = new SupervisorCreator();
                     break;
             }
-            currentUser = creator.createUser();
+            currentUser = creator.createUser(user);
         }
         private static string cleanString(String s)
         {
@@ -68,28 +71,44 @@ namespace AlumniApp
         }
         public abstract List<Button> GetOptions();
         public abstract ListView GetInformation();
+        protected ListView CreateList(int sX = 300, int sY = 65)
+        {
+            ListView l = new ListView();
+            listSize = new Size(sX, sY);
+            int posX = GraphicalInterface.formSize.Width / 2 - listSize.Width / 2;
+            int posY = (GraphicalInterface.formSize.Height - listSize.Height);
+            l.Bounds = new Rectangle(new Point(posX, 0), listSize);
+            l.View = View.Details;
+            l.LabelEdit = false;
+            l.AllowColumnReorder = false;
+            l.CheckBoxes = false;
+            l.FullRowSelect = true;
+            l.GridLines = false;
+            l.Sorting = SortOrder.None;
+            return l;
+        }
     }
     class StudentCreator: InstitutionalUserCreator
     {
-        public override InstitutionalUser createUser()
+        public override InstitutionalUser createUser(User user)
         {
             return new Student();
         }
     }
     class TeacherCreator : InstitutionalUserCreator
     {
-        public override InstitutionalUser createUser()
+        public override InstitutionalUser createUser(User user)
         {
             return new Teacher();
         }
     }
     class SupervisorCreator : InstitutionalUserCreator
     {
-        public override InstitutionalUser createUser()
+        public override InstitutionalUser createUser(User user)
         {
             Button getInfo = new Button();
 
-            return new Supervisor();
+            return new Supervisor(user);
         }
     }
     class Student: InstitutionalUser
@@ -116,6 +135,13 @@ namespace AlumniApp
     }
     class Supervisor : InstitutionalUser
     {
+        private string fullName;
+        private string role;
+        public Supervisor(User user)
+        {
+            fullName = user.fullName;
+            role = user.role;
+        }
         public override List<Button> GetOptions()
         {
             Button getInfo = new Button();
@@ -125,67 +151,17 @@ namespace AlumniApp
         }
         public override ListView GetInformation()
         {
-            //list.Bounds = new Rectangle(new Point(10, 10), new Size(300, 200));
+            list = CreateList();
+            ListViewItem nameItem = new ListViewItem("Name", 1);
+            nameItem.SubItems.Add(fullName);
+            ListViewItem roleItem = new ListViewItem("Role");
+            roleItem.SubItems.Add(role);
 
-            // Set the view to show details.
-            listView1.View = View.Details;
-            // Allow the user to edit item text.
-            listView1.LabelEdit = true;
-            // Allow the user to rearrange columns.
-            listView1.AllowColumnReorder = true;
-            // Display check boxes.
-            listView1.CheckBoxes = true;
-            // Select the item and subitems when selection is made.
-            listView1.FullRowSelect = true;
-            // Display grid lines.
-            listView1.GridLines = true;
-            // Sort the items in the list in ascending order.
-            listView1.Sorting = SortOrder.Ascending;
-
-            // Create three items and three sets of subitems for each item.
-            ListViewItem item1 = new ListViewItem("item1", 0);
-            // Place a check mark next to the item.
-            item1.Checked = true;
-            item1.SubItems.Add("1");
-            item1.SubItems.Add("2");
-            item1.SubItems.Add("3");
-            ListViewItem item2 = new ListViewItem("item2", 1);
-            item2.SubItems.Add("4");
-            item2.SubItems.Add("5");
-            item2.SubItems.Add("6");
-            ListViewItem item3 = new ListViewItem("item3", 0);
-            // Place a check mark next to the item.
-            item3.Checked = true;
-            item3.SubItems.Add("7");
-            item3.SubItems.Add("8");
-            item3.SubItems.Add("9");
-
-            // Create columns for the items and subitems.
             // Width of -2 indicates auto-size.
-            listView1.Columns.Add("Item Column", -2, HorizontalAlignment.Left);
-            listView1.Columns.Add("Column 2", -2, HorizontalAlignment.Left);
-            listView1.Columns.Add("Column 3", -2, HorizontalAlignment.Left);
-            listView1.Columns.Add("Column 4", -2, HorizontalAlignment.Center);
+            list.Columns.Add("Property", -2, HorizontalAlignment.Left);
+            list.Columns.Add("Value", -2, HorizontalAlignment.Left);
 
-            //Add the items to the ListView.
-            listView1.Items.AddRange(new ListViewItem[] { item1, item2, item3 });
-
-            // Create two ImageList objects.
-            ImageList imageListSmall = new ImageList();
-            ImageList imageListLarge = new ImageList();
-
-            // Initialize the ImageList objects with bitmaps.
-            imageListSmall.Images.Add(Bitmap.FromFile("C:\\MySmallImage1.bmp"));
-            imageListSmall.Images.Add(Bitmap.FromFile("C:\\MySmallImage2.bmp"));
-            imageListLarge.Images.Add(Bitmap.FromFile("C:\\MyLargeImage1.bmp"));
-            imageListLarge.Images.Add(Bitmap.FromFile("C:\\MyLargeImage2.bmp"));
-
-            //Assign the ImageList objects to the ListView.
-            listView1.LargeImageList = imageListLarge;
-            listView1.SmallImageList = imageListSmall;
-
-            // Add the ListView to the control collection.
-            this.Controls.Add(listView1);
+            list.Items.AddRange(new ListViewItem[] { nameItem, roleItem });
             return list;
         }
     }
