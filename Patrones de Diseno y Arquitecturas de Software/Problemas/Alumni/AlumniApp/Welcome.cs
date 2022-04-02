@@ -16,7 +16,7 @@ namespace AlumniApp
             missingInfo = (textName.Text == string.Empty || textPassword.Text == string.Empty);
             if (!missingInfo)
             {
-                bool isUser = InstitutionalUser.FindUser(textName.Text, textPassword.Text);
+                bool isUser = InstitutionalUser.ValidateUser(textName.Text, textPassword.Text);
                 if (!isUser) notMatchingInfo = true;
             }
             if (missingInfo || notMatchingInfo)

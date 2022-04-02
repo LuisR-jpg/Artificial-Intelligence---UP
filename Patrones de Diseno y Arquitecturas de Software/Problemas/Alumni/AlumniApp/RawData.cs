@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace AlumniApp
@@ -29,6 +30,14 @@ namespace AlumniApp
         public int teacherID { get; set; }
         public List<int> studentsID { get; set; }
     }
-
-
+    public class compactSubject
+    {
+        public int subjectID;
+        public int[] grades;
+        public compactSubject(Object o)
+        {
+            compactSubject c = JsonConvert.DeserializeObject<compactSubject>(o.ToString());
+            return c;
+        }
+    }
 }

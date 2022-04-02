@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.IO;
 
 namespace AlumniApp
@@ -9,7 +10,6 @@ namespace AlumniApp
     {
         private static DataConnection _instance;
         private readonly Connection sourceConnection;
-        private Data data = null;
         private DataConnection()
         {
             ConnectionCreator jsonCreator = new JSONConnectionCreator();
@@ -23,28 +23,38 @@ namespace AlumniApp
         }
         public Data GetData()
         {
-            if(data == null) 
-                data = sourceConnection.GetData();
-            return data;
+            return sourceConnection.GetData();
         }
-    }
-    abstract class ConnectionCreator
-    {
-        public abstract Connection CreateConnection();
-    }
-    abstract class Connection
-    {
-        protected abstract void Connect();
-
-        public abstract Data GetData();
+        public User FindUserByName(string name)
+        {
+            return sourceConnection.FindUserByName(name);
+        }
+        public User FindUserByID(int ID)
+        {
+            return sourceConnection.FindUserByID(ID);
+        }
+        public Subject FindSubjectByID(int ID)
+        {
+            return sourceConnection.FindSubjectByID(ID);
+        }
+        public int[] FindGradesByUserAndSubject(int userID, int subjectID)
+        {
+            return FindGradesByUserAndSubject(userID, subjectID);
+        }
+        public static string cleanString(String s)
+        {
+            return s.Replace(" ", String.Empty).ToLower();
+        }
     }
     class JSONConnection : Connection
     {
         private readonly string fileSource = "..\\..\\gitAllow.json";
         StreamReader r;
+        private Data data = null;
         public JSONConnection()
         {
             Connect();
+            GetData();
         }
         protected override void Connect()
         {
@@ -52,13 +62,46 @@ namespace AlumniApp
         }
         public override Data GetData()
         {
-            using (r)
-            {
-                string json = r.ReadToEnd();
-                Data data = JsonConvert.DeserializeObject<Data>(json);
-                return data;
-            }
+            if (data == null)
+                using (r)
+                {
+                    string json = r.ReadToEnd();
+                    Data data = JsonConvert.DeserializeObject<Data>(json);
+                    return data;
+                }
+            return data;
         }
+        public override User FindUserByName(string name)
+        {
+            string userName = DataConnection.cleanString(name);
+            return data.users.Find(x => DataConnection.cleanString(x.fullName) == userName);
+        }
+        public override User FindUserByID(int ID)
+        {
+            return data.users.Find(x => x.id == ID);
+        }
+        public override Subject FindSubjectByID(int ID)
+        {
+            return data.subjects.Find(x => x.id == ID);
+        }
+        public override int[] FindGradesByUserAndSubjectID(int userID, int subjectID)
+        {
+            User u = FindUserByID(userID);
+            return u.subjects.Find(x => x.);
+        }
+    }
+    abstract class Connection
+    {
+        protected abstract void Connect();
+        public abstract Data GetData();
+        public abstract User FindUserByName(string name);
+        public abstract User FindUserByID(int ID);
+        public abstract Subject FindSubjectByID(int ID);
+        public abstract int[] FindGradesByUserAndSubjectID(int userID, int subjectID);
+    }
+    abstract class ConnectionCreator
+    {
+        public abstract Connection CreateConnection();
     }
     class JSONConnectionCreator : ConnectionCreator
     {

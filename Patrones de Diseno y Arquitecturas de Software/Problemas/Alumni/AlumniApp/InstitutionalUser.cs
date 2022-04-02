@@ -27,12 +27,10 @@ namespace AlumniApp
             Application.Run(logIn);
             return currentUser;
         }
-        public static bool FindUser(string name, string password)
+        public static bool ValidateUser(string name, string password)
         {
             DataConnection conn = DataConnection.GetInstance();
-            Data data = conn.GetData();
-            string userName = cleanString(name);
-            User user = data.users.Find(x => cleanString(x.fullName) == userName);
+            User user = conn.FindUserByName(name); 
             if (user == null) return false;
             string hashedPassword = ComputeSha256Hash(password);
             if (hashedPassword != user.password) return false;
@@ -56,10 +54,7 @@ namespace AlumniApp
             }
             currentUser = creator.createUser(user);
         }
-        private static string cleanString(String s)
-        {
-            return s.Replace(" ", String.Empty).ToLower();
-        }
+
         private static string ComputeSha256Hash(string rawData)
         {
             using (SHA256 sha256Hash = SHA256.Create())
@@ -114,7 +109,6 @@ namespace AlumniApp
             l.Columns.Add("Property", -2, HorizontalAlignment.Center);
             l.Columns.Add("Value", -2, HorizontalAlignment.Left);
             l.Items.AddRange(items);
-
             return new List<Control>(new Control[]{ l });
         } 
     }
@@ -143,11 +137,6 @@ namespace AlumniApp
     }
     class Student: InstitutionalUser
     {
-        private class compactSubject
-        {
-            public int subjectID;
-            public int[] grades;
-        }
         List<Object> subjects = new List<Object>();
         private float gAvg = 0;
         public Student(User user)
@@ -178,21 +167,21 @@ namespace AlumniApp
             {
                 Size = new Size(300, 200)
             };
-            List<Subject> rawSubjects = DataConnection.GetInstance().GetData().subjects;
+            DataConnection conn = DataConnection.GetInstance();
             tree.BeginUpdate();
             tree.Nodes.Add(info["Name"]);
             int nOfNode = 0;
             foreach(Object i in subjects)
             {
                 compactSubject mySubject = JsonConvert.DeserializeObject<compactSubject>(i.ToString());
-                Subject s = rawSubjects.Find(x => x.id == mySubject.subjectID);
+                Subject s = conn.FindSubjectByID(mySubject.subjectID); 
                 float avg = 0;
                 foreach(int g in mySubject.grades)
                     avg += g;
                 avg /= mySubject.grades.Length;
                 gAvg += avg;
-                tree.Nodes[0].Nodes.Add(s.name, s.name);
-                tree.Nodes[0].Nodes[nOfNode].Nodes.Add("Average: " + avg.ToString() +"/100");
+                tree.Nodes[0].Nodes.Add(s.name);
+                tree.Nodes[0].Nodes[nOfNode].Nodes.Add("Average: " + avg.ToString() + "/100");
                 for (int j = 0; j < mySubject.grades.Length; j++)
                     tree.Nodes[0].Nodes[nOfNode].Nodes[0].Nodes.Add("Grade " + (j + 1).ToString() + ": " + mySubject.grades[j].ToString() + "/100");
                 nOfNode++;
@@ -202,7 +191,7 @@ namespace AlumniApp
             tree.EndUpdate();
             return tree;
         }
-        public int[] GetGradesBySubject(int subjectID)
+        public int[] GetGradesBySubjectDataconn(int subjectID)
         {
             foreach(Object i in subjects)
             {
@@ -237,8 +226,7 @@ namespace AlumniApp
             {
                 Size = new Size(300, 300)
             };
-            Data data = DataConnection.GetInstance().GetData();
-            List<Subject> rawSubjects = data.subjects;
+            DataConnection conn = DataConnection.GetInstance();
 
             tree.BeginUpdate();
             tree.Nodes.Add(info["Name"]);
@@ -246,16 +234,16 @@ namespace AlumniApp
             foreach (Object i in subjects)
             {
                 int mySubject = JsonConvert.DeserializeObject<int>(i.ToString());
-                Subject s = rawSubjects.Find(x => x.id == mySubject);
+                Subject s = conn.FindSubjectByID(mySubject);
                 tree.Nodes[0].Nodes.Add(s.name);
                 InstitutionalUserCreator creator = new StudentCreator();
                 int nOfStudent = 0;
                 foreach (int studentID in s.studentsID)
                 {
-                    User u = data.users.Find(x => x.id == studentID);
+                    User u = conn.FindUserByID(studentID);
                     Student student = (Student)creator.createUser(u);
                     float avg = 0;
-                    int[] grades = student.GetGradesBySubject(mySubject);
+                    int[] grades = conn.FindGradesByUserAndSubject(studentID, mySubject);
                     foreach (int g in grades)
                         avg += g;
                     avg /= grades.Length;
