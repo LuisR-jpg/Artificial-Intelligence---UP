@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace AlumniApp
 {
+    /// <summary>
+    /// Class obtained frem the JSON.
+    /// </summary>
     public class Data
     {
         public List<User> users { get; set; }

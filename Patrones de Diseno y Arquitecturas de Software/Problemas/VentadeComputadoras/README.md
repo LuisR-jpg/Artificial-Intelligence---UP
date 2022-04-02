@@ -7,7 +7,9 @@
 This huge set of files describe a system that sets, sells and manages custom computers.
 
 The whole problem has been divided into two main parts:
+
     - Computers
+    
     - Components
 
 Two factory method patterns where used together in order to complete this solution. 
