@@ -24,7 +24,7 @@ The ones implemented are:
 
 #### Bridge
 
-    It was necessary to find a pattern able to pair all the users with their specific interfaces because every single user has different data, possible actions.
+It was necessary to find a pattern able to pair all the users with their specific interfaces because every single user has different data, possible actions.
 
 ### Creational Design Patterns
 
