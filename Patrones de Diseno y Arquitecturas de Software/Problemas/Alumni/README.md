@@ -16,7 +16,7 @@ Check out some cool features.
 
 ## Design patterns
 
-Design patterns provided great solutions for complex problems in this project. 
+    Design patterns provided great solutions for complex problems in this project. 
 
 The ones implemented are:
 
@@ -24,7 +24,9 @@ The ones implemented are:
 
 #### Bridge
 
-It was necessary to find a pattern able to pair all the users with their specific interfaces because every single user has different data, possible actions.
+It was necessary to find a pattern able to pair all the users with their specific interfaces because every single user has different data and possible actions.
+
+There were two orthogonal classes that changed their behaviour depending on the objects calling them
 
 ### Creational Design Patterns
 
