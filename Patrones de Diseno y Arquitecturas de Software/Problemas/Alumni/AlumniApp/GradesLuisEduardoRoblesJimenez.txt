@@ -1,0 +1,10 @@
+Luis Eduardo Robles Jimenez
+	Object Oriented Programming
+		Grade 1: 10/100
+		Grade 2: 10/100
+		Grade 3: 20/100
+	Design Patterns and Software Architecture
+		Grade 1: 30/100
+		Grade 2: 50/100
+		Grade 3: 80/100
+

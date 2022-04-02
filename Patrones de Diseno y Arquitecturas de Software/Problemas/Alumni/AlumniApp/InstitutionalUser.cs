@@ -68,6 +68,7 @@ namespace AlumniApp
         }
         public abstract List<Button> GetOptions();
         public abstract List<Control> GetGrades();
+        public abstract List<string> DownloadGrades();
         public string GetName()
         {
             return info["Name"];
@@ -147,6 +148,7 @@ namespace AlumniApp
             info["City"] = user.birthCity;
             info["Year of Birth"] = user.birthYear;
             info["Career"] = user.career;
+            info["id"] = user.id.ToString();
             subjects = user.subjects;
         }
         public override List<Button> GetOptions()
@@ -195,9 +197,23 @@ namespace AlumniApp
             Control button = CreateButton("Download", "Download Grades", 2);
             return new List<Control> { tree, button };
         }
-        public void Download(object sender, EventArgs e)
+        public override List<string> DownloadGrades()
         {
-            Console.WriteLine("entre");
+            List<string> g = new List<string>();
+            DataConnection conn = DataConnection.GetInstance();
+            g.Add(GetName());
+            foreach(object i in subjects)
+            {
+                compactSubject s = compactSubject.Cast(i);
+                Subject subject = conn.FindSubjectByID(s.subjectID);
+                g.Add("\t" + subject.name);
+                int sID = Int32.Parse(info["id"]);
+                int[] grades = conn.FindGradesByUserAndSubject(sID, s.subjectID);
+                int j = 1;
+                foreach (int grade in grades)
+                    g.Add("\t\tGrade " + j++ + ": " + grade.ToString() + "/100");
+            }
+            return g;
         }
     }
     class Teacher : InstitutionalUser
@@ -209,6 +225,7 @@ namespace AlumniApp
             info["Role"] = user.role;
             info["City"] = user.birthCity;
             info["Year of Birth"] = user.birthYear;
+            info["id"] = user.id.ToString();
             subjects = user.subjects;
         }
         public override List<Button> GetOptions()
@@ -256,6 +273,10 @@ namespace AlumniApp
             tree.EndUpdate();
             return new List<Control> { tree };
         }
+        public override List<string> DownloadGrades()
+        {
+            return null;
+        }
     }
     class Supervisor : InstitutionalUser
     {
@@ -263,6 +284,7 @@ namespace AlumniApp
         {
             info["Name"] = user.fullName;
             info["Role"] = user.role;
+            info["id"] = user.id.ToString();
         }
         public override List<Button> GetOptions()
         {
@@ -271,6 +293,10 @@ namespace AlumniApp
         }
 
         public override List<Control> GetGrades()
+        {
+            return null;
+        }
+        public override List<string> DownloadGrades()
         {
             return null;
         }

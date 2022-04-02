@@ -54,7 +54,8 @@ namespace AlumniApp
         }
         public void Download(object sender, EventArgs e)
         {
-            Console.WriteLine("Descargandoooo");
+            Export export = Export.GetInstance();
+            export.Write(user.GetName(), user.DownloadGrades());
         }
         private Form CreateForm(string title)
         {
