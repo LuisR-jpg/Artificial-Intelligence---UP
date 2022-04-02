@@ -8,11 +8,25 @@ Check out some cool features.
 
 - Encrypted passwords.
 
-- Exception handling of potential errors in the execution.
+- Exception handling of potential errors during the execution.
 
 - Ease to increase the functionality.
 
-- Auto generated [documentation](https://github.com/LuisR-jpg/School/blob/master/Patrones%20de%20Diseno%20y%20Arquitecturas%20de%20Software/Problemas/Alumni/AlumniApp/AlumniApp.xml) in XML.
+- Auto-generated [documentation](https://github.com/LuisR-jpg/School/blob/master/Patrones%20de%20Diseno%20y%20Arquitecturas%20de%20Software/Problemas/Alumni/AlumniApp/AlumniApp.xml) in XML.
+
+## Design patterns
+
+Design patterns provided great solutions for complex problems in this project. 
+
+The ones implemented are:
+
+### Structural Design Patterns
+
+#### Bridge
+
+    It was necessary to find a pattern able to pair all the users with their specific interfaces because every single user has different data, possible actions.
+
+### Creational Design Patterns
 
 
 ## Play with the configuration!
