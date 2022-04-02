@@ -9,10 +9,9 @@ namespace AlumniApp
         {
             InitializeComponent();
         }
-
         private void buttonLogIn_Click(object sender, EventArgs e)
         {
-            bool missingInfo = false, notMatchingInfo = false;
+            bool missingInfo, notMatchingInfo = false;
             missingInfo = (textName.Text == string.Empty || textPassword.Text == string.Empty);
             if (!missingInfo)
             {
@@ -23,13 +22,19 @@ namespace AlumniApp
             {
                 string eMessage, eCaption = "Failed to log in";
                 MessageBoxButtons button = MessageBoxButtons.OK;
-                DialogResult result;
                 if (missingInfo) eMessage = "Please fill both fields.";
                 else eMessage = "Please enter a valid user.";
-                result = MessageBox.Show(eMessage, eCaption, button);
-                textName.Text = textPassword.Text = string.Empty;
+                MessageBox.Show(eMessage, eCaption, button);
+                textPassword.Text = string.Empty;
+                textName.Focus();
             }
-            else this.Close();
+            else this.Hide();
+        }
+
+        private void OnClosing(object sender, FormClosingEventArgs e)
+        {
+            if(e.CloseReason == CloseReason.UserClosing)
+                System.Environment.Exit(1);
         }
     }
 }

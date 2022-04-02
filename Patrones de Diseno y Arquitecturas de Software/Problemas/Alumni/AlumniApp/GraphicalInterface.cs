@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
@@ -16,25 +15,24 @@ namespace AlumniApp
         }
         public void Options()
         {
-            Form Options = CreateForm("Options");
-            List<Button> buttons = user.GetOptions();
+            Form Options = user.CreateForm("Options", "Exit");
             Dictionary<string, EventHandler> events = new Dictionary<string, EventHandler>
             {
                 { "Information", Information },
                 { "Grades", Grades }
             };
-
+            Options.Controls.Add(user.CreateLabel("Your Options"));
+            List<Button> buttons = user.GetOptions();
             foreach (Button btn in buttons)
             {
-                Console.WriteLine(btn.Name);
                 btn.Click += new EventHandler(events[btn.Name]);
                 Options.Controls.Add(btn);
             }
-            Application.Run(Options);
+            Options.ShowDialog();
         }
         public void Information(object sender, EventArgs e)
         {
-            Form Information = CreateForm("Information");
+            Form Information = user.CreateForm("Information", "Go Back");
             List<Control> items = user.GetInformation();
             foreach (Control i in items)
                 Information.Controls.Add(i);
@@ -42,7 +40,7 @@ namespace AlumniApp
         }
         public void Grades(object sender, EventArgs e)
         {
-            Form Grades = CreateForm("Grades");
+            Form Grades = user.CreateForm("Grades", "Go Back");
             List<Control> grades = user.GetGrades();
             foreach (Control control in grades)
             {
@@ -55,17 +53,19 @@ namespace AlumniApp
         public void Download(object sender, EventArgs e)
         {
             Export export = Export.GetInstance();
-            export.Write(user.GetName(), user.DownloadGrades());
-        }
-        private Form CreateForm(string title)
-        {
-            Form form = new Form
+            bool success = export.Write(user.GetName(), user.DownloadGrades());
+            string eMessage, eCaption;
+            MessageBoxButtons button = MessageBoxButtons.OK;
+            if (success) {
+                eCaption = "Success";
+                eMessage = "Your file is now in your Desktop folder!";
+            }
+            else 
             {
-                Size = formSize,
-                Text = title,
-                StartPosition = FormStartPosition.CenterScreen
-            };
-            return form;
+                eCaption = "Failed";
+                eMessage = "Make sure there's no any previous file opened.";
+            }
+            MessageBox.Show(eMessage, eCaption, button);
         }
     }
 }

@@ -22,9 +22,13 @@ namespace AlumniApp
         {
             Form logIn = new Welcome
             {
-                Size = GraphicalInterface.formSize
+                Size = GraphicalInterface.formSize,
+                StartPosition = FormStartPosition.CenterScreen,
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                MaximizeBox = false,
+                MinimizeBox = false
             };
-            Application.Run(logIn);
+            logIn.ShowDialog();
             return currentUser;
         }
         public static bool ValidateUser(string name, string password)
@@ -75,14 +79,59 @@ namespace AlumniApp
         }
         protected Button CreateButton(string name = "Information", string text = "View Profile Information", int n = 0)
         {
-            int yS = 100;
+            int yS = 100, xS = 300;
             return new Button
             {
                 Text = text,
                 Name = name,
-                Size = new Size(300, yS),
-                Location = new Point(0, n*yS)
+                Size = new Size(xS, yS),
+                Location = new Point(GraphicalInterface.formSize.Width / 2 - xS / 2, n*yS + 75)
             };
+        }
+        public Label CreateLabel(string text)
+        {
+            int lblWidth = 150;
+            Label lbl = new Label
+            {
+                Text = text,
+                Location = new Point(GraphicalInterface.formSize.Width / 2 - lblWidth / 2, 15),
+                Size = new Size(lblWidth, 35),
+                BackColor = Color.White,
+                TextAlign = ContentAlignment.MiddleCenter,
+                ForeColor = Color.Black,
+                Font = new Font(FontFamily.GenericSansSerif, 15, FontStyle.Italic),
+                BorderStyle = BorderStyle.FixedSingle
+            };
+            return lbl;
+        }
+        protected virtual TreeView CreateTree()
+        {
+            int sX = 300, sY = 150;
+            TreeView tree = new TreeView
+            {
+                Size = new Size(sX, sY),
+                Location = new Point(GraphicalInterface.formSize.Width / 2 - sX / 2, 10)                
+            };
+            return tree;
+        }
+        public Form CreateForm(string title, string returnBtn)
+        {
+            Form form = new Form
+            {
+                Size = GraphicalInterface.formSize,
+                Text = title,
+                StartPosition = FormStartPosition.CenterScreen,
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                MaximizeBox = false,
+                MinimizeBox = false
+            };
+            Button btnLogOut = new Button
+            {
+                Text = returnBtn
+            };
+            btnLogOut.Click += (object s, EventArgs e) => form.Close(); 
+            form.Controls.Add(btnLogOut);
+            return form;
         }
         public virtual List<Control> GetInformation()
         {
@@ -90,8 +139,7 @@ namespace AlumniApp
             ListView l = new ListView();
             listSize = new Size(sX, sY);
             int posX = GraphicalInterface.formSize.Width / 2 - listSize.Width / 2;
-            int posY = (GraphicalInterface.formSize.Height - listSize.Height);
-            l.Bounds = new Rectangle(new Point(posX, 0), listSize);
+            l.Bounds = new Rectangle(new Point(posX, 10), listSize);
             l.View = View.Details;
             l.LabelEdit = false;
             l.AllowColumnReorder = false;
@@ -161,15 +209,13 @@ namespace AlumniApp
         {
             Control list = base.GetInformation()[0];
             Control tree = GetGrades()[0];
+            tree.Location = new Point(tree.Location.X, 140);
+            tree.Size = new Size(tree.Size.Width, tree.Size.Height - 15);
             return new List<Control>(new Control[] { list, tree });
         }
         public override List<Control> GetGrades()
         {
-
-            TreeView tree = new TreeView
-            {
-                Size = new Size(300, 200)
-            };
+            TreeView tree = CreateTree();
             gAvg = 0;
             DataConnection conn = DataConnection.GetInstance();
             tree.BeginUpdate();
@@ -194,7 +240,7 @@ namespace AlumniApp
             tree.Nodes[0].Nodes.Add("Global Average: " + gAvg.ToString());
             tree.EndUpdate();
 
-            Control button = CreateButton("Download", "Download Grades", 2);
+            Control button = CreateButton("Download", "Download Grades", 1);
             return new List<Control> { tree, button };
         }
         public override List<string> DownloadGrades()
@@ -237,12 +283,8 @@ namespace AlumniApp
 
         public override List<Control> GetGrades()
         {
-            TreeView tree = new TreeView
-            {
-                Size = new Size(300, 200)
-            };
+            TreeView tree = CreateTree();
             DataConnection conn = DataConnection.GetInstance();
-
             tree.BeginUpdate();
             tree.Nodes.Add(info["Name"]);
             int nOfSubject = 0;
@@ -273,10 +315,17 @@ namespace AlumniApp
             tree.EndUpdate();
             return new List<Control> { tree };
         }
+        protected override TreeView CreateTree()
+        {
+            TreeView t = base.CreateTree();
+            t.Size = new Size(t.Size.Width, 250);
+            return t;
+        }
         public override List<string> DownloadGrades()
         {
             return null;
         }
+        
     }
     class Supervisor : InstitutionalUser
     {
