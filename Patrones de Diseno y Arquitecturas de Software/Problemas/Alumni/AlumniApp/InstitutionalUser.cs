@@ -67,7 +67,7 @@ namespace AlumniApp
             }
         }
         public abstract List<Button> GetOptions();
-        public abstract TreeView GetGrades();
+        public abstract List<Control> GetGrades();
         public string GetName()
         {
             return info["Name"];
@@ -139,6 +139,7 @@ namespace AlumniApp
     {
         List<Object> subjects = new List<Object>();
         private float gAvg = 0;
+
         public Student(User user)
         {
             info["Name"] = user.fullName;
@@ -157,23 +158,24 @@ namespace AlumniApp
         public override List<Control> GetInformation()
         {
             Control list = base.GetInformation()[0];
-            TreeView tree = GetGrades();
+            Control tree = GetGrades()[0];
             return new List<Control>(new Control[] { list, tree });
         }
-        public override TreeView GetGrades()
+        public override List<Control> GetGrades()
         {
 
             TreeView tree = new TreeView
             {
                 Size = new Size(300, 200)
             };
+            gAvg = 0;
             DataConnection conn = DataConnection.GetInstance();
             tree.BeginUpdate();
             tree.Nodes.Add(info["Name"]);
             int nOfNode = 0;
             foreach(Object i in subjects)
             {
-                compactSubject mySubject = JsonConvert.DeserializeObject<compactSubject>(i.ToString());
+                compactSubject mySubject = compactSubject.Cast(i);
                 Subject s = conn.FindSubjectByID(mySubject.subjectID); 
                 float avg = 0;
                 foreach(int g in mySubject.grades)
@@ -189,17 +191,7 @@ namespace AlumniApp
             gAvg /= subjects.Count;
             tree.Nodes[0].Nodes.Add("Global Average: " + gAvg.ToString());
             tree.EndUpdate();
-            return tree;
-        }
-        public int[] GetGradesBySubjectDataconn(int subjectID)
-        {
-            foreach(Object i in subjects)
-            {
-                compactSubject mySubject = JsonConvert.DeserializeObject<compactSubject>(i.ToString());
-                if (mySubject.subjectID == subjectID)
-                    return mySubject.grades;
-            }
-            return new int[] { };
+            return new List<Control> { tree };
         }
     }
     class Teacher : InstitutionalUser
@@ -220,7 +212,7 @@ namespace AlumniApp
             return buttons;
         }
 
-        public override TreeView GetGrades()
+        public override List<Control> GetGrades()
         {
             TreeView tree = new TreeView
             {
@@ -256,7 +248,7 @@ namespace AlumniApp
                 nOfSubject++;
             }
             tree.EndUpdate();
-            return tree;
+            return new List<Control> { tree };
         }
     }
     class Supervisor : InstitutionalUser
@@ -272,7 +264,7 @@ namespace AlumniApp
             return buttons;
         }
 
-        public override TreeView GetGrades()
+        public override List<Control> GetGrades()
         {
             return null;
         }

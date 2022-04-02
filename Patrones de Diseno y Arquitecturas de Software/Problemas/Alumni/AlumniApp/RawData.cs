@@ -34,10 +34,9 @@ namespace AlumniApp
     {
         public int subjectID;
         public int[] grades;
-        public compactSubject(Object o)
+        public static compactSubject Cast(Object o)
         {
-            compactSubject c = JsonConvert.DeserializeObject<compactSubject>(o.ToString());
-            return c;
+            return JsonConvert.DeserializeObject<compactSubject>(o.ToString());
         }
     }
 }

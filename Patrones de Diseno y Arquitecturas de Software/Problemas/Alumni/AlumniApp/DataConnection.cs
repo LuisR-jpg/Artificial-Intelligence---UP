@@ -39,7 +39,7 @@ namespace AlumniApp
         }
         public int[] FindGradesByUserAndSubject(int userID, int subjectID)
         {
-            return FindGradesByUserAndSubject(userID, subjectID);
+            return sourceConnection.FindGradesByUserAndSubject(userID, subjectID);
         }
         public static string cleanString(String s)
         {
@@ -66,7 +66,7 @@ namespace AlumniApp
                 using (r)
                 {
                     string json = r.ReadToEnd();
-                    Data data = JsonConvert.DeserializeObject<Data>(json);
+                    data = JsonConvert.DeserializeObject<Data>(json);
                     return data;
                 }
             return data;
@@ -84,10 +84,12 @@ namespace AlumniApp
         {
             return data.subjects.Find(x => x.id == ID);
         }
-        public override int[] FindGradesByUserAndSubjectID(int userID, int subjectID)
+        public override int[] FindGradesByUserAndSubject(int userID, int subjectID)
         {
             User u = FindUserByID(userID);
-            return u.subjects.Find(x => x.);
+            Object s = u.subjects.Find(x => compactSubject.Cast(x).subjectID == subjectID);
+            if (s == null) return null;
+            return compactSubject.Cast(s).grades;
         }
     }
     abstract class Connection
@@ -97,7 +99,7 @@ namespace AlumniApp
         public abstract User FindUserByName(string name);
         public abstract User FindUserByID(int ID);
         public abstract Subject FindSubjectByID(int ID);
-        public abstract int[] FindGradesByUserAndSubjectID(int userID, int subjectID);
+        public abstract int[] FindGradesByUserAndSubject(int userID, int subjectID);
     }
     abstract class ConnectionCreator
     {

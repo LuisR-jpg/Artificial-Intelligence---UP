@@ -43,7 +43,11 @@ namespace AlumniApp
         public void Grades(object sender, EventArgs e)
         {
             Form Grades = CreateForm("Grades");
-            Grades.Controls.Add(user.GetGrades());
+            List<Control> grades = user.GetGrades();
+            foreach (Control control in grades)
+            {
+                Grades.Controls.Add(control);
+            }
             Grades.ShowDialog();
         }
         private Form CreateForm(string title)
