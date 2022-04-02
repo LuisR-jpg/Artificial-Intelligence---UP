@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace AlumniApp
 {
     /// <summary>
-    /// Class obtained frem the JSON.
+    /// Target class that allows reading JSON.
     /// </summary>
     public class Data
     {
