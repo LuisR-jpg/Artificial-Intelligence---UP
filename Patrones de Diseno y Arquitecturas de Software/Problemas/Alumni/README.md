@@ -12,6 +12,8 @@ Check out some cool features.
 
 - Ease to increase the functionality.
 
+- Auto generated [documentation](https://github.com/LuisR-jpg/School/blob/master/Patrones%20de%20Diseno%20y%20Arquitecturas%20de%20Software/Problemas/Alumni/AlumniApp/AlumniApp.xml) in XML.
+
 
 ## Play with the configuration!
 

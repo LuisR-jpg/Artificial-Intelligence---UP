@@ -1,6 +1,4 @@
 !gitAllow.json
-!AlumniApp.xml
-
 
 **/node_modules/
 **/.ipynb_checkpoints/
