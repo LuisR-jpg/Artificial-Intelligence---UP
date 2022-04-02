@@ -1,4 +1,4 @@
-﻿using Microsoft.Office.Interop;
+﻿using word = Microsoft.Office.Interop.Word;
 using System.Reflection;
 using System.IO;
 using System.Configuration;
@@ -80,12 +80,13 @@ namespace AlumniApp
         {
             try
             {
-                Microsoft.Office.Interop.Word._Application app = new Microsoft.Office.Interop.Word.Application();
-                Microsoft.Office.Interop.Word._Document doc = app.Documents.Open(GetFileName(studentName));
-                object missing = System.Reflection.Missing.Value;
-                app.Visible = true;
+                word.Application app = new word.Application();
+                word.Document doc = app.Documents.Add();
                 doc.Content.Text = text;
-                doc.Save();
+
+                doc.SaveAs2(GetFileName(studentName));
+                doc.Close();
+                app.Quit();
                 return true;
             }
             catch
@@ -103,9 +104,14 @@ namespace AlumniApp
     }
     public abstract class Output
     {
+        protected readonly string route;
+        public Output()
+        {
+            route = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+        }
         public virtual string GetFileName(string name)
         {
-            return "..\\..\\Grades" + name.Replace(" ", String.Empty);
+            return route + "\\" + name.Replace(" ", String.Empty);
         }
         public bool Write(string studentName, List<string> lines)
         {
