@@ -191,7 +191,13 @@ namespace AlumniApp
             gAvg /= subjects.Count;
             tree.Nodes[0].Nodes.Add("Global Average: " + gAvg.ToString());
             tree.EndUpdate();
-            return new List<Control> { tree };
+
+            Control button = CreateButton("Download", "Download Grades", 2);
+            return new List<Control> { tree, button };
+        }
+        public void Download(object sender, EventArgs e)
+        {
+            Console.WriteLine("entre");
         }
     }
     class Teacher : InstitutionalUser
@@ -216,7 +222,7 @@ namespace AlumniApp
         {
             TreeView tree = new TreeView
             {
-                Size = new Size(300, 300)
+                Size = new Size(300, 200)
             };
             DataConnection conn = DataConnection.GetInstance();
 

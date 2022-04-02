@@ -46,9 +46,15 @@ namespace AlumniApp
             List<Control> grades = user.GetGrades();
             foreach (Control control in grades)
             {
+                if (control.Name == "Download")
+                    control.Click += new EventHandler(Download);
                 Grades.Controls.Add(control);
             }
             Grades.ShowDialog();
+        }
+        public void Download(object sender, EventArgs e)
+        {
+            Console.WriteLine("Descargandoooo");
         }
         private Form CreateForm(string title)
         {
