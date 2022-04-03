@@ -22,9 +22,9 @@ The ones implemented are:
 
 ### Structural Design Patterns
 
-#### Bridge
-
 ![Bridge Pattern](https://refactoring.guru/images/patterns/content/bridge/bridge.png?id=bd543d4fb32e11647767301581a5ad54)
+
+#### Bridge
 
 There were two orthogonal classes that changed their behaviour depending on the objects calling them.
 
