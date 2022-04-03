@@ -26,7 +26,9 @@ The ones implemented are:
 
 #### Bridge
 
-There were two orthogonal classes that changed their behaviour depending on the objects calling them.
+This pattern provides all the structure needed in the solution to make it grow with ease. 
+
+The reason to apply this pattern is because there were two orthogonal classes that changed their behaviour depending on the objects calling them.
 
     It was necessary to find a pattern able to pair all the users with their specific interfaces because every single user has different data and possible actions.
 
@@ -63,9 +65,78 @@ Its methods instantiate the following pages:
 > Grades (student and teacher)
 
 
-
-
 ### Creational Design Patterns
+
+![Factory Pattern](https://refactoring.guru/images/patterns/content/factory-method/factory-method-en.png)
+
+#### Factory Pattern
+
+There are multiple cases in this application of different objects that resemble each other.
+
+These cases are:
+
+***The users***
+
+###### [See the implementation](https://github.com/LuisR-jpg/School/blob/master/Patrones%20de%20Diseno%20y%20Arquitecturas%20de%20Software/Problemas/Alumni/AlumniApp/InstitutionalUser.cs)
+
+- The **Creator** abstract class is **InstitutionalUserCreator**
+
+- The **Conrete Creators** are:
+
+        StudentCreator
+        TeacherCreator
+        SupervisorCreator
+
+- The **Product** abstract class is **InstitutionalUser**
+    
+- The **Contrete Products** are:
+
+        Student
+        Teacher
+        Supervisor
+
+***Ways to import data***
+
+###### [See the implementation](https://github.com/LuisR-jpg/School/blob/master/Patrones%20de%20Diseno%20y%20Arquitecturas%20de%20Software/Problemas/Alumni/AlumniApp/DataConnection.cs)
+
+This implementation makes sense because the app will have more data sources in the future, so this pattern will be very useful then.
+
+- The **Creator** abstract class is **ConnectionCreator**
+
+- The **Conrete Creators** are:
+
+         JSONConnectionCreator 
+
+- The **Product** abstract class is **Connection**
+
+    
+- The **Contrete Products** are:
+
+        JSONConnection
+
+***Ways to export grades***
+
+###### [See the implementation](https://github.com/LuisR-jpg/School/blob/master/Patrones%20de%20Diseno%20y%20Arquitecturas%20de%20Software/Problemas/Alumni/AlumniApp/Export.cs)
+
+- The **Creator** abstract class is **OutputCreator**
+
+- The **Conrete Creators** are:
+
+        PlainCreator
+        DocxCreator
+
+- The **Product** abstract class is **Output**
+
+    
+- The **Contrete Products** are:
+
+        PlainOutput
+        DocxOutput
+
+
+![Singleton](https://refactoring.guru/images/patterns/content/singleton/singleton-comic-1-en.png)
+
+#### Singleton
 
 
 ## Play with the configuration!
