@@ -7,6 +7,9 @@ using System;
 
 namespace AlumniApp
 {
+    /// <summary>
+    /// Singleton that wraps the Factory Method in charged of generating the output file.
+    /// </summary>
     public sealed class Export
     {
         private static Export instance;
@@ -37,6 +40,9 @@ namespace AlumniApp
             return targetOutput.Write(name, txt);
         }
     }
+    /// <summary>
+    /// Concrete Creator of the Factory Method Pattern
+    /// </summary>
     public class DocxCreator: OutputCreator
     {
         public override Output CreateTarget()
@@ -44,6 +50,9 @@ namespace AlumniApp
             return new DocxOutput();
         }
     }
+    /// <summary>
+    /// Concrete Creator of the Factory Method Pattern
+    /// </summary>
     public class PlainCreator : OutputCreator
     {
         public override Output CreateTarget()
@@ -51,6 +60,9 @@ namespace AlumniApp
             return new PlainOutput();
         }
     }
+    /// <summary>
+    /// Concrete Creator of the Factory Method Pattern
+    /// </summary>
     public class PlainOutput : Output
     {
 
@@ -74,6 +86,9 @@ namespace AlumniApp
             return base.GetFileName(name) + ".txt";
         }
     }
+    /// <summary>
+    /// Concrete Creator of the Factory Method Pattern
+    /// </summary>
     public class DocxOutput: Output
     {
         public override bool Write(string studentName, string text)
@@ -99,9 +114,15 @@ namespace AlumniApp
             return base.GetFileName(name) + ".docx";
         }
     }
+    /// <summary>
+    /// Abstract Creator of the Factory Method Pattern
+    /// </summary>
     public abstract class OutputCreator {
         public abstract Output CreateTarget();
     }
+    /// <summary>
+    /// Abstract Product of the Factory Method Pattern
+    /// </summary>
     public abstract class Output
     {
         protected readonly string route;

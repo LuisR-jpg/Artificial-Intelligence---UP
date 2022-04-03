@@ -4,9 +4,114 @@
         <name>AlumniApp</name>
     </assembly>
     <members>
+        <member name="T:AlumniApp.Export">
+            <summary>
+            Singleton that wraps the Factory Method in charged of generating the output file.
+            </summary>
+        </member>
+        <member name="T:AlumniApp.DocxCreator">
+            <summary>
+            Concrete Creator of the Factory Method Pattern
+            </summary>
+        </member>
+        <member name="T:AlumniApp.PlainCreator">
+            <summary>
+            Concrete Creator of the Factory Method Pattern
+            </summary>
+        </member>
+        <member name="T:AlumniApp.PlainOutput">
+            <summary>
+            Concrete Creator of the Factory Method Pattern
+            </summary>
+        </member>
+        <member name="T:AlumniApp.DocxOutput">
+            <summary>
+            Concrete Creator of the Factory Method Pattern
+            </summary>
+        </member>
+        <member name="T:AlumniApp.OutputCreator">
+            <summary>
+            Abstract Creator of the Factory Method Pattern
+            </summary>
+        </member>
+        <member name="T:AlumniApp.Output">
+            <summary>
+            Abstract Product of the Factory Method Pattern
+            </summary>
+        </member>
         <member name="T:AlumniApp.Data">
             <summary>
             Target class that allows reading JSON.
+            </summary>
+        </member>
+        <member name="T:AlumniApp.DataConnection">
+            <summary>
+            Singleton that wraps the connection to the data source.
+            </summary>
+        </member>
+        <member name="T:AlumniApp.JSONConnection">
+            <summary>
+            Concrete Product of the Factory Method Pattern
+            </summary>
+        </member>
+        <member name="T:AlumniApp.Connection">
+            <summary>
+            Abstract Product of the Factory Method Pattern
+            </summary>
+        </member>
+        <member name="T:AlumniApp.ConnectionCreator">
+            <summary>
+            Abstract Creator of the Factory Method Pattern
+            </summary>
+        </member>
+        <member name="T:AlumniApp.JSONConnectionCreator">
+            <summary>
+            Concrete Creator of the Factory Method Pattern
+            </summary>
+        </member>
+        <member name="T:AlumniApp.GraphicalInterface">
+            <summary>
+            Abstraction class of the bridge pattern.
+            </summary>
+        </member>
+        <member name="T:AlumniApp.InstitutionalUserCreator">
+            <summary>
+            Abstract Creator of the Factory Method Pattern
+            </summary>
+        </member>
+        <member name="T:AlumniApp.InstitutionalUser">
+            <summary>
+            Abstract Product of the Factory Method Pattern
+            </summary>
+        </member>
+        <member name="T:AlumniApp.StudentCreator">
+            <summary>
+            Concrete Creator of the Factory Method Pattern
+            </summary>
+        </member>
+        <member name="T:AlumniApp.TeacherCreator">
+            <summary>
+            Concrete Creator of the Factory Method Pattern
+            </summary>
+        </member>
+        <member name="T:AlumniApp.SupervisorCreator">
+            <summary>
+            Concrete Creator of the Factory Method Pattern
+            </summary>
+        </member>
+        <member name="T:AlumniApp.Student">
+            <summary>
+            Concrete implementation of the bridge pattern and Concrete Product of the factory method pattern.
+            </summary>
+        </member>
+        <member name="T:AlumniApp.Teacher">
+            <summary>
+            Concrete implementation of the bridge pattern and Concrete Product of the factory method pattern.
+            </summary>
+        </member>
+        <member name="T:AlumniApp.Supervisor">
+            <summary>
+            Concrete implementation of the bridge pattern and Concrete Product of the factory method pattern.
             </summary>
         </member>
         <member name="F:AlumniApp.Welcome.components">

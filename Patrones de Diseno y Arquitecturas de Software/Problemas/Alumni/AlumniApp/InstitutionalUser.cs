@@ -8,10 +8,16 @@ using System.Windows.Forms;
 
 namespace AlumniApp
 {
+    /// <summary>
+    /// Abstract Creator of the Factory Method Pattern
+    /// </summary>
     abstract class InstitutionalUserCreator
     {
         public abstract InstitutionalUser createUser(User user); 
     }
+    /// <summary>
+    /// Abstract Product of the Factory Method Pattern
+    /// </summary>
     public abstract class InstitutionalUser
     {
         private static InstitutionalUser currentUser = null;
@@ -161,6 +167,9 @@ namespace AlumniApp
             return new List<Control>(new Control[]{ l });
         } 
     }
+    /// <summary>
+    /// Concrete Creator of the Factory Method Pattern
+    /// </summary>
     class StudentCreator: InstitutionalUserCreator
     {
         public override InstitutionalUser createUser(User user)
@@ -168,6 +177,9 @@ namespace AlumniApp
             return new Student(user);
         }
     }
+    /// <summary>
+    /// Concrete Creator of the Factory Method Pattern
+    /// </summary>
     class TeacherCreator : InstitutionalUserCreator
     {
         public override InstitutionalUser createUser(User user)
@@ -175,6 +187,9 @@ namespace AlumniApp
             return new Teacher(user);
         }
     }
+    /// <summary>
+    /// Concrete Creator of the Factory Method Pattern
+    /// </summary>
     class SupervisorCreator : InstitutionalUserCreator
     {
         public override InstitutionalUser createUser(User user)
@@ -184,6 +199,9 @@ namespace AlumniApp
             return new Supervisor(user);
         }
     }
+    /// <summary>
+    /// Concrete implementation of the bridge pattern and Concrete Product of the factory method pattern.
+    /// </summary>
     class Student: InstitutionalUser
     {
         List<Object> subjects = new List<Object>();
@@ -262,6 +280,9 @@ namespace AlumniApp
             return g;
         }
     }
+    /// <summary>
+    /// Concrete implementation of the bridge pattern and Concrete Product of the factory method pattern.
+    /// </summary>
     class Teacher : InstitutionalUser
     {
         private List<Object> subjects;
@@ -327,6 +348,9 @@ namespace AlumniApp
         }
         
     }
+    /// <summary>
+    /// Concrete implementation of the bridge pattern and Concrete Product of the factory method pattern.
+    /// </summary>
     class Supervisor : InstitutionalUser
     {
         public Supervisor(User user)

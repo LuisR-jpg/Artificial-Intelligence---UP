@@ -4,8 +4,9 @@ using System.IO;
 
 namespace AlumniApp
 {
-    // EN : The Singleton should always be a 'sealed' class to prevent class
-    // inheritance through external classes and also through nested classes.
+    /// <summary>
+    /// Singleton that wraps the connection to the data source.
+    /// </summary>
     public sealed class DataConnection
     {
         private static DataConnection _instance;
@@ -46,6 +47,9 @@ namespace AlumniApp
             return s.Replace(" ", String.Empty).ToLower();
         }
     }
+    /// <summary>
+    /// Concrete Product of the Factory Method Pattern
+    /// </summary>
     class JSONConnection : Connection
     {
         private readonly string fileSource = "..\\..\\gitAllow.json";
@@ -92,6 +96,9 @@ namespace AlumniApp
             return compactSubject.Cast(s).grades;
         }
     }
+    /// <summary>
+    /// Abstract Product of the Factory Method Pattern
+    /// </summary>
     abstract class Connection
     {
         protected abstract void Connect();
@@ -101,10 +108,16 @@ namespace AlumniApp
         public abstract Subject FindSubjectByID(int ID);
         public abstract int[] FindGradesByUserAndSubject(int userID, int subjectID);
     }
+    /// <summary>
+    /// Abstract Creator of the Factory Method Pattern
+    /// </summary>
     abstract class ConnectionCreator
     {
         public abstract Connection CreateConnection();
     }
+    /// <summary>
+    /// Concrete Creator of the Factory Method Pattern
+    /// </summary>
     class JSONConnectionCreator : ConnectionCreator
     {
         public override Connection CreateConnection()
