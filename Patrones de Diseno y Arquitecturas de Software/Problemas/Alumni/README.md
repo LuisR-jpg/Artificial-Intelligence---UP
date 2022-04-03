@@ -34,7 +34,7 @@ The reason to apply this pattern is because there were two orthogonal classes th
 
 The classes involved in this pattern are:
 
-***Users***
+##### Users
 
 ###### [See the implementation](https://github.com/LuisR-jpg/School/blob/master/Patrones%20de%20Diseno%20y%20Arquitecturas%20de%20Software/Problemas/Alumni/AlumniApp/InstitutionalUser.cs)
 
