@@ -5,6 +5,9 @@ using System.Windows.Forms;
 
 namespace AlumniApp
 {
+    /// <summary>
+    /// Abstraction class of the bridge pattern.
+    /// </summary>
     public class GraphicalInterface
     {
         protected InstitutionalUser user;

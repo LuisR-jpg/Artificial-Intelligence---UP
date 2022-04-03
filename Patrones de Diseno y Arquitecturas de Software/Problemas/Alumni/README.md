@@ -24,9 +24,46 @@ The ones implemented are:
 
 #### Bridge
 
-It was necessary to find a pattern able to pair all the users with their specific interfaces because every single user has different data and possible actions.
+![Bridge Pattern](https://refactoring.guru/images/patterns/content/bridge/bridge.png?id=bd543d4fb32e11647767301581a5ad54)
 
-There were two orthogonal classes that changed their behaviour depending on the objects calling them
+There were two orthogonal classes that changed their behaviour depending on the objects calling them.
+
+    It was necessary to find a pattern able to pair all the users with their specific interfaces because every single user has different data and possible actions.
+
+The classes involved in this pattern are:
+
+***Users***
+
+##### [See the implementation](https://github.com/LuisR-jpg/School/blob/master/Patrones%20de%20Diseno%20y%20Arquitecturas%20de%20Software/Problemas/Alumni/AlumniApp/InstitutionalUser.cs)
+
+**InstitutionalUser** plays the role of the abstract class **Implementation**.
+
+The different **users** are the **concrete Implementation**:
+
+> Student
+
+> Teacher
+
+> Supervisor
+
+***Interfaces***
+
+##### [See the implementation](https://github.com/LuisR-jpg/School/blob/master/Patrones%20de%20Diseno%20y%20Arquitecturas%20de%20Software/Problemas/Alumni/AlumniApp/GraphicalInterface.cs)
+
+**GraphicalInterface** plays the role of **abstraction** in this pattern.
+
+Its methods instantiate the following pages:
+
+> Log In
+
+> Options menu
+
+> Information
+
+> Grades (student and teacher)
+
+
+
 
 ### Creational Design Patterns
 
