@@ -34,7 +34,7 @@ The reason to apply this pattern is because there were two orthogonal classes th
 
 The classes involved in this pattern are:
 
-##### Users
+***Users***
 
 ###### [See the implementation](https://github.com/LuisR-jpg/School/blob/master/Patrones%20de%20Diseno%20y%20Arquitecturas%20de%20Software/Problemas/Alumni/AlumniApp/InstitutionalUser.cs)
 
@@ -137,6 +137,20 @@ This implementation makes sense because the app will have more data sources in t
 ![Singleton](https://refactoring.guru/images/patterns/content/singleton/singleton-comic-1-en.png)
 
 #### Singleton
+
+The classes related to retrieve and export data through files usually generate problems. So a singleton is implemented for the next classes:
+
+***DataConnection***
+
+###### [See the implementation](https://github.com/LuisR-jpg/School/blob/master/Patrones%20de%20Diseno%20y%20Arquitecturas%20de%20Software/Problemas/Alumni/AlumniApp/DataConnection.cs)
+
+This class helps to manage the access to the classes in charged of retrieving data from the source file and wraps some of the most used queries, so they are not spread in the whole solution code.
+
+***Export***
+
+###### [See the implementation](https://github.com/LuisR-jpg/School/blob/master/Patrones%20de%20Diseno%20y%20Arquitecturas%20de%20Software/Problemas/Alumni/AlumniApp/Export.cs)
+
+It's a singleton in charged of managing the access to the output files and plays the role of the client code of the factory method implemented for the different ways to export grades.
 
 
 ## Play with the configuration!
