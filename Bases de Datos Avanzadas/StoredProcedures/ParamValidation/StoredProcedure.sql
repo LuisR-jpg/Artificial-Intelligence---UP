@@ -35,4 +35,66 @@ begin
 end$$
 delimiter ;
 call sql_invoicing.make_payment(1, -100, now());
-select * from payments;
+
+
+DELIMITER $$
+CREATE PROCEDURE get_unpaid_invoices_for_client(client_id int)
+BEGIN
+	select count(*) as facturas, sum(invoice_total) as total from invoices i
+	where i.client_id = client_id and payment_total = 0;
+END$$
+DELIMITER ;
+CALL `sql_invoicing`.get_unpaid_invoices_for_client(1);
+
+drop procedure if exists get_unpaid_invoices_for_client;
+DELIMITER $$
+CREATE PROCEDURE get_unpaid_invoices_for_client(
+	client_id int, 
+    out invoices_count int, 
+    out invoices_total decimal(9,2)
+)
+BEGIN
+	select count(*) as facturas, sum(invoice_total) as total
+	into invoices_count, invoices_total
+	from invoices i
+	where i.client_id = client_id and payment_total = 0;
+END$$
+DELIMITER ;
+set @invoices_count = 0;
+set @invoices_total = 0;
+call sql_invoicing.get_unpaid_invoices_for_client(3, @invoices_count, @invoices_total);
+select @invoices_count, @invoices_total;
+
+DELIMITER $$
+CREATE PROCEDURE `get_risk_factor`()
+BEGIN
+	declare risk_factor decimal(9,2) default 0;
+	declare invoices_total decimal(9,2);
+	declare invoices_count int;
+	select count(*), sum(invoice_total)
+	into invoices_count, invoices_total
+	from invoices;
+	set risk_factor = invoices_total / invoices_count * 5;
+	select risk_factor;
+END$$
+DELIMITER ;
+call sql_invoicing.get_risk_factor();
+
+DELIMITER $$
+CREATE FUNCTION `get_risk_factor_for_client`(client_id int)
+returns decimal(9,2)
+not deterministic
+reads sql data
+BEGIN
+	declare risk_factor decimal(9,2) default 0;
+	declare invoices_total decimal(9,2);
+	declare invoices_count int;
+	select count(*), sum(invoice_total)
+	into invoices_count, invoices_total
+	from invoices inv
+	where inv.client_id = client_id;
+	set risk_factor = invoices_total / invoices_count*5;
+	return risk_factor;
+END$$
+DELIMITER ;
+select get_risk_factor_for_client(2) risk_factor from invoices where client_id = 3;
