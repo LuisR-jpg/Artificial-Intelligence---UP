@@ -238,12 +238,9 @@ void ADC_init(){
 	DDRADC = 0b00000000;
 	PORTADC = 0b00000000; //ADC doesnt need pull up
 }
-ISR(ADC_vect){ //Entra aqu? solito despu?s de la conversion
-	//uint16_t rej = ADC;	//10 bits
+ISR(ADC_vect){
 	uint8_t r = ADCH;	//8 bits
-
-	//dtostrf(a, 1, 3, v); //Float to string
-
+	USART_Transmit(r);
 }
 
 void Timer0_init(){
@@ -326,6 +323,11 @@ ISR(USART_RXC_vect){ //Gets here when data is received
 }
 
 int main(void) {
-	for(;;);
+	USART_Init(MYUBRR);
+	ADC_init();
+	sei();
+	for(;;){
+		ADCSRA = setBit(ADCSRA, ADSC);
+	}
 }
 
