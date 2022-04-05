@@ -294,7 +294,7 @@ void USART_Init(uint16_t UBRR){
 	UCSRC = (1<<URSEL) | (1<<USBS) | (3<<UCSZ0);
 		/*
 			URSEL. Set as 1 always
-			UMSEL. 1: SÃ­ncrono; 0: AsÃ­ncrono (usamos 0)
+			UMSEL. 1: Síncrono; 0: Asíncrono (usamos 0)
 			Parity
 				UPM1: 1, UPM0: 0 Par
 				UPM1: 1, UPM1: 1 Impar
@@ -328,3 +328,4 @@ ISR(USART_RXC_vect){ //Gets here when data is received
 int main(void) {
 	for(;;);
 }
+
