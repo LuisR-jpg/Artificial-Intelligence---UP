@@ -1,3 +1,10 @@
+/*
+ * PianitoetApp.c
+ *
+ * Created: 4/4/2022 11:51:00
+ * Author : lalor
+ */ 
+
 #include <avr/io.h>
 #include <stdint.h>
 #include <stdlib.h>
@@ -245,12 +252,16 @@ ISR(ADC_vect){ //Entra aqu? solito despu?s de la conversion
 }
 
 void Timer0_init(){
-	TIFR = 0b00000011; // Clear interruptions
-	TIMSK = 0b00000010; // Set interruption. Bit 0: Overflow; Bit 1: Compare
+	TIFR = 0b00000011;		// Clear interruptions
+	TIMSK = 0b00000000;		// Set interruption. Bit 0: Overflow; Bit 1: Compare
 	//sei();
-	TCNT0 = 0; //Counts
-	OCR0 = 97; //When the compare interruption will be called
-	TCCR0 = 0b00001101; //CTC, last 3 bits to set prescaler (1024)
+	TCNT0 = 0;				//Counts
+	OCR0 = 127;				//When the compare interruption will be called
+	TCCR0 = 0b00011000;		//CTC, last 3 bits to set prescaler (Turned off = 0)
+	//To enable OC0
+	DDRB = 0xFF;
+	PORTB = 0x00;
+
 }
 ISR(TIMER0_COMP_vect){
 	
@@ -293,7 +304,7 @@ void USART_Init(uint16_t UBRR){
 		/* Set frame format: 8 data, 2 stop bit */
 		/*
 			URSEL. Set as 1 always
-			UMSEL. 1: SÃ­ncrono; 0: AsÃ­ncrono (usamos 0)
+			UMSEL. 1: Síncrono; 0: Asíncrono (usamos 0)
 			Parity
 				UPM1: 1, UPM0: 0 Par
 				UPM1: 1, UPM1: 1 Impar
@@ -324,6 +335,69 @@ ISR(USART_RXC_vect){ //Gets here when data is received
 	data = UDR;
 }
 
+void PlayNote(int n){
+	/*
+		FCPU = 1MHz
+		Nota	Hz			S			S/2			Pre	OCR0
+		
+		C		261.626		0.003822	0.001911	8	238
+		D		293.665		0.003405	0.001703	8	212
+		E		329.628		0.003034	0.001517	8	189
+		F		349.288		0.002863	0.001431	8	178
+		G		391.995		0.002551	0.001276	8	159
+		A		440.000		0.002273	0.001136	8	141
+		B		493.883		0.002025	0.001012	8	126
+	*/	
+	switch(n){
+		case 1:
+			OCR0 = 238;
+			break;
+		case 2:
+			OCR0 = 212;
+			break;
+		case 3:
+			OCR0 = 189;
+			break;
+		case 4:
+			OCR0 = 178;
+			break;
+		case 5:
+			OCR0 = 159;
+			break;
+		case 6:
+			OCR0 = 141;
+			break;
+		case 7:
+			OCR0 = 126;
+			break;	
+	}
+	if(n >= 1 && n <= 7)
+		TCCR0 += 2; //Sets prescaler to 8
+}
+void StopNote(){
+	TCCR0 = 0b00011000; //Resets prescaler to 0 
+}
+
 int main(void) {
-	for(;;);
+	Timer0_init();
+	USART_Init(MYUBRR);
+	DDRA = 0;
+	PORTA = 0xFF;
+	sei();
+	for(;;){
+		for(uint8_t i = 0; i < 8; i++){
+			if(isClear(PINA, i)){
+				if(data - '0' == i + 1)
+					PlayNote(i + 1);
+				_delay_ms(50);
+				while(isClear(PINA, i));
+				_delay_ms(50);
+				StopNote();
+				uint8_t send = 0;
+				if(i == 7) send = 'I';
+				else send = i + 1 + '0';
+				USART_Transmit(send);
+			}
+		}
+	}
 }
