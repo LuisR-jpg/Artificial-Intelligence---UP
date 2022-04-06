@@ -1,9 +1,16 @@
+/*
+ * IIA_RoblesJimenezLuisEduardo.c
+ *
+ * Created: 5/4/2022 14:05:52
+ * Author : lalor
+ */ 
+
 #include <avr/io.h>
 #include <stdint.h>
 #include <stdlib.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>
-#define F_CPU 1000000
+#define F_CPU 4000000
 #define isClear(r, i) (!isSet(r, i))
 #define isSet(r, i) (r & (1 << i))
 #define setBit(r, i) (r | (1 << i))
@@ -13,12 +20,14 @@
 #define swap(r) (r << 4 | r >> 4)
 #define reverse(r) swap(swapP(swapB(r)))
 
-#define DDRLCD DDRC
-#define PORTLCD PORTC
-#define PINLCD PINC
-#define RS 4
+volatile uint8_t uno[16], dos[16], n;
+
+#define DDRLCD DDRB
+#define PORTLCD PORTB
+#define PINLCD PINB
+#define RS 6
 #define RW 5
-#define E 6
+#define E 4
 #define BF 3
 #define LCD_Cmd_Clear      0b00000001
 #define LCD_Cmd_Home       0b00000010
@@ -142,9 +151,9 @@ void saca_cero(volatile uint8_t *LUGAR, uint8_t BIT){
 	*LUGAR=*LUGAR&~(1<<BIT);
 }
 
-#define PINX PIND
-#define DDRX DDRD
-#define PORTX PORTD
+#define PINX PINC
+#define DDRX DDRC
+#define PORTX PORTC
 //uint8_t keyboard[4][4] =
 //{
 //{0x7, 0x8, 0x9, 0xA},
@@ -178,7 +187,7 @@ uint8_t hastaTecla(){
 				_delay_ms(50);
 				while(isClear(PINX, j));
 				_delay_ms(50);
-				return keyboard[i][j-4];
+				return keyboard[i][7-j];
 			}
 		}
 	}
@@ -192,7 +201,7 @@ void KB_init(){
 #define PINADC PINA
 #define DDRADC DDRA
 void ADC_init(){
-	ADMUX = 0b01100010; 
+	ADMUX = 0b01100100; 
 		/*
 			7, 6: 01 = Connect AREF to 5v, connect pins 10, 11, 30 and 31
 			5: 0 = 10 bits adjusted to the right (using full precision of the ADC)
@@ -205,7 +214,7 @@ void ADC_init(){
 				011 - Compare match timer 0
 			When using something different to free running mode: Bit 5 of ADCSRA has to be 1.
 		*/
-	ADCSRA =  0b10011011;
+	ADCSRA =  0b10011101;
 		/* 
 			7: ADC Enable. 1 ON; 0 OFF
 			6: When 'free running mode' a 1 indicates when to start the conversion
@@ -235,8 +244,14 @@ ISR(ADC_vect){ //Entra aqu? solito despu?s de la conversion
 	//uint16_t rej = ADC;	//10 bits
 	uint8_t r = ADCH;	//8 bits
 
-	//dtostrf(a, 1, 3, v); //Float to string
-
+	LCD_wr_instruction(LCD_Cmd_Clear);
+	r = r/255.0*5.0 + 1;
+	if(r == 6) r--;
+	n = r;
+	sprintf(uno, "Espera %d val.", r);
+	LCD_wr_lines(uno, "");
+	_delay_ms(1000);
+	UCSRB = setBit(UCSRB, RXCIE);
 }
 
 void Timer0_init(){
@@ -267,7 +282,7 @@ uint8_t EEPROM_read(uint8_t address) {
 	return EEDR;
 }
 
-#define BAUD 4800
+#define BAUD 2400
 #define MYUBRR F_CPU/16/BAUD-1
 void USART_Init(uint16_t UBRR){ 
 	DDRD |= 0b00000010; //Pin 1: TX; Pin0: RX
@@ -284,10 +299,10 @@ void USART_Init(uint16_t UBRR){
 			RXB8, TXB8. 9th bit of UDR. Write or read before UDR
 		*/
 	
-	UCSRC = (1<<URSEL) | (1<<USBS) | (3<<UCSZ0);
+	UCSRC = (1<<URSEL) | (0<<USBS) | (3<<UCSZ0);
 		/*
 			URSEL. Set as 1 always
-			UMSEL. 1: SÃ­ncrono; 0: AsÃ­ncrono (usamos 0)
+			UMSEL. 1: Síncrono; 0: Asíncrono (usamos 0)
 			Parity
 				UPM1: 1, UPM0: 0 Par
 				UPM1: 1, UPM1: 1 Impar
@@ -310,7 +325,7 @@ void USART_Init(uint16_t UBRR){
 	*/
 }
 void USART_Transmit(uint8_t data) { 
-	while (!(UCSRA & (1<<UDRE)));
+	while (!(UCSRA & (1<<UDRE))) LCD_wr_char("l");
 	UDR = data;
 }
 volatile uint8_t data = 0;
@@ -319,5 +334,49 @@ ISR(USART_RXC_vect){ //Gets here when data is received
 }
 
 int main(void) {
-	for(;;);
+	LCD_init();
+	KB_init();
+	ADC_init();
+	USART_Init(MYUBRR);
+	sei();
+	uint16_t wait = 1000;
+	for(;;){
+		data = 0, n = 10;
+		sprintf(uno, "Esperando C");
+		LCD_wr_lines(uno, "");
+		while(data != 'C');		
+		UCSRB = clearBit(UCSRB, RXCIE);
+		ADCSRA = setBit(ADCSRA, ADSC);
+		for(uint8_t i = 0; i < n; i++){
+			while(data < '0' || data > '9');
+			UCSRB = clearBit(UCSRB, RXCIE);
+			EEPROM_write(i, data);
+			LCD_wr_char(data);
+			LCD_wr_char(' ');
+			data = 0;
+			UCSRB = setBit(UCSRB, RXCIE);
+		}
+		cli();
+		for(uint8_t i = n; i < 5; i++)
+			EEPROM_write(i, '@');
+		LCD_wr_char('.');
+		USART_Transmit('X');
+		_delay_ms(wait);
+		sprintf(uno, "Preparando");
+		sprintf(dos, "para comenzar");
+		LCD_wr_lines(uno, dos);
+		_delay_ms(wait);
+		sprintf(uno, "Escribe...");
+		LCD_wr_lines(uno, "");
+		for(int i = 0; i < n; i++){
+			uint8_t x = EEPROM_read(i);
+			while(hastaTecla() != x);
+			LCD_wr_char(x);
+			LCD_wr_char(' ');
+		}
+		_delay_ms(wait);
+		LCD_wr_lines("Terminado", "");
+		_delay_ms(wait);
+	}
 }
+
