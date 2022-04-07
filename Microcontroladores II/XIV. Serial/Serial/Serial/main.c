@@ -5,20 +5,6 @@
  * Author : lalor
  */ 
 
-/*
- * 14ComSerial.c
- *
- * Created: 24/03/2022 03:22:15 p. m.
- * Author : scago
- */ 
-
-/*
- * 14ComSerial.c
- *
- * Created: 24/03/2022 03:22:15 p. m.
- * Author : scago
- */ 
-
 #include <avr/io.h>
 #include <avr/io.h>
 #include <util/delay.h>
