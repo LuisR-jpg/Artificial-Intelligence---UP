@@ -1,12 +1,13 @@
 using System;
 using System.IO.Ports;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace SerialPortExample
 {
   class SerialPortProgram
   {
-    private SerialPort port = new SerialPort("COM1", 9600, Parity.None, 8, StopBits.Two);
+    private SerialPort port = new SerialPort("COM2", 4800, Parity.None, 8, StopBits.Two);
 
     [STAThread]
     static void Main(string[] args)
@@ -29,7 +30,10 @@ namespace SerialPortExample
     }
     private void port_DataReceived(object sender, SerialDataReceivedEventArgs e)
     {
-      Console.WriteLine(port.ReadExisting());
+      Console.WriteLine(port.ReadByte()/255.0*5.0);
+      Thread.Sleep(250);
+      port.DiscardInBuffer();
+      //Console.WriteLine("Adios");
     }
   }
 }
