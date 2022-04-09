@@ -44,7 +44,7 @@ void USART_Transmit(uint8_t data){
 	UDR = data;
 }
 
-uint8_t USART_Receive(void){
+uint8_t USART_Receive(void){Pero no croe que sea 
 	/* Wait for data to be received */
 	while(!(UCSRA & (1<<RXC))){} //traba
 		
