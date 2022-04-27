@@ -6,10 +6,10 @@ namespace SalesApp
 {
     public class GUI
     {
-        readonly FormsDirector director;
         private static Builder nextBuilder;
-        private Builder currentBuilder;
         private static Form currentForm;
+        private static FormsDirector director;
+        private Builder currentBuilder;
         public GUI()
         {
             Application.EnableVisualStyles();
@@ -27,9 +27,16 @@ namespace SalesApp
                 currentForm.ShowDialog();   
             }
         }
-        public static void SetNextBuilder(Builder builder)
+        public static void SetNextPage(Builder builder)
         {
             nextBuilder = builder;
+        }
+        public static void LaunchPage(Builder builder)
+        {
+            director.SetBuilder(builder);
+            director.Build();
+            Form form = builder.ReturnForm();
+            form.ShowDialog();
         }
         public static void CloseCurrentForm()
         {

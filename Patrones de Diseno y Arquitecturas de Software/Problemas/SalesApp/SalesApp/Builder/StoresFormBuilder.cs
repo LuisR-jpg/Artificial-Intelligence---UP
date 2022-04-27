@@ -73,7 +73,7 @@ namespace SalesApp
         private void BtnGoBackClick(object sender, EventArgs e)
         {
             GUI.CloseCurrentForm();
-            GUI.SetNextBuilder(new WelcomeFormBuilder());
+            GUI.SetNextPage(new WelcomeFormBuilder());
         }
     }
 }

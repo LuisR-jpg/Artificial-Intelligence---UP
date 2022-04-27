@@ -17,12 +17,16 @@ namespace SalesApp
         {
             this.builder = builder;
             this.className = builder.GetType();
-            if(!openedForms.ContainsKey(className))
-                openedForms.Add(className, 0);
-            openedForms[className]++;
+
         }
-        public void Build()
+        public void Build(bool count = true)
         {
+            if (count)
+            {
+                if (!openedForms.ContainsKey(className))
+                    openedForms.Add(className, 0);
+                openedForms[className]++;
+            }
             builder.CreateForm(openedForms[className]);
             builder.AddButtons();
             builder.AddOtherComponents();
