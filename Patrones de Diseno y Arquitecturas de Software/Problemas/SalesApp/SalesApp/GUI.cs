@@ -8,7 +8,8 @@ namespace SalesApp
     {
         readonly FormsDirector director;
         private static Builder nextBuilder;
-        Builder currentBuilder;
+        private Builder currentBuilder;
+        private static Form currentForm;
         public GUI()
         {
             Application.EnableVisualStyles();
@@ -22,14 +23,17 @@ namespace SalesApp
                 currentBuilder = nextBuilder;
                 director.SetBuilder(currentBuilder);
                 director.Build();
-                Form form = currentBuilder.ReturnForm();
-                form.ShowDialog();   
+                currentForm = currentBuilder.ReturnForm();
+                currentForm.ShowDialog();   
             }
         }
         public static void SetNextBuilder(Builder builder)
         {
             nextBuilder = builder;
         }
-
+        public static void CloseCurrentForm()
+        {
+            currentForm.Close();
+        }
     }
 }

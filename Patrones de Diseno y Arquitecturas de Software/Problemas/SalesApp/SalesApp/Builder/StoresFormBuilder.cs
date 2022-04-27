@@ -6,7 +6,7 @@ namespace SalesApp
 {
     class StoresFormBuilder: Builder
     {
-        public override void CreateForm()
+        public override void CreateForm(int timesOpened)
         {
             form = new Form();
             FormatForm(false);
@@ -29,8 +29,17 @@ namespace SalesApp
                 Size = new Size(100, 50),
                 Location = new Point(25, form.Size.Height - 100)
             };
-            btnContinue.Click += BtnAddClick;
+            btnAdd.Click += BtnAddClick;
             form.Controls.Add(btnAdd);
+
+            Button btnGoBack = new Button
+            {
+                Text = "Go Back",
+                Size = new Size(75, 35),
+                Location = new Point((sizeStandard.Width - 75) / 2, sizeStandard.Height - 100 )
+            };
+            btnGoBack.Click += BtnGoBackClick;
+            form.Controls.Add(btnGoBack);
         }
         public override void AddOtherComponents()
         {
@@ -45,11 +54,26 @@ namespace SalesApp
         }
         private void BtnContinueClick(object sender, EventArgs e)
         {
-            Console.WriteLine("hola");
         }
         private void BtnAddClick(object sender, EventArgs e)
         {
-            Console.WriteLine("hola");
+            string message = "Do you have a QR for your store?";
+            string title = "Add a new store";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result = MessageBox.Show(message, title, buttons);
+            if (result == DialogResult.Yes)
+            {
+                Console.WriteLine("With QR");
+            }
+            else
+            {
+                Console.WriteLine("From scratch");
+            }
+        }
+        private void BtnGoBackClick(object sender, EventArgs e)
+        {
+            GUI.CloseCurrentForm();
+            GUI.SetNextBuilder(new WelcomeFormBuilder());
         }
     }
 }

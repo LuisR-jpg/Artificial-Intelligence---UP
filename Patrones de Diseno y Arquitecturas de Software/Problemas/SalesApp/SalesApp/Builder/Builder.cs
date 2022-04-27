@@ -8,7 +8,7 @@ namespace SalesApp
     {
         protected Form form;
         protected static Size sizeStandard;
-        public abstract void CreateForm();
+        public abstract void CreateForm(int timesOpened);
         public abstract void AddButtons();
         public abstract void AddOtherComponents();
         public Form ReturnForm()
@@ -32,6 +32,10 @@ namespace SalesApp
                 btnLogOut.Click += (object s, EventArgs e) => form.Close();
                 form.Controls.Add(btnLogOut);
             }
+        }
+        protected int GetHorizontalCenter(int width)
+        {
+            return (sizeStandard.Width - width) / 2;
         }
     }
 }
