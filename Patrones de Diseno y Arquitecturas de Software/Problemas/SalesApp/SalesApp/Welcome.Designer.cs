@@ -60,6 +60,7 @@ namespace SalesApp
             this.btnStart.TabIndex = 1;
             this.btnStart.Text = "Run";
             this.btnStart.UseVisualStyleBackColor = false;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // btnLog
             // 
@@ -72,6 +73,7 @@ namespace SalesApp
             this.btnLog.TabIndex = 2;
             this.btnLog.Text = "Log";
             this.btnLog.UseVisualStyleBackColor = false;
+            this.btnLog.Click += new System.EventHandler(this.btnLog_Click);
             // 
             // Welcome
             // 

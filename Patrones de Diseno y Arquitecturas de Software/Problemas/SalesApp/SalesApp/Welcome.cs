@@ -16,5 +16,16 @@ namespace SalesApp
         {
             InitializeComponent();
         }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            Form formStores = GUI.CreateStoresForm();
+            formStores.ShowDialog();
+        }
+
+        private void btnLog_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
