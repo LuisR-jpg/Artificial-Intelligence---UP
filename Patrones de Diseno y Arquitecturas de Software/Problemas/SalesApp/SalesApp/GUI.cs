@@ -7,7 +7,7 @@ namespace SalesApp
     public class GUI
     {
         readonly FormsDirector director;
-        public static Builder nextBuilder;
+        private static Builder nextBuilder;
         Builder currentBuilder;
         public GUI()
         {
@@ -17,15 +17,19 @@ namespace SalesApp
         }
         public void Run()
         {
-            for(currentBuilder = new WelcomeFormBuilder(); currentBuilder != nextBuilder; currentBuilder = nextBuilder)
+            for(nextBuilder = new WelcomeFormBuilder(); currentBuilder != nextBuilder;)
             {
+                currentBuilder = nextBuilder;
                 director.SetBuilder(currentBuilder);
                 director.Build();
                 Form form = currentBuilder.ReturnForm();
                 form.ShowDialog();   
             }
         }
-
+        public static void SetNextBuilder(Builder builder)
+        {
+            nextBuilder = builder;
+        }
 
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace SalesApp
@@ -19,13 +20,16 @@ namespace SalesApp
                 Size = new Size(100, 50),
                 Location = new Point(form.Size.Width - 125, form.Size.Height - 100)
             };
+            btnContinue.Click += BtnContinueClick;
             form.Controls.Add(btnContinue);
+
             Button btnAdd = new Button
             {
                 Text = "Add Store",
                 Size = new Size(100, 50),
                 Location = new Point(25, form.Size.Height - 100)
             };
+            btnContinue.Click += BtnAddClick;
             form.Controls.Add(btnAdd);
         }
         public override void AddOtherComponents()
@@ -38,6 +42,14 @@ namespace SalesApp
                 BackColor = Color.White
             };
             form.Controls.Add(p);
+        }
+        private void BtnContinueClick(object sender, EventArgs e)
+        {
+            Console.WriteLine("hola");
+        }
+        private void BtnAddClick(object sender, EventArgs e)
+        {
+            Console.WriteLine("hola");
         }
     }
 }
