@@ -12,6 +12,7 @@ namespace SalesApp
 {
     public partial class Welcome : System.Windows.Forms.Form
     {
+        Form formStores;
         public Welcome()
         {
             InitializeComponent();
@@ -19,7 +20,8 @@ namespace SalesApp
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            Form formStores = GUI.CreateStoresForm();
+            formStores = GUI.CreateStoresForm();
+            formStores.Controls.Find("btnContinue", false);
             formStores.ShowDialog();
         }
 

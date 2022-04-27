@@ -60,11 +60,14 @@ namespace SalesApp
                 Location = new Point(25, form.Size.Height - 100)
             };
             form.Controls.Add(btnAdd);
-            Panel panel = new Panel
+            Panel p = new Panel
             {
-                Size = new Size(GUI.sizeStandard.Width, GUI.sizeStandard.Height - 150)
+                Size = new Size(GUI.sizeStandard.Width - 100, GUI.sizeStandard.Height - 150),
+                Location = new Point(50, 25),
+                AutoScroll = true,
+                BackColor = Color.White
             };
-            form.Controls.Add(panel);
+            form.Controls.Add(p);
             return form;
         }
     }
