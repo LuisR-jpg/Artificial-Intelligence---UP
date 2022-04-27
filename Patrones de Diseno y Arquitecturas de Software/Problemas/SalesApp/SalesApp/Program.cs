@@ -7,7 +7,8 @@ namespace SalesApp
         [STAThread]
         static void Main()
         {
-            new GUI();
+            GUI gui = new GUI();
+            gui.Run();
         }
     }
 }
