@@ -63,7 +63,11 @@ namespace SalesApp
             DialogResult result = MessageBox.Show(message, title, buttons);
             if (result == DialogResult.Yes)
             {
-                Console.WriteLine("With QR");
+                OpenFileDialog fileChooser = new OpenFileDialog();
+                if (fileChooser.ShowDialog() == DialogResult.OK)
+                {
+                    Console.WriteLine(fileChooser.FileName);
+                }
             }
             else
             {
