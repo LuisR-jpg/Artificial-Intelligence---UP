@@ -33,7 +33,7 @@ namespace SalesApp
                 form.Controls.Add(btnLogOut);
             }
         }
-        protected int GetHorizontalCenter(int width)
+        protected virtual int GetHorizontalCenter(int width)
         {
             return (sizeStandard.Width - width) / 2;
         }

@@ -12,12 +12,14 @@ namespace SalesApp
             form = new Welcome();
             Builder.sizeStandard = form.Size;
             FormatForm(true);
-            Button btnLog = form.Controls.Find("btnLog", false)[0] as Button;
             isFirstTime = timesOpened <= 1;
+        }
+        public override void AddButtons()
+        {
+            Button btnLog = form.Controls.Find("btnLog", false)[0] as Button;
             if (isFirstTime) btnLog.Text = "Settings";
             else btnLog.Text = "View Log";
         }
-        public override void AddButtons() {}
         public override void AddOtherComponents() {}
     }
     public partial class Welcome : Form
