@@ -49,5 +49,11 @@ namespace SalesApp
         {
             return stores;
         }
+        public Store GetStore(int storeID)
+        {
+            if (storeID + 1 <= stores.Count())
+                return stores[storeID];
+            return null;
+        }
     }
 }

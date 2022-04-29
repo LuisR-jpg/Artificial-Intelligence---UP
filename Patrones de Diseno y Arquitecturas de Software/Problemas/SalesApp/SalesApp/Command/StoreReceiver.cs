@@ -10,10 +10,13 @@ namespace SalesApp
     {
         private int id;
         private string name;
-        private List<Product> productList;
+        Product sodas, vegetables, bread;
         public Store(string name)
         {
             this.name = name;
+            sodas = new Sodas();
+            vegetables = new FrozenVegetables();
+            bread = new Breads();
         }
         public void SetID(int id)
         {

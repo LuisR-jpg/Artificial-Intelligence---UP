@@ -3,8 +3,10 @@
     public class SalesManager
     {
         private Command command;
-        public SalesManager()
+        public SalesManager() {}
+        public SalesManager(Command command)
         {
+            this.command = command;
         }
         public void SetCommand(Command command)
         {

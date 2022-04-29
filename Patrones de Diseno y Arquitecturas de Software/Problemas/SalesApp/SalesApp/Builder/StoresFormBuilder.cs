@@ -8,10 +8,12 @@ namespace SalesApp
     class StoresFormBuilder: Builder
     {
         public static MyPanel storeView;
+        private bool isFirstTime;
         public override void CreateForm(int timesOpened)
         {
             form = new Form();
             FormatForm(false);
+            isFirstTime = timesOpened <= 1;
         }
         public override void AddButtons()
         {
@@ -45,7 +47,7 @@ namespace SalesApp
         }
         public override void AddOtherComponents()
         {
-            storeView = new MyPanel();
+            storeView = new MyPanel(isFirstTime);
             form.Controls.Add(storeView.GetPanel());
         }
         private void BtnContinueClick(object sender, EventArgs e)
@@ -81,8 +83,10 @@ namespace SalesApp
         {
             private readonly Panel panel;
             private readonly int elementsHeight;
-            public MyPanel()
+            private bool isFirstTime = true;
+            public MyPanel(bool isFirstTime)
             {
+                this.isFirstTime = isFirstTime;
                 elementsHeight = 25;
                 int width = Builder.sizeStandard.Width - 515;
                 panel = new Panel
@@ -100,21 +104,23 @@ namespace SalesApp
             }
             public void NewStoreToPanel(Store s)
             {
-
-                Label lblNewStore = new Label
+                if (isFirstTime || true)
                 {
-                    Text = s.GetID().ToString() + ". " + s.GetName(),
-                    Location = new Point(50, elementsHeight * (s.GetID() + 1))
-                };
-                panel.Controls.Add(lblNewStore);
-                Button btnNewStore = new Button
-                {
-                    Text = "Raise Order",
-                    Name = s.GetID().ToString(),
-                    Location = new Point(150, elementsHeight * (s.GetID() + 1) - 5)
-                };
-                btnNewStore.Click += BtnNewStoreClick;
-                panel.Controls.Add(btnNewStore);
+                    Label lblStore = new Label
+                    {
+                        Text = s.GetID().ToString() + ". " + s.GetName(),
+                        Location = new Point(50, elementsHeight * (s.GetID() + 1))
+                    };
+                    panel.Controls.Add(lblStore);
+                    Button btnOrder = new Button
+                    {
+                        Text = "Raise Order",
+                        Name = s.GetID().ToString(),
+                        Location = new Point(150, elementsHeight * (s.GetID() + 1) - 5)
+                    };
+                    btnOrder.Click += BtnOrderClick;
+                    panel.Controls.Add(btnOrder);
+                }
             }
             public void SetStores(List<Store> list)
             {
@@ -123,9 +129,12 @@ namespace SalesApp
                     NewStoreToPanel(s);
                 }
             }
-            private void BtnNewStoreClick(object sender, EventArgs e)
+            private void BtnOrderClick(object sender, EventArgs e)
             {
                 Button b = sender as Button;
+                Command command = new RaiseOrderCommand(int.Parse(b.Name));
+                SalesManager manager = new SalesManager(command);
+                manager.Execute();
             }
         }
     }
