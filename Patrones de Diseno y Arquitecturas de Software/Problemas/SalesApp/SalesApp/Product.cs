@@ -18,15 +18,4 @@ namespace SalesApp
             this.price = price;
         }
     }
-    public class Store
-    {
-        private readonly int id;
-        private readonly string name;
-        private List<Product> productList;
-        public Store(int id, string name)
-        {
-            this.id = id;
-            this.name = name;
-        }
-    }
 }

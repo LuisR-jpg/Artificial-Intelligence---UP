@@ -1,4 +1,6 @@
 !gitAllow.json
+!*Allow.json
+
 
 **/node_modules/
 **/.ipynb_checkpoints/

@@ -53,7 +53,7 @@ namespace SalesApp
         }
         private void BtnAddClick(object sender, EventArgs e)
         {
-            string message = "Do you have a QR for your store?";
+            string message = "Do you have a QR for the store?";
             string title = "Add a new store";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result = MessageBox.Show(message, title, buttons);
