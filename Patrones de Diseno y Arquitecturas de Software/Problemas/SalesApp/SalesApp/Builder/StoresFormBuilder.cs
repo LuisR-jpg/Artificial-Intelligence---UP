@@ -53,6 +53,7 @@ namespace SalesApp
         }
         private void BtnAddClick(object sender, EventArgs e)
         {
+            /*
             string message = "Do you have a QR for the store?";
             string title = "Add a new store";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
@@ -60,20 +61,16 @@ namespace SalesApp
             if (result == DialogResult.Yes)
             {
                 Console.WriteLine("Not Implemented Yet");
-                /*
                 OpenFileDialog fileChooser = new OpenFileDialog();
                 if (fileChooser.ShowDialog() == DialogResult.OK)
                 {
                     Console.WriteLine(fileChooser.FileName);
                 }
-                */
             }
             else
             {
-                GUI.LaunchPage(new InputStoreBuilder());
-                storeView.NewStoreToPanel();
-            }
-
+        */
+            GUI.LaunchPage(new InputStoreBuilder());
         }
         private void BtnGoBackClick(object sender, EventArgs e)
         {
@@ -82,10 +79,8 @@ namespace SalesApp
         }
         public class MyPanel
         {
-            private Panel panel;
-            private int nElements;
+            private readonly Panel panel;
             private readonly int elementsHeight;
-            private string storeName;
             public MyPanel()
             {
                 elementsHeight = 25;
@@ -97,37 +92,36 @@ namespace SalesApp
                     AutoScroll = true,
                     BackColor = Color.White
                 };
+                SetStores(Logistics.GetInstance().GetStores());
             }
             public Panel GetPanel()
             {
                 return panel;
             }
-            public void NewStoreToPanel()
+            public void NewStoreToPanel(Store s)
             {
 
                 Label lblNewStore = new Label
                 {
-                    Text = nElements.ToString() + ". " + storeName,
-                    Location = new Point(50, elementsHeight * (nElements + 1))
+                    Text = s.GetID().ToString() + ". " + s.GetName(),
+                    Location = new Point(50, elementsHeight * (s.GetID() + 1))
                 };
                 panel.Controls.Add(lblNewStore);
                 Button btnNewStore = new Button
                 {
                     Text = "Raise Order",
-                    Name = nElements.ToString(),
-                    Location = new Point(150, elementsHeight * (nElements + 1) - 5)
+                    Name = s.GetID().ToString(),
+                    Location = new Point(150, elementsHeight * (s.GetID() + 1) - 5)
                 };
                 btnNewStore.Click += BtnNewStoreClick;
                 panel.Controls.Add(btnNewStore);
-                NewRow();
             }
-            private void NewRow()
+            public void SetStores(List<Store> list)
             {
-                nElements++;
-            }
-            public void SetStoreName(string s)
-            {
-                storeName = s;
+                foreach(Store s in list)
+                {
+                    NewStoreToPanel(s);
+                }
             }
             private void BtnNewStoreClick(object sender, EventArgs e)
             {

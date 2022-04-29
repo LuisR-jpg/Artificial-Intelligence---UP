@@ -5,11 +5,13 @@
         private int id;
         private readonly string name;
         private float price;
-        public Product(int id, string name, float price)
+        private int qty;
+        public Product(int id, string name, float price, int qty)
         {
             this.id = id;
             this.name = name;
             this.price = price;
+            this.qty = qty;
         }
         public void SetID(int id)
         {
@@ -22,17 +24,17 @@
     }
     public class FrozenVegetables: Product
     {
-        public FrozenVegetables(int id = -1, string name = "Frozen Vegetables", float price = 30.0f): base(id, name, price) {}
+        public FrozenVegetables(int id = 1, string name = "Frozen Vegetables", float price = 30.0f, int qty = 0): base(id, name, price, qty = 0) {}
 
     }
-    public class Soda : Product
+    public class Sodas : Product
     {
-        public Soda(int id = -1, string name = "Soda", float price = 20.0f) : base(id, name, price) { }
+        public Sodas(int id = 2, string name = "Soda", float price = 20.0f, int qty = 0) : base(id, name, price, qty) { }
 
     }
-    public class Bread : Product
+    public class Breads : Product
     {
-        public Bread(int id = -1, string name = "Bread", float price = 5.0f) : base(id, name, price) { }
+        public Breads(int id = 3, string name = "Bread", float price = 5.0f, int qty = 0) : base(id, name, price, qty) { }
 
     }
 }

@@ -42,5 +42,9 @@ namespace SalesApp
         {
             currentForm.Close();
         }
+        public static Form GetCurrentForm()
+        {
+            return currentForm;
+        }
     }
 }

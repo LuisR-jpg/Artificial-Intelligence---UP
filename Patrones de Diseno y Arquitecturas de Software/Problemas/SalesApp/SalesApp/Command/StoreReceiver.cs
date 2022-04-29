@@ -8,13 +8,24 @@ namespace SalesApp
 {
     public class Store
     {
-        private readonly int id;
-        private readonly string name;
+        private int id;
+        private string name;
         private List<Product> productList;
-        public Store(int id, string name)
+        public Store(string name)
+        {
+            this.name = name;
+        }
+        public void SetID(int id)
         {
             this.id = id;
-            this.name = name;
+        }
+        public int GetID()
+        {
+            return id;
+        }
+        public string GetName()
+        {
+            return name;
         }
         public void AddProduct(Product product)
         {

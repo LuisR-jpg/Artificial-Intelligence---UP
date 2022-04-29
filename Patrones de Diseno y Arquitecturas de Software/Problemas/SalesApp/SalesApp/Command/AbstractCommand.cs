@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace SalesApp
 {
-    abstract class AbstractCommand
+    public abstract class Command
     {
-
+        protected string description;
         public void Execute()
         {
             Run();
             Log();
         }
+        protected abstract void SetDescription();
         protected abstract void Run();
         protected void Log()
         {

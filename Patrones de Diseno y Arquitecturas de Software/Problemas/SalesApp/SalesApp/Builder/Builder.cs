@@ -8,6 +8,11 @@ namespace SalesApp
     {
         protected Form form;
         protected static Size sizeStandard;
+        protected SalesManager salesManager;
+        public Builder()
+        {
+            salesManager = new SalesManager();
+        }
         public abstract void CreateForm(int timesOpened);
         public abstract void AddButtons();
         public abstract void AddOtherComponents();

@@ -44,7 +44,8 @@ namespace SalesApp
         }
         private void BtnCreateClick(object s, EventArgs e)
         {
-            StoresFormBuilder.storeView.SetStoreName(inputName.Text);
+            salesManager.SetCommand(new NewStoreCommand(inputName.Text));
+            salesManager.Execute();
             form.Close();
         }
         protected override int GetHorizontalCenter(int width)

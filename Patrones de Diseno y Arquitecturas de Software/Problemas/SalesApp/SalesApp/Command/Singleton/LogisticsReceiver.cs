@@ -17,7 +17,10 @@ namespace SalesApp
         public static Logistics GetInstance()
         {
             if (uniqueInstance == null)
+            {
                 uniqueInstance = new Logistics();
+                uniqueInstance.ReadStores();
+            }
             return uniqueInstance;
         }
         public void Simulate()
@@ -32,9 +35,19 @@ namespace SalesApp
         {
 
         }
-        public void AddStore()
+        public void AddStore(string storeName)
         {
-
+            Store s = new Store(storeName);
+            s.SetID(stores.Count());
+            stores.Add(s);
+            StoresFormBuilder.storeView.SetStores(stores);
+        }
+        public void ReadStores()
+        {
+        }
+        public List<Store> GetStores()
+        {
+            return stores;
         }
     }
 }
