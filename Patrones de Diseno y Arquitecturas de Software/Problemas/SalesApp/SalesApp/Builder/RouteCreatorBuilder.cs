@@ -95,7 +95,7 @@ namespace SalesApp
         private void SimulateClick(object s, EventArgs e)
         {
             int tVegetables = 0, tBreads = 0, tSodas = 0;
-            foreach(string truck in trucks)
+            foreach (string truck in trucks)
             {
                 Control[] c = form.Controls.Find(truck, true);
                 NumericUpDown n = c[0] as NumericUpDown;

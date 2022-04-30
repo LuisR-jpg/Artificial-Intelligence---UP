@@ -1,6 +1,6 @@
 ﻿namespace SalesApp
 {
-    class ChoseRouteCommand: Command
+    class ChoseRouteCommand : Command
     {
         protected override void Run()
         {

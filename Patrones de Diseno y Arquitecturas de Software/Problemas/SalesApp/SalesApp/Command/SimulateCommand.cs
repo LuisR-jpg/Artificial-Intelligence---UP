@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace SalesApp
 {
@@ -45,7 +44,7 @@ namespace SalesApp
             description = "End Simulation";
             Log();
         }
-        protected override void SetDescription() {}
-        protected override void Log() {}
+        protected override void SetDescription() { }
+        protected override void Log() { }
     }
 }

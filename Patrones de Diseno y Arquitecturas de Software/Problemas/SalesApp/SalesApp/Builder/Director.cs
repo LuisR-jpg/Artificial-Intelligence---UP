@@ -8,7 +8,7 @@ namespace SalesApp
         private Dictionary<Type, int> openedForms;
         private Type className;
         Builder builder;
-        
+
         public FormsDirector()
         {
             openedForms = new Dictionary<Type, int>();

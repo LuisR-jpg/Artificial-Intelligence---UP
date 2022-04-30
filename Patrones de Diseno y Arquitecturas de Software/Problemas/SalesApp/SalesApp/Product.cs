@@ -34,9 +34,9 @@
             return this.qty;
         }
     }
-    public class FrozenVegetables: Product
+    public class FrozenVegetables : Product
     {
-        public FrozenVegetables(int id = 1, string name = "Frozen Vegetables", float price = 30.0f, int qty = 0): base(id, name, price, qty = 0) {}
+        public FrozenVegetables(int id = 1, string name = "Frozen Vegetables", float price = 30.0f, int qty = 0) : base(id, name, price, qty = 0) { }
 
     }
     public class Sodas : Product

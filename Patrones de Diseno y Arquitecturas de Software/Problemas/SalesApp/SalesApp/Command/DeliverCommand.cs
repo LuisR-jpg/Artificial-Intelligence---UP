@@ -2,7 +2,7 @@
 
 namespace SalesApp
 {
-    class DeliverCommand: Command
+    class DeliverCommand : Command
     {
         int storeID;
         public DeliverCommand(int storeID)

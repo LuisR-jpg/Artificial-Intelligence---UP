@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace SalesApp
 {
-    class StoresFormBuilder: Builder
+    class StoresFormBuilder : Builder
     {
         public static MyPanel storeView;
         private bool isFirstTime;
@@ -42,10 +42,10 @@ namespace SalesApp
             {
                 Text = "Go Back",
                 Size = new Size(75, 35),
-                Location = new Point((sizeStandard.Width - 75) / 2, sizeStandard.Height - 100 )
+                Location = new Point((sizeStandard.Width - 75) / 2, sizeStandard.Height - 100)
             };
             btnGoBack.Click += BtnGoBackClick;
-            if(!isFirstTime)
+            if (!isFirstTime)
                 form.Controls.Add(btnGoBack);
         }
         public override void AddOtherComponents()
@@ -129,7 +129,7 @@ namespace SalesApp
                 else
                 {
                     text = (s.hasOrder ? "Deliver" : "Raise Order");
-                    isEnabled = (s == l.GetCurrentStore()); 
+                    isEnabled = (s == l.GetCurrentStore());
                 }
                 Label lblStore = new Label
                 {
@@ -157,7 +157,7 @@ namespace SalesApp
                 foreach (Store s in list)
                 {
                     NewStoreToPanel(s);
-                    if(s.canRaise == false)
+                    if (s.canRaise == false)
                         storesToRaise--;
                 }
                 if ((list.Count > 0 && storesToRaise == 0 && isFirstTime) || (!isFirstTime && l.GetCurrentStore() == null))
@@ -166,7 +166,7 @@ namespace SalesApp
             private void BtnOrderClick(object sender, EventArgs e)
             {
                 Button b = sender as Button;
-                if(b.Text == "Raise Order")
+                if (b.Text == "Raise Order")
                 {
                     Command command = new RaiseOrderCommand(int.Parse(b.Name));
                     SalesManager manager = new SalesManager(command);

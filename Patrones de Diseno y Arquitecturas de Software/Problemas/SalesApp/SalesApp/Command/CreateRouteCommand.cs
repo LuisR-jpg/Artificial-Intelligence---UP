@@ -1,6 +1,6 @@
 ﻿namespace SalesApp
 {
-    class CreateRouteCommand: Command
+    class CreateRouteCommand : Command
     {
         Logistics logistics;
         public CreateRouteCommand()

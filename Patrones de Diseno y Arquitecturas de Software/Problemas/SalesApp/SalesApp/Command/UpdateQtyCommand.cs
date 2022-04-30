@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SalesApp
+﻿namespace SalesApp
 {
-    public class UpdateQtyCommand: Command
+    public class UpdateQtyCommand : Command
     {
         Store store;
         UpdateQtyCommand(Store store, string product)
@@ -15,7 +9,7 @@ namespace SalesApp
         }
         protected override void Run()
         {
-            
+
         }
         protected override void SetDescription()
         {

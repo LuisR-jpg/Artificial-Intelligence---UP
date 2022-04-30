@@ -1,6 +1,4 @@
-﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace SalesApp
 {
@@ -18,13 +16,13 @@ namespace SalesApp
         }
         public void Run()
         {
-            for(nextBuilder = new WelcomeFormBuilder(); currentBuilder != nextBuilder;)
+            for (nextBuilder = new WelcomeFormBuilder(); currentBuilder != nextBuilder;)
             {
                 currentBuilder = nextBuilder;
                 director.SetBuilder(currentBuilder);
                 director.Build();
                 currentForm = currentBuilder.ReturnForm();
-                currentForm.ShowDialog();   
+                currentForm.ShowDialog();
             }
         }
         public static void SetNextPage(Builder builder)

@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SalesApp
+﻿namespace SalesApp
 {
-    class RaiseOrderCommand: Command
+    class RaiseOrderCommand : Command
     {
         Store store;
         Logistics logistics;

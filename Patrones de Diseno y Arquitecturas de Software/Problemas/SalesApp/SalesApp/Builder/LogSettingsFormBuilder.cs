@@ -1,10 +1,10 @@
-﻿using System.Windows.Forms;
+﻿using System;
 using System.Drawing;
-using System;
+using System.Windows.Forms;
 
 namespace SalesApp
 {
-    class LogSettingsFormBuilder: Builder
+    class LogSettingsFormBuilder : Builder
     {
         static string[] targetNames = { "Text File", "Grid", "Text Box" };
         static int[] targetsQty = new int[targetNames.Length];
@@ -25,13 +25,13 @@ namespace SalesApp
         public override void AddButtons()
         {
             int offset = 75, width = 300, height = 100;
-            for(int i = 0; i < targetNames.Length; i++)
+            for (int i = 0; i < targetNames.Length; i++)
             {
                 Button b = new Button
                 {
                     Location = new Point(GetHorizontalCenter(width), i * height + offset),
                     Size = new Size(width, height),
-                    Text = GetButtonName(i), 
+                    Text = GetButtonName(i),
                     Name = i.ToString()
                 };
                 b.Click += BtnTargetClick;
@@ -57,6 +57,6 @@ namespace SalesApp
             GUI.LaunchPage(new LogSettingsFormBuilder());
             form.Close();
         }
-        public override void AddOtherComponents() {}
+        public override void AddOtherComponents() { }
     }
 }

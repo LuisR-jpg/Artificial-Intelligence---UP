@@ -3,7 +3,7 @@
     public class SalesManager
     {
         private Command command;
-        public SalesManager() {}
+        public SalesManager() { }
         public SalesManager(Command command)
         {
             this.command = command;
@@ -14,7 +14,7 @@
         }
         public void Execute()
         {
-            if(command != null)
+            if (command != null)
                 command.Execute();
         }
     }
