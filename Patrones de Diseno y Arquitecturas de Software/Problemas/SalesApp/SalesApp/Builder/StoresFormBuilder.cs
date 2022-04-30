@@ -112,22 +112,22 @@ namespace SalesApp
             {
                 if (isFirstTime || true)
                 {
-                    Label lblStore = new Label
-                    {
-                        Text = s.GetID().ToString() + ". " + s.GetName(),
-                        Location = new Point(50, elementsHeight * (s.GetID() + 1))
-                    };
-                    panel.Controls.Add(lblStore);
-                    Button btnOrder = new Button
-                    {
-                        Text = "Raise Order",
-                        Name = s.GetID().ToString(),
-                        Location = new Point(150, elementsHeight * (s.GetID() + 1) - 5), 
-                        Enabled = s.canRaise
-                    };
-                    btnOrder.Click += BtnOrderClick;
-                    panel.Controls.Add(btnOrder);
                 }
+                Label lblStore = new Label
+                {
+                    Text = s.GetID().ToString() + ". " + s.GetName(),
+                    Location = new Point(50, elementsHeight * (s.GetID() + 1))
+                };
+                panel.Controls.Add(lblStore);
+                Button btnOrder = new Button
+                {
+                    Text = (s.hasOrder? "Deliver": "Raise Order"),
+                    Name = s.GetID().ToString(),
+                    Location = new Point(150, elementsHeight * (s.GetID() + 1) - 5), 
+                    Enabled = true
+                };
+                btnOrder.Click += BtnOrderClick;
+                panel.Controls.Add(btnOrder);
             }
             public void SetStores(List<Store> list)
             {
@@ -145,10 +145,20 @@ namespace SalesApp
             private void BtnOrderClick(object sender, EventArgs e)
             {
                 Button b = sender as Button;
-                Command command = new RaiseOrderCommand(int.Parse(b.Name));
-                SalesManager manager = new SalesManager(command);
-                manager.Execute();
-                b.Enabled = false;
+                if(b.Text == "Raise Order")
+                {
+                    Command command = new RaiseOrderCommand(int.Parse(b.Name));
+                    SalesManager manager = new SalesManager(command);
+                    manager.Execute();
+                    b.Enabled = false;
+                }
+                else
+                {
+                    Command command = new DeliverCommand(int.Parse(b.Name));
+                    SalesManager manager = new SalesManager(command);
+                    manager.Execute();
+                    b.Text = "Raise Order";
+                }
                 SetStores(Logistics.GetInstance().GetStores());
             }
         }

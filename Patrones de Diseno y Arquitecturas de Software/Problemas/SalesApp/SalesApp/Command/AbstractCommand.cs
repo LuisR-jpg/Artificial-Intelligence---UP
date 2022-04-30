@@ -16,7 +16,7 @@ namespace SalesApp
         }
         protected abstract void SetDescription();
         protected abstract void Run();
-        protected void Log()
+        protected virtual void Log()
         {
             //Log here
         }

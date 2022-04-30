@@ -11,7 +11,7 @@ namespace SalesApp
         private int id;
         private string name;
         Product sodas, vegetables, breads;
-        public bool canRaise;
+        public bool canRaise, hasOrder;
         public Store(string name)
         {
             this.name = name;
@@ -19,6 +19,7 @@ namespace SalesApp
             vegetables = new FrozenVegetables();
             breads = new Breads();
             canRaise = true;
+            hasOrder = false;
         }
         public void SetID(int id)
         {
@@ -59,6 +60,17 @@ namespace SalesApp
         public void CreateQR()
         {
 
+        }
+        public float GetRevenue()
+        {
+            return GetSodasQty() * sodas.GetPrice() + GetBreadsQty() * breads.GetPrice() + GetVegetablesQty() * vegetables.GetPrice();
+        }
+    }
+    public class StoresComparer : IComparer<Store>
+    {
+        public int Compare(Store a, Store b)
+        {
+            return -1 * a.GetRevenue().CompareTo(b.GetRevenue());
         }
     }
 }

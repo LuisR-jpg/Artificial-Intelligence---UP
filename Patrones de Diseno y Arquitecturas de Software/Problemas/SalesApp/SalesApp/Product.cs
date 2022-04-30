@@ -17,6 +17,10 @@
         {
             this.id = id;
         }
+        public float GetPrice()
+        {
+            return price;
+        }
         public void SetPrice(float price)
         {
             this.price = price;

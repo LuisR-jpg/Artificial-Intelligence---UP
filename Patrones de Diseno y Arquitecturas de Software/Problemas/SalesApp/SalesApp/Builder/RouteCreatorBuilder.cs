@@ -4,8 +4,9 @@ using System.Windows.Forms;
 
 namespace SalesApp
 {
-    class RouteCreatorBuilder: Builder
+    class RouteCreatorBuilder : Builder
     {
+        string[] trucks = { "Vegetables Truck", "Breads Truck", "Sodas Truck" };
         public override void CreateForm(int timesOpened)
         {
             form = new Form();
@@ -19,6 +20,7 @@ namespace SalesApp
                 Location = new Point(sizeStandard.Width - 150, sizeStandard.Height - 100),
                 Size = new Size(100, 30)
             };
+            btnSimulate.Click += SimulateClick;
             form.Controls.Add(btnSimulate);
         }
         public override void AddOtherComponents()
@@ -33,7 +35,7 @@ namespace SalesApp
             DataGridView dgv = new DataGridView
             {
                 Size = new Size(width, height),
-                Location = new Point(GetHorizontalCenter(width), 50),
+                Location = new Point(60, 100),
                 ColumnCount = 3,
                 ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single,
                 CellBorderStyle = DataGridViewCellBorderStyle.Single,
@@ -57,6 +59,65 @@ namespace SalesApp
             foreach (DataGridViewColumn column in dgv.Columns)
                 column.SortMode = DataGridViewColumnSortMode.NotSortable;
             form.Controls.Add(dgv);
+            salesManager.SetCommand(new CreateRouteCommand());
+            salesManager.Execute();
+            foreach (Store s in Logistics.GetInstance().GetStores())
+            {
+                string id = s.GetID().ToString();
+                string name = s.GetName();
+                string revenue = s.GetRevenue().ToString();
+                string[] row = { id, name, revenue };
+                dgv.Rows.Add(row);
+            }
+            for (int i = 0, offset = 125, componentHeight = 50; i < trucks.Length; i++)
+            {
+
+                Label lblN = new Label
+                {
+                    Text = trucks[i],
+                    Location = new Point(500, componentHeight * i + offset),
+                    AutoSize = true
+                };
+                form.Controls.Add(lblN);
+                NumericUpDown nUD = new NumericUpDown
+                {
+                    Size = new Size(50, 10),
+                    Location = new Point(600, componentHeight * i + offset),
+                    DecimalPlaces = 0,
+                    Maximum = 100,
+                    Increment = 1,
+                    Minimum = 0,
+                    Value = 0,
+                    Name = trucks[i]
+                };
+                form.Controls.Add(nUD);
+            }
+        }
+        private void SimulateClick(object s, EventArgs e)
+        {
+            int tVegetables = 0, tBreads = 0, tSodas = 0;
+            foreach(string truck in trucks)
+            {
+                Control[] c = form.Controls.Find(truck, true);
+                NumericUpDown n = c[0] as NumericUpDown;
+                switch (truck)
+                {
+                    case "Vegetables Truck":
+                        tVegetables += (int)n.Value;
+                        break;
+                    case "Breads Truck":
+                        tBreads += (int)n.Value;
+                        break;
+                    case "Sodas Truck":
+                        tSodas += (int)n.Value;
+                        break;
+                }
+            }
+            Console.WriteLine(tVegetables);
+            Console.WriteLine(tBreads);
+            Console.WriteLine(tSodas);
+            salesManager.SetCommand(new SimulateCommand(tVegetables, tBreads, tSodas));
+            salesManager.Execute();
         }
     }
 }
