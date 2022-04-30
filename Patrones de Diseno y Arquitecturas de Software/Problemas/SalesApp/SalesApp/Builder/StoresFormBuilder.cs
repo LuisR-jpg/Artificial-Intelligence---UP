@@ -54,6 +54,8 @@ namespace SalesApp
         }
         private void BtnContinueClick(object sender, EventArgs e)
         {
+            GUI.CloseCurrentForm();
+            GUI.SetNextPage(new RouteCreatorBuilder());
         }
         private void BtnAddClick(object sender, EventArgs e)
         {
