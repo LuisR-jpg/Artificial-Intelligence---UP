@@ -45,7 +45,8 @@ namespace SalesApp
                 Location = new Point((sizeStandard.Width - 75) / 2, sizeStandard.Height - 100 )
             };
             btnGoBack.Click += BtnGoBackClick;
-            form.Controls.Add(btnGoBack);
+            if(!isFirstTime)
+                form.Controls.Add(btnGoBack);
         }
         public override void AddOtherComponents()
         {
@@ -89,6 +90,8 @@ namespace SalesApp
             private readonly int elementsHeight;
             private bool isFirstTime = true;
             public int storesToRaise;
+            private int count = 0, currentStore = 0;
+            Logistics l;
             public MyPanel(bool isFirstTime)
             {
                 this.isFirstTime = isFirstTime;
@@ -101,6 +104,12 @@ namespace SalesApp
                     AutoScroll = true,
                     BackColor = Color.White
                 };
+                if (!isFirstTime)
+                {
+                    l = Logistics.GetInstance();
+                    l.SetCurrentStore(l.GetStores()[0]);
+                    currentStore = 1;
+                }
                 SetStores(Logistics.GetInstance().GetStores());
                 storesToRaise = 0;
             }
@@ -110,36 +119,48 @@ namespace SalesApp
             }
             public void NewStoreToPanel(Store s)
             {
-                if (isFirstTime || true)
+                bool isEnabled;
+                string text;
+                if (isFirstTime)
                 {
+                    isEnabled = s.canRaise;
+                    text = "Raise Order";
+                }
+                else
+                {
+                    text = (s.hasOrder ? "Deliver" : "Raise Order");
+                    isEnabled = (s == l.GetCurrentStore()); 
                 }
                 Label lblStore = new Label
                 {
                     Text = s.GetID().ToString() + ". " + s.GetName(),
-                    Location = new Point(50, elementsHeight * (s.GetID() + 1))
+                    Location = new Point(50, elementsHeight * count)
                 };
                 panel.Controls.Add(lblStore);
                 Button btnOrder = new Button
                 {
-                    Text = (s.hasOrder? "Deliver": "Raise Order"),
+                    Text = text,
                     Name = s.GetID().ToString(),
-                    Location = new Point(150, elementsHeight * (s.GetID() + 1) - 5), 
-                    Enabled = true
+                    Location = new Point(150, elementsHeight * count - 5),
+                    Enabled = isEnabled
                 };
                 btnOrder.Click += BtnOrderClick;
                 panel.Controls.Add(btnOrder);
+                count++;
             }
             public void SetStores(List<Store> list)
             {
+                count = 1;
+                panel.Controls.Clear();
                 StoresFormBuilder.DisableContinue();
                 storesToRaise = list.Count;
-                foreach(Store s in list)
+                foreach (Store s in list)
                 {
                     NewStoreToPanel(s);
                     if(s.canRaise == false)
                         storesToRaise--;
                 }
-                if (list.Count > 0 && storesToRaise == 0)
+                if ((list.Count > 0 && storesToRaise == 0 && isFirstTime) || (!isFirstTime && l.GetCurrentStore() == null))
                     StoresFormBuilder.EnableContinue();
             }
             private void BtnOrderClick(object sender, EventArgs e)
@@ -151,6 +172,12 @@ namespace SalesApp
                     SalesManager manager = new SalesManager(command);
                     manager.Execute();
                     b.Enabled = false;
+                    if (!isFirstTime)
+                    {
+                        if (currentStore < l.GetStores().Count)
+                            l.SetCurrentStore(l.GetStores()[currentStore++]);
+                        else l.SetCurrentStore(null);
+                    }
                 }
                 else
                 {

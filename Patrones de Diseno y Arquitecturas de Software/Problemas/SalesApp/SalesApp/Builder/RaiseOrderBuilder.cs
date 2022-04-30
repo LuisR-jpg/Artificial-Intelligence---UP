@@ -89,7 +89,6 @@ namespace SalesApp
                     store.SetVegetablesQty(value);
                     break;
             }
-            Console.WriteLine(value);
         }
         private void NewOrderClick(object s, EventArgs e)
         {

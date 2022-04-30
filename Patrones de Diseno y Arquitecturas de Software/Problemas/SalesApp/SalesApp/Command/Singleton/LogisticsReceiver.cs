@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SalesApp
 {
@@ -86,7 +84,7 @@ namespace SalesApp
             }
             if (vQty <= tV && bQty <= tB && sQty <= tS)
             {
-                simulationAnswer = "\t" + (tV - vQty).ToString() + " Kg of vegetables remain" + "\n\t" + (tS - sQty).ToString() + " Cans of soda remain" + "\n\t" + (tB - bQty).ToString() + " Pieces of bread remain";
+                simulationAnswer = "\t" + (tV - vQty).ToString() + " Kg of vegetables will remain" + "\n\t" + (tS - sQty).ToString() + " Cans of soda will remain" + "\n\t" + (tB - bQty).ToString() + " Pieces of bread will remain";
                 return true;
             }
             return false;
@@ -98,7 +96,7 @@ namespace SalesApp
         public void AddStore(string storeName)
         {
             Store s = new Store(storeName);
-            s.SetID(stores.Count());
+            s.SetID(stores.Count);
             stores.Add(s);
             StoresFormBuilder.storeView.SetStores(stores);
         }
@@ -115,12 +113,11 @@ namespace SalesApp
         }
         public Store GetStore(int storeID)
         {
-            if (storeID + 1 <= stores.Count())
-                return stores[storeID];
-            return null;
+            return stores.Where(i => i.GetID() == storeID).First();
         }
         public void SetCurrentStore(Store store)
         {
+
             currentStore = store;
         }
         public Store GetCurrentStore()

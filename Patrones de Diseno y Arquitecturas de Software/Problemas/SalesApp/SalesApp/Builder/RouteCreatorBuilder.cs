@@ -71,7 +71,6 @@ namespace SalesApp
             }
             for (int i = 0, offset = 125, componentHeight = 50; i < trucks.Length; i++)
             {
-
                 Label lblN = new Label
                 {
                     Text = trucks[i],
@@ -113,9 +112,6 @@ namespace SalesApp
                         break;
                 }
             }
-            Console.WriteLine(tVegetables);
-            Console.WriteLine(tBreads);
-            Console.WriteLine(tSodas);
             salesManager.SetCommand(new SimulateCommand(tVegetables, tBreads, tSodas));
             salesManager.Execute();
         }
