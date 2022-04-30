@@ -17,7 +17,9 @@ namespace SalesApp
         }
         protected override void Run()
         {
+            logistics.SetCurrentStore(store);
             GUI.LaunchPage(new RaiseOrderBuilder());
+            logistics.GetCurrentStore().canRaise = false;
         }
         protected override void SetDescription()
         {

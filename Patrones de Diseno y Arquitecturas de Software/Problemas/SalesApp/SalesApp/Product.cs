@@ -21,6 +21,14 @@
         {
             this.price = price;
         }
+        public void SetQty(int qty)
+        {
+            this.qty = qty;
+        }
+        public int GetQty()
+        {
+            return this.qty;
+        }
     }
     public class FrozenVegetables: Product
     {

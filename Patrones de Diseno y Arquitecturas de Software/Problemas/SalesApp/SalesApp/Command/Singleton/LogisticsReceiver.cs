@@ -10,6 +10,7 @@ namespace SalesApp
     {
         private static Logistics uniqueInstance;
         private List<Store> stores;
+        private Store currentStore;
         private Logistics()
         {
             stores = new List<Store>();
@@ -54,6 +55,14 @@ namespace SalesApp
             if (storeID + 1 <= stores.Count())
                 return stores[storeID];
             return null;
+        }
+        public void SetCurrentStore(Store store)
+        {
+            currentStore = store;
+        }
+        public Store GetCurrentStore()
+        {
+            return currentStore;
         }
     }
 }

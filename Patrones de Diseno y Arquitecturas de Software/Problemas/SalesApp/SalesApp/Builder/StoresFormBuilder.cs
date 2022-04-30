@@ -9,6 +9,7 @@ namespace SalesApp
     {
         public static MyPanel storeView;
         private bool isFirstTime;
+        private static Button btnContinue;
         public override void CreateForm(int timesOpened)
         {
             form = new Form();
@@ -25,6 +26,7 @@ namespace SalesApp
                 Location = new Point(form.Size.Width - 125, form.Size.Height - 100)
             };
             btnContinue.Click += BtnContinueClick;
+            StoresFormBuilder.btnContinue = btnContinue;
             form.Controls.Add(btnContinue);
 
             Button btnAdd = new Button
@@ -84,6 +86,7 @@ namespace SalesApp
             private readonly Panel panel;
             private readonly int elementsHeight;
             private bool isFirstTime = true;
+            public int storesToRaise;
             public MyPanel(bool isFirstTime)
             {
                 this.isFirstTime = isFirstTime;
@@ -97,6 +100,7 @@ namespace SalesApp
                     BackColor = Color.White
                 };
                 SetStores(Logistics.GetInstance().GetStores());
+                storesToRaise = 0;
             }
             public Panel GetPanel()
             {
@@ -116,7 +120,8 @@ namespace SalesApp
                     {
                         Text = "Raise Order",
                         Name = s.GetID().ToString(),
-                        Location = new Point(150, elementsHeight * (s.GetID() + 1) - 5)
+                        Location = new Point(150, elementsHeight * (s.GetID() + 1) - 5), 
+                        Enabled = s.canRaise
                     };
                     btnOrder.Click += BtnOrderClick;
                     panel.Controls.Add(btnOrder);
@@ -124,10 +129,16 @@ namespace SalesApp
             }
             public void SetStores(List<Store> list)
             {
+                StoresFormBuilder.DisableContinue();
+                storesToRaise = list.Count;
                 foreach(Store s in list)
                 {
                     NewStoreToPanel(s);
+                    if(s.canRaise == false)
+                        storesToRaise--;
                 }
+                if (list.Count > 0 && storesToRaise == 0)
+                    StoresFormBuilder.EnableContinue();
             }
             private void BtnOrderClick(object sender, EventArgs e)
             {
@@ -135,7 +146,17 @@ namespace SalesApp
                 Command command = new RaiseOrderCommand(int.Parse(b.Name));
                 SalesManager manager = new SalesManager(command);
                 manager.Execute();
+                b.Enabled = false;
+                SetStores(Logistics.GetInstance().GetStores());
             }
+        }
+        public static void EnableContinue()
+        {
+            StoresFormBuilder.btnContinue.Enabled = true;
+        }
+        public static void DisableContinue()
+        {
+            StoresFormBuilder.btnContinue.Enabled = false;
         }
     }
 }
