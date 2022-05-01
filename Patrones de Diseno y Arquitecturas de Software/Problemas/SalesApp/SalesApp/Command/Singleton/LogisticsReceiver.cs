@@ -99,9 +99,16 @@ namespace SalesApp
         public void AddStore(int storeID, string storeName)
         {
             Store s = new Store(storeName);
-            if (storeID == -1) s.SetID(stores.Count);
-            else s.SetID(storeID);
-            AddStore(s);
+            if (storeID == -1)
+            {
+                s.SetID(stores.Count);
+                AddStore(s);
+            }
+            else
+            {
+                s.SetID(storeID);
+                stores.Add(s);
+            }
         }
         public void AddStore(int storeID, string storeName, int nV, int nB, int nS)
         {
@@ -111,7 +118,7 @@ namespace SalesApp
             s.SetBreadsQty(nB);
             s.SetSodasQty(nS);
             s.SetVegetablesQty(nV);
-            AddStore(s);
+            stores.Add(s);
         }
         public List<Store> GetStores()
         {
@@ -127,7 +134,6 @@ namespace SalesApp
         }
         public void SetCurrentStore(Store store)
         {
-
             currentStore = store;
         }
         public Store GetCurrentStore()

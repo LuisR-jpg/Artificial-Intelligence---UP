@@ -92,6 +92,8 @@ namespace SalesApp
         }
         private void NewOrderClick(object s, EventArgs e)
         {
+            salesManager.SetCommand(new WriteQRCommand(store));
+            salesManager.Execute();
             form.Close();
         }
     }

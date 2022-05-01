@@ -60,23 +60,6 @@ namespace SalesApp
         }
         private void BtnAddClick(object sender, EventArgs e)
         {
-            /*
-            string message = "Do you have a QR for the store?";
-            string title = "Add a new store";
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result = MessageBox.Show(message, title, buttons);
-            if (result == DialogResult.Yes)
-            {
-                Console.WriteLine("Not Implemented Yet");
-                OpenFileDialog fileChooser = new OpenFileDialog();
-                if (fileChooser.ShowDialog() == DialogResult.OK)
-                {
-                    Console.WriteLine(fileChooser.FileName);
-                }
-            }
-            else
-            {
-        */
             GUI.LaunchPage(new InputStoreBuilder());
         }
         private void BtnGoBackClick(object sender, EventArgs e)
@@ -104,6 +87,8 @@ namespace SalesApp
                     AutoScroll = true,
                     BackColor = Color.White
                 };
+                SalesManager manager = new SalesManager(new ReadQRCommand());
+                manager.Execute();
                 if (!isFirstTime)
                 {
                     l = Logistics.GetInstance();

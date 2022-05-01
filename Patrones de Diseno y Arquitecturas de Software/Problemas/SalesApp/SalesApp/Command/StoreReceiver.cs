@@ -72,12 +72,13 @@ namespace SalesApp
             Bitmap bitmap = barcodeWriter.Write(text);
             string r = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             r += "\\" + store.GetID().ToString() + store.GetName() + ".bmp";
+            if (File.Exists(r)) File.Delete(r);
             bitmap.Save(r);
+            bitmap.Dispose();
         }
         public static void QRToStore()
         {
             string r = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            List<Store> list = new List<Store>();
             DirectoryInfo d = new DirectoryInfo(r);
             FileInfo[] Files = d.GetFiles("*.bmp");
             foreach (FileInfo file in Files)
@@ -86,9 +87,9 @@ namespace SalesApp
                 LuminanceSource source = new BitmapLuminanceSource(bitmap);
                 BinaryBitmap binaryBitmap = new BinaryBitmap(new HybridBinarizer(source));
                 Result result = new MultiFormatReader().decode(binaryBitmap);
-                Console.WriteLine(result.Text);
                 ExposedStore eStore = JsonConvert.DeserializeObject<ExposedStore>(result.Text);
                 eStore.ToStore();
+                bitmap.Dispose();
             }
         }
         public class ExposedStore
@@ -102,9 +103,9 @@ namespace SalesApp
                 this.idStore = store.GetID();
                 this.storeName = store.GetName();
                 products = new List<Product>();
-                products.Add(new FrozenVegetables());
-                products.Add(new Breads());
-                products.Add(new Sodas());
+                products.Add(new FrozenVegetables(store.GetVegetablesQty()));
+                products.Add(new Breads(store.GetBreadsQty()));
+                products.Add(new Sodas(store.GetSodasQty()));
             }
             public void ToStore()
             {

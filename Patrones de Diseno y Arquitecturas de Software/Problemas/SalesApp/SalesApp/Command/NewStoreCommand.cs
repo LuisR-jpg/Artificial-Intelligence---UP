@@ -26,6 +26,7 @@
             this.nV = nVegetables;
             this.nB = nBreads;
             this.nS = nSodas;
+            hasProducts = true;
         }
         protected override void Run()
         {
