@@ -6,21 +6,15 @@ namespace SalesApp
 {
     class LogSettingsFormBuilder : Builder
     {
-        static string[] targetNames = { "Text File", "Grid", "Text Box" };
-        static int[] targetsQty = new int[targetNames.Length];
-
+        Logger logger;
+        string[] targetNames;
         public override void CreateForm(int timesOpened)
         {
             form = new Form();
             FormatForm(true);
             form.AutoScroll = true;
-            Button btnReset = new Button
-            {
-                Location = new Point(sizeStandard.Width - 100, 10),
-                Text = "Reset"
-            };
-            btnReset.Click += BtnResetClick;
-            form.Controls.Add(btnReset);
+            logger = Logger.GetInstance();
+            targetNames = logger.GetTargetNames();
         }
         public override void AddButtons()
         {
@@ -37,23 +31,30 @@ namespace SalesApp
                 b.Click += BtnTargetClick;
                 form.Controls.Add(b);
             }
+            Button btnReset = new Button
+            {
+                Location = new Point(sizeStandard.Width - 100, 10),
+                Text = "Reset"
+            };
+            btnReset.Click += BtnResetClick;
+            form.Controls.Add(btnReset);
         }
         private string GetButtonName(int i)
         {
             string extra = "";
-            if (targetsQty[i] > 0) extra = " (x" + targetsQty[i].ToString() + ")";
+            if (logger.targetsQty[i] > 0) extra = " (x" + logger.targetsQty[i].ToString() + ")";
             return targetNames[i] + extra;
         }
         private void BtnTargetClick(object s, EventArgs e)
         {
             Button b = (s as Button);
             int index = int.Parse(b.Name);
-            targetsQty[index]++;
+            logger.targetsQty[index]++;
             b.Text = GetButtonName(index);
         }
         private void BtnResetClick(object s, EventArgs e)
         {
-            Array.Clear(targetsQty, 0, targetsQty.Length);
+            Array.Clear(logger.targetsQty, 0, logger.targetsQty.Length);
             GUI.LaunchPage(new LogSettingsFormBuilder());
             form.Close();
         }

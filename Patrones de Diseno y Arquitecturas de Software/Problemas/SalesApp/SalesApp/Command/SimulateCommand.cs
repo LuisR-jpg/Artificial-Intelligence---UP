@@ -16,7 +16,7 @@ namespace SalesApp
         protected override void Run()
         {
             description = "Start Simulation";
-            Log();
+            base.Log();
             bool r = logistics.Simulate(tVegetables, tBreads, tSodas);
             string message = logistics.GetSimulationMessage();
             MessageBoxButtons buttons;
@@ -40,9 +40,9 @@ namespace SalesApp
                 MessageBox.Show(message, caption, buttons);
             }
             description = message;
-            Log();
+            base.Log();
             description = "End Simulation";
-            Log();
+            base.Log();
         }
         protected override void SetDescription() { }
         protected override void Log() { }

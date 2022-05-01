@@ -33,6 +33,8 @@ namespace SalesApp
         {
             if (WelcomeFormBuilder.isFirstTime)
                 GUI.LaunchPage(new LogSettingsFormBuilder());
+            else
+                GUI.LaunchPage(new LogBuilder());
         }
     }
 }
