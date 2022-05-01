@@ -92,15 +92,13 @@ namespace SalesApp
         {
             return simulationAnswer;
         }
-        public void AddStore(string storeName)
+        public void AddStore(int storeID, string storeName)
         {
             Store s = new Store(storeName);
-            s.SetID(stores.Count);
+            if (storeID == -1) s.SetID(stores.Count);
+            else s.SetID(storeID);
             stores.Add(s);
             StoresFormBuilder.storeView.SetStores(stores);
-        }
-        public void ReadStores()
-        {
         }
         public List<Store> GetStores()
         {
