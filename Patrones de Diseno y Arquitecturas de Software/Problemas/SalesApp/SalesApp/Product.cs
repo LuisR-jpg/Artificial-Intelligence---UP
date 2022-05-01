@@ -2,10 +2,10 @@
 {
     public class Product
     {
-        private int id;
-        private readonly string name;
+        public int id;
+        public readonly string name;
         private float price;
-        private int qty;
+        public int qty;
         public Product(int id, string name, float price, int qty)
         {
             this.id = id;

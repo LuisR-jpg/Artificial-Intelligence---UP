@@ -23,7 +23,6 @@ namespace SalesApp
             if (uniqueInstance == null)
             {
                 uniqueInstance = new Logistics();
-                uniqueInstance.ReadStores();
             }
             return uniqueInstance;
         }

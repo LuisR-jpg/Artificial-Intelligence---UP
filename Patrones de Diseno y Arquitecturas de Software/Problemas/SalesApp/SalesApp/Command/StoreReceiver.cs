@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using ZXing;
+using ZXing.Common;
 
 namespace SalesApp
 {
@@ -8,6 +12,7 @@ namespace SalesApp
         private string name;
         Product sodas, vegetables, breads;
         public bool canRaise, hasOrder;
+
         public Store(string name)
         {
             this.name = name;
@@ -53,13 +58,25 @@ namespace SalesApp
         {
             return breads.GetQty();
         }
-        public void CreateQR()
-        {
-
-        }
         public float GetRevenue()
         {
             return GetSodasQty() * sodas.GetPrice() + GetBreadsQty() * breads.GetPrice() + GetVegetablesQty() * vegetables.GetPrice();
+        }
+        public static void StoreToQR(Store store)
+        {
+            string text = Newtonsoft.Json.JsonConvert.SerializeObject(store);
+            BarcodeWriter barcodeWriter = new BarcodeWriter();
+            barcodeWriter.Format = BarcodeFormat.QR_CODE;
+            Bitmap bitmap = barcodeWriter.Write(text);
+            bitmap.Save("imagen.bmp");
+        }
+        public static void QRToStore()
+        {
+            Bitmap bitmap = new Bitmap("imagen.bmp");
+            LuminanceSource source = new BitmapLuminanceSource(bitmap);
+            BinaryBitmap binaryBitmap = new BinaryBitmap(new HybridBinarizer(source));
+            Result result = new MultiFormatReader().decode(binaryBitmap);
+            Console.WriteLine(result.Text);
         }
     }
     public class StoresComparer : IComparer<Store>
