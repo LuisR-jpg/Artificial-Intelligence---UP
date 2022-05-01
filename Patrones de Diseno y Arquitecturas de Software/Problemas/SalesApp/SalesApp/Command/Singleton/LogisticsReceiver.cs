@@ -91,13 +91,27 @@ namespace SalesApp
         {
             return simulationAnswer;
         }
+        private void AddStore(Store s)
+        {
+            stores.Add(s);
+            StoresFormBuilder.storeView.SetStores(stores);
+        }
         public void AddStore(int storeID, string storeName)
         {
             Store s = new Store(storeName);
             if (storeID == -1) s.SetID(stores.Count);
             else s.SetID(storeID);
-            stores.Add(s);
-            StoresFormBuilder.storeView.SetStores(stores);
+            AddStore(s);
+        }
+        public void AddStore(int storeID, string storeName, int nV, int nB, int nS)
+        {
+            Store s = new Store(storeName);
+            if (storeID == -1) s.SetID(stores.Count);
+            else s.SetID(storeID);
+            s.SetBreadsQty(nB);
+            s.SetSodasQty(nS);
+            s.SetVegetablesQty(nV);
+            AddStore(s);
         }
         public List<Store> GetStores()
         {
@@ -119,6 +133,10 @@ namespace SalesApp
         public Store GetCurrentStore()
         {
             return currentStore;
+        }
+        public void ClearStores()
+        {
+            stores.Clear();
         }
     }
 }

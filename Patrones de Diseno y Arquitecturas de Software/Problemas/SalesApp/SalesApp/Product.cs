@@ -2,20 +2,20 @@
 {
     public class Product
     {
-        public int id;
+        public int idProduct;
         public readonly string name;
         private float price;
-        public int qty;
-        public Product(int id, string name, float price, int qty)
+        public int quantity;
+        public Product(int idProduct, string name, int quantity, float price)
         {
-            this.id = id;
+            this.idProduct = idProduct;
             this.name = name;
             this.price = price;
-            this.qty = qty;
+            this.quantity = quantity;
         }
-        public void SetID(int id)
+        public void SetID(int idProduct)
         {
-            this.id = id;
+            this.idProduct = idProduct;
         }
         public float GetPrice()
         {
@@ -25,28 +25,28 @@
         {
             this.price = price;
         }
-        public void SetQty(int qty)
+        public void SetQty(int quantity)
         {
-            this.qty = qty;
+            this.quantity = quantity;
         }
         public int GetQty()
         {
-            return this.qty;
+            return this.quantity;
         }
     }
     public class FrozenVegetables : Product
     {
-        public FrozenVegetables(int id = 1, string name = "Frozen Vegetables", float price = 30.0f, int qty = 0) : base(id, name, price, qty = 0) { }
+        public FrozenVegetables(int quantity = 0, string name = "Frozen Vegetables", int idProduct = 1, float price = 30.0f) : base(idProduct, name, quantity, price) { }
 
     }
     public class Sodas : Product
     {
-        public Sodas(int id = 2, string name = "Soda", float price = 20.0f, int qty = 0) : base(id, name, price, qty) { }
+        public Sodas(int quantity = 0, string name = "Soda", int idProduct = 2, float price = 20.0f) : base(idProduct, name, quantity, price) { }
 
     }
     public class Breads : Product
     {
-        public Breads(int id = 3, string name = "Bread", float price = 5.0f, int qty = 0) : base(id, name, price, qty) { }
+        public Breads(int quantity = 0, string name = "Bread", int idProduct = 3, float price = 5.0f) : base(idProduct, name, quantity, price) { }
 
     }
 }

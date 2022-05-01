@@ -7,9 +7,6 @@ namespace SalesApp
         [STAThread]
         static void Main()
         {
-            Store store = new Store("jaa");
-            Store.StoreToQR(store);
-            Store.QRToStore();
             GUI gui = new GUI();
             gui.Run();
         }
