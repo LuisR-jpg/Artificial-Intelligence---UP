@@ -89,6 +89,7 @@ namespace SalesApp
                 };
                 SalesManager manager = new SalesManager(new ReadQRCommand());
                 manager.Execute();
+                Logistics.GetInstance().CreateRoute();
                 if (!isFirstTime)
                 {
                     l = Logistics.GetInstance();

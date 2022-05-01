@@ -97,6 +97,8 @@ namespace SalesApp
             public int idStore;
             public string storeName;
             public List<Product> products;
+            public bool canRaise, hasOrder;
+
             public ExposedStore() { }
             public ExposedStore(Store store)
             {

@@ -118,6 +118,8 @@ namespace SalesApp
             s.SetBreadsQty(nB);
             s.SetSodasQty(nS);
             s.SetVegetablesQty(nV);
+            s.canRaise = true;
+            s.hasOrder = (nB + nS + nV > 0);
             stores.Add(s);
         }
         public List<Store> GetStores()
