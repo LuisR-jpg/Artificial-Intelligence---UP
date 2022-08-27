@@ -3,47 +3,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Calculator.MainPage"
              Title="Calculator">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="2*" />
-            <RowDefinition />
-            <RowDefinition Height="100" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <BoxView Color="Green" />
-        <Label Text="Row 0, Column 0"
-               HorizontalOptions="Center"
-               VerticalOptions="Center" />
-        <BoxView Grid.Column="1"
-                 Color="Blue" />
-        <Label Grid.Column="1"
-               Text="Row 0, Column 1"
-               HorizontalOptions="Center"
-               VerticalOptions="Center" />
-        <BoxView Grid.Row="1"
-                 Color="Teal" />
-        <Label Grid.Row="1"
-               Text="Row 1, Column 0"
-               HorizontalOptions="Center"
-               VerticalOptions="Center" />
-        <BoxView Grid.Row="1"
-                 Grid.Column="1"
-                 Color="Purple" />
-        <Label Grid.Row="1"
-               Grid.Column="1"
-               Text="Row1, Column 1"
-               HorizontalOptions="Center"
-               VerticalOptions="Center" />
-        <BoxView Grid.Row="2"
-                 Grid.ColumnSpan="2"
-                 Color="Red" />
-        <Label Grid.Row="2"
-               Grid.ColumnSpan="2"
-               Text="Row 2, Columns 0 and 1"
-               HorizontalOptions="Center"
-               VerticalOptions="Center" />
-    </Grid>
+    <StackLayout Spacing="60">
+        <Frame BackgroundColor="CadetBlue" HeightRequest="60">
+            <Label Text="SUPER CALCULATOR" FontSize="Title" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="CadetBlue" TextColor="White"/>
+        </Frame>
+        <StackLayout Orientation="Horizontal">
+            <Entry x:Name="One" Placeholder="Number 1" MaxLength="5" Keyboard="Numeric" HorizontalOptions="CenterAndExpand"/>
+            <Entry x:Name="Two" Placeholder="Number 2" MaxLength="5" Keyboard="Numeric" HorizontalOptions="CenterAndExpand"/>
+        </StackLayout>
+        <StackLayout>
+            <Picker Title="Operation" x:Name="Operation">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>+</x:String>
+                        <x:String>-</x:String>
+                        <x:String>*</x:String>
+                        <x:String>/</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        </StackLayout>
+        <Button BackgroundColor="IndianRed" Text="Calculate" FontSize="Large" TextColor="Black" HeightRequest="150" HorizontalOptions="FillAndExpand" Clicked="Button_Clicked"/>
+    </StackLayout>
 </ContentPage>
