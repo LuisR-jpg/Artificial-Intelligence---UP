@@ -4,38 +4,38 @@
 
 ---
 
-**Install ionic**
+- **Install ionic**
 
-`npm install -g @ionic/cli` or `npm install -g ionic` 
+    `npm install -g @ionic/cli` or `npm install -g ionic` 
 
-**Create project**
+- **Create project**
 
-`ionic start tmp-ionic-tabs-1 tabs --type=react`
+    `ionic start tmp-ionic-tabs-1 tabs --type=react`
 
-**Change to the project directory**
+- **Change to the project directory**
 
-`cd tmp-ionic-tabs-1`
+    `cd tmp-ionic-tabs-1`
 
-**Run the app**
+- **Run the app**
 
-`ionic serve`
+    `ionic serve`
 
-**Build the project**
+- **Build the project**
 
-`npm run build`
+    `npm run build`
 
-**Install capacitor**
+- **Install capacitor**
 
-`npm install @capacitor/android`
+    `npm install @capacitor/android`
 
-**Enable capacitor**
+- **Enable capacitor**
 
-`npx cat init`
+    `npx cat init`
 
-**Get android app**
+- **Get android app**
+    
+    `npx cap add android`
 
-`npx cap add android`
+    `npx cap sync android`
 
-`npx cap sync android`
-
-`npx cap open android`
+    `npx cap open android`
