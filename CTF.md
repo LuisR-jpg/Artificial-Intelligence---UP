@@ -22,4 +22,4 @@ ssh banditX@bandit.labs.overthewire.org -p 2220
 - Bandit4 - lrIWWI6bB37kxfiCQZqUdOIYfr6eEeqR
 - Bandit5 - P4L4vucdmLnm8I7Vl7jG1ApGSfjYKqJU
 
-        Found using `find -name "*" -size 1033c`
+    Found using `find -name "*" -size 1033c`
