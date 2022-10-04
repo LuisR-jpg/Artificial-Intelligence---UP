@@ -10,6 +10,23 @@ class EvolutionaryProgramming:
         self.fitness = None
 
     def mutation(self):
+        nPopulation = self.population.copy()
+        def mutate(individual):
+            print(individual)
+            nvar = len(self.bounds)
+            alpha = 0.2
+            r = [v + (np.random.normal(0, individual[i + nvar])) if i < nvar else v * (1 + np.random.normal(0, alpha)) for i, v in enumerate(individual)]
+            return r
+        nPopulation = [mutate(i) for i in nPopulation]
+        print("hola")
+        print(nPopulation)
+        return nPopulation
+
+
+
+
+
+    def survivor_selection(self):
         pass
 
     def init_population(self):
@@ -31,7 +48,7 @@ class EvolutionaryProgramming:
         print(self.population)
     def solve(self):
         self.init_population()
-
+        self.mutation()
         # P: el arreglo con la solucion
         # nit: numero de generaciones
         # fun: fitness del mejor individuo al terminar la ejecucion
