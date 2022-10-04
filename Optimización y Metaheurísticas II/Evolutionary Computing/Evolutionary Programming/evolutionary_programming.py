@@ -1,13 +1,14 @@
 import numpy as np
 
 class EvolutionaryProgramming:
-    def __init__(self, func, bounds, args = (), popsize = 30):
+    def __init__(self, func, bounds, args = (), popsize = 30, ngen = 50):
         self.func = func
         self.bounds = np.array(bounds)
         self.args = args
         self.popsize = popsize
         self.population = None
         self.fitness = None
+        self.ngen = ngen
 
     def mutation(self):
         nPopulation = self.population.copy()
@@ -18,13 +19,7 @@ class EvolutionaryProgramming:
             r = [v + (np.random.normal(0, individual[i + nvar])) if i < nvar else v * (1 + np.random.normal(0, alpha)) for i, v in enumerate(individual)]
             return r
         nPopulation = [mutate(i) for i in nPopulation]
-        print("hola")
-        print(nPopulation)
         return nPopulation
-
-
-
-
 
     def survivor_selection(self):
         pass
@@ -48,7 +43,8 @@ class EvolutionaryProgramming:
         print(self.population)
     def solve(self):
         self.init_population()
-        self.mutation()
+        for _ in range(self.ngen):
+            self.mutation()
         # P: el arreglo con la solucion
         # nit: numero de generaciones
         # fun: fitness del mejor individuo al terminar la ejecucion
