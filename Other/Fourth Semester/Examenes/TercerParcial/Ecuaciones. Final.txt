@@ -1,0 +1,12 @@
+Estudio examen final.
+
+Variables Separables
+Exactas
+Homogéneas 
+
+Transformadas
+Inversas
+Ecuaciones 
+Sistemas Laplace
+
+Ecuaciones diferenciales parciales. Variables separables

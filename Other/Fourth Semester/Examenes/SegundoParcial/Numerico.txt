@@ -1,0 +1,11 @@
+Calculo Numerico
+  Aproximación de una función en un punto.
+    Método de la secante
+    Metodo del punto fijo
+  Aproximación de un polinomio.
+    Lagrange
+    Polinomio de Newton
+    Hermite
+  Sistemas de ecuacion
+    Gauss-Seidel
+    Jacobi

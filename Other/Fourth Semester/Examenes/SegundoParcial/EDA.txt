@@ -1,0 +1,44 @@
+Estructuras de Datos y Algoritmos
+  Minimum Range Queries (Lunes) 
+    RMQ	
+      Memory O(nlogn)
+      Time:
+        Query O(1)* Depends on the complexity of log()
+        Build O(nlogn) 
+        Update *No update allowed so it requires building again.
+    Fenwick tree
+      Memory O(n)
+      Time:
+        Build O(nlogn)
+        Query O(logn)
+        Update O(logn)
+    Segment tree
+      Memory O(n)
+      Time: 
+	Build O(n)
+	Query O(logn)
+	Update O(logn)     
+  Trie (Martes)
+    Find O(n) //N = string length
+  Heap (priority queue) (Martes)
+    Top = pop = O(1)
+    
+    Top k
+    Median
+  Graphs (Miercoles)
+    Matriz de adyacencia
+    Lista de adyacencia
+    Lista de ejes
+    DFS
+	AL: (V + E)
+	AM: (V^2)
+      Stack
+      Recursivo
+    BFS
+	AL: (V + E)
+	AM: (v^2)
+    Dijkstra
+      O(n^2)
+      PQ: O(nlogn) 
+    Bellman-Ford
+      O(nm) n nodes, m edges

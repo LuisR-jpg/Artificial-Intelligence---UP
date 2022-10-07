@@ -1,0 +1,20 @@
+Diferencia entre software libre y codigo abierto (open source):
+  Que todos cooperen es una forma muy efectiva de generar cosas grandes. Como en los tianguis.
+  Software libre tiene 4 libertades:
+    0. Puedes usarlo para lo que sea.
+    1. Puedes estudiar el codigo conociendo el código fuente.
+    2. Cualquiera puede modificar el software, mejorar y adaptarlo.
+    3. Puedes modificar el software no solo para ti, si no para tus vecinos.
+  Apartir de ahí sale la comunidad del open-source, con ideas suavizadas para empresas.
+Software Libre mitos:
+  El software libre no es un modelo de negocio rentable.
+  El software libre es gratis.
+  El software libre no es de calidad.
+    Hasta los bancos se sirven de estos servicios.
+  El software libre no es compatible con hardware.
+    Es un problema real.
+Software Libre contras:
+  Es mas difícil de usar esta clase de soluciones.
+Las grandes empresas no hacen software, ni hacen hardware, hacen tecnología.
+  Son productos completos. 
+  El driver es gran parte del producto, es parte de los bienes de la empresa y dolares del precio.
