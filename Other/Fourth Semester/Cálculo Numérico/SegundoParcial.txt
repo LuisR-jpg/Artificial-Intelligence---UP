@@ -1,0 +1,12 @@
+Aproximación a punto:
+  ? Metodo de la secante
+  Punto fijo
+Aproximación Polinomial:
+  Polinomio de Lagrange
+  Diferencia dividida de Newton
+  Polinomio de Hermite
+Sistemas de ecuaciones
+  Gauss-Seidel
+  Jacobi
+  
+
