@@ -1,0 +1,7 @@
+Aerolíneas.
+	Las aerolíneas están en constante lucha por controlar sus gastos de capital y adaptarse a los patrones de demanda.
+	Estas necesidades en las que se encuentran las aerolíneas, las tiene cualquier empresa, ya que se debe buscar un valor agregado, sin invertir demasiado.
+		Y cómo solución a estas cuestiones surge el ingenio, como lo fue la idea de ahorrarse millones de dólares acercando y cambiando los asientos, para ofrecer mayor espacio al usuario, y también ganando espacio para meter dos filas más.
+	El otro punto muy importante es adaptarse a las demandas que fluctuan (dependiendo de las fechas, en caso de las aerolíneas).
+		Y es por eso que se dispone de más aviones para mantenimiento durante fechas de baja demanda, mientras que se tienen más unidades listas durante verano.
+	

@@ -1,0 +1,7 @@
+7B. Walmart usa CPFR e internet para mejorar sus pronósticos.
+
+Walmart había tenido problemas de pronósticos teniendo errores muy grandes en la visión de la demanda, generando problemas hasta para sus proveedores.
+Por eso, la empresa junto con IMB, SAP y Manugistics, desarrolló un software de "pronósticos y reabastecimiento en colaboracíón" que presenta una idea más certera de la demanda a mediano plazo.
+La primer colaboración fue de Listerine con Walmart para estandarizar la demanda esperada, esto se hizo a través de internet y se repitió la revisión de datos hasta que convergían las estimaciones del minorista y del proveedor.
+Con la implementación de un sistema similar, Walmart se benefició porque tenía el artículo en el momento y lugar indicados. También se reducen costos de inventario y eso permite bajar el capital fijo de la empresa.
+

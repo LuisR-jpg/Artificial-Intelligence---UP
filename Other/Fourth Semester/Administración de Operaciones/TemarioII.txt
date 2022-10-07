@@ -1,0 +1,65 @@
+Presentaciones
+  3. Análisis de procesos
+    Las ocho disciplinas
+    Lean Manufacturing
+    Six Sigma
+      DMAIC
+    Mejora continua
+    Total Quality Management (TQM)
+    Manufactura de clase mundial
+      Evolución de la WCM
+      Los pilares de la WCM
+      ¿Cómo implementar WCM?
+  4. Capacidad
+    Planeación de la capacidad
+    Administración de la capacidad de operaciones
+    Importancia de la capacidad
+    Definición de capacidad
+    Factores que afectan la capacidad
+    Planeación de la capacidad
+  5. Localización de planta
+    Introducción, comentario, análisis
+    Planeación de una nueva industria
+    Teorías de localización
+      Por costos
+      Por ingresos brutos
+      Por utilidades
+    Definición 
+    Lugar ideal para localizar una planta
+    Casuas que pueden dar origen a un estudio de localización
+    Relocalización de una nueva industria
+    Factores que intervienen
+      Región
+      Comunidad
+      Terreno
+    Metodología
+    Metodos para hacer la selección primaria
+  6. Distribución de planta
+    Introducción
+    Posición fija
+    Proceso o función
+    Linea de producción o distribución (producción) por producto
+    Celdas de manufactura
+    Datos para hacer distribucion de planta
+    Principios básicos de la distribución de planta
+    Factores que influyen 
+  7. Manejo de Materiales
+    Manejo de materiales 
+      Introducción 
+      5 dimensiones del manejo de materiales
+	Movimiento
+	Cantidad 
+	Tiempo
+	Espacio 
+	Control
+    Objetivo del manejo de materiales
+    Principios del manejor de materiales
+  8. Pronosticos
+    Introducción 
+    Pronósticos en la organización
+    Patrones de demanda
+    Diseño del sistema de pronóstico
+    Decisión que se va a pronosticar
+    Nivel de agregación
+    Stock-keeping Unit
+

@@ -1,0 +1,7 @@
+7A. Unilever.
+
+Pronosticar es el proceso de elaborar la visión más probable de lo que será la demanda futura.
+La planificación, por otro lado, son las decisiones que se toman en base a los pronósticos de demanda. Dichos análisis puede ser llevado a cabo con apoyo de software.
+Pero estos softwares suelen tener errores porque son completamente fieles a la información que tiene como parámetros, quere decir que si no son datos confíables, no siempre será arrojado el mejor pronóstico.
+
+
