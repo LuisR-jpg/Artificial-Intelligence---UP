@@ -1,0 +1,17 @@
+S = Desviación estándar muestral
+Sigma = Desviación estandar poblacional
+Varianza es el cuadrado de la desviacion
+
+https://docs.google.com/spreadsheets/d/1ARjFfiWSI8ckhHKHnD1oQwwfvyiccUpI/edit#gid=574640059
+
+https://docs.google.com/spreadsheets/d/1APsY5FiS9obQKik7R-bbehH72PXEQsmO/edit#gid=199811076
+n = 100
+Duración esperada promedio: 22,000  mi (m)
+Media obtenida = 21,819 (xbarra)
+Desviación muestral = 1,295 mi 
+alpha = 0.01
+Ho: m >= 22,000
+Ha: m < 22,000
+Zcalc = (21819 - 22000)/(1295/sqrt(100)) = -1.39768339768
+Za = 2.326 
+Zcalc < -Za? Yes -> Se rechaza la hipótesis 
