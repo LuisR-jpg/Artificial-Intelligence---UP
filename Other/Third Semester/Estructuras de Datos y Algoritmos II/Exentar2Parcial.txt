@@ -1,0 +1,9 @@
+Exentar 2do Parcial:
+  HackerRank -> Trees: 
+    Easy: 8 problemas
+    Medium: 3 problemas
+    *Hard: 6 problemas
+  Arbol Binario de Busqueda
+    Insercion, consulta, eliminacion
+      Python
+  Toma en-orden, preorden -> Construye BST
