@@ -1,0 +1,50 @@
+Tipos de texto:
+  Texto expositivo.
+    Expone aspectos con objetividad y claridad sobre cualquier área que nos interesa.
+    Informan con 4 características:
+      Rigor. Credibilidad, cuánta confianza nos da un texto.
+      Objetividad. Informar sin dar opiniones.
+      Precisión. Sin generar dudas, evitando el uso de coloquios y jergas.
+      Claridad. 
+    Utiliza Función referencial:
+      Uso de la lengua para dar hechos. Afirmaciones y negaciones objetivos.
+    Dos tipos de texto expositivo:
+      Texto divulgativo.
+	Brindan conocimiento general a un público no específico.
+      Especializados.
+	Requieren de un conocimiento técnico.
+	Es necesario conocer el tema para entender la información.
+	Utiliza un registro técnico.
+    Contenido o estructura:
+      Introducción.
+      Cuerpo.
+      Conclusión.
+    ¿Cómo preparar un texto expositivo?
+      Escoger un tema interesante.
+      Tener claro a quién va dirigido.
+      Documentarse todo lo posible.
+      Conseguir información gráfica.
+    Fichas de trabajo.
+      Herramienta útil para organizar la información.
+      Tienen cuatro elementos.
+	Datos de identificación. Angulo superior izquierdo
+	  Autor
+	  Título
+	  Fuente
+	Tema. Centro
+	Contenido. Centro inferior
+	Paginado. Ángulo superior derecho
+	  Número de página para ordenar las fichas.
+      Tipos de ficha:
+	Cita textual.
+	  Fragmento de texto literal y encomillado, su contenido es insustituible.
+	De resumen.
+	  Expone brevemente el contenido de un texto.
+	  Se reestructura el texto original, por eso no se usan comillas.
+	De comentarios.
+	  Contiene puntos de vista a partir de un texto ya leído.
+	De paráfrasis.
+	  Se escribe el mismo contenido con distintas palabras.
+	  Útil cuando se trabaja con nuevos conceptos.
+	De cuadro sinóptico.
+	  Se realiza un diagrama con los puntos más importantes del texto.

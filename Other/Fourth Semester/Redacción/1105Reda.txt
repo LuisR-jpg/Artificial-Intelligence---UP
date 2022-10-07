@@ -1,0 +1,33 @@
+Tipos de texto:
+  Narrativo.
+    Relato de un hecho real o ficticio.
+    Tipo de discurso que un narrador cuenta a un oyente, un suceso verosímil donde participan varios personajes que se desarrollan en un espacio y momento determinados.
+    Dos tipos de narración.
+      Literaria. Estética, lenguaje subjetivo, indirecto, metafórico.
+      Informativa. Se aboca a objetivos propuestos, es muy visto en el periodismo.
+    Elementos de la narración.
+      Narrador.
+	No es el autor, el narrador cuenta el relato.
+	La narración puede ser en primera o tercera persona.
+      Personajes.
+	Protagonista. Héroe.
+	Antagonista. Frustra el plan del protagonista.
+	Aliados. Ayudan al prota.
+	Opositor. Se opone junto al antagonista.
+	Beneficiario. A quien se dirige la acción.
+      Acciones.
+	Exposición. Presentación de los hechos.
+	Nudo. Parte de más tensión, se ríe, llora, frustra...
+	Desenlace. Resultado de la trama.
+      Tiempo.
+	Lineal o cronológica.
+	Retrospectiva.
+	Mixto.
+      Ambiente.
+	Paisaje.
+	Clima.
+	Atmósfera.
+	Medio familiar.
+	Ámbito de trabajo.
+	Situación política.
+
