@@ -1,0 +1,9 @@
+Calculadora básica
+¿Qué es? ¿Cómo funciona?
+Fetch phase
+MAR
+MDR
+...
+BUS
+Unidades Funcionales
+Modos de Direccionamiento
