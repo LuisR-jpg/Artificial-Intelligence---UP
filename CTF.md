@@ -23,3 +23,17 @@ ssh banditX@bandit.labs.overthewire.org -p 2220
 - *Bandit5* - P4L4vucdmLnm8I7Vl7jG1ApGSfjYKqJU
 
     Found using `find -name "*" -size 1033c`
+
+## Commands
+
+- file - Provides information of the file.
+- Strings - Prints out the file.
+
+
+## Resources 
+
+- PicoCTF
+
+- CTFtime
+
+
