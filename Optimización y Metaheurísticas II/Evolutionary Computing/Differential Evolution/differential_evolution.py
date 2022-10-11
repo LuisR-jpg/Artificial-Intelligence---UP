@@ -67,6 +67,6 @@ class DifferentialEvolution:
     def solve(self):
         pass
     
-def differential_evolution(func, bounds, popSize, cR, nGen, args):
-    dE = DifferentialEvolution(func, bounds, popSize, cR, nGen, args = ())
+def differential_evolution(func, bounds, popSize, cR, nGen, args = ()):
+    dE = DifferentialEvolution(func, bounds, popSize, cR, nGen, args)
     return dE.solve()
