@@ -27,13 +27,11 @@ class DifferentialEvolution:
         self.nIt += 1
         return self.func(i, *self.args)
 
-    def _mutation(self, i):
-        assert isinstance(i, np.ndarray), 'i is not np.ndarray'
-        r = self.mutation(i)
+    def _mutation(self):
+        r = self.mutation()
         assert isinstance(r, np.ndarray), 'r is not np.ndarray'
         return r
-    def mutation(self, i):
-        i = i.copy()
+    def mutation(self):
         pass
 
     def _crossover(self, pOne, pTwo):
@@ -43,7 +41,8 @@ class DifferentialEvolution:
         assert isinstance(r, np.ndarray), 'r is not np.ndarray'
         return r
     def crossover(self, pOne, pTwo):
-        pass
+        r = [pOne[i] if np.random.rand() <= self.cR else pTwo[i] for i in range(pOne.shape[0])]
+        return r
 
     def _selection(self, iOne, iTwo):
         assert isinstance(iOne, np.ndarray), 'iOne is not np.ndarray'
