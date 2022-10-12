@@ -16,6 +16,8 @@ class DifferentialEvolution:
         self.nGen = nGen
         self.nVar = bounds.shape[0]
         self.nIt = 0
+        self.fitness = np.zeros((self.nVar))
+        self.population = np.zeros((self.popSize, self.nVar))
 
     def _getFitness(self, i):
         assert isinstance(i, np.ndarray), 'individual is not np.ndarray'
@@ -44,14 +46,18 @@ class DifferentialEvolution:
         r = [pOne[i] if np.random.rand() <= self.cR else pTwo[i] for i in range(pOne.shape[0])]
         return r
 
-    def _selection(self, iOne, iTwo):
-        assert isinstance(iOne, np.ndarray), 'iOne is not np.ndarray'
-        assert isinstance(iTwo, np.ndarray), 'iTwo is not np.ndarray'
-        r = self.selection(iOne, iTwo)
+    def _selection(self, x, u): 
+        assert isinstance(x, int), 'x is not int' #Index of the already existing individual
+        assert isinstance(u, np.ndarray), 'u is not np.ndarray' #New individual
+        r = self.selection(x, u)
         assert isinstance(r, np.ndarray), 'r is not np.ndarray'
         return r
-    def selection(self, iOne, iTwo):
-        pass
+    def selection(self, x, u):
+        f = self.getFitness(u)
+        if f > self.fitness[x]: 
+            self.fitness[x] = f
+            return u
+        return self.population[x]
 
     def _initPopulation(self):
         r = self.initPopulation()
