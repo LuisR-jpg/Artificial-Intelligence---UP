@@ -36,9 +36,9 @@ class DifferentialEvolution:
         assert isinstance(r, np.ndarray), 'r is not np.ndarray'
         return r
     def _mutation(self):
-        rand = np.random.randint(low=0, high=self.nVar,  size=3)
+        rand = np.random.randint(low = 0, high = self.popSize, size = 3)
         r1, r2, r3 = self.population[rand]
-        F = np.random.uniform(0,2)
+        F = np.random.uniform(0, 2)
         return np.add(r1, F*np.subtract(r2, r3))
 
     def crossover(self, pOne, pTwo):
@@ -79,12 +79,6 @@ class DifferentialEvolution:
         self.initPopulation()
         for _ in range(self.nGen):
             for i, individual in enumerate(self.population):
-                """
-                mini = np.argmin(self.fitness) 
-                print(mini)
-                print(self.fitness[mini])
-                """
-                print(np.min(self.fitness))
                 u = self.crossover(individual, self.mutation())
                 self.population[i] = self.selection(i, u)
         best = np.argmin(self.fitness)
