@@ -2,8 +2,10 @@ import numpy as np
 
 class DifferentialEvolution:
     def __init__(self, func, bounds, popSize, cR, nGen, args):
-        assert isinstance(func, function), 'func is not function'
+        assert callable(func), 'func is not function'
+        bounds = np.array(bounds)
         assert isinstance(bounds, np.ndarray), 'bounds is not np.ndarray'
+        args = np.array(args)
         assert isinstance(args, np.ndarray), 'args is not np.ndarray'
         assert isinstance(popSize, int), 'popSize is not int'
         assert isinstance(cR, float), 'cR is not float'
@@ -15,62 +17,78 @@ class DifferentialEvolution:
         self.cR = cR
         self.nGen = nGen
         self.nVar = bounds.shape[0]
-        self.nIt = 0
-        self.fitness = np.zeros((self.nVar))
-        self.population = np.zeros((self.popSize, self.nVar))
+        self.nF = 0
+        self.fitness = None
+        self.population = None
 
-    def _getFitness(self, i):
+    def getFitness(self, i):
         assert isinstance(i, np.ndarray), 'individual is not np.ndarray'
         assert i.shape[0] == self.nVar, "individual doesn't have size == nVar"
-        r = self.getFitness(i)
+        r = self._getFitness(i)
         assert isinstance(r, float), 'r is not float'
         return r
-    def getFitness(self, i):
-        self.nIt += 1
+    def _getFitness(self, i):
+        self.nF += 1
         return self.func(i, *self.args)
 
-    def _mutation(self):
-        r = self.mutation()
+    def mutation(self):
+        r = self._mutation()
         assert isinstance(r, np.ndarray), 'r is not np.ndarray'
         return r
-    def mutation(self):
-        pass
+    def _mutation(self):
+        rand = np.random.randint(low=0, high=self.nVar,  size=3)
+        r1, r2, r3 = self.population[rand]
+        F = np.random.uniform(0,2)
+        return np.add(r1, F*np.subtract(r2, r3))
 
-    def _crossover(self, pOne, pTwo):
+    def crossover(self, pOne, pTwo):
         assert isinstance(pOne, np.ndarray), 'pOne is not np.ndarray'
         assert isinstance(pTwo, np.ndarray), 'pTwo is not np.ndarray'
-        r = self.crossover(pOne, pTwo)
+        r = self._crossover(pOne, pTwo)
         assert isinstance(r, np.ndarray), 'r is not np.ndarray'
         return r
-    def crossover(self, pOne, pTwo):
+    def _crossover(self, pOne, pTwo):
         r = [pOne[i] if np.random.rand() <= self.cR else pTwo[i] for i in range(pOne.shape[0])]
-        return r
+        return np.array(r)
 
-    def _selection(self, x, u): 
+    def selection(self, x, u): 
         assert isinstance(x, int), 'x is not int' #Index of the already existing individual
         assert isinstance(u, np.ndarray), 'u is not np.ndarray' #New individual
-        r = self.selection(x, u)
+        r = self._selection(x, u)
         assert isinstance(r, np.ndarray), 'r is not np.ndarray'
         return r
-    def selection(self, x, u):
+    def _selection(self, x, u):
         f = self.getFitness(u)
-        if f > self.fitness[x]: 
+        if f < self.fitness[x]: 
             self.fitness[x] = f
             return u
         return self.population[x]
 
-    def _initPopulation(self):
-        r = self.initPopulation()
-        assert isinstance(r, np.ndarray), 'r is not np.ndarray'
-        return r
     def initPopulation(self):
-        pass
+        self.population = np.zeros((self.popSize, self.nVar))
+        for v in range(self.nVar):
+            vMin, vMax = self.bounds[v, 0], self.bounds[v, 1]
+            self.population[:, v] = np.random.uniform(vMin, vMax, (self.popSize))
+        self.fitness = np.array([self.getFitness(i) for i in self.population])
     
-    def _solve(self):
-        r = self.solve()
-        assert isinstance(r, np.ndarray), 'r is not np.ndarray'
     def solve(self):
-        pass
+        r = self._solve()
+        assert isinstance(r, dict), 'r is not dict'
+        return r
+    def _solve(self):
+        self.initPopulation()
+        for _ in range(self.nGen):
+            for i, individual in enumerate(self.population):
+                """
+                mini = np.argmin(self.fitness) 
+                print(mini)
+                print(self.fitness[mini])
+                """
+                print(np.min(self.fitness))
+                u = self.crossover(individual, self.mutation())
+                self.population[i] = self.selection(i, u)
+        best = np.argmin(self.fitness)
+        return {"P": self.population[best], "nIt": self.nGen, "fun": self.fitness[best], "nFev": self.nF}
     
 def differential_evolution(func, bounds, popSize, cR, nGen, args = ()):
     dE = DifferentialEvolution(func, bounds, popSize, cR, nGen, args)
