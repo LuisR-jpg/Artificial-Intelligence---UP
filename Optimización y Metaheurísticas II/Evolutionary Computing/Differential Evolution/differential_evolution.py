@@ -61,8 +61,8 @@ class DifferentialEvolution:
         f = self.getFitness(u)
         if f < self.fitness[x]: 
             self.fitness[x] = f
-            return u
-        return self.population[x]
+            return u.copy()
+        return self.population[x].copy()
 
     def initPopulation(self):
         self.population = np.zeros((self.popSize, self.nVar))
