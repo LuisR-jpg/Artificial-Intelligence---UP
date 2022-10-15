@@ -39,7 +39,9 @@ class DifferentialEvolution:
         rand = np.random.randint(low = 0, high = self.popSize, size = 3)
         r1, r2, r3 = self.population[rand]
         F = np.random.uniform(0, 2)
-        return np.add(r1, F*np.subtract(r2, r3))
+        r = np.add(r1, F*np.subtract(r2, r3))
+        r = [np.min((np.max((v, self.bounds[i, 0])), self.bounds[i, 1])) for i, v in enumerate(r)]
+        return np.array(r)
 
     def crossover(self, pOne, pTwo):
         assert isinstance(pOne, np.ndarray), 'pOne is not np.ndarray'
