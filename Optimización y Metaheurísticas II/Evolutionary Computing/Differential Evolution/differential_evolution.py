@@ -25,7 +25,6 @@ class DifferentialEvolution:
         assert isinstance(i, np.ndarray), 'individual is not np.ndarray'
         assert i.shape[0] == self.nVar, "individual doesn't have size == nVar"
         r = self._getFitness(i)
-        assert isinstance(r, np.uint64), 'r is not np.uint64'
         return r
     def _getFitness(self, i):
         self.nF += 1
