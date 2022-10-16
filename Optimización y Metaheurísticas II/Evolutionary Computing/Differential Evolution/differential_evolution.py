@@ -22,7 +22,6 @@ class DifferentialEvolution:
         self.fitness = None
         self.population = None
         self.tolerance = 0.001
-        self.c, self.t = 0, 0
 
     def getFitness(self, i):
         assert isinstance(i, np.ndarray), 'individual is not np.ndarray'
@@ -58,18 +57,12 @@ class DifferentialEvolution:
     def selection(self, x, u): 
         assert isinstance(x, int), 'x is not int'               #Index of the already existing individual
         assert isinstance(u, np.ndarray), 'u is not np.ndarray' #New individual
-        r = self._selection(x, u)
-        assert isinstance(r, np.ndarray), 'r is not np.ndarray'
-        return r
+        self._selection(x, u)
     def _selection(self, x, u):
         f = self.getFitness(u)
-        self.t += 1
         if f < self.fitness[x]: 
             self.fitness[x] = f
-            #print("Replaced", self.c, "de", self.t)
-            self.c += 1
-            return np.copy(u)
-        return np.copy(self.population[x])
+            self.population[x] = np.copy(u)
 
     def initPopulation(self):
         self.population = np.zeros((self.popSize, self.nVar))
@@ -88,7 +81,7 @@ class DifferentialEvolution:
             self.nIt += 1
             for i, individual in enumerate(self.population):
                 u = self.crossover(individual, self.mutation())
-                self.population[i] = self.selection(i, u)
+                self.selection(i, u)
             #if len(np.unique(self.fitness)) == 1: break
         best = np.argmin(self.fitness)
         
