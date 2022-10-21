@@ -1,5 +1,7 @@
 # Preparation second exam
 
+-------------
+
 ## Servers 
 
 **What's a server**
@@ -139,3 +141,48 @@ Enabling hard disks on a local network.
 - NAS 
 
 - SAN
+
+-------------
+
+## Distributed computing
+
+**What is distributed computing?**
+
+Distributed computing is a system of software components spread over different computers but running as a single entity.
+
+**Architecture of distributed systems**
+
+The backbone is a complex network of server that anyone can join.
+
+Components and connectors arrange themselves in a way that eases communication.
+
+It's broadly divided into two essential concepts:
+
+- Software architecture.
+
+    It's the logical organization of software components.
+
+    The main architectures are:
+
+        - Layered architecture.
+
+        - Object-based architecture.
+
+        - Data-centered architecture. 
+
+- System architecture
+
+    Focuses on the entire system and the placement of components of a distributed system accross multiple machines. 
+
+    The main system architectures are:
+
+        - Client-server architecture.
+            Central security.
+
+        - Peer-to-peer architecture
+            No central control in a distributed system. 
+            They have 3 separate sections:
+            
+
+
+
