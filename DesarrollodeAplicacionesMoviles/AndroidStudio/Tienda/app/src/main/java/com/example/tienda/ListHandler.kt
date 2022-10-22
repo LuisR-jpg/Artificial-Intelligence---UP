@@ -1,12 +1,4 @@
 package com.example.tienda
-/*
-class listHandler {
-
-
-    constructor()
-
-}
-*/
 class ListHandler {
     companion object {
         private var instance: ListHandler? = null

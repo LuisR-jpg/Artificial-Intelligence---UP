@@ -31,13 +31,6 @@ class Add : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Please fill all the fields", Toast.LENGTH_SHORT).show()
             }
-            //c += 1
-            /*
-            Intent(this, Show::class.java).also {
-                //it.putStringArrayListExtra("list",  a)
-                it.putExtra("s", "hola")
-            }
-            */
         }
     }
 }
