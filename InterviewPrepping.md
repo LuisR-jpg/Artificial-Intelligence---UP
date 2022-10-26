@@ -1,7 +1,17 @@
 # Prepping
 ## Questions
-- Thread vs Process
 
+### How to
+
+STAR(R) model when answering questions. This will help you create clarity and structure your response. 
+
+- **S**ituation
+- **T**ask
+- **A**ction
+- **R**esult
+- **R**eflection 
+
+### Behavioral
 - Why would you like to work in this company? 
 
     - Microsoft
@@ -15,8 +25,6 @@
         - Outlook 
         - Visual studio code
 
-- Explain recursion as if you I were a kid.
-
 - Favorite product of the company
 
     - Microsoft 
@@ -27,7 +35,7 @@
 
     - Language barrier
 
-        As a non native English speaker, I faced myself the imposter's syndrome not because of my technical skills but because of my English level. The level was not a problem, actually, but there was still a mental block that (even though it didn't interfere with my job), there was this persistent thought of not knowing if I'm making a good use of the language. 
+        As a non native English speaker, I faced myself the imposter's syndrome not because of my technical skills but because of my English level. The level was not a problem actually, but there was still a mental block that (even though it didn't interfere with my job), there was this persistent thought of not knowing if I'm making a good use of the language. 
         How I approached this problem was by trying to lose the fear and started to practice the areas that I felt I could improve on, also, I enrolled back to English classes to work on my skills and self-confidence.
 
     - Documentation
@@ -37,5 +45,14 @@
     - Questions
 
         People stressed so much the part of making questions and still it took me some time to realise the importance of making the right questions at the right time. Once I learned that, I was able to ease my work.
+
+### Technical
+
+- Thread vs Process
+
+- Explain recursion as if you were telling a kid.
+
+
+
 
     
