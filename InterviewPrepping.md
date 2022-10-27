@@ -26,6 +26,7 @@ STAR(R) model when answering questions. This will help you create clarity and st
         I have had the opportunity to see what it's like to work in Microsoft and I would say it's a work culture that fits mine. I'm also looking forward to work on something I like and use on a daily basis like the microsoft products:
             
         - Visual studio code
+        - Github
         - Microsoft office
         - Windows (most of the time)
         - Microsoft edge
