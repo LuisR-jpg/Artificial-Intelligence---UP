@@ -1,6 +1,7 @@
 # Prepping
 ## Questions
 
+
 ### How to
 
 STAR(R) model when answering questions. This will help you create clarity and structure your response. 
@@ -11,6 +12,12 @@ STAR(R) model when answering questions. This will help you create clarity and st
 - **R**esult
 - **R**eflection 
 
+### For my interviewers
+
+- What’s been your most memorable experience here and why?
+
+- What’s one thing you’re hoping to get from an intern? How can an intern make your life easier?
+
 ### Behavioral
 - Why would you like to work in this company? 
 
@@ -18,12 +25,12 @@ STAR(R) model when answering questions. This will help you create clarity and st
         
         I have had the opportunity to see what it's like to work in Microsoft and I would say it's a work culture that fits mine. I'm also looking forward to work on something I like and use on a daily basis like the microsoft products:
             
-        - Xbox
-        - Microsoft office
-        - Microsoft edge
-        - Windows (most of the time)
-        - Outlook 
         - Visual studio code
+        - Microsoft office
+        - Windows (most of the time)
+        - Microsoft edge
+        - Xbox
+        - Outlook 
 
 - Favorite product of the company
 
