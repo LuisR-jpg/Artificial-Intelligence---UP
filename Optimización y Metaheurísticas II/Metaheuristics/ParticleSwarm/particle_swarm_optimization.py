@@ -1,4 +1,3 @@
-from matplotlib.ticker import FuncFormatter
 import numpy as np
 
 class ParticleSwarmOptimization:
@@ -16,7 +15,7 @@ class ParticleSwarmOptimization:
         self.func = func
         self.funcFeasible = funcFeasible
         self.bounds = bounds
-        self.args = args 
+        self.args = args
         self.nVar = bounds.shape[0]
         self.w,self.c1,self.c2 = 0, 0, 0
         self.positions = None
@@ -28,28 +27,30 @@ class ParticleSwarmOptimization:
         self.velocities = np.zeros((self.nParticles, self.nVar))
         for v in range(self.nVar):
             pMin, pMax = self.bounds[v, 0], self.bounds[v, 1]
-            vMin, vMax = (pMin - pMax) / 10 + pMin, (pMax - pMin) / 10 + pMin
             self.positions[:, v] = np.random.uniform(pMin, pMax, (self.nParticles))
             self.velocities[:, v] = np.random.normal(0, (pMax - pMin) / 10, (self.nParticles))
         for p in range(self.nParticles):
             while not self.funcFeasible(self.positions[p]):
-                for v in range(self.positions[p].shape[0]):
+                for v in range(self.nVar):
                     pMin, pMax = self.bounds[v, 0], self.bounds[v, 1]
                     self.positions[p, v] = np.random.uniform(pMin, pMax)
+        print(self.positions)
 
     def solve(self):
         return self._solve()
     def _solve(self):
         # Initialize 𝑐1, 𝑐2, 𝑤
-        self.c1, self.c2, self.w, self.step = 0.9, 0.9, 0.9, 0.9/self.maxIter 
+        self.c1, self.c2, self.w, self.step = 0.9, 0.9, 0.9, 0.8/self.maxIter
         # Create the particles positions and velocities randomly
         self.initSwarm()
         # Calculate the objective function values
         self.fitness = np.array([self.func(i) for i in self.positions])
+        print(self.fitness)
         # Calculate 𝑃𝑏𝑒𝑠𝑡_𝑖 as the current positions
         self.pBest = np.copy(self.positions)
         # Calculate 𝐺𝑏𝑒𝑠𝑡
-        self.gBest = np.argmax(self.fitness)
+        self.gBest = np.argmin(self.fitness)
+        print(self.gBest)
         # While t < MaxIter or we haven’t found a good solution
         # print(np.unique([self.funcFeasible(i) for i in self.positions], return_counts=True))
         for _ in range(self.maxIter):
@@ -62,20 +63,21 @@ class ParticleSwarmOptimization:
                 self.velocities[i] = self.w*self.velocities[i] + self.c1*r1*(self.pBest[i] - self.positions[i]) + self.c2*r2*(self.pBest[self.gBest] - self.positions[i])
                 # Update the position:
                 # 𝑥𝑖 (𝑡 + 1) = 𝑥𝑖 (𝑡) + 𝑣 𝑖 (𝑡 + 1)
-                low, high, mid = 0, 1, 0.5
-                while low < high:
-                    nPos = mid*(self.positions[i] + self.velocities[i])
-                    if self.funcFeasible(nPos) and not self.funcFeasible((mid + 0.01)*(self.positions[i] + self.velocities[i])):
+                low, high, mid, precision = 0, 1, 0.5, 0.01
+                while low <= high:
+                    print(mid)
+                    nPos = self.positions[i] + mid*self.velocities[i]
+                    if self.funcFeasible(nPos) and not self.funcFeasible(self.positions[i] + (mid + precision)*self.velocities[i]):
                         break
-                    elif self.funcFeasible(nPos): low = mid
-                    else: high = mid
+                    elif self.funcFeasible(nPos): low = mid + precision
+                    else: high = mid - precision
                     mid = (low + high)/2
-                # print("funfeasible: ", self.funcFeasible(mid*(self.positions[i] + self.velocities[i])))
+                # print("funfeasible: ", self.funcFeasible(self.positions[i] + mid*self.velocities[i]))
                 # print("mid: ",mid)
-                # print("nPos: ",mid*(self.positions[i] + self.velocities[i]))
-                self.positions[i] = mid*(self.positions[i] + self.velocities[i])
+                # print("nPos: ",self.positions[i] + mid*self.velocities[i])
+                self.positions[i] += mid*self.velocities[i]
                 # Calculate 𝑓𝑢𝑛𝑐(𝑥𝑖 )
-                self.fitness[i] = self.func(mid*(self.positions[i] + self.velocities[i]))
+                self.fitness[i] = self.func(self.positions[i])
                 # If 𝑓(𝑥𝑖 ) < 𝑓𝑢𝑛𝑐(𝑃𝑏𝑒𝑠𝑡𝑖 ): update 𝑃𝑏𝑒𝑠𝑡
                 if self.func(self.pBest[i]) > self.fitness[i]: self.pBest[i] = self.positions[i].copy()
                 # If 𝑓(𝑥𝑖 ) < 𝑓𝑢𝑛𝑐(𝐺𝑏𝑒𝑠𝑡): update 𝐺𝑏𝑒𝑠𝑡
