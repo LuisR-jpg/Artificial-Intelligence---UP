@@ -34,7 +34,6 @@ class ParticleSwarmOptimization:
                 for v in range(self.nVar):
                     pMin, pMax = self.bounds[v, 0], self.bounds[v, 1]
                     self.positions[p, v] = np.random.uniform(pMin, pMax)
-        print(self.positions)
 
     def solve(self):
         return self._solve()
@@ -45,17 +44,13 @@ class ParticleSwarmOptimization:
         self.initSwarm()
         # Calculate the objective function values
         self.fitness = np.array([self.func(i) for i in self.positions])
-        print(self.fitness)
         # Calculate 𝑃𝑏𝑒𝑠𝑡_𝑖 as the current positions
         self.pBest = np.copy(self.positions)
         # Calculate 𝐺𝑏𝑒𝑠𝑡
         self.gBest = np.argmin(self.fitness)
-        print(self.gBest)
         # While t < MaxIter or we haven’t found a good solution
-        # print(np.unique([self.funcFeasible(i) for i in self.positions], return_counts=True))
         for _ in range(self.maxIter):
             # For each particle 𝑖
-            #print(self.pBest[self.gBest])
             for i in range(self.nParticles):
                 # Update the velocity:
                 # 𝑣 𝑖(𝑡 + 1) = 𝑤 𝑣 𝑖 (𝑡) + 𝑐1 𝑟1 ( 𝑃𝑏𝑒𝑠𝑡 𝑖 − 𝑥𝑖 (𝑡)) + 𝑐2 𝑟2 (𝐺𝑏𝑒𝑠𝑡 − 𝑥𝑖 (𝑡))
@@ -63,18 +58,14 @@ class ParticleSwarmOptimization:
                 self.velocities[i] = self.w*self.velocities[i] + self.c1*r1*(self.pBest[i] - self.positions[i]) + self.c2*r2*(self.pBest[self.gBest] - self.positions[i])
                 # Update the position:
                 # 𝑥𝑖 (𝑡 + 1) = 𝑥𝑖 (𝑡) + 𝑣 𝑖 (𝑡 + 1)
-                low, high, mid, precision = 0, 1, 0.5, 0.01
+                low, high, mid, precision = 0, 1, 0.5, 0.0001
                 while low <= high:
-                    print(mid)
                     nPos = self.positions[i] + mid*self.velocities[i]
                     if self.funcFeasible(nPos) and not self.funcFeasible(self.positions[i] + (mid + precision)*self.velocities[i]):
                         break
                     elif self.funcFeasible(nPos): low = mid + precision
                     else: high = mid - precision
                     mid = (low + high)/2
-                # print("funfeasible: ", self.funcFeasible(self.positions[i] + mid*self.velocities[i]))
-                # print("mid: ",mid)
-                # print("nPos: ",self.positions[i] + mid*self.velocities[i])
                 self.positions[i] += mid*self.velocities[i]
                 # Calculate 𝑓𝑢𝑛𝑐(𝑥𝑖 )
                 self.fitness[i] = self.func(self.positions[i])
