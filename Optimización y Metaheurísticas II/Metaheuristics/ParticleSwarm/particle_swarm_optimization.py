@@ -33,6 +33,7 @@ class ParticleSwarmOptimization:
             self.velocities[:, v] = np.random.normal(0, (pMax - pMin) / 10, (self.nParticles))
         for p in range(self.nParticles):
             if not self.funcFeasible(self.positions[p]):
+                
                 for v in range(self.positions[p]):
                     pMin, pMax = self.bounds[v, 0], self.bounds[v, 1]
                     self.positions[p, v] = np.random.uniform(pMin, pMax)
