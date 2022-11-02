@@ -24,7 +24,7 @@ Differential Evolution is used several times to achieve the results. Each execut
 <br>
 
 <p align = "center">
-    <img width="75%" src="https://github.com/LuisR-jpg/School/blob/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/Evolutionary%20Computing/Differential%20Evolution/ImagesOutOfCircles/SandL/EnhancedOw.gif?raw=true"/>
+    <img width="60%" src="https://github.com/LuisR-jpg/School/blob/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/Evolutionary%20Computing/Differential%20Evolution/ImagesOutOfCircles/SandL/EnhancedOw.gif?raw=true"/>
     <br>
     This is a result of the collaboration of <a href = "https://github.com/saracarolina12">Sara</a> and <a href = "https://github.com/LuisR-jpg/LuisR-jpg">Luis</a>
 </p>
