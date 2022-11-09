@@ -2,7 +2,7 @@
 
 # Evolutionary algorithms
 
-## Genetic algorithms
+## [Genetic algorithms](https://github.com/LuisR-jpg/School/blob/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/Evolutionary%20Computing/Genetic%20Algorithms/2.%20Genetic%20Algorithms.pdf)
 
 ### Description
 
@@ -20,7 +20,7 @@
 
 ### Pseudocode
 
-## Evolution strategies
+## [Evolution strategies](https://github.com/LuisR-jpg/School/blob/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/Evolutionary%20Computing/Evolution%20Strategies/EvolutionStrategies.pdf)
 
 ### Description
 
@@ -38,7 +38,7 @@
 
 ### Pseudocode
 
-## Evolutionary programming
+## [Evolutionary programming](https://github.com/LuisR-jpg/School/blob/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/Evolutionary%20Computing/Evolutionary%20Programming/0.%20Optimizaci%C3%B3n.pdf)
 
 ### Description
 
@@ -56,7 +56,7 @@
 
 ### Pseudocode
 
-## Differential evolution
+## [Differential evolution](https://github.com/LuisR-jpg/School/blob/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/Evolutionary%20Computing/Differential%20Evolution/DifferentialEvolution.pdf)
 
 ### Description
 
@@ -74,7 +74,7 @@
 
 ### Pseudocode
 
-## Genetic programming
+## [Genetic programming]()
 
 ### Description
 
