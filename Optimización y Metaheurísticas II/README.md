@@ -161,9 +161,13 @@ Completely random, this is because the whole population is seen as parent.
 
 Two variants are used: 
 
-- Intermediate recombination $$\frac{\vec{p_1} + \vec{p_2}}{2}$$
+- Intermediate recombination 
 
-- Discrete recombination $$Random \quad selection \quad [\vec{p_1}_i, \vec{p_2}_i]$$
+$$\frac{\vec{p_1} + \vec{p_2}}{2}$$
+
+- Discrete recombination
+
+$$Random \quad selection \quad [\vec{p_1}_i, \vec{p_2}_i]$$
 
 
 
