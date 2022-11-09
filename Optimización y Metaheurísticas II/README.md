@@ -163,7 +163,7 @@ Two variants are used:
 
 - Intermediate recombination $$\frac{\vec{p_1} + \vec{p_2}}{2}$$
 
-- Discrete recombination $$Random\;selection\;[\vec{p_1}_i, \vec{p_2}_i]$$
+- Discrete recombination $$Random \quad selection \quad [\vec{p_1}_i, \vec{p_2}_i]$$
 
 
 
