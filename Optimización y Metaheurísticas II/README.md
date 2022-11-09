@@ -135,13 +135,37 @@ End
 
 ### Description
 
+The main characteristis of this algorithms is the *self-adaptation* of parameters, since they evolve with the individual itself.
+
 ### Types of problems
+
+It's designed to solve continuous multidimensional optimization problems problems.
 
 ### Representation
 
+The individual's solution is represented with a vector of $d$ real values where $d$ is the number of features to optimize. In addition to the values, a *mutation step size* is used to guide the change of each individual's mutation. 
+
+If all the variables to be calculated are in the same range, a single step size can be used.
+
+$$<\vec{x_i}, \sigma_1>$$
+
+Otherwise, a size per featue is recommended.
+
+$$<\vec{x_i}, \vec{\sigma_1}>$$
+
 ### Parent selection technique
 
+Completely random, this is because the whole population is seen as parent.
+
 ### Crossover/Recombination 
+
+Two variants are used: 
+
+- Intermediate recombination $$\frac{\vec{p_1} + \vec{p_2}}{2}$$
+
+- Discrete recombination $$Random\;selection\;[\vec{p_1}_i, \vec{p_2}_i]$$
+
+
 
 ### Mutation
 
