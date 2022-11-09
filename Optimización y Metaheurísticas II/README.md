@@ -167,7 +167,7 @@ $$\frac{\vec{p_1} + \vec{p_2}}{2}$$
 
 - Discrete recombination
 
-$$Random \, selection \; [\vec{p_1}_i, \vec{p_2}_i]$$
+$$RandomSelection \quad [\vec{p_1}_i, \vec{p_2}_i]$$
 
 
 
