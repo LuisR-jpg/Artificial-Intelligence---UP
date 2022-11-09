@@ -139,7 +139,7 @@ The main characteristis of this algorithms is the *self-adaptation* of parameter
 
 ### Types of problems
 
-It's designed to solve continuous multidimensional optimization problems problems.
+It's designed to solve continuous multidimensional optimization problems.
 
 ### Representation
 
@@ -230,23 +230,56 @@ End
 
 ### Description
 
+The solutions represent species instead of individuals.
+
 ### Types of problems
+
+It has evolved to solve continuous multidimensional optimization problems.
 
 ### Representation
 
-### Parent selection technique
+The individual's solution is represented with a vector of $d$ real values where $d$ is the number of features to optimize. In addition to the values, a *mutation step size* is used to guide the change of each individual's mutation. 
 
-### Crossover/Recombination 
+$$<\vec{x_i}, \vec{\sigma_1}>$$
 
 ### Mutation
 
+Each value is mutated with a random number based on its step size. 
+
+Step size is later updated as well.
+
+$$\sigma_i' = \sigma_i (1 + N(0, \alpha))$$
+
+$$x_i' = x_i + N(0, \sigma_i')$$
+
+$$\alpha \approx 0.2$$
+
 ### Survivor selection
+
+$(\mu + \lambda)$ selection: Where the best $\mu$ individuals are selected out of the union of parents and offspring.
 
 ### Pseudocode
 
 <p align = "center">Evolutionary programming</p>
 
 ```
+Parameters:
+    μ -> Population size
+    G -> Maximum number of generations
+
+Return: the elite individual
+
+Begin 
+    Create the initial population
+    Calculate the population fitness
+    Get the elite
+    While the number of generations is less than G or a good solution hasn't beed found
+        Mutation of all the species
+        Calculate the population fitness
+        Survivor selection
+        Get the elite or include the elite in the population
+    End while
+End
 ```
 
 ## [Differential evolution](https://github.com/LuisR-jpg/School/blob/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/Evolutionary%20Computing/Differential%20Evolution/DifferentialEvolution.pdf)
