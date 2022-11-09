@@ -43,13 +43,7 @@ There are several alternatives:
 
 - Real representation.
 
-    Array $x$ where 
-
-    ```math
-
-    x_i \epsilon \R 
-    
-    ```
+    Array $x$ where each $x_i$ is a real number.
 
 ### Parent selection technique
 
