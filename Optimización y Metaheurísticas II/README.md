@@ -19,7 +19,11 @@ Some of the problems are:
 
 - Traveling salesman problem.
 
-- 8 queens.
+    ![Traveling salesman problem](https://raw.githubusercontent.com/LuisR-jpg/School/ace1251133c78f82a528922269753d4ef6a8190e/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/data/TSP.jpg "Traveling salesman problem")
+
+- 8 queens problem.
+
+    ![8 queens problem](https://raw.githubusercontent.com/LuisR-jpg/School/ace1251133c78f82a528922269753d4ef6a8190e/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/data/Solutions8Queens "A queen on the board")
 
 ### Representation
 
