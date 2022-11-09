@@ -23,7 +23,7 @@ Some of the problems are:
 
 - 8 queens problem.
 
-    ![8 queens problem](https://raw.githubusercontent.com/LuisR-jpg/School/ace1251133c78f82a528922269753d4ef6a8190e/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/data/Solutions8Queens "A queen on the board")
+    ![8 queens problem](https://raw.githubusercontent.com/LuisR-jpg/School/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/data/Solutions8Queens.webp "Two solutions of the 8 queens problem")
 
 ### Representation
 
@@ -51,13 +51,81 @@ There are several alternatives:
 
     Consists of choosing k random elements and selecting the fittest one.
 
-### Crossover 
+### Crossover/Recombination 
+
+The goal is to generate an offspring combining the parents' properties. There are different approaches depending on the representation.
+
+#### Binary and integer representation
+
+- 1 point crossover.
+
+    Consists of choosing a random pivot point and the new individual will be generated with the left side of the first parent and the right side of the second.
+
+- N points crossover.
+
+    Same idea as 1 point crossover but several sections are used.
+
+- Uniform crossover. 
+
+    The new individual is created element by element, randomly picking values from one parent or the other.
+
+#### Real valued representation
+
+- Discrete reproduction.
+
+    Same as uniform crossover. 
+
+- Asymmetric reproduction.
+
+    The offspring is generated with a weighted sum. 
+    $$o_i = \alpha p_1 + (1 - \alpha) p_2$$
+    Where $\alpha$ is a value between 0 and 1. 
 
 ### Mutation
 
-### Survivor selection
+The goal is to modify individuals in order to explore the search space. Some of the most used techniques are:
+
+- Bitwise mutation.
+    
+    Consists of choosing 1 or more genes and changing their values.
+
+- Random resetting. 
+
+    Consists of randomly choosing 1 or more genes and reset their values.
+
+- Uniform mutation.
+
+    Consists of randomly choosing 1 or more genes and replace their values by a number within the constraints.
+
+- Swap mutation.
+
+    Used for the permutation representation and consists of selecting two genes and swapping their values.
 
 ### Pseudocode
+
+<p align = "center">Genetic algorithm</p>
+
+```
+Parameters: 
+    N -> Population size
+    G -> Maximum number of generations
+    Pr -> Reproduction probability
+    Pm -> Mutation probability
+Return: The elite individual
+
+Begin 
+    Create the initial population
+    Calculate the population fitness
+    Get the elite
+    While the number of generations is less than G or a good solution hasn't been found
+        Select the parents
+        Apply crossover
+        Apply mutation
+        Calculate the population fitness
+        Get the elite or include the elite in the population
+    End while
+End
+```
 
 ## [Evolution strategies](https://github.com/LuisR-jpg/School/blob/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/Evolutionary%20Computing/Evolution%20Strategies/EvolutionStrategies.pdf)
 
@@ -69,13 +137,16 @@ There are several alternatives:
 
 ### Parent selection technique
 
-### Crossover 
+### Crossover/Recombination 
 
 ### Mutation
 
 ### Survivor selection
 
 ### Pseudocode
+
+```
+```
 
 ## [Evolutionary programming](https://github.com/LuisR-jpg/School/blob/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/Evolutionary%20Computing/Evolutionary%20Programming/0.%20Optimizaci%C3%B3n.pdf)
 
@@ -87,13 +158,16 @@ There are several alternatives:
 
 ### Parent selection technique
 
-### Crossover 
+### Crossover/Recombination 
 
 ### Mutation
 
 ### Survivor selection
 
 ### Pseudocode
+
+```
+```
 
 ## [Differential evolution](https://github.com/LuisR-jpg/School/blob/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/Evolutionary%20Computing/Differential%20Evolution/DifferentialEvolution.pdf)
 
@@ -105,13 +179,16 @@ There are several alternatives:
 
 ### Parent selection technique
 
-### Crossover 
+### Crossover/Recombination 
 
 ### Mutation
 
 ### Survivor selection
 
 ### Pseudocode
+
+```
+```
 
 ## [Genetic programming](https://github.com/LuisR-jpg/School/blob/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/Evolutionary%20Computing/Generic%20Programming/6.%20Genetic%20Programming.pdf)
 
@@ -123,13 +200,16 @@ There are several alternatives:
 
 ### Parent selection technique
 
-### Crossover 
+### Crossover/Recombination 
 
 ### Mutation
 
 ### Survivor selection
 
 ### Pseudocode
+
+```
+```
 
 # Metaheuristics
 
@@ -143,13 +223,16 @@ There are several alternatives:
 
 ### Parent selection technique
 
-### Crossover 
+### Crossover/Recombination 
 
 ### Mutation
 
 ### Survivor selection
 
 ### Pseudocode
+
+```
+```
 
 ## Ant colony
 
@@ -161,10 +244,13 @@ There are several alternatives:
 
 ### Parent selection technique
 
-### Crossover 
+### Crossover/Recombination 
 
 ### Mutation
 
 ### Survivor selection
 
 ### Pseudocode
+
+```
+```
