@@ -13,13 +13,21 @@ Where there's a population with chromosomes and each one consists of genes.
 
 ### Types of problems
 
+This algorithm can be used for *constrained* or *unconstrained* problems that are not usually suitable for standard optimization algorithms.
+
+Some of the problems are:
+
+- Traveling salesman problem.
+
+- 8 queens.
+
 ### Representation
 
 There are several alternatives:
 
 - Binary representation.
     
-    It's the original approach, the implementation is an array of bools.
+    It's the original approach; the implementation is an array of bools.
 
 - Integer representation.
     
@@ -33,11 +41,11 @@ There are several alternatives:
 
 - Roulette/Proportional selection
 
-    We can think of a roulette that has a number of 
-
-
+    We can think of a roulette that has one slice per chromosome of the population. The size of the slice varies depending on the fitnesses; the better it is, the wider its corresponding slice is. 
 
 - Tournament selection
+
+    Consists of choosing k random elements and selecting the fittest one.
 
 ### Crossover 
 
