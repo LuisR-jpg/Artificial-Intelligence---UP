@@ -6,11 +6,38 @@
 
 ### Description
 
+Probably the most famous algorithm of its kind.
+
+The inspiration comes from the DNA structures. 
+Where there's a population with chromosomes and each one consists of genes. 
+
 ### Types of problems
 
 ### Representation
 
+There are several alternatives:
+
+- Binary representation.
+    
+    It's the original approach, the implementation is an array of bools.
+
+- Integer representation.
+    
+    Integer array.
+
+- Real representation.
+
+    Array $x$ where $x_i \epsilon \R$
+
 ### Parent selection technique
+
+- Roulette/Proportional selection
+
+    We can think of a roulette that has a number of 
+
+
+
+- Tournament selection
 
 ### Crossover 
 
