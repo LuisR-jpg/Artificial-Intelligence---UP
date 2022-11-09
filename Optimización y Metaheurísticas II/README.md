@@ -19,11 +19,15 @@ Some of the problems are:
 
 - Traveling salesman problem.
 
-    ![Traveling salesman problem](https://raw.githubusercontent.com/LuisR-jpg/School/ace1251133c78f82a528922269753d4ef6a8190e/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/data/TSP.jpg "Traveling salesman problem")
+    <div align = "center">
+        <img width = "50%" src = "https://raw.githubusercontent.com/LuisR-jpg/School/ace1251133c78f82a528922269753d4ef6a8190e/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/data/TSP.jpg">
+    </div>
 
 - 8 queens problem.
 
-    ![8 queens problem](https://raw.githubusercontent.com/LuisR-jpg/School/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/data/Solutions8Queens.webp "Two solutions of the 8 queens problem")
+    <div align = "center">
+        <img width = "50%" src = "https://raw.githubusercontent.com/LuisR-jpg/School/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/data/Solutions8Queens.webp">
+    </div>
 
 ### Representation
 
