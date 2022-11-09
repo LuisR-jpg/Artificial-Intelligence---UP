@@ -74,7 +74,7 @@
 
 ### Pseudocode
 
-## [Genetic programming]()
+## [Genetic programming](https://github.com/LuisR-jpg/School/blob/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/Evolutionary%20Computing/Generic%20Programming/6.%20Genetic%20Programming.pdf)
 
 ### Description
 
@@ -94,7 +94,7 @@
 
 # Metaheuristics
 
-## Particle swarm optimization
+## [Particle swarm optimization](https://github.com/LuisR-jpg/School/blob/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/Metaheuristics/ParticleSwarm/Particle_Swarm_Optimization.pdf)
 
 ### Description
 
