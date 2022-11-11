@@ -1,0 +1,174 @@
+
+	var gIntId = 0;
+
+	function prAuthUser()
+	{
+		prCounter(prAuthUser, 'prAuthUser');
+		
+		if (navigator.onLine == true) {
+
+			var lUser = fnGetUser();
+			if (lUser == '0220749') {
+				console.log(lUser);
+				prShowMssgAll('01', 'danger', 'Error', 'No tiene permisos de ingreso.', 'prAuthUser');
+			} else {
+				prOpenLoading();
+				$.ajax({
+					data:
+					{
+						action:	'act_auth',
+						user:	fnGetUser(),
+						pswd:	$.base64.encode(fnGetPswd()),
+						tckt:	fnGetTckt()
+					},
+					url:		gURLApp + "/srvBO.php",
+					type:		'POST',
+					cache:		false,
+					
+					success:	function(data, status, xhr) {
+						prCloseLoading();
+						if ( (status != 'success') || (data.length == 0) ) {
+							prAuthUser();
+						} else {
+							prAuthUser.counter = 0;						
+							lArr= jQuery.parseJSON(data);
+							if (fnDispatchMssg(lArr, 'prAuthUser', '01')) {
+								prSetTckt(lArr.tckt);							
+								prSetPrivs(JSON.stringify(lArr.privs));
+								prSetVariable('role', lArr.role);							
+								prSetVariable('isroot', lArr.isroot);							
+								switch (lArr.role) {
+									case 'root':	prSetVariable('home', 'mod_rhome.html');	break;
+									case 'stdn':	
+										prSetVariable('home', 'mod_shome.html');  
+										prSetUser(lArr.idn);	
+										prSetUserPhoto(lArr.idp);
+
+										break;
+									case 'tUsr':	prSetVariable('home', 'mod_thome.html');	break;
+									
+								}													
+								window.location.replace(fnGetVariable('home'));
+							}
+						}
+					}, // success
+					
+					error:		function(xhr, status, error) {
+						prCloseLoading();
+						if (error != 'Not Found') {
+							prAuthUser();
+						} else {
+							prShowMssgAll('01', 'danger', 'Error', errMsgNotFound, 'prAuthUser');
+						}
+					}, // error
+					
+					timeout:	gTimeOut
+				});
+			}
+			
+		} else {
+			prShowMssgAll('01', 'danger', 'Advertencia', errMsgOffline, 'prAuthUser');
+		}
+	} // prAuthUser
+
+	function prChkVer()
+	{
+		clearInterval(gIntId);
+		if (gInstanceType == 'app') {
+			if (device.platform == 'Android') {
+				var lAVer = Number(device.version);
+				if (lAVer < 6.0) {
+					var lHTML = 
+						"<span class='text-danger'><b>Versi&oacute;n no soportada</b></span><br>" +
+						"<br>La versi&oacute;n de Android de su dispositivo no opera convenientemente con Newsletter.<br>" +
+						"<br>Favor de abrir en el visor web de su preferencia el siguiente enlace:<br>" +
+						"<br><a href='" + gURLApp + "/index.html' target='_new'>" +
+						"<b><big>newsletter.up.edu.mx</big></b>";
+					$('#frmLogin').html(lHTML);
+				}
+			}
+		}
+	} // prChkVer
+
+	$( document ).ready(function() {
+
+		$("#frmLogin").validate({
+			rules: {
+				f_login: {
+					required: true,
+					minlength: 1,
+					maxlength: 50
+				},
+				f_pswd: {
+					required: true,
+					minlength: 1,
+					maxlength: 50
+				}
+			},
+
+			messages: {
+				f_login: {
+					required: "Ingrese un dato v&aacute;lido.",
+					minlength: "Ingrese un dato con longitud no menor a: " + 1,
+					maxlength: "Ingrese un dato con longitud no mayor a: " + 50
+				},
+				f_pswd: {
+					required: "Ingrese un dato v&aacute;lido.",
+					minlength: "Ingrese un dato con longitud no menor a: " + 1,
+					maxlength: "Ingrese un dato con longitud no mayor a: " + 50
+				}
+			}
+		});
+		
+		$("#b_send").click(function() {
+			var lForm = $("#frmLogin");
+			if (lForm.valid() == true) {
+				prSetUser($('#f_login').val().toLowerCase());
+				prSetPswd($('#f_pswd').val());
+				var lUser = fnGetUser();
+				var lPswd = fnGetPswd();
+				prAuthUser();
+			}
+		});
+		$('#frmLogin').keypress(function (e) {
+			var lKey = e.which;
+			if (lKey == 13) {
+				$("#b_send").click();
+				return false;
+			}
+		});
+		
+		$('#f_login').change(function(){
+			var lLogin = $('#f_login').val();
+			var lPatt = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+			var lRes = lPatt.test(lLogin);
+			if (lRes == true) {
+				$('#d_pswd').hide();
+				$('#f_pswd').val('no-pswd');
+			} else {
+				$('#d_pswd').show();
+				$('#f_pswd').val('');
+				$("#f_pswd").focus();
+			}
+		});
+		
+		$('#b_iamman').click(function(){
+			$('#f_login').change();
+		});
+		
+		$('#d_version').html("<a href='version.html'>" + gVersion + " | " + gInstanceType + "</a>");
+		
+		//$('#f_pswd').val('no-pswd');
+		$("#f_login").focus();
+		
+
+		/*localStorage.clear();
+		var lTckt = fnGetTckt();
+		if ( lTckt != '') {
+			window.location.replace(fnGetVariable('home'));
+		}*/
+		
+		gIntId = setInterval(prChkVer, 1000);
+		
+		prCheckVersion();
+	});

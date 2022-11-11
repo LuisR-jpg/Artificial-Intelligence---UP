@@ -1,0 +1,578 @@
+	
+	/******************SE USA************/
+		
+    var TMP_MenuLoginTemp = 
+		'<nav class="navbar navbar-expand-md navbar-light">\
+			<div class="container">\
+	        <a class="navbar-brand" href="index.html"><img src="images/lo_UP_color_hor.svg" width="200" height="50" alt="">\
+	        </a>\
+	        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Menu de Navegacion">\
+	          <span class="navbar-toggler-icon"></span>\
+	        </button>\
+	        <div class="collapse navbar-collapse" id="navbar">\
+	        </div>\
+	      </div>\
+    </nav>';
+
+
+    var TMP_MenuLogin = 
+		'<nav class="navbar navbar-expand-md navbar-light">\
+			<div class="container">\
+	        <a class="navbar-brand" href="index.html"><img src="images/lo_UP_color_hor.svg" width="200" height="50" alt="">\
+	        </a>\
+	        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Menu de Navegacion">\
+	          <span class="navbar-toggler-icon"></span>\
+	        </button>\
+	        <div class="collapse navbar-collapse" id="navbar">\
+	          <ul class="navbar-nav ml-auto text-center">\
+	          <li class="nav-item">\
+	              <a  href="https://servicios.up.edu.mx/formatos" class="nav-link">Formatos</a>\
+	            </li>\
+	          <li class="nav-item">\
+	              <a  href="dspResKeyZ.php" class="nav-link">Cursos y Eventos (Clave Z)</a>\
+	            </li>\
+	            <li class="nav-item">\
+	              <a target="_blank" href="https://servicios.up.edu.mx/pdpayuda/index.php?npdp=true" class="nav-link">Ayuda</a>\
+	            </li>\
+	            <li class="nav-item">\
+	              <button class="btn btn-outline-danger" data-toggle="modal" data-target="#fm-modal-grid">Video ayuda</button>\
+	              <div class="modal fade" id="fm-modal-grid" tabindex="-1" role="dialog" aria-labelledby="fm-modal-grid" aria-hidden="true">\
+	                <div class="modal-dialog modal-lg">\
+	                  <div class="modal-content">\
+	                    <div class="modal-header">\
+	                      <h5 class="modal-title"style="font-family: Montserrat, sans-serif;">¿Cómo usar el portal de pagos?</h5>\
+	                      <button class="close" data-dismiss="modal" aria-label="Cerrar">\
+	                        <span aria-hidden="true">×</span>\
+	                      </button>\
+	                    </div>\
+	                    <div class="modal-body">\
+	                      <div class="container-fluid">\
+	                        <div class="row">\
+	                          <div class="col-auto">\
+	                            <iframe width="560" height="315" src="https://www.youtube.com/embed/DRwQhdCkwGw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>\
+	                          </div>\
+	                        </div>\
+	                      </div>\
+	                    </div>\
+	                  </div>\
+	                </div>\
+	              </div>\
+	            </li>\
+	          </ul>\
+	        </div>\
+	      </div>\
+    </nav>';
+
+
+	var TMP_MenuCveZ = 
+		'<nav class="navbar navbar-expand-md navbar-light">\
+			<div class="container">\
+	        <a class="navbar-brand" href="index.html"><img src="images/lo_UP_color_hor.svg" width="200" height="50" alt="">\
+	        </a>\
+	        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Menu de Navegacion">\
+	          <span class="navbar-toggler-icon"></span>\
+	        </button>\
+	        <div class="collapse navbar-collapse" id="navbar">\
+	          <ul class="navbar-nav ml-auto text-center">\
+	          <li class="nav-item">\
+	              <a  href="https://servicios.up.edu.mx/formatos" class="nav-link">Formatos</a>\
+	            </li>\
+	          <li class="nav-item">\
+	              <a  href="dspResKeyZ.php" class="nav-link">Cursos y Eventos (Clave Z)</a>\
+	            </li>\
+	            <li class="nav-item">\
+	              <a target="_blank" href="https://servicios.up.edu.mx/pdpayuda/index.php?npdp=true" class="nav-link">Ayuda</a>\
+	            </li>\
+	            <li class="nav-item">\
+	              <button class="btn btn-outline-danger" data-toggle="modal" data-target="#fm-modal-grid">Video ayuda</button>\
+	              <div class="modal fade" id="fm-modal-grid" tabindex="-1" role="dialog" aria-labelledby="fm-modal-grid" aria-hidden="true">\
+	                <div class="modal-dialog modal-lg">\
+	                  <div class="modal-content">\
+	                    <div class="modal-header">\
+	                      <h5 class="modal-title"style="font-family: Montserrat, sans-serif;">¿Cómo pagar una Clave Z?</h5>\
+	                      <button class="close" data-dismiss="modal" aria-label="Cerrar">\
+	                        <span aria-hidden="true">×</span>\
+	                      </button>\
+	                    </div>\
+	                    <div class="modal-body">\
+	                      <div class="container-fluid">\
+	                        <div class="row">\
+	                          <div class="col-auto">\
+	                            <iframe width="560" height="315" src="https://www.youtube.com/embed/d4ffYPXs4lA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>\
+	                          </div>\
+	                        </div>\
+	                      </div>\
+	                    </div>\
+	                  </div>\
+	                </div>\
+	              </div>\
+	            </li>\
+	          </ul>\
+	        </div>\
+	      </div>\
+    </nav>';
+	
+	var TMP_MenuAlumni = 
+		'<nav class="navbar navbar-expand-md navbar-light">\
+			<div class="container">\
+	        <a class="navbar-brand" href="index.html"><img src="images/lo_UP_color_hor.svg" width="200" height="50" alt="">\
+	        </a>\
+	        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Menu de Navegacion">\
+	          <span class="navbar-toggler-icon"></span>\
+	        </button>\
+	        <div class="collapse navbar-collapse" id="navbar">\
+	          <ul class="navbar-nav ml-auto text-center">\
+	          <li class="nav-item">\
+	              <a  href="https://servicios.up.edu.mx/formatos" class="nav-link">Formatos</a>\
+	            </li>\
+	          <li class="nav-item">\
+	              <a  href="dspResKeyZ.php" class="nav-link">Cursos y Eventos (Clave Z)</a>\
+	            </li>\
+	            <li class="nav-item">\
+	              <a target="_blank" href="https://servicios.up.edu.mx/pdpayuda/index.php?npdp=true" class="nav-link">Ayuda</a>\
+	            </li>\
+	            <li class="nav-item">\
+	              <button class="btn btn-outline-danger" data-toggle="modal" data-target="#fm-modal-grid">Video ayuda</button>\
+	              <div class="modal fade" id="fm-modal-grid" tabindex="-1" role="dialog" aria-labelledby="fm-modal-grid" aria-hidden="true">\
+	                <div class="modal-dialog modal-lg">\
+	                  <div class="modal-content">\
+	                    <div class="modal-header">\
+	                      <h5 class="modal-title"style="font-family: Montserrat, sans-serif;">¿Cómo realizar tu pago?</h5>\
+	                      <button class="close" data-dismiss="modal" aria-label="Cerrar">\
+	                        <span aria-hidden="true">×</span>\
+	                      </button>\
+	                    </div>\
+	                    <div class="modal-body">\
+	                      <div class="container-fluid">\
+	                        <div class="row">\
+	                          <div class="col-auto">\
+	                            <iframe width="560" height="315" src="https://www.youtube.com/embed/Y6fx2fhU2v0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>\
+	                          </div>\
+	                        </div>\
+	                      </div>\
+	                    </div>\
+	                  </div>\
+	                </div>\
+	              </div>\
+	            </li>\
+	          </ul>\
+	        </div>\
+	      </div>\
+    </nav>';
+
+
+    
+	/******************SE USA************/
+		
+
+	var TMP_Comp = 
+		'<div class="form-group">\
+			<label class="AlTxt col-12 col-sm-12 col-lg-3 col-xl-3 control-label text-right">{{pTitle}} {{pForce}}<span style="color:red">*</span>{{/pForce}}</label>\
+			<div class="col-12 col-sm-12 col-lg-8 col-xl-8">\
+				{{pBody}}\
+			</div>\
+			<div class="hidden-xs hidden-sm col-lg-1 col-xl-1">&nbsp;</div>\
+		</div>';
+
+	var TMP_Comp2 = 
+		'<div class="form-group row">\
+			<label class="AlTxt col-5 col-sm-5 col-lg-4 col-xl-4 control-label text-right"><strong>{{pTitle}} {{pForce}}<span style="color:red">*</span>{{/pForce}}</strong></label>\
+			<div class="col-7 col-sm-7 col-lg-8 col-xl-8">\
+				{{pBody}}\
+			</div>\
+		</div>';
+		
+	var TMP_CompGlyph = 
+		'<div class="form-group">\
+			<label class="AlTxt col-12 col-sm-12 col-lg-3 col-xl-3 control-label text-right">{{pTitle}} {{pForce}}<span style="color:red">*</span>{{/pForce}}</label>\
+			<div class="col-10 col-sm-10 col-lg-6 col-xl-6">\
+				{{pBody}}\
+			</div>\
+			<div class="col-2 col-sm-2 col-lg-2 col-xl-2 text-center">\
+				<span id="{{pGID}}" style="color:white;display:inline;font-size:28px;"></span>\
+			</div>\
+			<div class="hidden-xs hidden-sm col-lg-1 col-xl-1">&nbsp;</div>\
+		</div>';
+		
+	var TMP_Comp1x2 = 
+		'<div class="form-group">\
+			<label class="AlTxt col-12 col-sm-12 col-lg-3 col-xl-3 control-label text-right">{{pTitle}} {{pForce}}<span style="color:red">*</span>{{/pForce}}</label>\
+			<div class="col-12 col-sm-12 col-lg-7 col-xl-7">\
+				{{pBody}}\
+			</div>\
+			<div class="hidden-xs hidden-sm col-lg-2 col-xl-2">\
+				{{pBody02}}\
+			</div>\
+		</div>';
+	
+	var TMP_CompTwin = 
+		'<div class="form-group">\
+			<label class="AlTxt col-12 col-sm-12 col-lg-3 col-xl-3 control-label text-right">{{pTitle}} {{pForce}}<span style="color:red">*</span>{{/pForce}}</label>\
+			<div class="col-12 col-sm-12 col-lg-4 col-xl-4">\
+				{{pBody}}\
+				<div class="hidden-md hidden-lg"><br></div>\
+			</div>\
+			<div class="col-12 col-sm-12 col-lg-4 col-xl-4">\
+				{{pBody02}}\
+			</div>\
+			<div class="hidden-xs hidden-sm col-lg-1 col-xl-1">&nbsp;</div>\
+		</div>';
+		
+	var TMP_CompThree = 
+		'<div class="form-group">\
+			<label class="AlTxt col-12 col-sm-12 col-lg-3 col-xl-3 control-label text-right">{{pTitle}} {{pForce}}<span style="color:red">*</span>{{/pForce}}</label>\
+			<div class="col-12 col-sm-12 col-lg-2 col-xl-2">\
+				{{pBody}}\
+				<div class="hidden-md hidden-lg"><br></div>\
+			</div>\
+			<div class="col-12 col-sm-12 col-lg-2 col-xl-2">\
+				{{pBody02}}\
+			</div>\
+			<div class="col-12 col-sm-12 col-lg-4 col-xl-4">\
+				{{pBody03}}\
+			</div>\
+			<div class="hidden-xs hidden-sm col-lg-1 col-xl-1">&nbsp;</div>\
+		</div>';
+		
+	var TMP_CompWide = '\
+		<div class="form-group">\
+			<div class="col-12 col-sm-12 col-lg-10 col-xl-10">\
+				{{pBody}}\
+			</div>\
+			<div class="hidden-xs hidden-sm col-lg-2 col-xl-2">\
+				{{pBody02}}\
+			</div>\
+		</div>\
+	';
+		
+	var TMP_Comp4Col = 
+		'<div class="form-group">\
+			<label class="AlTxt col-12 col-sm-12 col-lg-4 col-xl-4 control-label text-right">{{pTitle}} {{pForce}}<span style="color:red">*</span>{{/pForce}}</label>\
+			<div class="col-12 col-sm-12 col-lg-7 col-xl-7">\
+				{{pBody}}\
+			</div>\
+			<div class="hidden-xs hidden-sm col-lg-1 col-xl-1">&nbsp;</div>\
+		</div>';
+	
+
+	/******************SE USA************/
+		var TMP_MenuStudent =
+		'<nav class="navbar navbar-expand-md navbar-light">\
+				<div class="container">\
+		        <a class="navbar-brand" href="mod_shome.html"><img src="images/lo_UP_color_hor.svg" width="200" height="50" alt="">\
+		        </a>\
+		        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Menu de Navegacion">\
+		          <span class="navbar-toggler-icon"></span>\
+		        </button>\
+		        <div class="collapse navbar-collapse" id="navbar">\
+		          <ul class="navbar-nav ml-auto text-center">\
+		          <li class="nav-item">\
+		              <a href="mod_shome.html" class="nav-link">Inicio</a>\
+		            </li>\
+		            <li class="nav-item">\
+		              <a target="_blank" href="https://servicios.up.edu.mx/pdpayuda/index.php?npdp=true" class="nav-link">Ayuda</a>\
+		            </li>\
+		            <li class="nav-item">\
+		              <a href="mod_stutor.html" class="nav-link">Registro tutor</a>\
+		            </li>\
+		            <li class="nav-item">\
+		              <a href="mod_sfact.html" class="nav-link">Facturación</a>\
+		            </li>\
+		            <li class="nav-item" onclick="prLogOff()">\
+		              <a href="#" class="nav-link">Salir</a>\
+		            </li>\
+		            <li class="nav-item">\
+		              <button class="btn btn-outline-danger" data-toggle="modal" data-target="#fm-modal-grid">Video ayuda</button>\
+		              <div class="modal fade" id="fm-modal-grid" tabindex="-1" role="dialog" aria-labelledby="fm-modal-grid" aria-hidden="true">\
+		                <div class="modal-dialog modal-lg">\
+		                  <div class="modal-content">\
+		                    <div class="modal-header">\
+		                      <h5 class="modal-title"style="font-family: Montserrat, sans-serif;">¿Cómo usar el portal de pagos?</h5>\
+		                      <button class="close" data-dismiss="modal" aria-label="Cerrar">\
+		                        <span aria-hidden="true">×</span>\
+		                      </button>\
+		                    </div>\
+		                    <div class="modal-body">\
+		                      <div class="container-fluid">\
+		                        <div class="row">\
+		                          <div class="col-auto">\
+		                            <iframe width="560" height="315" src="https://www.youtube.com/embed/DRwQhdCkwGw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>\
+		                          </div>\
+		                        </div>\
+		                      </div>\
+		                    </div>\
+		                  </div>\
+		                </div>\
+		              </div>\
+		            </li>\
+		          </ul>\
+		        </div>\
+		      </div>\
+	    </nav>';
+
+
+	    var TMP_MenuStudentFact =
+		'<nav class="navbar navbar-expand-md navbar-light">\
+				<div class="container">\
+		        <a class="navbar-brand" href="mod_shome.html"><img src="images/lo_UP_color_hor.svg" width="200" height="50" alt="">\
+		        </a>\
+		        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Menu de Navegacion">\
+		          <span class="navbar-toggler-icon"></span>\
+		        </button>\
+		        <div class="collapse navbar-collapse" id="navbar">\
+		          <ul class="navbar-nav ml-auto text-center">\
+		          <li class="nav-item">\
+		              <a href="mod_shome.html" class="nav-link">Inicio</a>\
+		            </li>\
+		            <li class="nav-item">\
+		              <a target="_blank" href="https://servicios.up.edu.mx/pdpayuda/index.php?npdp=true" class="nav-link">Ayuda</a>\
+		            </li>\
+		            <li class="nav-item">\
+		              <a href="mod_stutor.html" class="nav-link">Registro tutor</a>\
+		            </li>\
+		            <li class="nav-item">\
+		              <a href="mod_sfact.html" class="nav-link">Facturación</a>\
+		            </li>\
+		            <li class="nav-item" onclick="prLogOff()">\
+		              <a href="#" class="nav-link">Salir</a>\
+		            </li>\
+		            <li class="nav-item">\
+		              <button class="btn btn-outline-danger" data-toggle="modal" data-target="#fm-modal-grid">Video ayuda</button>\
+		              <div class="modal fade" id="fm-modal-grid" tabindex="-1" role="dialog" aria-labelledby="fm-modal-grid" aria-hidden="true">\
+		                <div class="modal-dialog modal-lg">\
+		                  <div class="modal-content">\
+		                    <div class="modal-header">\
+		                      <h5 class="modal-title"style="font-family: Montserrat, sans-serif;">¿Cómo usar el portal de pagos?</h5>\
+		                      <button class="close" data-dismiss="modal" aria-label="Cerrar">\
+		                        <span aria-hidden="true">×</span>\
+		                      </button>\
+		                    </div>\
+		                    <div class="modal-body">\
+		                      <div class="container-fluid">\
+		                        <div class="row">\
+		                          <div class="col-auto">\
+		                            <iframe width="560" height="315" src="https://www.youtube.com/embed/QSAY257Rao0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>\
+		                          </div>\
+		                        </div>\
+		                      </div>\
+		                    </div>\
+		                  </div>\
+		                </div>\
+		              </div>\
+		            </li>\
+		          </ul>\
+		        </div>\
+		      </div>\
+	    </nav>';
+
+
+	    var TMP_MenuTutor =
+		'<nav class="navbar navbar-expand-md navbar-light">\
+				<div class="container">\
+		        <a class="navbar-brand" href="mod_thome.html"><img src="images/lo_UP_color_hor.svg" width="200" height="50" alt="">\
+		        </a>\
+		        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Menu de Navegacion">\
+		          <span class="navbar-toggler-icon"></span>\
+		        </button>\
+		        <div class="collapse navbar-collapse" id="navbar">\
+		          <ul class="navbar-nav ml-auto text-center">\
+		          	<li class="nav-item">\
+		              <a href="mod_thome.html" class="nav-link">Inicio</a>\
+		            </li>\
+		            <li class="nav-item">\
+		              <a target="_blank" href="https://servicios.up.edu.mx/pdpayuda/index.php?npdp=true" class="nav-link">Ayuda</a>\
+		            </li>\
+		            <li class="nav-item">\
+		              <a href="mod_tfact.html" class="nav-link">Facturación</a>\
+		            </li>\
+		            <li class="nav-item" onclick="prLogOff()">\
+		              <a href="#" class="nav-link">Salir</a>\
+		            </li>\
+		            <li class="nav-item">\
+		              <button class="btn btn-outline-danger" data-toggle="modal" data-target="#fm-modal-grid">Video ayuda</button>\
+		              <div class="modal fade" id="fm-modal-grid" tabindex="-1" role="dialog" aria-labelledby="fm-modal-grid" aria-hidden="true">\
+		                <div class="modal-dialog modal-lg">\
+		                  <div class="modal-content">\
+		                    <div class="modal-header">\
+		                      <h5 class="modal-title"style="font-family: Montserrat, sans-serif;">¿Cómo usar el portal de pagos?</h5>\
+		                      <button class="close" data-dismiss="modal" aria-label="Cerrar">\
+		                        <span aria-hidden="true">×</span>\
+		                      </button>\
+		                    </div>\
+		                    <div class="modal-body">\
+		                      <div class="container-fluid">\
+		                        <div class="row">\
+		                          <div class="col-auto">\
+		                            <iframe width="560" height="315" src="https://www.youtube.com/embed/wFJRKf-j0V0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>\
+		                          </div>\
+		                        </div>\
+		                      </div>\
+		                    </div>\
+		                  </div>\
+		                </div>\
+		              </div>\
+		            </li>\
+		          </ul>\
+		        </div>\
+		      </div>\
+	    </nav>';
+
+
+	    var TMP_MenuTutorFact =
+		'<nav class="navbar navbar-expand-md navbar-light">\
+				<div class="container">\
+		        <a class="navbar-brand" href="mod_thome.html"><img src="images/lo_UP_color_hor.svg" width="200" height="50" alt="">\
+		        </a>\
+		        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Menu de Navegacion">\
+		          <span class="navbar-toggler-icon"></span>\
+		        </button>\
+		        <div class="collapse navbar-collapse" id="navbar">\
+		          <ul class="navbar-nav ml-auto text-center">\
+		          	<li class="nav-item">\
+		              <a href="mod_thome.html" class="nav-link">Inicio</a>\
+		            </li>\
+		            <li class="nav-item">\
+		              <a target="_blank" href="https://servicios.up.edu.mx/pdpayuda/index.php?npdp=true" class="nav-link">Ayuda</a>\
+		            </li>\
+		            <li class="nav-item">\
+		              <a href="mod_tfact.html" class="nav-link">Facturación</a>\
+		            </li>\
+		            <li class="nav-item" onclick="prLogOff()">\
+		              <a href="#" class="nav-link">Salir</a>\
+		            </li>\
+		            <li class="nav-item">\
+		              <button class="btn btn-outline-danger" data-toggle="modal" data-target="#fm-modal-grid">Video ayuda</button>\
+		              <div class="modal fade" id="fm-modal-grid" tabindex="-1" role="dialog" aria-labelledby="fm-modal-grid" aria-hidden="true">\
+		                <div class="modal-dialog modal-lg">\
+		                  <div class="modal-content">\
+		                    <div class="modal-header">\
+		                      <h5 class="modal-title"style="font-family: Montserrat, sans-serif;">¿Cómo usar el portal de pagos?</h5>\
+		                      <button class="close" data-dismiss="modal" aria-label="Cerrar">\
+		                        <span aria-hidden="true">×</span>\
+		                      </button>\
+		                    </div>\
+		                    <div class="modal-body">\
+		                      <div class="container-fluid">\
+		                        <div class="row">\
+		                          <div class="col-auto">\
+		                            <iframe width="560" height="315" src="https://www.youtube.com/embed/QSAY257Rao0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>\
+		                          </div>\
+		                        </div>\
+		                      </div>\
+		                    </div>\
+		                  </div>\
+		                </div>\
+		              </div>\
+		            </li>\
+		          </ul>\
+		        </div>\
+		      </div>\
+	    </nav>';
+
+
+		var TMP_MenuAdm =
+		'<nav class="navbar navbar-expand-md navbar-light">\
+				<div class="container">\
+				<a class="navbar-brand" href="mod_shome.html"><img src="images/lo_UP_color_hor.svg" width="200" height="50" alt="">\
+				</a>\
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Menu de Navegacion">\
+				<span class="navbar-toggler-icon"></span>\
+				</button>\
+				<div class="collapse navbar-collapse" id="navbar">\
+				<ul class="navbar-nav ml-auto text-center">\
+				<li class="nav-item">\
+					<a href="mod_admtutor.html" class="nav-link">Inicio</a>\
+					</li>\
+					<li class="nav-item" onclick="prLogOff()">\
+					<a href="#" class="nav-link">Salir</a>\
+					</li>\
+					<li class="nav-item">\
+					<button class="btn btn-outline-danger" data-toggle="modal" data-target="#fm-modal-grid">Video ayuda</button>\
+					<div class="modal fade" id="fm-modal-grid" tabindex="-1" role="dialog" aria-labelledby="fm-modal-grid" aria-hidden="true">\
+						<div class="modal-dialog modal-lg">\
+						<div class="modal-content">\
+							<div class="modal-header">\
+							<h5 class="modal-title"style="font-family: Montserrat, sans-serif;">¿Cómo usar el portal de pagos?</h5>\
+							<button class="close" data-dismiss="modal" aria-label="Cerrar">\
+								<span aria-hidden="true">×</span>\
+							</button>\
+							</div>\
+							<div class="modal-body">\
+							<div class="container-fluid">\
+								<div class="row">\
+								<div class="col-auto">\
+									<iframe width="560" height="315" src="https://www.youtube.com/embed/DRwQhdCkwGw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>\
+								</div>\
+								</div>\
+							</div>\
+							</div>\
+						</div>\
+						</div>\
+					</div>\
+					</li>\
+				</ul>\
+				</div>\
+			</div>\
+		</nav>';
+	/******************FUNCIONES************/
+
+	function fnSetTimeValid(ref){
+		setTimeout(() => {
+			fnValidTrans(ref);
+		}, 90000);
+	}
+
+
+	function fnValidTrans(ref){
+		console.log("El timemout funciona");
+
+
+		$.ajax({
+			data:
+			{
+				action  : 'act_ValidTrans',
+				user    : fnGetUser(),
+				tckt    : fnGetTckt(),
+				f_reference: ref
+			},
+			url:		gURLApp + "/srvBO.php",
+			type:		'POST',
+			cache:		false,
+			
+			success:	function(data, status, xhr) {
+				prCloseLoading();
+				if ( (status != 'success') || (data.length == 0) ) {
+					fnValidTrans(ref);
+				} else {
+					fnValidTrans.counter = 0;						
+					lArr= jQuery.parseJSON(data);
+					if (fnDispatchMssg(lArr, 'fnValidTrans', '01')) {
+						prSetTckt(lArr.tckt);
+						
+						if(lArr.result == "ok"){
+							prRemoveVariable('reference');
+						}
+						else if(lArr.result == "no"){
+							fnValidTrans(ref);
+						}
+
+					}
+				}
+			}, // success
+			
+			error:		function(xhr, status, error) {
+				prCloseLoading();
+				if (error != 'Not Found') {
+					fnValidTrans(ref);
+				} else {
+					prShowMssgAll('01', 'danger', 'Error', errMsgNotFound, 'fnValidTrans');
+				}
+			}, // error
+			
+			timeout:	gTimeOut
+		});
+	}
+
+
+	/******************FUNCIONES************/
+	

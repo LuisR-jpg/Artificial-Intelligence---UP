@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Portal de Pagos - Universidad Panamericana</title>
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="msapplication-tap-highlight" content="no">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+	<meta http-equiv="Content-Security-Policy" content="default-src * gap://ready file:; style-src &#39;self&#39; &#39;unsafe-inline&#39;; script-src &#39;self&#39; &#39;unsafe-inline&#39; &#39;unsafe-eval&#39;">
+
+	<!-- Arquitecture -->
+	<link href="./tmp/open-sans.css" rel="stylesheet">
+	<link href="./tmp/bootstrap.min.css" rel="stylesheet">
+	<link href="./tmp/style.css" rel="stylesheet">
+	<link href="./tmp/jquery-confirm.min.css" rel="stylesheet">
+	<script src="./tmp/jquery.min.js.download"></script>
+	<script src="./tmp/jquery-confirm.min.js.download"></script>
+	<script src="./tmp/jquery.validate.min.js.download"></script>
+	<script src="./tmp/bootstrap.min.js.download"></script>
+	<script src="./tmp/scripts.js.download"></script>
+	<script src="./tmp/tim.js.download"></script>
+	<script src="./tmp/sjcl.js.download"></script>
+	
+	<!-- Templates -->
+	<script src="./tmp/incBasic.tpl.js.download"></script>
+	<script src="./tmp/mod_index.tpl.js.download"></script>
+	
+	<!-- Utilities -->
+	<script src="./tmp/incUtils.js.download"></script>
+
+	<!-- Modules -->
+	<script src="./tmp/jquery.base64.js.download"></script>
+	<script src="./tmp/mod_index.js.download"></script>
+
+
+	<style> 
+		body {
+			background-color:white;
+			}
+			.navbar {
+			  font-family: Montserrat, sans-serif;
+			}
+			.navbar-link {
+			  background-color: #EC6A5D;
+			  border-bottom: solid 1px;
+			}
+			.gridcuadros {
+			   font-family: Montserrat, sans-serif;
+			}
+			.cuadro1 {
+			  background-color: #EC6A5D;
+			}
+			.cuadro2 {
+			  background-color: black;
+			}
+			.alumno {
+			  margin-top: 15px;
+			  margin-bottom: 15px;
+		}
+
+
+		</style>
+
+</head>
+
+<body>
+
+	<div class="container-fluid menu">
+		<div id="COMP_menu"><nav class="navbar navbar-expand-md navbar-light">			<div class="container">	        <a class="navbar-brand" href="https://portaldepagos.up.edu.mx/index.html"><img src="./tmp/lo_UP_color_hor.svg" width="200" height="50" alt="">	        </a>	        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Menu de Navegacion">	          <span class="navbar-toggler-icon"></span>	        </button>	        <div class="collapse navbar-collapse" id="navbar">	          <ul class="navbar-nav ml-auto text-center">	          <li class="nav-item">	              <a href="https://servicios.up.edu.mx/formatos" class="nav-link">Formatos</a>	            </li>	          <li class="nav-item">	              <a href="https://portaldepagos.up.edu.mx/dspResKeyZ.php" class="nav-link">Cursos y Eventos (Clave Z)</a>	            </li>	            <li class="nav-item">	              <a target="_blank" href="https://servicios.up.edu.mx/pdpayuda/index.php?npdp=true" class="nav-link">Ayuda</a>	            </li>	            <li class="nav-item">	              <button class="btn btn-outline-danger" data-toggle="modal" data-target="#fm-modal-grid">Video ayuda</button>	              <div class="modal fade" id="fm-modal-grid" tabindex="-1" role="dialog" aria-labelledby="fm-modal-grid" aria-hidden="true">	                <div class="modal-dialog modal-lg">	                  <div class="modal-content">	                    <div class="modal-header">	                      <h5 class="modal-title" style="font-family: Montserrat, sans-serif;">¿Cómo usar el portal de pagos?</h5>	                      <button class="close" data-dismiss="modal" aria-label="Cerrar">	                        <span aria-hidden="true">×</span>	                      </button>	                    </div>	                    <div class="modal-body">	                      <div class="container-fluid">	                        <div class="row">	                          <div class="col-auto">	                            <iframe width="560" height="315" src="./tmp/DRwQhdCkwGw.html" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>	                          </div>	                        </div>	                      </div>	                    </div>	                  </div>	                </div>	              </div>	            </li>	          </ul>	        </div>	      </div>    </nav></div>
+		<script>
+			prTIMInsert(TMP_MenuLogin, {
+				pID: "menu"
+			});
+		</script>
+	</div>
+
+	<main class="gridcuadros">
+      <div class="container">
+        <div class="row no-gutters">
+          <div class="col cuadro1 col-12 col-md-6 col-lg-4 order-0">
+            <div class="d-none d-sm-none d-md-block">
+              <img src="./tmp/sq1.jpg" class="img-fluid" alt="Responsive image">
+            </div>
+            <div class="d-block d-sm-block d-md-none">
+              <img src="./tmp/sq1_xs.jpg" class="img-fluid" alt="Responsive image">
+            </div>
+            
+          </div>
+          <div class="col cuadro2 col-12 col-md-6 col-lg-4 order-1 py-2" style="  background-image: url(&quot;images/sq2_b.jpg&quot;);  background-position: left top;  background-size: 100%;  background-repeat: no-repeat;">
+            <div class="row h-100 justify-content-center align-items-center">
+              <div class="col col-9 ">
+                <form id="frmLogin" autocomplete="off" novalidate="novalidate">
+                  <div class="form-control alumno col text-center">
+                  	<b class="text-center text-danger" style="font-size: 13.5px;"> INGRESO ALUMNOS / TUTORES</b> <br>
+                    <!--<h6 class="text-center text-danger">  </h6>-->
+                    <input type="text" id="f_login" name="f_login" class="form-control btn-sm mb-2 text" placeholder="Usuario / Correo" autocomplete="off">
+                    <input type="password" id="f_pswd" name="f_pswd" placeholder="Contraseña" class="form-control btn-sm mb-2" autocomplete="off">
+                    <button type="button" onclick = "myFunction()" id="b_send" class="nav-item btn btn-primary col-11 col-sm-8 btn-sm justify-content-center ">INGRESAR</button>
+                    <small class="form-text text-center">
+                      <p><a href="https://portaldepagos.up.edu.mx/dspResPswd.php" class="text-danger">Olvide mi contraseña (Tutor)</a></p>
+                    </small>
+                    <hr>
+                    <small class="form-text text-center">
+                      <p><a href="https://portaldepagos.up.edu.mx/dspResKeyZ.php" class="text-danger">Cursos y Eventos (Clave Z)</a></p>
+                    </small>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!--<div class="col cuadro3 col-12 col-md-6 col-lg-4 order-2" style="  background-image: url(&quot;images/sq3_b.jpg&quot;);  background-position: left top;  background-size: 100%;  background-repeat: no-repeat;">-->
+          	<div class="col cuadro3 col-12 col-md-6 col-lg-4 order-2" style="  background-image: url(&quot;images/cu5.jpg&quot;);  background-position: left top;  background-size: 100%;  background-repeat: no-repeat;">
+            <div class="row h-100 align-items-end justify-content-center">
+              <div class="col col-8">
+                <!--<form action="aspirantesjust text-center" class="text-center">
+                  <img src="images/spacer.png">
+                  <small class="form-text text-light text-center" style="font-family: Montserrat, sans-serif;">Si estás en el proceso <br>de selección haz click</small>
+
+                  <a href="aspirantes.html" class="btn btn-success col-11 col-sm-8 btn-sm justify-content-center mb-3 btn-sm active" role="button" aria-pressed="true">INGRESAR</a>
+                </form>-->
+              </div>
+            </div>
+          </div>
+          <div class="col cuadro4 col-12 col-md-6 col-lg-4 order-3">
+            <div><img src="./tmp/sq4_b.jpg" class="img-fluid" alt="Responsive image"></div>
+          </div>
+          <div class="col cuadro5 col-12 col-md-6 col-lg-4 order-4">
+            <img src="./tmp/sq5_b.jpg" class="img-fluid" alt="Responsive image">
+          </div>
+          <div class="col cuadro6 col-12 col-md-6 col-lg-4 order-5">
+            <img src="./tmp/sq6_b.jpg" class="img-fluid" alt="Responsive image">
+          </div>
+        </div>
+      </div>
+    </main>	
+	
+	<br><br><br>
+	
+	<script type="text/javascript">
+		app.initialize();
+		function myFunction(){
+			alert("hola");
+		}
+	</script>
+	
+
+	
+
+</body></html>
