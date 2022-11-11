@@ -1,0 +1,822 @@
+
+	//-- Globals
+	
+	//-- Developing
+	//var gURLApp = "https://dipdev.up.edu.mx/pdpdev";
+	//-- Production
+	var gURLApp = "https://portaldepagos.up.edu.mx";
+	
+	var gVersion = "01.02.17"
+	
+	//var gInstanceType = "app";
+	var gInstanceType = "web";
+	
+	var gNotiLoop = 1000 * 60 * 1;
+	
+	var gIDNot = 0;
+	
+	var errMsgNotResponding = '<b>Fallo</b>. <a href = "https://portaldepagos.up.edu.mx/mod_shome.html">Recargar la página</a><br>.';
+
+	var errMsgNotFound = 'El <b>Server Back Office</b> no fue encontrado.<br><br>\
+							Por favor avise al administrador.';
+
+	var errMsgOffline = '<b>No hay conexi&oacute;n con la red</b>.<br>\
+							<br>Por favor verifique su dispositivo.';
+							
+	var gTimeOut = 10000;
+	
+	var gCounterLim = 5;
+	
+	var ST_OK =						1;
+	var ST_Err_TicketNotExists =	-1001;
+	var ST_Err_InvalidTicket =		-1002;
+	var ST_Err_UnknownCommand =		-1003;
+	var ST_Err_NotAccess =			-1005;
+	var ST_Err_EmptyParam =			-1006;
+	var ST_Err_ItemNotExists =		-1007;
+	var ST_Err_DB =					-1008;
+	var ST_Err_SendMail =			-1009;
+	var ST_Err_Inactive =			-1010;
+	var ST_Err_ExistsAlready =		-1011;
+	var ST_Err_NotValidForType =	-1012;
+	var ST_Err_HasHistory =			-1013;
+	var ST_Err_CSVIncomplete =		-1014;
+	var ST_Err_CSVNoFields =		-1015;
+	var ST_Err_InvalidFileFormat =	-1016;
+	var ST_Err_NotChgPrivs =		-1017;
+	var ST_Err_UsrNoExist  =		-1018;
+	var ST_Err_UsrNoActive =		-1019;
+	var ST_Err_UsrInactive =		-1020;
+	var ST_Err_KeyZNotExist =		-1021;
+	
+	
+	var ST_Run_Pending =	'0';
+	var ST_Run_Running =	'1';
+	var ST_Run_Stopped =	'2';
+	var ST_Run_Finished =	'3';
+	var ST_Run_Canceled =	'4';
+
+	function fnGetStStr(pVal)
+	{
+		lRes = "";
+		
+		switch (pVal) {
+			case ST_Run_Pending:	lRes = "Pendiente";		break;
+			case ST_Run_Running:	lRes = "En ejecución";	break;
+			case ST_Run_Stopped:	lRes = "Pausado";		break;
+			case ST_Run_Finished:	lRes = "Finalizado";	break;
+			case ST_Run_Canceled:	lRes = "Cancelado";		break;
+		}
+		
+		return lRes;
+	} // fnGetStStr
+
+	
+	//-- TIM
+	
+	function prTIMReplace(pTemplate, pData) 
+	{
+		var lID = pData['pID'];
+		if (pData['pBody'] != null) {
+			var lBody = tim(pData['pBody'], pData);
+			pData['pBody'] = lBody;
+		}
+		var lHTML = tim(pTemplate, pData);
+		$('#COMP_' + lID).replaceWith(lHTML);
+	} // prTIMReplace
+	
+	function prTIMInsert(pTemplate, pData) 
+	{
+		if (jQuery.isEmptyObject(pData) == false) {
+			var lID = pData['pID'];
+			var lHTML = tim(pTemplate, pData);
+			$('#COMP_' + lID).html(lHTML);
+		}
+	} // prTIMInsert
+
+
+	function prGetHtml(pTemplate, pData) 
+	{
+		var lHTML = "";
+
+		if (jQuery.isEmptyObject(pData) == false) {			
+			lHTML = tim(pTemplate, pData);			
+		}
+
+		return lHTML;
+	} // prGetHtml
+	
+	
+	//-- Dates
+	
+	function fnNoCents(pDate)
+	{
+		if (pDate != '') {
+			var lArr = pDate.split('.');
+			return lArr[0];
+		}
+		return '';
+	} // fnNoCents
+	
+	function fnNoHour(pDate)
+	{
+		if (pDate != '') {
+			var lArr = pDate.split(' ');
+			return lArr[0];
+		}
+		return '';
+	} // fnNoHour
+	
+	//-- View
+	
+	function prShowMssg(pID, pType, pTitle, pMssg)
+	{
+		$("#mssgs_" + pID).show();
+		$("#mssgs_" + pID).html(
+			'<div class="alert alert-' + pType + ' fade in"><a href="#" class="close" data-dismiss="alert">&times;</a><strong><span class="glyphicon glyphicon-' + pTitle + '"></span></strong>&nbsp;&nbsp;' + pMssg + '</div>'
+		);
+		$("#mssgs_" + pID).delay(5000).fadeOut();
+	} // prShowMssg
+	
+	function prShowMssgAll(pID, pType, pTitle, pMssg, pWhere)
+	{
+		$.alert({
+			columnClass:	'large',
+			theme:			'bootstrap',
+			title:			'<span class="label label-' + pType + '"><b>' + pTitle + '</b></span>',
+			content:		pMssg
+		});
+		
+		$("#mssgs_" + pID).show();
+		$("#mssgs_" + pID).html(
+			'<div class="alert alert-' + pType + ' fade in"><a href="#" class="close" data-dismiss="alert">&times;</a><strong><span class="glyphicon glyphicon-' + pTitle + '"></span></strong>&nbsp;&nbsp;' + pMssg + '</div>'
+		);
+		$("#mssgs_" + pID).delay(3000).fadeOut();
+		
+		//console.log(pTitle + ' | ' + pWhere + ' | ' + pMssg.replace(/<\/?[^>]+(>|$)/g, ""));
+	} // prShowMssgAll
+	
+	function prFillSelect(pID, pDef, pData)
+	{
+		$.each(pData, function(key, val) {
+			$('#' + pID).append($('<option>', {value: val.id, text: val.text}));
+		});
+		$('#' + pID).val(pDef);
+	} // prFillSelect
+
+	
+	//-- Login
+	
+	function fnGetCredential(pWhich)
+	{
+		lItem = '';
+		
+		var lTItem = localStorage.getItem(pWhich);
+		if ( (lTItem != null) && (lTItem != '') ) {
+			lItem = sjcl.decrypt("@ghxkcnnr7NYl#lLtsNjeb$^0bX5O%", lTItem);
+		}
+		
+		return lItem;
+	} // fnGetCredential
+
+	function prGetTrama()
+	{
+		return fnGetCredential('trama');
+	}
+
+	function prGetNStudent()
+	{
+		return fnGetCredential('nstudent');
+	}
+
+	function prGetMount()
+	{
+		return fnGetCredential('sales');
+	}
+
+	function prGetChecks()
+	{
+		return fnGetCredential('checks');
+	}
+
+	function prGetMitUrl()
+	{
+		return fnGetCredential('urlMit');
+	}
+
+	function prGetRef()
+	{
+		return fnGetCredential('reference');
+	}
+
+	function fnGetCampusDefault()
+	{
+		return fnGetCredential('campus');
+	}
+
+	function prGetCampusSale(pVal)
+	{
+		return fnGetCredential('campussale');
+	}//prGetCampusSale
+
+	function prGetCampusOther(pVal)
+	{
+		return fnGetCredential('campusother');
+	}//prGetCampusOther
+
+	function fnGetEmplid()
+	{
+		return fnGetCredential('emplid');	
+	}
+
+	function fnGetName()
+	{
+		return fnGetCredential('name');		
+	}
+
+	function fnGetUserPhoto()
+	{
+		return fnGetCredential('userp');
+	} // fnGetUser
+	
+	function fnGetUser()
+	{
+		return fnGetCredential('user');
+	} // fnGetUser
+	
+	function fnGetPswd()
+	{
+		return fnGetCredential('pswd');
+	} // fnGetPswd
+	
+	function fnGetTckt()
+	{
+		return fnGetCredential('tckt');
+	} // fnGetTckt
+
+	function fnGetPrivs()
+	{
+		return fnGetCredential('privs');
+	} // fnGetPrivs
+	
+	function fnGetEmail()
+	{
+		return fnGetCredential('email');
+	} // fnGetEmail
+	
+	function prSetCredential(pWhich, pVal)
+	{
+		var lItem = sjcl.encrypt("@ghxkcnnr7NYl#lLtsNjeb$^0bX5O%", pVal);
+		localStorage.setItem(pWhich, lItem);
+	} // prSetCredential	
+	
+	function prSetVariable(pWhich, pVal)
+	{
+		localStorage.setItem(pWhich, pVal);
+	} // prSetVariable
+
+	function prRemoveVariable(pWhich)
+	{
+		localStorage.removeItem(pWhich);
+	} // prRemoveVariable
+	
+	function fnGetVariable(pWhich)
+	{		
+		var lTItem = localStorage.getItem(pWhich);
+		return lTItem;
+	} // fnGetVariable
+
+	function prSetTrama(pVal)
+	{
+		return prSetCredential('trama', pVal);	
+	}//prSetTrama
+
+	function prSetNStudent(pVal)
+	{
+		return prSetCredential('nstudent', pVal);	
+	}//prSetNStudent
+
+	function prSetMount(pVal)
+	{
+		return prSetCredential('sales', pVal);	
+	}//prSetName
+
+	function prSetChecks(pVal)
+	{
+		return prSetCredential('checks', pVal);	
+	}//prSetName
+
+	function prSetMitUrl(pVal)
+	{
+		return prSetCredential('urlMit', pVal);	
+	}//prSetMitUrl
+
+	function prSetRef(pVal)
+	{
+		return prSetCredential('reference', pVal);	
+	}//prSetRef
+
+	function prSetName(pVal)
+	{
+		return prSetCredential('name', pVal);	
+	}//prSetName
+
+	function prSetEmplid(pVal)
+	{
+		return prSetCredential('emplid', pVal);
+	}//prSetEmplid
+
+	function prSetCampusDefault(pVal)
+	{
+		return prSetCredential('campus', pVal);
+	}//prSetCampus
+
+
+	function prSetCampusSale(pVal)
+	{
+		return prSetCredential('campussale', pVal);
+	}//prSetCampusSale
+
+	function prSetCampusOther(pVal)
+	{
+		return prSetCredential('campusother', pVal);
+	}//prSetCampusOther
+
+	function prSetUserPhoto(pVal)
+	{
+		return prSetCredential('userp', pVal);
+	} // prSetUserPhoto
+	
+	function prSetUser(pVal)
+	{
+		return prSetCredential('user', pVal);
+	} // prSetUser
+	
+	function prSetPswd(pVal)
+	{
+		return prSetCredential('pswd', pVal);
+	} // prSetPswd
+	
+	function prSetTckt(pVal)
+	{
+		return prSetCredential('tckt', pVal);
+	} // prSetTckt
+	
+	function prSetPrivs(pVal)
+	{
+		return prSetCredential('privs', pVal);
+	} // prSetPrivs
+	
+	function prSetEmail(pVal)
+	{
+		return prSetCredential('email', pVal);
+	} // prSetEmail
+	
+	function prCounter(pFunction, pFunctionStr)
+	{
+		if (typeof pFunction.counter == 'undefined' )
+			pFunction.counter = 0;
+		else 
+			pFunction.counter++;
+		if (pFunction.counter >= gCounterLim) {
+			pFunction.counter = 0;
+			prShowMssgAll('01', 'danger', 'Error', errMsgNotResponding, pFunctionStr.name);
+			return;
+		}
+	} // prCounter
+	
+	function prOpenLoading()
+	{
+		$('#MyModal').show();
+		$('#MyFade').show();
+	} // prOpenLoading
+
+	function prCloseLoading()
+	{
+		$('#MyModal').hide();
+		$('#MyFade').hide();
+	} // prCloseLoading
+	
+	function prClearVars()
+	{
+		prSetUser('');
+		prSetPswd('');
+		prSetTckt('');
+		prSetPrivs('');
+		prSetVariable('role', '');
+	} // prClearVars
+	
+	function fnDispatchMssg(pAnswer, pFunctionStr, pMssgID)
+	{
+		if (pAnswer.res != ST_OK) {
+			switch (pAnswer.res) {
+				case ST_Err_TicketNotExists:
+					prShowMssgAll(pMssgID, 'danger', 'Error', 'El ticket no existe.', pFunctionStr);
+					prClearVars();
+					break;
+				case ST_Err_InvalidTicket:
+					prShowMssgAll(pMssgID, 'danger', 'Error', 'Uso incorrecto de ticket.', pFunctionStr);
+					prClearVars();
+					break;
+				case ST_Err_UnknownCommand:
+					prShowMssgAll(pMssgID, 'warning', 'Advertencia', 'Comando desconocido.', pFunctionStr);
+					prSetTckt(pAnswer.tckt);
+					break;
+				case ST_Err_NotAccess:
+					prShowMssgAll(pMssgID, 'warning', 'Advertencia', 'Usuario sin privilegios de acceso.', pFunctionStr);
+					prClearVars();
+					break;
+				case ST_Err_EmptyParam:
+					prShowMssgAll(pMssgID, 'danger', 'Error', 'Par&aacute;metro vac&iacute;o: ' + pAnswer.param , pFunctionStr);
+					prSetTckt(pAnswer.tckt);
+					break;
+				case ST_Err_ItemNotExists:
+					prShowMssgAll(pMssgID, 'danger', 'Error', 'El usuario no existe o sus credenciales son incorrectas: ' + pAnswer.param , pFunctionStr);
+					prClearVars();
+					break;
+				case ST_Err_DB:
+					prShowMssgAll(pMssgID, 'warning', 'Advertencia', 'Error en la operaci&oacute;n en la base de datos.', pFunctionStr);
+					prSetTckt(pAnswer.tckt);
+					break;
+				case ST_Err_SendMail:
+					prShowMssgAll(pMssgID, 'warning', 'Advertencia', 'Error al enviar el correo electr&oacute;nico.', pFunctionStr);
+					prSetTckt(pAnswer.tckt);
+					break;
+				case ST_Err_Inactive:
+					prShowMssgAll(pMssgID, 'warning', 'Advertencia', 'Usuario inactivo.', pFunctionStr);
+					prClearVars();
+					break;
+				case ST_Err_ExistsAlready:
+					prShowMssgAll(pMssgID, 'danger', 'Error', 'El elemento ya existe.', pFunctionStr);
+					prSetTckt(pAnswer.tckt);
+					break;
+				case ST_Err_NotValidForType:
+					prShowMssgAll(pMssgID, 'danger', 'Error', 'El elemento no admite esa operaci&oacute;n dado su estado.', pFunctionStr);
+					prSetTckt(pAnswer.tckt);
+					break;
+				case ST_Err_HasHistory:
+					prShowMssgAll(pMssgID, 'danger', 'Error', 'El elemento tiene el historial habilitado. No puede ser eliminado.', pFunctionStr);
+					prSetTckt(pAnswer.tckt);
+					break;
+				case ST_Err_CSVIncomplete:
+					prShowMssgAll(pMssgID, 'danger', 'Error', 'La tabla CSV está incompleta. No se puede usar.', pFunctionStr);
+					prSetTckt(pAnswer.tckt);
+					break;
+				case ST_Err_CSVNoFields:
+					prShowMssgAll(pMssgID, 'danger', 'Error', 'La tabla CSV no tiene los campos indicados.', pFunctionStr);
+					prSetTckt(pAnswer.tckt);
+					break;
+				case ST_Err_InvalidFileFormat:
+					prShowMssgAll(pMssgID, 'danger', 'Error', 'Formato inv&aacute;lido de archivo CSV.', pFunctionStr);
+					prSetTckt(pAnswer.tckt);
+					break;
+				case ST_Err_NotChgPrivs:
+					prShowMssgAll(pMssgID, 'danger', 'Error', 'No es posible cambiar de privilegios para su perfil.', pFunctionStr);
+					prSetTckt(pAnswer.tckt);
+					break;
+				case ST_Err_UsrNoExist:
+					prShowMssgAll(pMssgID, 'danger', 'Error', 'El usuario no existe.', pFunctionStr);
+					prSetTckt(pAnswer.tckt);
+					break;
+				case ST_Err_UsrNoActive:
+					prShowMssgAll(pMssgID, 'danger', 'Error', 'Su cuenta no est&aacute; verificada, por favor revise su correo para activar su cuenta.', pFunctionStr);
+					prSetTckt(pAnswer.tckt);
+					break;
+				case ST_Err_UsrInactive:
+					prShowMssgAll(pMssgID, 'danger', 'Error', 'Cuenta inactiva .', pFunctionStr);
+					prSetTckt(pAnswer.tckt);
+					break;
+				case ST_Err_KeyZNotExist:
+					prShowMssgAll(pMssgID, 'danger', 'Error', 'La clave Z no existe.', pFunctionStr);					
+					break;
+			}
+			return false;
+		}
+		return true;
+	} // fnDispatchMssg
+	
+	function prChkAccess()
+	{
+		var lTckt = fnGetTckt();
+		var lHome = fnGetVariable('home');
+		var lPrivs = jQuery.parseJSON(fnGetPrivs());
+		
+		var lURI = window.location.href;
+		var lArr = lURI.split("/");
+		var lThisFile = lArr[lArr.length - 1];
+		var lOK = false;
+		
+		//console.log(lTckt);
+		//console.log(lHome);
+		//console.log(lThisFile);
+		
+		if (lTckt == '') {
+			window.location.replace("index.html");
+		} else {
+			if (lHome != lThisFile) {
+				$.each(lPrivs, function(key, val) {
+					if (val.module + ".html" == lThisFile) {
+						lOK = true;
+					}
+				});
+				if (lOK == false) {
+					document.location.href = lHome;
+				}
+			}
+		}
+	} // prChkAccess
+	
+	function fnGetMenuObj(pHref)
+	{
+		var lMenuObj = {};
+		
+		var lUser = fnGetUser();
+		var lPs = fnGetPrivs();
+		var lURI = window.location.href;
+		var lArr = lURI.split("/");
+		var lThisFile = lArr[lArr.length - 1];
+		
+		if (lUser != '') {
+			
+			if (lPs != '') {
+				var lPrivs = jQuery.parseJSON(lPs);
+				if (lPrivs) {
+					$.each(lPrivs, function(key, val) {
+						if (val.module.indexOf('mod_') == 0) {
+							if (val.module + ".html" == lThisFile) {
+								lMenuObj[val.module] = true;
+							} else {
+								lMenuObj[val.module] = false;
+							}
+						}
+					});
+					lMenuObj['pID'] = 'menu';
+					lMenuObj['pHref'] = pHref;
+					lMenuObj['pUser'] = lUser;
+					lMenuObj['pEntityName'] = fnGetVariable('entityname');
+				} else {
+					console.log('Error: Empty privs (2).');
+					prClearVars();
+					window.location.replace("index.html");
+				}
+			} else {
+				console.log('Error: Empty privs (1).');
+				prClearVars();
+				window.location.replace("index.html");
+			}
+			
+		} else {
+			console.log('Error: Empty user.');
+			prClearVars();
+			window.location.replace("index.html");
+		}
+		
+		return lMenuObj;
+	} // fnGetMenuObj
+	
+	function prFreeNotifications(pFolios)
+	{
+		prCounter(prFreeNotifications, 'prFreeNotifications');
+		
+		if (navigator.onLine == true) {
+	
+			$.ajax({
+				data:
+				{
+					action:		'act_freenots',
+					lUser:		fnGetUser(),
+					pswd:		fnGetPswd(),
+					tckt:		fnGetTckt(),
+					NOT_Folio:	pFolios
+				},
+				url:		gURLApp + "/srvBO.php",
+				type:		'POST',
+				cache:		false,
+				
+				success:	function(data, status, xhr) {
+					if ( (status != 'success') || (data.length == 0) ) {
+						prFreeNotifications(pFolios);
+					} else {
+						prFreeNotifications.counter = 0;
+						lArr= jQuery.parseJSON(data);
+						prSetTckt(lArr.tckt);
+					}
+				}, // success
+				
+				error:		function(xhr, status, error) {
+					if (error != 'Not Found') {
+						prFreeNotifications(pFolios);
+					}
+				}, // error
+				
+				timeout:	gTimeOut
+			});
+			
+		}
+	} // prFreeNotifications
+	
+	function prGetNotifications()
+	{
+		prCounter(prGetNotifications, 'prGetNotifications');
+		
+		if (navigator.onLine == true) {
+	
+			var lEmail = fnGetEmail();
+			if (lEmail != '') {
+
+				$.ajax({
+					data:
+					{
+						action:	'act_getnots',
+						lUser:	fnGetUser(),
+						pswd:	fnGetPswd(),
+						tckt:	fnGetTckt(),
+						NOT_To:	fnGetEmail()
+					},
+					url:		gURLApp + "/srvBO.php",
+					type:		'POST',
+					cache:		false,
+					
+					success:	function(data, status, xhr) {
+						if ( (status != 'success') || (data.length == 0) ) {
+							prGetNotifications();
+						} else {
+							prGetNotifications.counter = 0;
+							lArr= jQuery.parseJSON(data);
+							prSetTckt(lArr.tckt);
+							if (lArr.res == 1) {
+								var lFolios = "";
+								
+								if (gInstanceType == 'web') {
+									var lHTML = "<br>";
+									$.each(lArr.nots, function(key, val) {
+										var lStr =
+											"<div class='alert alert-info fade in'><a href='#' class='close' data-dismiss='alert'>&times;</a><small><b>" + val.title + "</b><br>\n" +
+											val.text + "</small></div>";
+										lHTML += lStr;
+										if (lFolios != '')
+											lFolios += ";";
+										lFolios += val.folio;
+									});
+									$('#d_notis').html(lHTML);
+								} else
+									
+								if (gInstanceType == 'app') {
+									$.each(lArr.nots, function(key, val) {
+										var lText = val.text;
+										lText = lText.replace(/<br>/g, '');
+										gIDNot++;
+										cordova.plugins.notification.local.schedule({
+											id: gIDNot,
+											title: val.title,
+											text: lText
+										});
+										if (lFolios != '')
+											lFolios += ";";
+										lFolios += val.folio;
+									});
+								}
+								
+								prFreeNotifications(lFolios);
+							}
+						}
+					}, // success
+					
+					error:		function(xhr, status, error) {
+						if (error != 'Not Found') {
+							prGetNotifications();
+						}
+					}, // error
+					
+					timeout:	gTimeOut
+				});
+			
+			}
+			
+		}
+	} // prGetNotifications
+	
+	function prShowHelp()
+	{
+		var lURL = '';
+		//console.log(lURL);
+		if (lURL != '') {
+			$.ajax({
+				url: lURL,
+				success: function (data) {
+					$.confirm({
+						columnClass:	'xlarge',
+						theme:			'bootstrap',
+						title:			'Ayuda',
+						content:		'<div id="d_help">' + data + '<div>',
+						buttons:		{OK: {text: 'Cerrar'}}
+					});
+				}
+			});
+		}
+	} // prShowHelp
+	
+	function prResizeVideo(pID, pFact)
+	{
+		var lV = $('#' + pID);
+		if (lV) {
+			var lW = $(window).width();
+			var lVW = lW * pFact;
+			var lVH = Math.trunc(lVW / 1.77778);
+			lV.css('min-height', lVH + 'px');
+		}
+	} // prResizeVideo
+	
+	function prCheckVersion()
+	{
+		if (gInstanceType == 'app') {
+
+			prCounter(prCheckVersion, 'prCheckVersion');
+			
+			if (navigator.onLine == true) {
+		
+				$.ajax({
+					data:
+					{
+						action:	'act_getversion_alt'
+					},
+					url:		gURLApp + "/srvBO.php",
+					type:		'POST',
+					cache:		false,
+					
+					success:	function(data, status, xhr) {
+						if ( (status != 'success') || (data.length == 0) ) {
+							prCheckVersion();
+						} else {
+							prCheckVersion.counter = 0;
+							lArr= jQuery.parseJSON(data);
+							if (lArr.res == 1) {
+								if (device.platform == 'iOS') {
+									var lTmp = gVersion;
+									var lVerLoc = lTmp.replace('.', '').replace('.', '');
+									var lVLoc = Number(lVerLoc);
+									var lTmp = lArr.ver;
+									var lVerRem = lTmp.replace('.', '').replace('.', '');
+									var lVRem = Number(lVerRem);
+									if (lVLoc < lVRem) {
+										$.alert({
+											title:
+												"<span class='text-danger'><b>Nueva versi&oacute;n disponible</b></span>",
+											content: 
+												"<br>Ya se encuentra disponible la nueva versi&oacute;n del producto.<br>\
+												<br>Favor de seguir el siguiente enlace:<br>\
+												<br><a href='https://servicios.up.edu.mx/newsletter/index.html' target='_new'>\
+												<b><big>Versi&oacute;n " + lArr.ver + "</big></b>"
+										});
+									}
+								}
+							}
+						}
+					}, // success
+					
+					error:		function(xhr, status, error) {
+						if (error != 'Not Found') {
+							prCheckVersion();
+						}
+					}, // error
+					
+					timeout:	gTimeOut
+				});
+				
+			}
+			
+		}
+	} // prCheckVersion
+	
+	function prLogOff()
+	{
+		localStorage.clear();
+		window.location.replace("index.html");
+	} // prLogOff
+
+	
+	
+	if (gInstanceType == 'web') {
+		function App() {
+		  console.log('App constructor');
+		}
+
+		App.prototype.initialize = function() {
+		  console.log('App initialized');
+		};
+
+		var app = new App();
+	}
+	
+	$(document).ready(function () {
+		//$('#d_version').html("<a href='version.html'>" + gVersion + " | " + gInstanceType + "</a>");
+		
+		//setInterval(prGetNotifications, gNotiLoop);
+		//prGetNotifications();
+		
+		$(window).resize(function() {
+			prResizeVideo('v_about', 0.60);
+		}).resize();
+		
+	});
+

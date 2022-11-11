@@ -1,0 +1,412 @@
+
+/*
+hr {
+	height			: 0px;
+	background-color: #A4061F;
+}
+*/
+
+/*.nav a
+{
+	font-size		: 1em !important;
+}*/
+
+.AlTxt {
+	text-align		: right;
+}
+
+.errMssg
+{
+	color			: #E52546;
+	font-size		: 12px;
+}
+
+.errForm
+{
+	color			: #DF691A; /*#E52546;*/
+}
+
+.grayRow
+{
+    background		: #EAEAEA;
+}
+
+.blackRow
+{
+    background		: #000000;
+    color 			: white;
+}
+
+.red 
+{
+    color			: red;
+}
+
+.rowMargin
+{
+	background		: #ddd;
+	border			: solid 1px #61dd45;
+}
+
+.grayWhite
+{
+    background		: #FFFFFF;
+}
+
+.WaitIcon
+{
+    display			: none;
+	width			: 34px;
+	height			: 34px;
+    background		: url('../images/ajax-loader.gif') no-repeat right center;
+}
+
+.footerBlock
+{
+    /*background		: url('../images/bg-footer.png') no-repeat left top;*/
+	/*background-color: #0E5184;*/
+	color			: #FFFFFF;
+    padding			: 4px;
+    overflow		: auto;
+    display			: block;
+	border-radius	: 5px;
+	/*border		: 1px solid #00304E;*/
+}
+
+.footerText
+{
+	color			: #FFFFFF;
+	font-size		: 11px;
+}
+
+.footerLink
+{
+	color			: #FFFFFF;
+}
+
+.listSearch 
+{	
+	margin-left		: auto; 
+	margin-right	: auto;
+	width			: 402px;
+}
+
+.listSearch select
+{	
+	width			: 400px;
+}
+
+.messagealert 
+{
+	color			: red;
+	font-size		: 12px;
+	font-weight		: bold;
+}
+
+.notification-container 
+{
+    position		: relative;
+    width			: 16px;
+    height			: 16px;
+    top				: 15px;
+    left			: 15px;
+    i {
+        color		: #fff;
+    }
+}
+
+.notification-counter 
+{   
+    position		: absolute;
+    top				: -2px;
+    left			: 12px;    
+    background-color: rgba(152, 0, 27, .5);
+    color			: #fff;
+    border-radius	: 3px;
+    padding			: 1px 3px;
+    font			: 8px;
+}
+
+.MailText
+{
+	font-size		: 20px;
+}
+
+.doblecamp
+{
+	display			: block;
+	width			: 50%;
+}
+
+.list-nvl
+{
+	list-style		: none;
+}
+
+/*
+.btn-close
+{
+	color			: #fff;
+	background-color: #a13131;
+	border-color	: #8d2b2b;
+}
+
+.btn-close:hover
+{
+	background-color: #771111;
+	border-color	: #8d2b2b;
+}
+
+.btn-update
+{
+	color			: #fff;
+	background-color: #288128;
+	border-color	: #226e22;
+}
+
+.btn-update:hover
+{
+	color			: #fff;	
+	background-color: #226e22;
+	border-color	: #288128;
+}
+
+.scrollbar::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+*/
+
+/* ------------------------------------------------ */
+
+/*.form-control
+{
+    background-color: #DBD8D1;
+    color			: #333333;
+}*/
+
+/*.panel-default
+{
+	border			: 0px solid #FFFFFF;
+}*/
+
+.panel-heading
+{
+	/*font-size		: 16px;*/
+	font-weight		: bold;
+}
+
+/*.panel-body
+{
+	background-color: #F5F5F5;
+	border-color	: #F5F5F5;
+}*/
+
+.welcomePre
+{
+    /*background-color: #F5F5F5;*/
+	color			: #000;
+    overflow		: auto;
+    display			: block;
+	font-variant	: small-caps;
+	text-align		: center;
+	text-shadow		: 0px 0px 10px #555;
+    padding			: 20px;
+	font-size		: 40px;
+}
+
+.welcomePos
+{
+    /*background-color:	 F5F5F5;*/
+	color			: #000;
+    overflow		: auto;
+    display			: block;
+	font-variant	: small-caps;
+	text-align		: center;
+	text-shadow		: 0px 0px 10px #555;
+    padding			: 5px;
+	font-size		: 20px;
+}
+
+.label-align
+{
+	text-align		: left;
+}
+
+@media (max-width: 768px) 
+{
+	.AlTxt 
+	{
+		text-align	: left;
+	}
+	.label-align
+	{
+		text-align	: left;
+	}
+}
+
+@media (max-width: 992px) 
+{
+	.label-align
+	{
+		text-align	: right;
+	}
+}
+
+@media (min-width: 1200px) 
+{
+	.label-align
+	{
+		text-align	: right;
+	}
+}
+
+/*
+select.form-control
+{
+	background-color: #ECE9E2;
+}
+*/
+
+option:checked 
+{ 
+	color			: #000;
+	font-weight		: bold;
+}
+
+/*
+.active
+{
+	font-weight	: bold;
+	text-shadow	: 1px 1px 2px #3399F3;
+}
+*/
+
+/*.myWell
+{
+    padding			: 4px;
+    overflow		: auto;
+    display			: block;
+	border-radius	: 5px;
+}*/
+
+.myWell
+{
+	display			: block;
+	/*border-radius	: 5px;
+	border			: 1px solid #D5D5D5;*/
+	background		: linear-gradient(#FEFEFE, #E4E4E4);
+    padding			: 2px;
+    overflow		: auto;
+}
+
+#MyFade 
+{
+    display			: none;
+    position		: absolute;
+    top				: 0%;
+    left			: 0%;
+    width			: 100%;
+    height			: 100%;
+    background-color: #ababab;
+    z-index			: 1001;
+    -moz-opacity	: 0.6;
+    opacity			: .50;
+    filter			: alpha(opacity=60);
+}
+
+#MyModal 
+{
+    display			: none;
+    position		: absolute;
+    top				: 10px;
+    left			: 10px;
+    width			: 160px;
+    height			: 160px;
+    padding			: 15px 15px 0px;
+    border-radius	: 20px;
+    background-color: white;
+    z-index			: 1002;
+    text-align		: center;
+    overflow		: auto;
+	-moz-opacity	: 0.9;
+    opacity			: .80;
+    filter			: alpha(opacity=90);
+}
+
+/* Style the tab */
+/*
+.tab 
+{
+    overflow		: hidden;
+	color			: #fff;
+	background-color: #446e9b;
+	border-color	: #337ab7;
+}
+*/
+
+/* Style the buttons that are used to open the tab content */
+/*
+.tab button 
+{
+    background-color: #d9edf7;
+    float			: left;
+    border			: 1px solid #0e80e5;
+    outline			: none;
+    cursor			: pointer;
+    padding			: 14px 16px;
+    transition		: 0.3s;
+	color			: black;
+}
+*/
+
+/* Change background color of buttons on hover */
+/*
+.tab button:hover 
+{
+    background-color: #ddd;
+}
+*/
+
+/* Create an active/current tablink class */
+/*
+.tab button.active 
+{
+    color			: #fff;
+	background-color: #337ab7;
+	border-color	: #2e6da4;
+}
+*/
+
+/* Style the tab content */
+/*
+.tabcontent 
+{
+    display			: none;
+    padding			: 6px 12px;
+    border			: 1px solid #ccc;
+    border-top		: none;
+}
+*/
+
+/*
+.tab-content
+{
+	border-right	: 1px solid #DDDDDD;
+	border-bottom	: 1px solid #DDDDDD;
+	border-left		: 1px solid #DDDDDD;
+}
+*/
+
+/*
+.btn
+{
+    margin-top		: 20px;
+}
+*/
+
+.btnSearchCont
+{
+	text-align		: center;
+}
