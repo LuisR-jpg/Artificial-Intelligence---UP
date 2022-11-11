@@ -4,8 +4,6 @@
 
 # Evolutionary algorithms
 
-# Evolutionary algorithms
-
 ## [Evolution strategies](https://github.com/LuisR-jpg/School/blob/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/Evolutionary%20Computing/Evolution%20Strategies/EvolutionStrategies.pdf)
 
 ### Description
