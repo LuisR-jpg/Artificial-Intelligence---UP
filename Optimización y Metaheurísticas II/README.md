@@ -2,18 +2,18 @@
 
 # Evolutionary algorithms
 
-### [Genetic algorithms]()
+### [Genetic algorithms](https://github.com/LuisR-jpg/School/blob/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/CheatSheets/GeneticAlgorithms.md)
 
-### [Evolution strategies]()
+### [Evolution strategies](https://github.com/LuisR-jpg/School/blob/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/CheatSheets/EvolutionStrategies.md)
 
-### [Evolutionary programming]()
+### [Evolutionary programming](https://github.com/LuisR-jpg/School/blob/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/CheatSheets/EvolutionaryProgramming.md)
 
-### [Differential evolution]()
+### [Differential evolution](https://github.com/LuisR-jpg/School/blob/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/CheatSheets/DifferentialEvolution.md)
 
-### [Genetic programming]()
+### [Genetic programming](https://github.com/LuisR-jpg/School/blob/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/CheatSheets/GeneticProgramming.md)
 
 # Metaheuristics
 
-### [Particle swarm optimization]()
+### [Particle swarm optimization](https://github.com/LuisR-jpg/School/blob/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/CheatSheets/ParticleSwarmOptimization.md)
 
-### [Ant colony]()
+### [Ant colony](https://github.com/LuisR-jpg/School/blob/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/CheatSheets/AntColony.md)
