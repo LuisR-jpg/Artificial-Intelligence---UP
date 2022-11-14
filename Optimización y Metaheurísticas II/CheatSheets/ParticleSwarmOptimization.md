@@ -6,6 +6,11 @@
 
 ## [Particle swarm optimization](https://github.com/LuisR-jpg/School/blob/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/Metaheuristics/ParticleSwarm/Particle_Swarm_Optimization.pdf)
 
+</div>
+    <div align = "center">
+    <img width = "50%" src = "https://github.com/LuisR-jpg/School/blob/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/data/ParticleSwarmArrowsAnimation.gif?raw=true">
+</div>
+
 ### Description
 
 Inspired by the movement of a flock when searching for food.
@@ -18,9 +23,9 @@ Continuous multidimensional problem optimization.
 
 Each particle represents a solution. And at the time $t$, a particle has a vector of positions and another one for velocities.
 
-$$\vec{x^i(t)} = <x^i_1, x^i_2, ..., x^i_d>$$
+$$\vec{x^i(t)} = < x^i_1, x^i_2, ..., x^i_d >$$
 
-$$\vec{v^i(t)} = <v^i_1, v^i_2, ..., v^i_d>$$
+$$\vec{v^i(t)} = < v^i_1, v^i_2, ..., v^i_d >$$
 
 ### Update
 
