@@ -23,7 +23,6 @@ Some of the problems are:
 
     <div align = "center">
         <img width = "50%" src = "https://raw.githubusercontent.com/LuisR-jpg/School/ace1251133c78f82a528922269753d4ef6a8190e/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/data/TSP.jpg">
-    </div>
 
 - 8 queens problem.
 
@@ -52,6 +51,10 @@ There are several alternatives:
 - Roulette/Proportional selection
 
     We can think of a roulette that has one slice per chromosome of the population. The size of the slice varies depending on the fitnesses; the better it is, the wider its corresponding slice is. 
+    </div>
+        <div align = "center">
+        <img width = "50%" src = "https://github.com/LuisR-jpg/School/blob/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/data/roulette-wheel-selection.png?raw=true">
+    </div>
 
 - Tournament selection
 
