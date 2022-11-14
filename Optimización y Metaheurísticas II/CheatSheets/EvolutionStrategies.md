@@ -65,6 +65,11 @@ On the other hand, updating the step size depends of the chosen representation.
 
 Also, see the **1/5 sucess rule**.
 
+</div>
+    <div align = "center">
+    <img width = "50%" src = "https://github.com/LuisR-jpg/School/blob/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/data/standard-normal-distribution.png?raw=true">
+</div>
+
 ### Survivor selection
 
 After creating the offspring $\lambda$ and calculating their fitness, the best $\mu$ are deterministically chosen. There are two approaches.
