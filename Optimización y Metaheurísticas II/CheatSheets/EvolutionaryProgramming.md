@@ -24,13 +24,18 @@ $$<\vec{x_i}, \vec{\sigma_1}>$$
 
 Each value is mutated with a random number based on its step size. 
 
-Step size is later updated as well.
+Step size is eventually updated as well.
 
 $$\sigma_i' = \sigma_i (1 + N(0, \alpha))$$
 
 $$x_i' = x_i + N(0, \sigma_i')$$
 
 $$\alpha \approx 0.2$$
+
+</div>
+    <div align = "center">
+    <img width = "50%" src = "https://github.com/LuisR-jpg/School/blob/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/data/standard-normal-distribution.png?raw=true">
+</div>
 
 ### Survivor selection
 
