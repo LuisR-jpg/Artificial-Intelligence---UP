@@ -63,12 +63,12 @@ On the other hand, updating the step size depends of the chosen representation.
 
     Where $\tau_1 = \frac{1}{\sqrt{n}}$, $\tau_2 = \frac{1}{\sqrt{2\sqrt{n}}}$ and $n$ is the population size.
 
-Also, see the **1/5 sucess rule**.
-
 </div>
     <div align = "center">
     <img width = "50%" src = "https://github.com/LuisR-jpg/School/blob/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/data/standard-normal-distribution.png?raw=true">
 </div>
+
+Also, see the **1/5 sucess rule**.
 
 ### Survivor selection
 
