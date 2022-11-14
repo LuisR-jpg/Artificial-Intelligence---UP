@@ -18,7 +18,7 @@ This algorithm solves continuous multidimensional optimization problems.
 
 A vector of real values.
 
-$$ x = < x_1, x_2,...,x_d > $$
+$$x^{i} = < x_{1}^{i}, x_{2}^{i},...,x_{d}^{i} >$$
 
 ### Mutation
 
