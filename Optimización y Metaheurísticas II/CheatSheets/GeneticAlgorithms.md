@@ -53,7 +53,7 @@ There are several alternatives:
     We can think of a roulette that has one slice per chromosome of the population. The size of the slice varies depending on the fitnesses; the better it is, the wider its corresponding slice is. 
     </div>
         <div align = "center">
-        <img width = "50%" src = "https://github.com/LuisR-jpg/School/blob/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/data/roulette-wheel-selection.png?raw=true">
+        <img width = "50%" src = "https://github.com/LuisR-jpg/School/blob/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/data/DifferentialEvolution.gif?raw=true">
     </div>
 
 - Tournament selection

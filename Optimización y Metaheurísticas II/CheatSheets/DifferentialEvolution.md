@@ -6,6 +6,11 @@
 
 ## [Differential evolution](https://github.com/LuisR-jpg/School/blob/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/Evolutionary%20Computing/Differential%20Evolution/DifferentialEvolution.pdf)
 
+</div>
+    <div align = "center">
+    <img width = "50%" src = "https://github.com/LuisR-jpg/School/blob/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/data/roulette-wheel-selection.png?raw=true">
+</div>
+
 ### Description
 
 This a robust algorithm and introduces the idea of mutating individuals based on 3 others, in order to work as a gravitational force into the minimums.
