@@ -8,7 +8,7 @@
 
 </div>
     <div align = "center">
-    <img width = "50%" src = "https://github.com/LuisR-jpg/School/blob/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/data/roulette-wheel-selection.png?raw=true">
+    <img width = "50%" src = "https://raw.githubusercontent.com/LuisR-jpg/School/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/data/DifferentialEvolution.gif">
 </div>
 
 ### Description
