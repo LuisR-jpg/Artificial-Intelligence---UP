@@ -6,6 +6,7 @@
 
 ## [Genetic programming](https://github.com/LuisR-jpg/School/blob/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/Evolutionary%20Computing/Generic%20Programming/6.%20Genetic%20Programming.pdf)
 
+
 ### Description
 
 The original goal was to evolve computational programs using syntax trees to solve a problem given a dataset.
@@ -60,7 +61,10 @@ The classic crossover consists of randomly selecting a crossover point in each p
 
     Consists of replacing a function F for another one with the same arity.
 
-### Survivor selection
+</div>
+    <div align = "center">
+    <img width = "50%" src = "https://github.com/LuisR-jpg/School/blob/master/Optimizaci%C3%B3n%20y%20Metaheur%C3%ADsticas%20II/data/GeneticProgramming.png?raw=true">
+</div>
 
 ### Pseudocode
 
