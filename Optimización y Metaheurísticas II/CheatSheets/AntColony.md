@@ -4,11 +4,13 @@
 
 # Metaheuristics
 
-## Ant colony
+## Ant Colony Optimization
 
 ### Description
+Bio-inspired metaheuristic. It is inspired on the ants' behavior, where an ant guides the others when they find something good.
 
 ### Types of problems
+Intended to solve problems related to graphs. i.e. Useful to find paths.
 
 ### Representation
 
