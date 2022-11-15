@@ -17,19 +17,46 @@ Bio-inspired metaheuristic. It is inspired on the ants' behavior, where an ant g
 Intended to solve problems related to graphs. i.e. Useful to find paths.
 
 ### Representation
+For this problem, some terms are defined. 
 
-### Parent selection technique
+- $C_{ij}$: Path from the node i to the j
 
-### Crossover/Recombination 
+- $\tau_{ij}$: Pheromones in the path from the node i to the node j
 
-### Mutation
+- $\eta_{ij}$: Heuristic in the path from the node i to node j
 
-### Survivor selection
+- $\rho$: Evaporation, $[0, 1]$
+
+### Movement
+
+- Each ant moves around the graph following the criteria:
+
+$$P(C_{ik})=\frac{\tau_{ik}^{\alpha} * \eta_{ik}^{\beta}}{\varSigma_{\epsilon N_{i}}\tau_{ij}^{\alpha}*\eta_{ij}^{\beta}}$$
+
+###### Note. To optimize distance $\eta_{ik}=\frac{1}{d_{ik}}$ is proposed where $d_{ik}$ is the length of the component $C_{ik}$.
+
+### Update
+
+After all the ants traverse the graph, the pheromones:
+
+Are updated: $\Delta\tau_{ij}^{\alpha} = \begin{cases}\frac{1}{L_\alpha} & Used\\0 & Otherwise\end{cases}$
+
+And evaporate: $\tau_{ij}=(1 - \rho)*\tau_{ij}$
 
 ### Pseudocode
 
 <p align = "center">Ant colony</p>
 
 ```
+At the beginning
+    Pheromones <- small value
+
+Move the ants one by one
+    Ants: move around the graph
+
+When all the ants record the graph
+    Pheromones: are updated
+    Ants: deposit pheromones
+    Pheromones: evaporate 
 ```
 
