@@ -41,16 +41,16 @@ After all the ants traverse the graph, the pheromones:
 
 Are updated
 
-    $$\Delta\tau_{ij}^{\alpha} =
-    \begin{cases}
-        \frac{1}{L_\alpha} & Used\\
-        0 & Otherwise
-    \end{cases}
-    $$
+$$\Delta\tau_{ij}^{\alpha} =
+\begin{cases}
+    \frac{1}{L_\alpha} & Used\\
+    0 & Otherwise
+\end{cases}
+$$
 
 And evaporate
 
-    $$\tau_{ij}=(1 - \rho)*\tau_{ij}$$
+$$\tau_{ij}=(1 - \rho)*\tau_{ij}$$
 
 ### Pseudocode
 
