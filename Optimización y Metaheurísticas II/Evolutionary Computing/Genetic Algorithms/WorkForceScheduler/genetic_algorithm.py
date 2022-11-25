@@ -8,43 +8,43 @@ class GeneticAlgorithm:
 
         self.popSize = popSize
         self.nGen = nGen
-        self.pRep = self.pRep
+        self.pRep = pRep
         self.pMut = pMut
         self.fitness = fitness
     
     def initPopulation(self):
         self._initPopulation()
     def _initPopulation(self):
-        pass
+        pass 
 
     def getFitness(self):
         self._getFitness()
     def _getFitness(self):
-        pass
+        pass 
 
     def rouletteSelection(self):
         self._rouletteSelection(self)
     def _rouletteSelection(self):
-        pass
+        pass 
 
     def crossover(self):
         self._crossover()
     def _crossover(self):
-        pass
+        pass 
 
     def mutation(self):
         self._mutation()
-    def _mutation():
-        pass
+    def _mutation(self):
+        pass 
 
     def solve(self):
         self._solve()
-    def _solve():
-        pass
+    def _solve(self):
+        pass 
 
-    def genetic_algorithm(fitness, args = (), popSize = 50, nGen = 50, pRep = 0.5, pMut = 0.5):
-        gA = GeneticAlgorithm(fitness, args, popSize, nGen, pRep, pMut)
-        return gA.solve()
+def genetic_algorithm(fitness, args = (), popSize = 50, nGen = 50, pRep = 0.5, pMut = 0.5):
+    gA = GeneticAlgorithm(fitness, args, popSize, nGen, pRep, pMut)
+    return gA.solve()
 
 
 
