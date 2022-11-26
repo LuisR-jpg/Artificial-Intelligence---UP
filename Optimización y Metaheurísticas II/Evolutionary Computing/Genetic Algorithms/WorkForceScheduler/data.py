@@ -24,5 +24,32 @@ People
     Lalito
     Gabita
     Luisito    
+#people = {"Karlita": ["damas", "niños"], "Lalito": ["cajas", "damas"], "Gabita": ["niños", "cajas"], "Luisito": ["caballeros", "cajas"]}
 """
-people = {"Karlita": ["damas", "niños"], "Lalito": ["cajas", "damas"], "Gabita": ["niños", "cajas"], "Luisito": ["caballeros", "cajas"]}
+people = {
+    "Samantha": ["Damas", "Lenceria"],
+    "Luz": ["Damas", "Ninas"],
+    "Sonia": ["Damas", "Moda joven"],
+    "Laura": ["Damas", "Moda joven"],
+    "Maira": ["Damas", "Dama madura"],
+    "Gloria": ["Zapateria", "Zapateria damas"],
+    "Fernanda": ["Zapateria", "Zapato deportivo"],
+    "Marisol": ["Zapateria", "Zapato caballero"],
+    "Susy": ["Zapateria", "Zapato caballero"],
+    "Diana": ["Jugueteria"],
+    "Brayan": ["Perfumeria"],
+    "Nallely": ["Cajas ropa"],
+    "Marlette": ["Cajas ropa"],
+    "Lucia": ["Caballeros"],
+    "Fabian": ["Caballeros", "Ninos"],
+    "Alberto": ["Caballeros"],
+    "Elena": ["Paqueteria"], # Someone from caballeros tiene que cubrir paqueteria
+    "Nancy": ["Caballeros", "Bebes"],
+    "Andrea": ["Caballeros", "Bebes"],
+}
+
+# Esta semana es inventario de caballeros
+# Un descanso y medio a la semana
+# Domingo cuenta como medio
+# Nadie del area descansa cuando hay inventario en miercoles y jueves
+# Personas de la misma area grande no pueden descansar el mismo dia
