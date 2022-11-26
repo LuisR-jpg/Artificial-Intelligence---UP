@@ -1,7 +1,13 @@
 import numpy as np
 
-def rules(solution):
-    return len(np.nonzero(solution)) * -1
+def rules(solution, breaks, people):
+    fitness = 0
+    for p in solution:
+        # Descansa
+        if np.count_nonzero(p == 5) == 1: fitness += 1 
+        # Medio día
+        if np.count_nonzero(p == 6) + np.count_nonzero(p == 7) == 1: fitness += 1
+    return fitness
 
 """
 Descansos

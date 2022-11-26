@@ -27,7 +27,7 @@ class GeneticAlgorithm:
         self._initPopulation()
         assert isinstance(self.population, np.ndarray), 'r is not np.array'
     def _initPopulation(self):
-        self.population = np.random.uniform(self.minValue, self.maxValue, (self.popSize, self.height, self.width))
+        self.population = np.random.randint(self.minValue, self.maxValue, (self.popSize, self.height, self.width))
 
     def getFitness(self, individual):
         assert individual.shape == (self.height, self.width), 'individual is not valid'
@@ -39,21 +39,23 @@ class GeneticAlgorithm:
     
     def rouletteSelection(self, k = 2, reverse = False): #Number of individuals to be selected
         assert isinstance(k, int), 'k is not int'
-        assert self.fitnesses != None, 'fitnesses has not been initialized'
+        assert self.fitnesses.all() != None, 'fitnesses has not been initialized'
         r = self._rouletteSelection(k, reverse)
         assert isinstance(r, np.ndarray) and r.shape[0] == k, 'r is not the expected result'
         return r
     def _rouletteSelection(self, k, reverse):
-        maxV, minV = np.max(self.fitness), np.min(self.fitness)
-        norm = (self.fitnesses - minV) / (maxV - minV)
-        if reverse: norm = 1 - norm
-        return np.random.choice(self.height, k, False, norm)
+        norm = self.fitnesses / np.sum(self.fitnesses)
+        if reverse: 
+            norm = 1 - norm
+            norm = norm / np.sum(norm)
+        return np.random.choice(self.popSize, k, False, norm)
 
     def crossover(self, parentOne, parentTwo):
         assert parentOne.shape == (self.height, self.width), "parentOne doesn't have the expected shape"
         assert parentTwo.shape == (self.height, self.width), "parentTwo doesn't have the expected shape"
         r = self._crossover(parentOne, parentTwo)
         assert r.shape == (self.height, self.width), "r doesn't have the expected shape"
+        return r
     def _crossover(self, parentOne, parentTwo):
         child = np.copy(parentOne)
         if np.random.random() < self.pRep:
@@ -67,10 +69,11 @@ class GeneticAlgorithm:
         assert child.shape == (self.height, self.width), "child doesn't have the expected shape"
         r = self._mutation(child)
         assert r.shape == (self.height, self.width), "r doesn't have the expected shape"
+        return r
     def _mutation(self, child):
         if np.random.random() < self.pMut:
             numberOfRows = np.random.randint(1, self.height)
-            rowsToReset = np.choice(self.height, numberOfRows, False)
+            rowsToReset = np.random.choice(self.height, numberOfRows, False)
             newValue = np.random.randint(self.minValue, self.maxValue, self.width)
             child[rowsToReset] = newValue
         return child
@@ -83,7 +86,7 @@ class GeneticAlgorithm:
         self.initPopulation()
         self.fitnesses = np.array([self.getFitness(i) for i in self.population])
         eliteFitness, elite = -1e10, None
-        for _ in range(self.nGen):
+        for i in range(self.nGen):
             newPopulation, newFitnesses = np.zeros_like(self.population), np.zeros_like(self.fitnesses)
             for c in range(self.popSize):
                 parents = self.rouletteSelection()
@@ -104,7 +107,7 @@ class GeneticAlgorithm:
         return {"solution": elite, "fitness": eliteFitness, "callsToFunction": self.nEvaluations}
             
 
-def genetic_algorithm(fitness, args = (), popSize = 50, nGen = 50, pRep = 0.5, pMut = 0.5, dim = (5, 5, 0, 5)):
+def genetic_algorithm(fitness, args = (), popSize = 10, nGen = 10, pRep = 0.5, pMut = 0.5, dim = (5, 5, 0, 5)):
     gA = GeneticAlgorithm(fitness, args, popSize, nGen, pRep, pMut, dim)
     return gA.solve()
 
