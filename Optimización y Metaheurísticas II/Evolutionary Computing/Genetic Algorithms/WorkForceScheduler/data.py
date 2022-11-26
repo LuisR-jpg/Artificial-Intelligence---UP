@@ -1,5 +1,7 @@
-def rules():
-    return 5
+import numpy as np
+
+def rules(solution):
+    return len(np.nonzero(solution)) * -1
 
 """
 Descansos
