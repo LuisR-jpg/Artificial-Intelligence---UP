@@ -2,11 +2,14 @@ import numpy as np
 
 def rules(solution, breaks, people):
     fitness = 0
+    descanso = np.where(breaks == "Descansa")[0]
+    manana = np.where(breaks == "Tarde")[0]
+    tarde = np.where(breaks == "Mañana")[0]
     for p in solution:
         # Descansa
-        if np.count_nonzero(p == 5) == 1: fitness += 1 
+        if np.count_nonzero(p == descanso) == 1: fitness += 1 
         # Medio día
-        if np.count_nonzero(p == 6) + np.count_nonzero(p == 7) == 1: fitness += 1
+        if np.count_nonzero(p == manana) + np.count_nonzero(p == tarde) == 1: fitness += 1
     return fitness
 
 """
@@ -16,7 +19,7 @@ Descansos
     ...
     5
 """
-breaks = ["12 - 2", "1 - 3", "2 - 4", "3 - 5", "4 - 6", "Descansa", "Mañana", "Tarde"]
+breaks = np.array(["12 - 2", "2 - 4", "4 - 6", "Descansa", "Mañana", "Tarde"])
 
 """
 People
@@ -24,7 +27,9 @@ People
     Lalito
     Gabita
     Luisito    
-#people = {"Karlita": ["damas", "niños"], "Lalito": ["cajas", "damas"], "Gabita": ["niños", "cajas"], "Luisito": ["caballeros", "cajas"]}
+
+    #people = {"Karlita": ["damas", "niños"], "Lalito": ["cajas", "damas"], "Gabita": ["niños", "cajas"], "Luisito": ["caballeros", "cajas"]}
+
 """
 people = {
     "Samantha": ["Damas", "Lenceria"],
@@ -46,10 +51,5 @@ people = {
     "Elena": ["Paqueteria"], # Someone from caballeros tiene que cubrir paqueteria
     "Nancy": ["Caballeros", "Bebes"],
     "Andrea": ["Caballeros", "Bebes"],
+    "Alma": ["Auxiliar"]
 }
-
-# Esta semana es inventario de caballeros
-# Un descanso y medio a la semana
-# Domingo cuenta como medio
-# Nadie del area descansa cuando hay inventario en miercoles y jueves
-# Personas de la misma area grande no pueden descansar el mismo dia
