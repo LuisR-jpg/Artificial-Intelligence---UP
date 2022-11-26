@@ -41,23 +41,39 @@ class GeneticAlgorithm:
     def rouletteSelection(self, k): #Number of individuals to be selected
         assert isinstance(k, int), 'k is not int'
         assert self.fitnesses != None, 'fitnesses has not been initialized'
-        r = self._rouletteSelection(self)
+        r = self._rouletteSelection(k)
         assert isinstance(r, np.array) and r.shape[0] == k, 'r is not the expected result'
         return r
-    def _rouletteSelection(self):
+    def _rouletteSelection(self, k):
         maxV, minV = np.max(self.fitness), np.min(self.fitness)
         norm = (self.fitnesses - minV) / (maxV - minV)
-        return np.random.choice(
+        return np.random.choice(self.height, k, False, norm)
 
-    def crossover(self):
-        self._crossover()
-    def _crossover(self):
-        pass 
+    def crossover(self, parentOne, parentTwo):
+        assert parentOne.shape == self.dim, "parentOne doesn't have the expected shape"
+        assert parentTwo.shape == self.dim, "parentTwo doesn't have the expected shape"
+        r = self._crossover(parentOne, parentTwo)
+        assert r.shape == self.dim, "r doesn't have the expected shape"
+    def _crossover(self, parentOne, parentTwo):
+        child = np.copy(parentOne)
+        if np.random.random() < self.pRep:
+            numberOfRows = np.random.randint(1, self.height)
+            rowsToSwap = np.random.choice(self.height, numberOfRows, False)
+            child[rowsToSwap] = np.copy(parentTwo[rowsToSwap])
+        elif np.random.random() < 0.5: child = np.copy(parentTwo)
+        return child
 
-    def mutation(self):
-        self._mutation()
-    def _mutation(self):
-        pass 
+    def mutation(self, child):
+        assert child.shape == self.dim, "child doesn't have the expected shape"
+        r = self._mutation(child)
+        assert r.shape == self.dim, "r doesn't have the expected shape"
+    def _mutation(self, child):
+        if np.random.random() < self.pMut:
+            numberOfRows = np.random.randint(1, self.height)
+            rowsToReset = np.choice(self.height, numberOfRows, False)
+            newValue = np.random.randint(self.minValue, self.maxValue)
+            child[rowsToReset] = newValue
+        return child
 
     def solve(self):
         self._solve()
