@@ -3,7 +3,7 @@ import numpy as np
 # Maximizes the objective function
 
 class GeneticAlgorithm:
-    def __init__(self, fitness, args, popSize, nGen, pRep, pMut, dim, debug): # Objective function, arguments of the function, Population size, number of generations, reproduction probability, mutation probability, dimensions of the solution (height, width, minVal, maxVal)
+    def __init__(self, fitness, args, popSize, nGen, pRep, pMut, dim, init, debug): # Objective function, arguments of the function, Population size, number of generations, reproduction probability, mutation probability, dimensions of the solution (height, width, minVal, maxVal)
         assert callable(fitness), 'fitness is not a function'
         assert isinstance(args, tuple), 'fitness is not tuple'
         assert isinstance(popSize, int), 'popSize is not int'
@@ -12,6 +12,7 @@ class GeneticAlgorithm:
         assert isinstance(pMut, float), 'pMut is not float'
         assert isinstance(dim, tuple) and len(dim) == 4, 'dim is not valid'
         assert isinstance(debug, bool), 'debug is not bool'
+        assert init is None or isinstance(init, np.ndarray), 'initial population is not valid'
 
         self.fitness = fitness
         self.args = args
@@ -29,7 +30,7 @@ class GeneticAlgorithm:
         self._initPopulation()
         assert isinstance(self.population, np.ndarray), 'r is not np.array'
     def _initPopulation(self):
-        self.population = np.random.randint(self.minValue, self.maxValue, (self.popSize, self.height, self.width))
+        self.population = np.random.randint(self.minValue, self.maxValue + 1, (self.popSize, self.height, self.width))
 
     def getFitness(self, individual):
         assert individual.shape == (self.height, self.width), 'individual is not valid'
@@ -75,10 +76,10 @@ class GeneticAlgorithm:
         return r
     def _mutation(self, child):
         if np.random.random() < self.pMut:
-            numberOfRows = np.random.randint(1, self.height//2)
+            numberOfRows = np.random.randint(1, self.height)
             rowsToReset = np.random.choice(self.height, numberOfRows, False)
-            newValue = np.random.randint(self.minValue, self.maxValue, self.width)
-            child[rowsToReset] = newValue
+            for i in rowsToReset:
+                child[i] = np.random.randint(self.minValue, self.maxValue + 1, self.width)
         return child
 
     def solve(self):
@@ -114,8 +115,8 @@ class GeneticAlgorithm:
         return {"solution": elite, "fitness": eliteFitness, "callsToFunction": self.nEvaluations, "bestTracker": bestTracker[1:]}
             
 
-def genetic_algorithm(fitness, args = (), popSize = 10, nGen = 10, pRep = 0.5, pMut = 0.5, dim = (5, 5, 0, 5), debug = False):
-    gA = GeneticAlgorithm(fitness, args, popSize, nGen, pRep, pMut, dim, debug)
+def genetic_algorithm(fitness, args = (), popSize = 10, nGen = 10, pRep = 0.5, pMut = 0.5, dim = (5, 5, 0, 5), init = None, debug = False):
+    gA = GeneticAlgorithm(fitness, args, popSize, nGen, pRep, pMut, dim, init, debug)
     return gA.solve()
 
 
