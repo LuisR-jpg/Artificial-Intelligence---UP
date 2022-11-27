@@ -7,6 +7,7 @@ def rules(solution, breaks, areas, inventario, people, desc = False):
     manana = np.where(breaks == "Mañana")[0]
     tarde = np.where(breaks == "Tarde")[0]
     mananaDomingo = np.where(breaks == "MañanaDomingo")[0]
+    comida = np.where(breaks == "Comida")[0]
     highPriority, mediumPriority, lowPriority, preferable = 10000, 1000, 10, -100
     for i, p in enumerate(solution):
         # Descansa
@@ -49,8 +50,9 @@ def rules(solution, breaks, areas, inventario, people, desc = False):
             if i != ia and areas[i][0] == areas[ia][0] and np.sum(a == p):
                 c = np.where(a == p)
                 for col in c[0]:
-                    e += 1
-                    faults.append("Persona {} {} igual que {}".format(i, "descansa" if p[col] in [manana, tarde, descanso, mananaDomingo] else "come", ia))
+                    if p[col] != comida:
+                        e += 1
+                        faults.append("Persona {} {} igual que {}".format(i, "descansa" if p[col] in [manana, tarde, descanso, mananaDomingo] else "come", ia))
         fitness -= e / 2
 
         # Specificas de la semana
@@ -89,10 +91,10 @@ Descansos
     ...
     5
 """
-breaks = np.array(["12 - 2", "2 - 4", "4 - 6", "MañanaDomingo", "Descansa", "Mañana", "Tarde"])
-codigos = np.array(["12", "2", "4", "M", "D", "M", "T"])
-#breaks = np.array(["Comida", "MañanaDomingo", "Descansa", "Mañana", "Tarde"])
-#codigos = np.array(["C", "M", "D", "M", "T"])
+#breaks = np.array(["12 - 2", "2 - 4", "4 - 6", "MañanaDomingo", "Descansa", "Mañana", "Tarde"])
+#codigos = np.array(["12", "2", "4", "M", "D", "M", "T"])
+breaks = np.array(["Comida", "MañanaDomingo", "Descansa", "Mañana", "Tarde"])
+codigos = np.array(["C", "M", "D", "M", "T"])
 
 """
 People
