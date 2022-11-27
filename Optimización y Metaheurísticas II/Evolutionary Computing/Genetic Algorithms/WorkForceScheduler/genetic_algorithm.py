@@ -86,14 +86,14 @@ class GeneticAlgorithm:
         assert isinstance(r, dict), 'r is not dict'
         return r
     def _solve(self):
-        best = []
+        bestTracker = []
         self.initPopulation()
         self.fitnesses = np.array([self.getFitness(i) for i in self.population])
         eliteFitness, elite = -1e10, None
         for i in range(self.nGen):
+            bestTracker.append(eliteFitness)
             if self.debug:
-                best.append(eliteFitness)
-                if self.nGen % 10 == 0: print(eliteFitness)
+                if i % (self.nGen // 10) == 0: print(eliteFitness)
             newPopulation, newFitnesses = np.zeros_like(self.population), np.zeros_like(self.fitnesses)
             for c in range(self.popSize):
                 parents = self.rouletteSelection()
@@ -111,7 +111,7 @@ class GeneticAlgorithm:
                 newPopulation[toReplace] = np.copy(elite)
             self.population = np.copy(newPopulation)
             self.fitnesses = np.copy(newFitnesses)
-        return {"solution": elite, "fitness": eliteFitness, "callsToFunction": self.nEvaluations}
+        return {"solution": elite, "fitness": eliteFitness, "callsToFunction": self.nEvaluations, "bestTracker": bestTracker[1:]}
             
 
 def genetic_algorithm(fitness, args = (), popSize = 10, nGen = 10, pRep = 0.5, pMut = 0.5, dim = (5, 5, 0, 5), debug = False):
