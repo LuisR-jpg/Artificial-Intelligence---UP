@@ -88,7 +88,9 @@ Descansos
     ...
     5
 """
-breaks = np.array(["12 - 2", "2 - 4", "4 - 6", "MañanaDomingo", "Descansa", "Mañana", "Tarde"])
+#breaks = np.array(["12 - 2", "2 - 4", "4 - 6", "MañanaDomingo", "Descansa", "Mañana", "Tarde"])
+breaks = np.array(["Comida", "MañanaDomingo", "Descansa", "Mañana", "Tarde"])
+codigos = np.array(["C", "M", "D", "M", "T"])
 
 """
 People
@@ -138,6 +140,7 @@ inventario = "Caballeros"
 # Options
 
 # Each person must have
-# D T/M C
+# D T/M C C C C C
+# D Dom M C C C C
 
 # Domingos, descansos, vacaciones
