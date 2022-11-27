@@ -44,7 +44,7 @@ def rules(solution, breaks, areas, inventario, people, desc = False):
                 faults.append("Persona {} descansa el jueves y tiene inventario".format(i))
                 fitness -= 5
 
-        # Personas de la misma area no pueden descansar ni comer juntas
+        # Personas de la misma area no pueden descansar 
         e = 0
         for ia, a in enumerate(solution):
             if i != ia and areas[i][0] == areas[ia][0] and np.sum(a == p):
