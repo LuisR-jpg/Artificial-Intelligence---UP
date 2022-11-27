@@ -3,7 +3,7 @@ import numpy as np
 # Maximizes the objective function
 
 class GeneticAlgorithm:
-    def __init__(self, fitness, args, popSize, nGen, pRep, pMut, dim): # Objective function, arguments of the function, Population size, number of generations, reproduction probability, mutation probability, dimensions of the solution (height, width, minVal, maxVal)
+    def __init__(self, fitness, args, popSize, nGen, pRep, pMut, dim, debug): # Objective function, arguments of the function, Population size, number of generations, reproduction probability, mutation probability, dimensions of the solution (height, width, minVal, maxVal)
         assert callable(fitness), 'fitness is not a function'
         assert isinstance(args, tuple), 'fitness is not tuple'
         assert isinstance(popSize, int), 'popSize is not int'
@@ -11,6 +11,7 @@ class GeneticAlgorithm:
         assert isinstance(pRep, float), 'pRep is not float'
         assert isinstance(pMut, float), 'pMut is not float'
         assert isinstance(dim, tuple) and len(dim) == 4, 'dim is not valid'
+        assert isinstance(debug, bool), 'debug is not bool'
 
         self.fitness = fitness
         self.args = args
@@ -22,6 +23,7 @@ class GeneticAlgorithm:
         self.height, self.width, self.minValue, self.maxValue = dim
         self.nEvaluations = 0
         self.fitnesses = None
+        self.debug = debug
     
     def initPopulation(self):
         self._initPopulation()
@@ -84,11 +86,14 @@ class GeneticAlgorithm:
         assert isinstance(r, dict), 'r is not dict'
         return r
     def _solve(self):
+        best = []
         self.initPopulation()
         self.fitnesses = np.array([self.getFitness(i) for i in self.population])
         eliteFitness, elite = -1e10, None
         for i in range(self.nGen):
-            if i % 10 == 0: print(eliteFitness)
+            if self.debug:
+                best.append(eliteFitness)
+                if self.nGen % 10 == 0: print(eliteFitness)
             newPopulation, newFitnesses = np.zeros_like(self.population), np.zeros_like(self.fitnesses)
             for c in range(self.popSize):
                 parents = self.rouletteSelection()
@@ -109,8 +114,8 @@ class GeneticAlgorithm:
         return {"solution": elite, "fitness": eliteFitness, "callsToFunction": self.nEvaluations}
             
 
-def genetic_algorithm(fitness, args = (), popSize = 10, nGen = 10, pRep = 0.5, pMut = 0.5, dim = (5, 5, 0, 5)):
-    gA = GeneticAlgorithm(fitness, args, popSize, nGen, pRep, pMut, dim)
+def genetic_algorithm(fitness, args = (), popSize = 10, nGen = 10, pRep = 0.5, pMut = 0.5, dim = (5, 5, 0, 5), debug = False):
+    gA = GeneticAlgorithm(fitness, args, popSize, nGen, pRep, pMut, dim, debug)
     return gA.solve()
 
 

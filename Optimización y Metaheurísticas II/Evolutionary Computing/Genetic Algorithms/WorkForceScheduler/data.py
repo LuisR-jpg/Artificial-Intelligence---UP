@@ -7,30 +7,31 @@ def rules(solution, breaks, areas, inventario, people, desc = False):
     manana = np.where(breaks == "Mañana")[0]
     tarde = np.where(breaks == "Tarde")[0]
     mananaDomingo = np.where(breaks == "MañanaDomingo")[0]
+    highPriority, mediumPriority, lowPriority, preferable = 10000, 1000, 10, -100
     for i, p in enumerate(solution):
         # Descansa
         if np.count_nonzero(p == descanso) != 1:
-            fitness -= 10000
+            fitness -= highPriority
             faults.append("Persona {} no tiene un descanso".format(i))
 
         # Medio día
         if np.count_nonzero(p == manana) + np.count_nonzero(p == tarde) != 1:
-            fitness -= 10000
+            fitness -= highPriority
             faults.append("Persona {} no tiene un medio dia".format(i))
 
         # Domingo
         if p[6] in [descanso, tarde, mananaDomingo]:
-            fitness -= 1000
+            fitness -= mediumPriority
             faults.append("Persona {} tiene descanso o tarde libre el domingo".format(i))
         if p[6] == manana and np.count_nonzero(p == mananaDomingo) != 1:
-            fitness -= 10000
+            fitness -= highPriority
             faults.append("Persona {} trabaja domingo y no entra tarde ningún día".format(i))
         if mananaDomingo in p and p[6] != manana:
-            fitness -= 10000
+            fitness -= highPriority
             faults.append("Persona {} entra tarde pero no tiene domingo".format(i))
         domingos = ["Sonia", "Nancy", "Alberto", "Diana", "Susy"]
         if people[i] in domingos and p[6] != manana:
-            fitness -= 10000 
+            fitness -= highPriority 
             faults.append("Persona {} le corresponde domingo y no tiene".format(i))
 
         # Inventario
@@ -49,33 +50,33 @@ def rules(solution, breaks, areas, inventario, people, desc = False):
                 c = np.where(a == p)
                 for col in c[0]:
                     e += 1
-                    #faults.append("Persona {} {} igual que {}".format(i, "descansa" if p[col] in [manana, tarde, descanso, mananaDomingo] else "come", ia))
+                    faults.append("Persona {} {} igual que {}".format(i, "descansa" if p[col] in [manana, tarde, descanso, mananaDomingo] else "come", ia))
         fitness -= e / 2
 
         # Specificas de la semana
         if people[i] == "Sonia" and (p[1:] != descanso).any():
-            fitness -= 50
+            fitness -= mediumPriority
             faults.append("Sonia tiene vacaciones y trabaja {} dias".format(np.sum(p[1:] != descanso)))
         if people[i] == "Alma" and (p != descanso).any():
-            fitness -= 3
+            fitness -= mediumPriority
             faults.append("Alma tiene vacaciones y trabaja {}".format(np.sum(p != descanso)))
         if people[i] == "Samanta" and p[5] != descanso:
-            fitness -= 50
+            fitness -= mediumPriority
             faults.append("Samanta necesita los sabados")
         if people[i] == "Maira" and p[5] != descanso:
-            fitness -= 3
+            fitness -= preferable
             faults.append("Maira quiere el miercoles")
         if people[i] == "Elena" and p[5] != descanso:
-            fitness -= 3
+            fitness -= preferable
             faults.append("Elena descansa los lunes")
         if people[i] == "Nancy" and p[4] != descanso:
-            fitness -= 3
+            fitness -= lowPriority
             faults.append("Nancy quiere el viernes")
         if people[i] == "Marisol" and p[1] != descanso:
-            fitness -= 3 
+            fitness -= preferable 
             faults.append("Marisol quiere el martes")
         if people[i] == "Marlette" and p[0] != descanso:
-            fitness -= 3
+            fitness -= preferable
             faults.append("Marlette necesita lunes")
 
     if desc: return fitness, faults
@@ -88,9 +89,10 @@ Descansos
     ...
     5
 """
-#breaks = np.array(["12 - 2", "2 - 4", "4 - 6", "MañanaDomingo", "Descansa", "Mañana", "Tarde"])
-breaks = np.array(["Comida", "MañanaDomingo", "Descansa", "Mañana", "Tarde"])
-codigos = np.array(["C", "M", "D", "M", "T"])
+breaks = np.array(["12 - 2", "2 - 4", "4 - 6", "MañanaDomingo", "Descansa", "Mañana", "Tarde"])
+codigos = np.array(["12", "2", "4", "M", "D", "M", "T"])
+#breaks = np.array(["Comida", "MañanaDomingo", "Descansa", "Mañana", "Tarde"])
+#codigos = np.array(["C", "M", "D", "M", "T"])
 
 """
 People
