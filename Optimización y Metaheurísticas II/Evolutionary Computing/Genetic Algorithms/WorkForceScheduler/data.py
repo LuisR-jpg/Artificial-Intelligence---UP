@@ -10,37 +10,37 @@ def rules(solution, breaks, areas, inventario, people, desc = False):
     for i, p in enumerate(solution):
         # Descansa
         if np.count_nonzero(p == descanso) != 1:
-            fitness -= 1
+            fitness -= 10000
             faults.append("Persona {} no tiene un descanso".format(i))
 
         # Medio día
         if np.count_nonzero(p == manana) + np.count_nonzero(p == tarde) != 1:
-            fitness -= 1
+            fitness -= 10000
             faults.append("Persona {} no tiene un medio dia".format(i))
 
         # Domingo
         if p[6] in [descanso, tarde, mananaDomingo]:
-            fitness -= 1
+            fitness -= 1000
             faults.append("Persona {} tiene descanso o tarde libre el domingo".format(i))
-        if p[6] == manana and not mananaDomingo in p:
-            fitness -= 1
+        if p[6] == manana and np.count_nonzero(p == mananaDomingo) != 1:
+            fitness -= 10000
             faults.append("Persona {} trabaja domingo y no entra tarde ningún día".format(i))
         if mananaDomingo in p and p[6] != manana:
-            fitness -= 1
+            fitness -= 10000
             faults.append("Persona {} entra tarde pero no tiene domingo".format(i))
         domingos = ["Sonia", "Nancy", "Alberto", "Diana", "Susy"]
         if people[i] in domingos and p[6] != manana:
-            fitness -= 1 
+            fitness -= 10000 
             faults.append("Persona {} le corresponde domingo y no tiene".format(i))
 
         # Inventario
         if inventario == areas[i][len(areas[i]) - 1]:
             if p[2] in [descanso, manana, tarde]:
                 faults.append("Persona {} descansa el miercoles y tiene inventario".format(i))
-                fitness -= 1
+                fitness -= 5
             if p[3] in [descanso, manana, tarde]:
                 faults.append("Persona {} descansa el jueves y tiene inventario".format(i))
-                fitness -= 1
+                fitness -= 5
 
         # Personas de la misma area no pueden descansar ni comer juntas
         e = 0
@@ -49,25 +49,34 @@ def rules(solution, breaks, areas, inventario, people, desc = False):
                 c = np.where(a == p)
                 for col in c[0]:
                     e += 1
-                    faults.append("Persona {} {} igual que {}".format(i, "descansa" if p[col] in [manana, tarde, descanso, mananaDomingo] else "come", ia))
+                    #faults.append("Persona {} {} igual que {}".format(i, "descansa" if p[col] in [manana, tarde, descanso, mananaDomingo] else "come", ia))
         fitness -= e / 2
 
         # Specificas de la semana
         if people[i] == "Sonia" and (p[1:] != descanso).any():
-            fitness -= np.sum(p[1:] != descanso)
+            fitness -= 50
             faults.append("Sonia tiene vacaciones y trabaja {} dias".format(np.sum(p[1:] != descanso)))
         if people[i] == "Alma" and (p != descanso).any():
-            fitness -= 1
+            fitness -= 3
             faults.append("Alma tiene vacaciones y trabaja {}".format(np.sum(p != descanso)))
         if people[i] == "Samanta" and p[5] != descanso:
-            fitness -= 1
+            fitness -= 50
             faults.append("Samanta necesita los sabados")
         if people[i] == "Maira" and p[5] != descanso:
-            fitness -= 1
+            fitness -= 3
             faults.append("Maira quiere el miercoles")
         if people[i] == "Elena" and p[5] != descanso:
-            fitness -= 1
+            fitness -= 3
             faults.append("Elena descansa los lunes")
+        if people[i] == "Nancy" and p[4] != descanso:
+            fitness -= 3
+            faults.append("Nancy quiere el viernes")
+        if people[i] == "Marisol" and p[1] != descanso:
+            fitness -= 3 
+            faults.append("Marisol quiere el martes")
+        if people[i] == "Marlette" and p[0] != descanso:
+            fitness -= 3
+            faults.append("Marlette necesita lunes")
 
     if desc: return fitness, faults
     return fitness
@@ -100,19 +109,35 @@ areas = [
     ["Damas", "Dama madura"],
     ["Zapateria", "Zapateria damas"],
     ["Zapateria", "Zapato deportivo"],
-    ["Zapateria", "Zapato caballero"],
+    ["Caballeros", "Bebes"],
     ["Zapateria", "Zapato caballero"],
     ["Jugueteria"],
     ["Perfumeria"],
     ["Cajas ropa"],
     ["Cajas ropa"],
     ["Caballeros"],
-    ["Caballeros", "Ninos"],
     ["Caballeros"],
+    ["Zapateria", "Zapato caballero"],
     ["Paqueteria"],
-    ["Caballeros", "Bebes"],
+    ["Caballeros", "Ninos"],
     ["Caballeros", "Bebes"],
     ["Auxiliar"]
 ]
 
 inventario = "Caballeros"
+
+
+# Sonia le gusta comer de 12-2
+# Plantas y eventuales
+# Cajeros tienen su medio dia aunque descanses domingo
+# Hombres no descansan lunes, miercoles o viernes (o al menos dos)
+# En vez de comida pueden entrar a las 12
+# Los de domingo entran a la 1
+# Cajas ropa nunca esta descubierto
+
+# Options
+
+# Each person must have
+# D T/M C
+
+# Domingos, descansos, vacaciones

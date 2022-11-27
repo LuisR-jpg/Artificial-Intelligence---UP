@@ -73,7 +73,7 @@ class GeneticAlgorithm:
         return r
     def _mutation(self, child):
         if np.random.random() < self.pMut:
-            numberOfRows = np.random.randint(1, self.height)
+            numberOfRows = np.random.randint(1, self.height//2)
             rowsToReset = np.random.choice(self.height, numberOfRows, False)
             newValue = np.random.randint(self.minValue, self.maxValue, self.width)
             child[rowsToReset] = newValue
@@ -88,6 +88,7 @@ class GeneticAlgorithm:
         self.fitnesses = np.array([self.getFitness(i) for i in self.population])
         eliteFitness, elite = -1e10, None
         for i in range(self.nGen):
+            if i % 10 == 0: print(eliteFitness)
             newPopulation, newFitnesses = np.zeros_like(self.population), np.zeros_like(self.fitnesses)
             for c in range(self.popSize):
                 parents = self.rouletteSelection()
