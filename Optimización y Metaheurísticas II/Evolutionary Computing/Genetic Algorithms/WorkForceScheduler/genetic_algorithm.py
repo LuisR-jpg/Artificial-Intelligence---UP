@@ -44,11 +44,18 @@ class GeneticAlgorithm:
         assert isinstance(r, np.ndarray) and r.shape[0] == k, 'r is not the expected result'
         return r
     def _rouletteSelection(self, k, reverse):
+        norm = np.copy(self.fitnesses)
+        if (norm == 0).any(): norm = norm + 0.1
+        if reverse: norm = 1 / norm
+        norm = self.fitnesses - np.min(self.fitnesses)
+        norm = norm / np.sum(norm)
+        return np.random.choice(self.popSize, k, False, norm)
+        """
         norm = self.fitnesses / np.sum(self.fitnesses)
         if reverse: 
             norm = 1 - norm
             norm = norm / np.sum(norm)
-        return np.random.choice(self.popSize, k, False, norm)
+        """
 
     def crossover(self, parentOne, parentTwo):
         assert parentOne.shape == (self.height, self.width), "parentOne doesn't have the expected shape"
