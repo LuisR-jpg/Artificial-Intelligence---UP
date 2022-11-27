@@ -1,21 +1,23 @@
 import numpy as np
 
-def rules(solution, breaks, areas, inventario, desc = False):
+def rules(solution, breaks, areas, inventario, people, desc = False):
     faults = []
     fitness = 0
     descanso = np.where(breaks == "Descansa")[0]
     manana = np.where(breaks == "Mañana")[0]
-    tarde = np.where(breaks == "tarde")[0]
+    tarde = np.where(breaks == "Tarde")[0]
     mananaDomingo = np.where(breaks == "MañanaDomingo")[0]
     for i, p in enumerate(solution):
         # Descansa
         if np.count_nonzero(p == descanso) != 1:
-            fitness -= 1 
+            fitness -= 1
             faults.append("Persona {} no tiene un descanso".format(i))
+
         # Medio día
         if np.count_nonzero(p == manana) + np.count_nonzero(p == tarde) != 1:
             fitness -= 1
             faults.append("Persona {} no tiene un medio dia".format(i))
+
         # Domingo
         if p[6] in [descanso, tarde, mananaDomingo]:
             fitness -= 1
@@ -26,6 +28,11 @@ def rules(solution, breaks, areas, inventario, desc = False):
         if mananaDomingo in p and p[6] != manana:
             fitness -= 1
             faults.append("Persona {} entra tarde pero no tiene domingo".format(i))
+        domingos = ["Sonia", "Nancy", "Alberto", "Diana", "Susy"]
+        if people[i] in domingos and p[6] != manana:
+            fitness -= 1 
+            faults.append("Persona {} le corresponde domingo y no tiene".format(i))
+
         # Inventario
         if inventario == areas[i][len(areas[i]) - 1]:
             if p[2] in [descanso, manana, tarde]:
@@ -34,15 +41,34 @@ def rules(solution, breaks, areas, inventario, desc = False):
             if p[3] in [descanso, manana, tarde]:
                 faults.append("Persona {} descansa el jueves y tiene inventario".format(i))
                 fitness -= 1
-        # Personas de la misma area no pueden descansar juntas
+
+        # Personas de la misma area no pueden descansar ni comer juntas
         e = 0
         for ia, a in enumerate(solution):
-            if i != ia and areas[i][0] == areas[ia][0] and (a == p).any():
+            if i != ia and areas[i][0] == areas[ia][0] and np.sum(a == p):
                 c = np.where(a == p)
-                for col in c:
+                for col in c[0]:
                     e += 1
-                    faults.append("Persona {} {} igual que {}".format(i, "descansa" if p[col].any() in [manana, tarde, descanso, mananaDomingo] else "come", ia))
+                    faults.append("Persona {} {} igual que {}".format(i, "descansa" if p[col] in [manana, tarde, descanso, mananaDomingo] else "come", ia))
         fitness -= e / 2
+
+        # Specificas de la semana
+        if people[i] == "Sonia" and (p[1:] != descanso).any():
+            fitness -= np.sum(p[1:] != descanso)
+            faults.append("Sonia tiene vacaciones y trabaja {} dias".format(np.sum(p[1:] != descanso)))
+        if people[i] == "Alma" and (p != descanso).any():
+            fitness -= 1
+            faults.append("Alma tiene vacaciones y trabaja {}".format(np.sum(p != descanso)))
+        if people[i] == "Samanta" and p[5] != descanso:
+            fitness -= 1
+            faults.append("Samanta necesita los sabados")
+        if people[i] == "Maira" and p[5] != descanso:
+            fitness -= 1
+            faults.append("Maira quiere el miercoles")
+        if people[i] == "Elena" and p[5] != descanso:
+            fitness -= 1
+            faults.append("Elena descansa los lunes")
+
     if desc: return fitness, faults
     return fitness
 

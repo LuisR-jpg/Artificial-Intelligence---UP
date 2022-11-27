@@ -50,12 +50,6 @@ class GeneticAlgorithm:
         norm = self.fitnesses - np.min(self.fitnesses)
         norm = norm / np.sum(norm)
         return np.random.choice(self.popSize, k, False, norm)
-        """
-        norm = self.fitnesses / np.sum(self.fitnesses)
-        if reverse: 
-            norm = 1 - norm
-            norm = norm / np.sum(norm)
-        """
 
     def crossover(self, parentOne, parentTwo):
         assert parentOne.shape == (self.height, self.width), "parentOne doesn't have the expected shape"
