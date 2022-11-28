@@ -51,10 +51,6 @@ def rules(solution, breaks, areas, inventario, people, domingos, desc = False):
                 tArea[areas[h][0]][-1] += 2*lowPriority
             if solution[h, d] == manana or solution[h, d] == tarde:
                 tArea[areas[h][0]][-1] += lowPriority
-            """
-            if solution[h, d] == descanso or solution[h, d] == tarde and d == 5:
-                tArea[areas[h][0]][-1] -= 2*lowPriority
-            """
     fitness += np.sum([np.min(tArea[a])*lowPriority for a in tArea])
 
     if desc: return fitness, faults
