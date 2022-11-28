@@ -1,6 +1,7 @@
 import numpy as np
 
 def rules(solution, breaks, areas, inventario, people, domingos, desc = False):
+    if desc: print(solution)
     faults = []
     fitness = 0
     descanso = np.where(breaks == "Descansa")[0]
@@ -17,9 +18,6 @@ def rules(solution, breaks, areas, inventario, people, domingos, desc = False):
             if p[3] in [descanso, manana, tarde]:
                 faults.append("Persona {} descansa el jueves y tiene inventario".format(i))
                 fitness -= highPriority
-
-        # Maximize time by area
-        
 
         # Specificas de la semana
         if people[i] == "Samanta" and p[5] != descanso:
@@ -40,6 +38,20 @@ def rules(solution, breaks, areas, inventario, people, domingos, desc = False):
         if people[i] == "Marlette" and p[0] != descanso:
             fitness -= mediumPriority
             faults.append("Marlette necesita lunes")
+
+    # Maximize time by area
+    tArea = dict() # Stores by area the day that is the most empty, so the greater it is, the more spread will people be
+    for d in range(solution.shape[1]):
+        for h in range(solution.shape[0]):
+            if not areas[h][0] in tArea:
+                tArea[areas[h][0]] = []
+            if len(tArea[areas[h][0]]) == d:
+                tArea[areas[h][0]].append(0)
+            if solution[h, d] == comida:
+                tArea[areas[h][0]][-1] += 2
+            if solution[h, d] == manana or solution[h, d] == tarde:
+                tArea[areas[h][0]][-1] += 1
+    fitness += np.sum([np.min(tArea[a])*lowPriority for a in tArea])
 
     if desc: return fitness, faults
     return fitness

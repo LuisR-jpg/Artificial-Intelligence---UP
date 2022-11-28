@@ -20,7 +20,7 @@ class GeneticAlgorithm:
         self.nGen = nGen
         self.pRep = pRep
         self.pMut = pMut
-        self.population = None
+        self.population = init if not init is None else None
         self.height, self.width, self.minValue, self.maxValue = dim
         self.nEvaluations = 0
         self.fitnesses = None
@@ -30,7 +30,8 @@ class GeneticAlgorithm:
         self._initPopulation()
         assert isinstance(self.population, np.ndarray), 'r is not np.array'
     def _initPopulation(self):
-        self.population = np.random.randint(self.minValue, self.maxValue + 1, (self.popSize, self.height, self.width))
+        if not self.population is None: return
+        self.population = np.random.randint(self.minValue, self.maxValue, (self.popSize, self.height, self.width))
 
     def getFitness(self, individual):
         assert individual.shape == (self.height, self.width), 'individual is not valid'
@@ -48,9 +49,9 @@ class GeneticAlgorithm:
         return r
     def _rouletteSelection(self, k, reverse):
         norm = np.copy(self.fitnesses)
+        norm = self.fitnesses - np.min(self.fitnesses)
         if (norm == 0).any(): norm = norm + 0.1
         if reverse: norm = 1 / norm
-        norm = self.fitnesses - np.min(self.fitnesses)
         norm = norm / np.sum(norm)
         return np.random.choice(self.popSize, k, False, norm)
 
