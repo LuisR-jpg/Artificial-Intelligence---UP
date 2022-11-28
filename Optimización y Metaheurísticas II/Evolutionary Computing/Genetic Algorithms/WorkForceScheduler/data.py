@@ -1,5 +1,6 @@
 import numpy as np
 
+# Objective function
 def rules(solution, breaks, areas, inventario, people, domingos, desc = False):
     if desc: print(solution)
     faults = []
@@ -56,31 +57,19 @@ def rules(solution, breaks, areas, inventario, people, domingos, desc = False):
     if desc: return fitness, faults
     return fitness
 
-"""
-Descansos
-    0 Todo el día
-    1 9 - 1
-    ...
-    5
-"""
+# Second approach
 #breaks = np.array(["12 - 2", "2 - 4", "4 - 6", "MañanaDomingo", "Descansa", "Mañana", "Tarde"])
 #codigos = np.array(["12", "2", "4", "M", "D", "M", "T"])
+
+# Third approach
 #breaks = np.array(["Comida", "MañanaDomingo", "Descansa", "Mañana", "Tarde"])
 #codigos = np.array(["C", "M", "D", "M", "T"])
+
+# Fourth approach
 breaks = np.array(["Comida", "Descansa", "Mañana", "Tarde"])
 codigos = np.array(["C", "D", "M", "T"])
 domingos = ["Sonia", "Nancy", "Alberto", "Diana", "Susy"]
 
-"""
-People
-    Karlita
-    Lalito
-    Gabita
-    Luisito    
-
-    #people = {"Karlita": ["damas", "niños"], "Lalito": ["cajas", "damas"], "Gabita": ["niños", "cajas"], "Luisito": ["caballeros", "cajas"]}
-
-"""
 #people = ["Samanta", "Luz", "Sonia", "Laura", "Maira", "Gloria", "Fernanda", "Marisol", "Susy", "Diana", "Brayan", "Nallely", "Marlette", "Lucia", "Fabian", "Alberto", "Elena", "Nancy", "Andrea", "Alma"]
 people = ["Samanta", "Luz", "Laura", "Maira", "Gloria", "Fernanda", "Marisol", "Susy", "Diana", "Brayan", "Nallely", "Marlette", "Lucia", "Fabian", "Alberto", "Elena", "Nancy", "Andrea"]
 areas = [
@@ -106,4 +95,5 @@ areas = [
     #["Auxiliar"]                        #Alma
 ]
 
+# A que departamento le toca inventario esta semana
 inventario = "Caballeros"

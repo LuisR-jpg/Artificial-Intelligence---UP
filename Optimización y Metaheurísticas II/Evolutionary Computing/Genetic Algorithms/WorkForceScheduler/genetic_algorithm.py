@@ -1,6 +1,8 @@
 import numpy as np
 
-# Maximizes the objective function
+# This implementation maximizes the objective function
+# It implements an uniform crossover
+# The mutation get a random a permutation
 
 class GeneticAlgorithm:
     def __init__(self, fitness, args, popSize, nGen, pRep, pMut, dim, init, debug): # Objective function, arguments of the function, Population size, number of generations, reproduction probability, mutation probability, dimensions of the solution (height, width, minVal, maxVal)
