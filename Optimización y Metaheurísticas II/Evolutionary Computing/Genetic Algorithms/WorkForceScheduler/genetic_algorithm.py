@@ -79,7 +79,7 @@ class GeneticAlgorithm:
             numberOfRows = np.random.randint(1, self.height)
             rowsToReset = np.random.choice(self.height, numberOfRows, False)
             for i in rowsToReset:
-                child[i] = np.random.randint(self.minValue, self.maxValue + 1, self.width)
+                child[i, :-1] = np.random.permutation(child[i, :-1]) #Specific to the problem
         return child
 
     def solve(self):
