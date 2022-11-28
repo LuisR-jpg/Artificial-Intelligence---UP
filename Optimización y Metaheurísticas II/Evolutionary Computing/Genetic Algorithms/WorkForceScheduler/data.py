@@ -11,7 +11,7 @@ def rules(solution, breaks, areas, inventario, people, domingos, desc = False):
     highPriority, mediumPriority, lowPriority = 100, 10, 1
     for i, p in enumerate(solution):
         # Inventario
-        if inventario == areas[i][len(areas[i]) - 1]:
+        if inventario == areas[i][-1]:
             if p[2] in [descanso, manana, tarde]:
                 faults.append("Persona {} descansa el miercoles y tiene inventario".format(i))
                 fitness -= highPriority
@@ -23,10 +23,10 @@ def rules(solution, breaks, areas, inventario, people, domingos, desc = False):
         if people[i] == "Samanta" and p[5] != descanso:
             fitness -= mediumPriority
             faults.append("Samanta necesita los sabados")
-        if people[i] == "Maira" and p[5] != descanso:
+        if people[i] == "Maira" and p[2] != descanso:
             fitness -= mediumPriority
             faults.append("Maira quiere el miercoles")
-        if people[i] == "Elena" and p[5] != descanso:
+        if people[i] == "Elena" and p[0] != descanso:
             fitness -= mediumPriority
             faults.append("Elena descansa los lunes")
         if people[i] == "Nancy" and p[4] != descanso:
@@ -48,9 +48,13 @@ def rules(solution, breaks, areas, inventario, people, domingos, desc = False):
             if len(tArea[areas[h][0]]) == d:
                 tArea[areas[h][0]].append(0)
             if solution[h, d] == comida:
-                tArea[areas[h][0]][-1] += 2
+                tArea[areas[h][0]][-1] += 2*lowPriority
             if solution[h, d] == manana or solution[h, d] == tarde:
-                tArea[areas[h][0]][-1] += 1
+                tArea[areas[h][0]][-1] += lowPriority
+            """
+            if solution[h, d] == descanso or solution[h, d] == tarde and d == 5:
+                tArea[areas[h][0]][-1] -= 2*lowPriority
+            """
     fitness += np.sum([np.min(tArea[a])*lowPriority for a in tArea])
 
     if desc: return fitness, faults
