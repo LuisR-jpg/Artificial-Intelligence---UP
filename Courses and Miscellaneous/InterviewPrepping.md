@@ -19,6 +19,20 @@ STAR(R) model when answering questions. This will help you create clarity and st
 - What’s one thing you’re hoping to get from an intern? How can an intern make your life easier?
 
 ### Behavioral
+- Introduce yourself
+
+    - About me
+
+    - Job experience
+        
+        - What went well.
+    
+        - What I learned.
+    
+        - Impact
+        
+What I'm looking fo
+
 - Why would you like to work in this company? 
 
     - Microsoft
