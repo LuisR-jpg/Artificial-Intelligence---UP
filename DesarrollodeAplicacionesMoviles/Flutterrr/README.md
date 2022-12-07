@@ -10,6 +10,10 @@
 
 - Everything is a widget.
 
+    - Two kinds, based on the state of a widget. The state of a widget tells whether it can change during runtime or not. 
+        - Stateless: Independant elements that won't change.
+        - Stateful: Widgets able to be re-written during execution
+
 ## To run
 
 - Execute the emulator (choose the cold boot).
