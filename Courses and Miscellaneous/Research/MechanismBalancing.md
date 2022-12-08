@@ -2,7 +2,7 @@
 
 ## Objective 
 
-Optimize the ***shaking force*** and ***shaking momentum*** variables.
+Optimize the ***shaking force*** and ***shaking moment*** variables.
 
 The target mechanism has six bars.
 
