@@ -20,6 +20,9 @@ The target mechanism has six bars.
 
 Simplified version of Projected Gradient Descent, a deterministic and iterative algorithm based on the gradient vector direction. The optimization problem is multi-objective with bound constraints (also known as box constraints).
 
+##### Objective function
+
+
 
 
 #### Terms to investigate
