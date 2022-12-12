@@ -8,7 +8,9 @@ The target mechanism has six bars.
 
 ## To do
 
-### [ ] Learn about Multi-objective optimization
+- [ ] Learn about Multi-objective optimization
+
+    It's an area of optimization where several objective functions are considered, sometimes conflicting. Thus, this technique involves the evaluation of several tradeoffs consisting on optimizing a function while degrading others.
 
 ## Resources 
 
