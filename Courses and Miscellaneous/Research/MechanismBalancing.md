@@ -8,7 +8,7 @@ The target mechanism has six bars.
 
 ## To do
 
-- [ ] Learn about Multi-objective optimization
+### [ ] Learn about Multi-objective optimization
 
 ## Resources 
 
