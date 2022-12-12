@@ -41,12 +41,14 @@ The hyper-parameter lambda allows to define priorities in the optimization.
 - Pareto front/frontier/curve
 
     Is the set of all efficient solutions in multi-optimization. It allows the analyst to make tradeoffs within the set of actual, possible solutions, dismissing attention of not optimal ones.
-    *How is it obtained?*
+
+    ***How is it obtained?***
 
 - Natural coordinates or fully cartesian coordinates
 
     The Cartesian coordinates of a point in three dimensions are a triplet of numbers (x,y,z). The three numbers, or coordinates, specify the signed distance from the origin along the x, y, and z-axes, respectively.
-    *Difference against cartesian coordinates?*
+    
+    ***Difference against cartesian coordinates?***
 
 - Firefly algorithm 
 
