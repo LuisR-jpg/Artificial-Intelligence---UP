@@ -48,6 +48,17 @@ The target mechanism has six bars.
 
     - Ant colony
 
+- [ ] Optimization algorithm
+
+    Use one of the following algorithms
+
+    - Differential evolution
+
+    - Firefly algorithm
+
+    - Gradient descent
+
+- [ ] Get to know the space
 
 ## Resources 
 
@@ -117,3 +128,7 @@ $$f(x) = \lambda \beta_{ShM}(X) + (1 - \lambda) \beta_{ShF}(X)$$
 A time graph of the convergences is shown
 
 Second derivatives were used to know if the boundaries are well set, the results were empirically demonstrated.
+
+### Tips & tricks
+
+The articles that are called survey or review are like a summary.
