@@ -12,6 +12,43 @@ The target mechanism has six bars.
 
     It's an area of optimization where several objective functions are considered, sometimes conflicting. Thus, this technique involves the evaluation of several tradeoffs consisting on optimizing a function while degrading others.
 
+    **[Video](https://www.youtube.com/watch?v=Zchm_W6tFz4&list=WL&index=130)**
+    
+    Pareto optimality: Occurs when you've got a solution such that you cannot increase the value of one criteria without affecting the other one. That's a dominated solution, aka inferior
+
+    ![Pareto](https://www.tandfonline.com/na101/home/literatum/publisher/tandf/journals/content/oaen20/2018/oaen20.v005.i01/23311916.2018.1502242/20210219/images/medium/oaen_a_1502242_f0003_b.gif)
+
+    **[A review of multi-objective optimization](https://www.tandfonline.com/doi/full/10.1080/23311916.2018.1502242)**
+
+    Scalarization takes multi-objective solutions and turns them into a single one using weights.
+
+    This concept was first introduced by Pareto. 
+
+    In MOO there's no single best solution, but rather several solutions.
+
+    *Methods*
+
+    - Pareto Method
+
+    - Scalarization
+
+    **Algorithms**
+
+    - Genetic algorithms
+
+    - Evolution strategies
+
+    - Evolutionary programming
+
+    - Differential evolution
+
+    - Genetic programming 
+
+    - Particle swarm optimization 
+
+    - Ant colony
+
+
 ## Resources 
 
 ### Already published [article](https://www.mdpi.com/2076-3417/9/19/4115)
