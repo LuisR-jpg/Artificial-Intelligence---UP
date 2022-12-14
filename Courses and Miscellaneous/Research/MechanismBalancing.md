@@ -116,5 +116,4 @@ $$f(x) = \lambda \beta_{ShM}(X) + (1 - \lambda) \beta_{ShF}(X)$$
 
 A time graph of the convergences is shown
 
-Second derivatives were used to know if the boundaries are well set, the results were empirically demonstrated
-
+Second derivatives were used to know if the boundaries are well set, the results were empirically demonstrated.
