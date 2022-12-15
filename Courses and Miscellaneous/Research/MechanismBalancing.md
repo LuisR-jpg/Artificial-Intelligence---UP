@@ -6,6 +6,20 @@ Optimize the ***shaking force*** and ***shaking moment*** variables.
 
 The target mechanism has six bars. 15 variables.
 
+### Explanation
+
+###### Based on a tesis
+
+Vibrations and undesired movement weares out the mechanisms. This problem tries to be solved with counterweights.
+
+Each counterweight has three variables: x, y and t -> position of the center of mass and its thickness. All those variables have box constraints. Thickness cannot be zero(?)
+
+Tune the objective functions.
+
+    - Remember that the shaking force is a vector, so if the components are given; calculate the magnitude.
+    
+    - Divide the function by the not optimized one, so the expected values should be between 1 and 0.
+
 ## To do
 
 - [x] Learn about Multi-objective optimization
@@ -32,11 +46,6 @@ The target mechanism has six bars. 15 variables.
 
     - Scalarization
 
-- Tune the objective functions
-
-    - Remember that the shaking force is a vector, so if the components are given; calculate the magnitude.
-    
-    - Divide the function by the not optimized one, so the expected values should be between 1 and 0.
 
 - Exploration
 
