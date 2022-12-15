@@ -4,7 +4,7 @@
 
 Optimize the ***shaking force*** and ***shaking moment*** variables.
 
-The target mechanism has six bars.
+The target mechanism has six bars. 15 variables.
 
 ## To do
 
@@ -32,33 +32,27 @@ The target mechanism has six bars.
 
     - Scalarization
 
-    **Algorithms**
+- Tune the objective functions
 
-    - Genetic algorithms
+    - Remember that the shaking force is a vector, so if the components are given; calculate the magnitude.
+    
+    - Divide the function by the not optimized one, so the expected values should be between 1 and 0.
 
-    - Evolution strategies
+- Exploration
 
-    - Evolutionary programming
+  - [ ] Use a metaheuristic or evolutionary algorithm and then improve the solution with gradient descent
 
-    - Differential evolution
+  - Spatial analysis
 
-    - Genetic programming 
+    - [ ] Create heatmaps to see where the optimization of the different functions overlap to find a neutral point.
 
-    - Particle swarm optimization 
+    - [ ] Explore other graphs to understand the space.
 
-    - Ant colony
+    - [ ] Does PCA work? 
 
-- [ ] Optimization algorithm
 
-    Use one of the following algorithms
 
-    - Differential evolution
 
-    - Firefly algorithm
-
-    - Gradient descent
-
-- [ ] Get to know the space
 
 ## Resources 
 
