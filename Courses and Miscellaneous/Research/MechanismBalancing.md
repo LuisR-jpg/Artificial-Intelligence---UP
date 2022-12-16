@@ -16,9 +16,9 @@ Each counterweight has three variables: x, y and t -> position of the center of 
 
 Tune the objective functions.
 
-    - Remember that the shaking force is a vector, so if the components are given; calculate the magnitude.
-    
-    - Divide the function by the not optimized one, so the expected values should be between 1 and 0.
+- Remember that the shaking force is a vector, so if the components are given; calculate the magnitude.
+
+- Divide the function by the not optimized one, so the expected values should be between 1 and 0.
 
 ## To do
 
