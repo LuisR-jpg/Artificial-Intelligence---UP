@@ -8,7 +8,7 @@ The target mechanism has six bars. 15 variables.
 
 ### Explanation
 
-###### Based on a tesis
+###### Based on a tesis. Equations are near the page 162.
 
 Vibrations and undesired movement weares out the mechanisms. This problem tries to be solved with counterweights.
 
@@ -52,6 +52,19 @@ Tune the objective functions.
   - [ ] Use a metaheuristic or evolutionary algorithm and then improve the solution with gradient descent
 
   - Spatial analysis
+
+    - Math analysis
+
+        - [ ] Is there a local minimum or several minima? 
+
+        - [ ] What does a function that has a single minimum look like? 
+
+        - [ ] Is it concave or convex? 
+
+        - [ ] Is it linear? 
+
+        - [ ] Is this a continuous function?
+
 
     - [ ] Create heatmaps to see where the optimization of the different functions overlap to find a neutral point.
 
