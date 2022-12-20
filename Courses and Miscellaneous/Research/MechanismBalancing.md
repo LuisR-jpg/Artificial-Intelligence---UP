@@ -51,26 +51,23 @@ Tune the objective functions.
 
   - [ ] Use a metaheuristic or evolutionary algorithm and then improve the solution with gradient descent
 
-  - Spatial analysis
+  - Math analysis
 
-    - Math analysis
+    - [ ] Is there a local minimum or several minima? 
 
-        - [ ] Is there a local minimum or several minima? 
+    - [ ] What does a function that has a single minimum look like? 
 
-        - [ ] What does a function that has a single minimum look like? 
+    - [ ] Is it concave or convex? 
 
-        - [ ] Is it concave or convex? 
+    - [ ] Is it linear? 
 
-        - [ ] Is it linear? 
+    - [ ] Is this a continuous function?
 
-        - [ ] Is this a continuous function?
+  - [ ] Create heatmaps to see where the optimization of the different functions overlap to find a neutral point.
 
+  - [ ] Explore other graphs to understand the space.
 
-    - [ ] Create heatmaps to see where the optimization of the different functions overlap to find a neutral point.
-
-    - [ ] Explore other graphs to understand the space.
-
-    - [ ] Does PCA work? 
+  - [ ] Does PCA work? 
 
 
 
