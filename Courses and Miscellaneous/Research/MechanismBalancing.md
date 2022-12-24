@@ -68,6 +68,16 @@ Tune the objective functions.
   - [ ] Explore other graphs to understand the space.
 
   - [ ] Does PCA work? 
+  
+    [PCA. Step-by-step](https://www.youtube.com/watch?v=FgakZw6K1QQ)
+
+    - PCA stands for Principal Component Analysis.
+
+    - How it's done using Singular Value Decomposition
+
+      - PCA tries to find the line that best fits the data (as in linear regression). Once it's found, it'll be called principal component 1, which is a linear combination of the variables.
+    
+      - The unit vector that has the properties of the line PC1 is called eigenvector or singular vector and the eigenvalue is the sum of the maximum squared distances, the singular value of PC1 is the squared root of the eigenvalue.
 
 
 
