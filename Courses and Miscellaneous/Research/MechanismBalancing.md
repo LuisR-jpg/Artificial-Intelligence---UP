@@ -49,7 +49,7 @@ Tune the objective functions.
 
 - Exploration
 
-  - [ ] Use a metaheuristic or evolutionary algorithm and then improve the solution with gradient descent
+  -  Use a metaheuristic or evolutionary algorithm and then improve the solution with gradient descent
 
   - Math analysis
 
@@ -78,6 +78,8 @@ Tune the objective functions.
       - PCA tries to find the line that best fits the data (as in linear regression). Once it's found, it'll be called principal component 1, which is a linear combination of the variables.
     
       - The unit vector that has the properties of the line PC1 is called eigenvector or singular vector and the eigenvalue is the sum of the maximum squared distances, the singular value of PC1 is the squared root of the eigenvalue.
+
+    - What's the interpretation of results? 
 
 
 
