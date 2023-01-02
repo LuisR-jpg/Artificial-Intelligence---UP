@@ -14,6 +14,13 @@
         - Stateless: Independant elements that won't change.
         - Stateful: Widgets able to be re-written during execution
 
+## Flutter specific
+
+- Operador `??`:
+    Si existe una variable `x` y `x` puede ser null se debe usar, y es como un operador ternario. 
+    
+    `x ?? 'x es null'` is the same as `x == null? 'x es null': x`
+
 ## To run
 
 - Execute the emulator (choose the cold boot).
