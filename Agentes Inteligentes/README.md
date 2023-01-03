@@ -80,6 +80,8 @@
 
             - No es escalable
 
+    - Filtros de Haar
+
 - **Operadores morfologicos**. Over binary images
 
     - Thinning
