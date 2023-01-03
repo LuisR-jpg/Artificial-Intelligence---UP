@@ -92,6 +92,6 @@
 
     - Indices
     
-        - NDWI = (b1 - b2)/(b1 + b2)
+        - NDWI $= \frac{b_1 - b_2}{b_1 + b_2}$
         
         - NDVI
