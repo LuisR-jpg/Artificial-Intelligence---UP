@@ -64,6 +64,22 @@
     
         Adding constraste a partes homogeneas
 
+    - Moravek
+
+        Looks for the amount of change within a determined area
+
+        - Fortalezas
+
+            - Resistencia al ruido  
+
+            - Detecta esquina y bordes
+
+        - Debilidad
+
+            - Detecta solo multiplos de 90 grados
+
+            - No es escalable
+
 - **Operadores morfologicos**. Over binary images
 
     - Thinning
@@ -87,6 +103,10 @@
     - There's an algorithm that finds images and movement of an image
     
     - Image enhancement using templates (pieces of pics)
+
+        Selecting a patch by hand to repeat it in the reighboring zone.
+        
+        Once we find all the repeated patches, the zones have to be replaced by the median (mean?) of patches.
 
 - **Imagenes satelitales**
 
