@@ -6,7 +6,13 @@
 
 - **Tipos de imagenes**
     
-    Renders, binarias, termales, gases.
+    - Renders
+    
+    - Binarias
+    
+    - Termales
+    
+    - Gases
 
 - **Analisis de histogramas/Ecualizacion**
 
@@ -14,19 +20,63 @@
 
 - **Segmentacion**
 
-    Mean-shift, region growing, watershed, segmentation grafica.
+    - Mean-shift
+    
+    - Region growing
+
+    - Watershed
+
+    - Segmentation grafica
 
 - **Transformaciones/Filtros/Fourier**
 
-    Cambio de espacios, transformaciones afines/Kernels, enhancement filters, mean filters, gaussian/Magnitud, fase; low-pass, high-pass, band-pass.
+    - Cambio de espacios
+
+    - Transformaciones afines
+
+    - Kernels
+
+    - Magnitud, fase
+
+    - Filters
+
+        - Low-pass, high-pass, band-pass filters
+
+        - Enhancement filter
+
+        - Mean filter
+
+        - Gaussian filter
 
 - **Deteccion de bordes/Points of interests/Gradientes**
 
-    Our own algo (suavizar, gradiente, morph operators), Canny, image enhancement con gradientes (adding constraste a partes homogeneas).
+    - Our own algo 
+    
+        - Suavizar
+        
+        - Gradiente
+        
+        - Morph operators
+    
+    - Canny
+    
+    - Image enhancement con gradientes 
+    
+        Adding constraste a partes homogeneas
 
-- **Operadores morfologicos**
+- **Operadores morfologicos**. Over binary images
 
-    Thinning, thickening, open/close, hit, fit, miss (over binary images).
+    - Thinning
+    
+    - Thickening
+    
+    - Open/close
+    
+    - Hit
+    
+    - Fit
+    
+    - Miss 
 
 - **Composicion de imagenes**
 
@@ -34,8 +84,14 @@
 
 - **Template matching**
 
-    There's an algorithm that finds images and movement of an image; Image enhancement using pieces of pics.
+    - There's an algorithm that finds images and movement of an image
+    
+    - Image enhancement using templates (pieces of pics)
 
 - **Imagenes satelitales**
 
-    Checar inundaciones. NDWI = (b1 - b2)/(b1 + b2); NDVI
+    - Indices
+    
+        - NDWI = (b1 - b2)/(b1 + b2)
+        
+        - NDVI
