@@ -163,6 +163,12 @@ Second derivatives were used to know if the boundaries are well set, the results
 [Multi-Objective Optimization Using Evolutionary Algorithms:
 An Introduction](https://www.egr.msu.edu/~kdeb/papers/k2011003.pdf)
 
+#### New concepts and questions
+
+- Uncertainty
+
+    Often it is assumed that the objective and constraint functions are of a deterministic manner. However, if one or multiple target functions are nondeterministic, this introduces noise or also referred to as uncertainty. One technique to address the underlying randomness is to repeat the evaluation for different random seeds and average the resulting values. Moreover, the standard deviation derived from multiple evaluations can be utilized to determine the performance and the reliability of a specific solution. In general, optimization problems with underlying uncertainty are investigated by the research field called stochastic optimization.
+
 ### Tips & tricks
 
 The articles that are called survey or review are like a summary.
