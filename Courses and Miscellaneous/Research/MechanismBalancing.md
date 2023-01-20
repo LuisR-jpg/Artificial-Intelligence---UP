@@ -49,7 +49,9 @@ Tune the objective functions.
 
 - Exploration
 
-  -  Use a metaheuristic or evolutionary algorithm and then improve the solution with gradient descent
+  - [ ] Use a metaheuristic or evolutionary algorithm and then improve the solution with gradient descent
+
+  - [ ] Use a framework to try and solve the problem. [PYMOO](https://pymoo.org/)
 
   - Math analysis
 
@@ -65,9 +67,9 @@ Tune the objective functions.
 
   - [ ] Create heatmaps to see where the optimization of the different functions overlap to find a neutral point.
 
-  - [ ] Explore other graphs to understand the space.
+  - [x] Explore other graphs to understand the space.
 
-  - [ ] Does PCA work? 
+  - [x] Does PCA work? 
   
     [PCA. Step-by-step](https://www.youtube.com/watch?v=FgakZw6K1QQ)
 
@@ -153,6 +155,13 @@ $$f(x) = \lambda \beta_{ShM}(X) + (1 - \lambda) \beta_{ShF}(X)$$
 A time graph of the convergences is shown
 
 Second derivatives were used to know if the boundaries are well set, the results were empirically demonstrated.
+
+### Primer on Multi-Objective Optimization.
+
+#### Source
+
+[Multi-Objective Optimization Using Evolutionary Algorithms:
+An Introduction](https://www.egr.msu.edu/~kdeb/papers/k2011003.pdf)
 
 ### Tips & tricks
 
