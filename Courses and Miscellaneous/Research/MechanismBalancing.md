@@ -6,7 +6,7 @@ Optimize the ***shaking force*** and ***shaking moment*** variables.
 
 The target mechanism has six bars. 15 variables.
 
-### Explanation
+## Explanation
 
 ###### Based on a tesis. Equations are near the page 162.
 
@@ -49,23 +49,13 @@ Tune the objective functions.
 
 - Exploration
 
-  - [ ] Use a metaheuristic or evolutionary algorithm and then improve the solution with gradient descent
+  - [x] Use a metaheuristic or evolutionary algorithm and then improve the solution with gradient descent
 
   - [ ] Use a framework to try and solve the problem. [PYMOO](https://pymoo.org/)
 
   - Math analysis
 
-    - [ ] Is there a local minimum or several minima? 
-
-    - [ ] What does a function that has a single minimum look like? 
-
-    - [ ] Is it concave or convex? 
-
-    - [ ] Is it linear? 
-
-    - [ ] Is this a continuous function?
-
-  - [ ] Create heatmaps to see where the optimization of the different functions overlap to find a neutral point.
+    - [x] Is there a local minimum or several minima? 
 
   - [x] Explore other graphs to understand the space.
 
@@ -169,6 +159,8 @@ An Introduction](https://www.egr.msu.edu/~kdeb/papers/k2011003.pdf)
 
     Often it is assumed that the objective and constraint functions are of a deterministic manner. However, if one or multiple target functions are nondeterministic, this introduces noise or also referred to as uncertainty. One technique to address the underlying randomness is to repeat the evaluation for different random seeds and average the resulting values. Moreover, the standard deviation derived from multiple evaluations can be utilized to determine the performance and the reliability of a specific solution. In general, optimization problems with underlying uncertainty are investigated by the research field called stochastic optimization.
 
-### Tips & tricks
+### New knowledge
 
-The articles that are called survey or review are like a summary.
+- The articles that are called survey or review are like a summary.
+
+- Many-objective optimization refers to multi-objective optimization problems (MOO) containing large number of objectives, typically more than four.
