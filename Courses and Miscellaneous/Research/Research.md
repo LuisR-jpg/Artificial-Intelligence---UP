@@ -32,7 +32,7 @@
 
 What Javi thinks the future looks like. It's a combination of SWE and DSc.
 
-## Investigation
+## Research
 
 ### University of Montreal
 
@@ -99,3 +99,9 @@ These datasets are for mere practice
 ### How it will work
 
 Self-taught + frequent catching up
+
+## Resources
+
+- [ ] As students, we can get free courses in Coursera.
+
+- [ ] [Linear Algebra](https://github.com/fastai/numerical-linear-algebra/blob/master/README.md).
