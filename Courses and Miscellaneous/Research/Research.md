@@ -100,6 +100,16 @@ These datasets are for mere practice
 
 Self-taught + frequent catching up
 
+## Models
+
+### MLP
+
+If a model has an input layer + hidden layers + an output vector. It's called multi-layer perceptron.
+
+### Shallow Model
+
+A model that has an input layer + hidden layers + a single output.
+
 ## Resources
 
 - [ ] As students, we can get free courses in Coursera.
