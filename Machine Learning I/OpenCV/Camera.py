@@ -25,7 +25,7 @@ def funcion(img):
       # Escribir el resultado
 
       cv2.rectangle(img, (rect[0], rect[1]), (rect[0] + rect[2], rect[1] + rect[3]), (255, 0, 0), 2)
-      cv2.putText(img, str('hola'), (rect[0], rect[1]), cv2.FONT_HERSHEY_SIMPLEX, 1, (200, 0, 0), 3, cv2.LINE_AA)
+      cv2.putText(img, str('Guapo'), (rect[0], rect[1]), cv2.FONT_HERSHEY_SIMPLEX, 1, (200, 0, 0), 3, cv2.LINE_AA)
   return img
 
 cam = cv2.VideoCapture(0)
