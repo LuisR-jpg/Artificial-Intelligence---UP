@@ -57,3 +57,10 @@ Managed errors by:
 
 ### Badly-structured-sales-data.xlsx
 
+|Segment|Consumer|   |   |   |Consumer Total|Corporate|   |   |   |Corporate Total|Home Office|   |   |   |Home Office Total|
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+|Ship mode|First Class|Same Day|Second class|Standard class|   |First Class|Same Day|Second class|Standard class|   |First Class|Same Day|Second class|Standard class|   |
+|Order ID|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+| - | - | - | - | - | - | - | - | - | - | - | - | - | - | - | - |
+|Grand Total|   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+
