@@ -1,6 +1,8 @@
 !gitAllow.json
 !TiendaConProductos.json
 
+# Datasets
+books_1.Best_Books_Ever.csv
 
 **/node_modules/
 **/.ipynb_checkpoints/
