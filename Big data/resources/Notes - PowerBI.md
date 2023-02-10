@@ -42,6 +42,8 @@ Several ways to implement templates to our dashboard.
 
 ## Activity
 
+It's possible to go back and see the progress.
+
 ### Dataset (1)
 
 **Table: Product**
