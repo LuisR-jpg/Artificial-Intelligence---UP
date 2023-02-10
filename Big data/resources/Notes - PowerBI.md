@@ -39,3 +39,21 @@ Opens a new page that allows us to modify data
 #### View
 
 Several ways to implement templates to our dashboard.
+
+## Activity
+
+### Dataset (1)
+
+**Table: Product**
+**Field: Tamaño**
+
+Managed errors by:
+
+- Turning data into string
+
+- Changing S, M, L, XL to null
+
+- Turn data back into int
+
+### Badly-structured-sales-data.xlsx
+
