@@ -59,3 +59,58 @@ Cuello de botella por problemas de comunicacion y la obtencion de datos es barat
 ### Ventajas
 
 El clasificador era interpretable.
+
+---
+
+###### 10 de Febrero
+
+## Raw data
+
+- Online newspapers 
+
+- Social networks
+
+- Email
+
+## Vectorial representations
+
+### Bag of words + Support vector machine
+
+It is awesome, its performance it's close to 80% of accuracy.
+
+This is the baseline.
+
+### Neural networks.
+
+If you don't have enough resources to handle nn. It's better to go for the baseline. 
+
+### Text classification
+
+It's assigning a class to a certain piece of text.
+
+#### Term weighting
+
+How can we know how much a word brings to the bag of words.
+
+##### Binary weights
+
+One if the words exists. 
+
+##### Term frequencies
+
+Number of occurrences of a word in the document.
+
+Another approach is registering the percentage that this word takes in the document.
+
+##### TF x IDF weighting scheme
+
+$$w_{i, j} = tf(t_j, d_i) x idf(t_j)$$
+
+#### Its problems
+
+- Bag of words doesn't take semantics into account.
+
+- It fails with polysemy: plant mean different things.
+
+- It suffers of sparse representation.
+
