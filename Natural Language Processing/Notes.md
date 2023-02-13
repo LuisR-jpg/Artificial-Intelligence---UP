@@ -72,7 +72,11 @@ El clasificador era interpretable.
 
 - Email
 
-## Vectorial representations
+## Text classification
+
+It's assigning a class to a certain piece of text.
+
+## Approaches
 
 ### Bag of words + Support vector machine
 
@@ -80,15 +84,7 @@ It is awesome, its performance it's close to 80% of accuracy.
 
 This is the baseline.
 
-### Neural networks.
-
-If you don't have enough resources to handle nn. It's better to go for the baseline. 
-
-### Text classification
-
-It's assigning a class to a certain piece of text.
-
-#### Term weighting
+### Term weighting
 
 How can we know how much a word brings to the bag of words.
 
@@ -113,4 +109,8 @@ $$w_{i, j} = tf(t_j, d_i) x idf(t_j)$$
 - It fails with polysemy: plant mean different things.
 
 - It suffers of sparse representation.
+
+### Neural networks.
+
+If you don't have enough resources to handle nn. It's better to go for the baseline. 
 
