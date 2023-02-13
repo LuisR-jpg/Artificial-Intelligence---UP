@@ -100,7 +100,7 @@ Another approach is registering the percentage that this word takes in the docum
 
 ##### TF x IDF weighting scheme
 
-$$w_{i, j} = tf(t_j, d_i) x idf(t_j)$$
+$$w_{i, j} = tf(t_j, d_i) * idf(t_j)$$
 
 #### Its problems
 
@@ -113,4 +113,9 @@ $$w_{i, j} = tf(t_j, d_i) x idf(t_j)$$
 ### Neural networks.
 
 If you don't have enough resources to handle nn. It's better to go for the baseline. 
+
+---
+My notes have reached this point
+
+---
 
