@@ -37,11 +37,12 @@ class DifferentialEvolution:
         assert isinstance(r, torch.Tensor), 'r is not torch.Tensor'
         return r
     def _mutation(self):
-        rand = torch.randint(low = 0, high = self.popSize, size = (3))
+        rand = torch.randint(low = 0, high = self.popSize, size = (3,))
         r1, r2, r3 = self.population[rand]
-        F = torch.rand() * 2
+        F = torch.rand((1, )) * 2
         r = torch.add(r1, F*torch.subtract(r2, r3))
-        r = [torch.min((torch.max((v, self.bounds[i, 0])), self.bounds[i, 1])) for i, v in enumerate(r)]
+        r = [torch.min(torch.as_tensor((torch.max(torch.as_tensor((v, self.bounds[i, 0]))), self.bounds[i, 1]))) for i, v in enumerate(r)]
+        r = torch.as_tensor(r)
         return torch.as_tensor(r, dtype = torch.half, device = self.device)
 
     def crossover(self, pOne, pTwo):
@@ -51,7 +52,7 @@ class DifferentialEvolution:
         assert isinstance(r, torch.Tensor), 'r is not torch.Tensor'
         return r
     def _crossover(self, pOne, pTwo):
-        r = [pOne[i] if torch.rand() >= self.cR else pTwo[i] for i in range(pOne.shape[0])]
+        r = [pOne[i] if torch.rand((1, )) >= self.cR else pTwo[i] for i in range(pOne.shape[0])]
         return torch.as_tensor(r, dtype = torch.half, device = self.device)
 
     def selection(self, x, u): 
@@ -82,7 +83,9 @@ class DifferentialEvolution:
             for i, individual in enumerate(self.population):
                 u = self.crossover(individual, self.mutation())
                 self.selection(i, u)
-            if len(torch.unique(self.fitness)) == 1: break
+            if torch.var(self.fitness) == 0:
+                print("Breaking because convergence was reached")
+                break
         best = torch.argmin(self.fitness)
         
         return {"x": self.population[best], "nIt": self.nIt, "fun": self.fitness[best], "nFev": self.nF}
