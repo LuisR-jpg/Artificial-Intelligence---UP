@@ -13,6 +13,7 @@ package codigo;
 
 public enum Tokens {
     Reservadas,
+    T_dato,
     Igual,
     Suma,
     Resta,
