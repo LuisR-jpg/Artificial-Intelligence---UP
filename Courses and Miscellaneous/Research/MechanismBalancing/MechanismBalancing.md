@@ -73,6 +73,22 @@ Tune the objective functions.
 
     - What's the interpretation of results? 
 
+  - [ ] MOPSO - Multi-objective Particle Swarm Optimization
+
+    What if we apply the idea of this algorithm but the attractors are part of the pareto front?
+
+    It's cool because it takes advantage of the continuous space.
+
+    Questions? 
+
+      - Won't a single point pull the other ones?
+
+      - How are we improving the non-dominated solutions?
+
+  - [ ] Try to take off counterweights
+
+  - [ ] Find line to interpolate alpha
+
 
 
 
