@@ -119,3 +119,18 @@ My notes have reached this point
 
 ---
 
+# Python
+
+## Libraries
+
+**NLTK** Stands for natural language toolkit.
+
+## Package managers
+
+**CONDA**
+
+**PIP**
+
+## Environments
+
+Help magane python and libraries versions.
