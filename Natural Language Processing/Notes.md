@@ -110,6 +110,16 @@ $$w_{i, j} = tf(t_j, d_i) * idf(t_j)$$
 
 - It suffers of sparse representation.
 
+### Bag of tweets
+
+To have context of each word.
+
+#### DOR - Document Ocurrence Representation
+
+#### TCOR - Term co-ocurrence rerpesentation
+
+How many times did words show up together?
+
 ### Neural networks.
 
 If you don't have enough resources to handle nn. It's better to go for the baseline. 
