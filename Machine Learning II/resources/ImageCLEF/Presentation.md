@@ -70,6 +70,16 @@ That product returns a number telling the compatibility; this set of products is
 
 ### Visual transformers
 
+https://arxiv.org/pdf/2010.11929v2.pdf
+
+### RTMIC
+
+Handles long distance dependency with transformers. Allowing parallel computing.
+
+DenseNet to detect regions of interest
+
+Reinforcement learning
+
 ## Resources 
 
 4-5 papers
