@@ -144,3 +144,7 @@ My notes have reached this point
 ## Environments
 
 Help magane python and libraries versions.
+
+# Resources
+
+[Speech and Language Processing Book](https://web.stanford.edu/~jurafsky/slp3/)
