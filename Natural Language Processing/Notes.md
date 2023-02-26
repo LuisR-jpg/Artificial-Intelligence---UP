@@ -143,7 +143,7 @@ My notes have reached this point
 
 ## Environments
 
-Help magane python and libraries versions.
+Help manage python and libraries versions.
 
 # Resources
 
