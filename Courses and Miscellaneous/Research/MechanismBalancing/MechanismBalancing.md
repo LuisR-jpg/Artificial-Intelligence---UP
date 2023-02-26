@@ -51,7 +51,7 @@ Tune the objective functions.
 
   - [x] Use a metaheuristic or evolutionary algorithm and then improve the solution with gradient descent
 
-  - [ ] Use a framework to try and solve the problem. [PYMOO](https://pymoo.org/)
+  - [x] Use a framework to try and solve the problem. [PYMOO](https://pymoo.org/)
 
   - Math analysis
 
@@ -73,7 +73,7 @@ Tune the objective functions.
 
     - What's the interpretation of results? 
 
-  - [ ] MOPSO - Multi-objective Particle Swarm Optimization
+  - [x] MOPSO - Multi-objective Particle Swarm Optimization //Nope, discarded
 
     What if we apply the idea of this algorithm but the attractors are part of the pareto front?
 
@@ -89,9 +89,7 @@ Tune the objective functions.
 
   - [ ] Find line to interpolate alpha
 
-
-
-
+  - [ ] Update graphical analysis
 
 ## Resources 
 
