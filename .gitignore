@@ -1,8 +1,9 @@
 !gitAllow.json
 !TiendaConProductos.json
-cifar10
+censo.pbix
 
 # Datasets
+cifar10
 books_1.Best_Books_Ever.csv
 presidente
 
