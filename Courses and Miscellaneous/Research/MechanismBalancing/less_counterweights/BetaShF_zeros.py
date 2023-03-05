@@ -1,3 +1,4 @@
+# Ignores counterweights 4 and 5
 def ShF_zeros(s):
     x1c, y1c, t1c, x2c, y2c, t2c, x3c, y3c, t3c = s
     x4c = y4c = t4c = x5c = y5c = t5c = 0
