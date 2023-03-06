@@ -24,7 +24,7 @@ class DifferentialEvolution:
 
     def getFitness(self, i):
         assert isinstance(i, np.ndarray), 'individual is not np.ndarray'
-        assert i.shape[0] == self.nVar, "individual doesn't have size == nVar"
+        assert i.shape == (self.popSize, self.nVar), "population has the wrong size"
         r = self._getFitness(i)
         return r
     def _getFitness(self, i):
@@ -68,7 +68,8 @@ class DifferentialEvolution:
         for v in range(self.nVar):
             vMin, vMax = self.bounds[v, 0], self.bounds[v, 1]
             self.population[:, v] = np.random.uniform(vMin, vMax, (self.popSize))
-        self.fitness = np.array([self.getFitness(i) for i in self.population])
+        self.fitness = self.getFitness(self.population)
+        #self.fitness = np.array([self.getFitness(i) for i in self.population])
     
     def solve(self):
         r = self._solve()
@@ -77,11 +78,13 @@ class DifferentialEvolution:
     def _solve(self):
         self.initPopulation()
         for _ in range(self.nMax):
+            print('uno')
             self.nIt += 1
             for i, individual in enumerate(self.population):
                 u = self.crossover(individual, self.mutation())
                 self.selection(i, u)
             if len(np.unique(self.fitness)) == 1: break
+            print('dos')    
         best = np.argmin(self.fitness)
         
         return {"x": self.population[best], "nIt": self.nIt, "fun": self.fitness[best], "nFev": self.nF}
