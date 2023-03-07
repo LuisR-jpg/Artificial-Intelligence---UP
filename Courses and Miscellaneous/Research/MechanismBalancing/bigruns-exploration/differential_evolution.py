@@ -36,12 +36,22 @@ class DifferentialEvolution:
         assert isinstance(r, np.ndarray), 'r is not np.ndarray'
         return r
     def _mutation(self):
+        rand = np.random.randint(low = 0, high = self.popSize, size = (self.popSize, 3))
+        rand = self.population[rand]
+        F = np.random.uniform(0, 2, (self.popSize, 1))
+        print(rand.shape, rand[:, 0].shape)
+        r = np.add(rand[:, 0], F * np.subtract(rand[:, 1], rand[:, 2]))
+        print("tres")
+        r = [np.min((np.max((r[:, i], self.bounds[i, 0])), self.bounds[i, 1])) for i in range(self.nVar)]
+        return r
+        '''
         rand = np.random.randint(low = 0, high = self.popSize, size = 3)
         r1, r2, r3 = self.population[rand]
         F = np.random.uniform(0, 2)
         r = np.add(r1, F*np.subtract(r2, r3))
         r = [np.min((np.max((v, self.bounds[i, 0])), self.bounds[i, 1])) for i, v in enumerate(r)]
         return np.array(r)
+        '''
 
     def crossover(self, pOne, pTwo):
         assert isinstance(pOne, np.ndarray), 'pOne is not np.ndarray'
