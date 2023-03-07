@@ -39,39 +39,30 @@ class DifferentialEvolution:
         rand = np.random.randint(low = 0, high = self.popSize, size = (self.popSize, 3))
         rand = self.population[rand]
         F = np.random.uniform(0, 2, (self.popSize, 1))
-        print(rand.shape, rand[:, 0].shape)
         r = np.add(rand[:, 0], F * np.subtract(rand[:, 1], rand[:, 2]))
-        print("tres")
-        r = [np.min((np.max((r[:, i], self.bounds[i, 0])), self.bounds[i, 1])) for i in range(self.nVar)]
+        for i, s in enumerate(r):
+            r[i] = np.min((np.max((s, self.bounds[:, 0]), axis = 0), self.bounds[:, 1]), axis = 0)
         return r
-        '''
-        rand = np.random.randint(low = 0, high = self.popSize, size = 3)
-        r1, r2, r3 = self.population[rand]
-        F = np.random.uniform(0, 2)
-        r = np.add(r1, F*np.subtract(r2, r3))
-        r = [np.min((np.max((v, self.bounds[i, 0])), self.bounds[i, 1])) for i, v in enumerate(r)]
-        return np.array(r)
-        '''
 
-    def crossover(self, pOne, pTwo):
-        assert isinstance(pOne, np.ndarray), 'pOne is not np.ndarray'
-        assert isinstance(pTwo, np.ndarray), 'pTwo is not np.ndarray'
-        r = self._crossover(pOne, pTwo)
+    def crossover(self, mutated):
+        assert isinstance(mutated, np.ndarray), 'mutated is not np.ndarray'
+        assert mutated.shape == self.population.shape, "mutated matrix doesn't have the right size"
+        r = self._crossover(mutated)
         assert isinstance(r, np.ndarray), 'r is not np.ndarray'
         return r
-    def _crossover(self, pOne, pTwo):
-        r = [pOne[i] if np.random.rand() >= self.cR else pTwo[i] for i in range(pOne.shape[0])]
+    def _crossover(self, mutated):
+        rand = np.random.rand(self.popSize, self.nVar)
+        r = np.where(rand >= self.cR, self.population, mutated)
         return np.array(r)
 
-    def selection(self, x, u): 
-        assert isinstance(x, int), 'x is not int'               #Index of the already existing individual
-        assert isinstance(u, np.ndarray), 'u is not np.ndarray' #New individual
-        self._selection(x, u)
-    def _selection(self, x, u):
+    def selection(self, u): 
+        assert isinstance(u, np.ndarray), 'u is not np.ndarray' # New individual
+        self._selection(u)
+    def _selection(self, u):
         f = self.getFitness(u)
-        if f < self.fitness[x]: 
-            self.fitness[x] = f
-            self.population[x] = np.copy(u)
+        betterIndices = np.where(f < self.fitness)
+        self.fitness[betterIndices] = f[betterIndices]
+        self.population[betterIndices] = u[betterIndices]
 
     def initPopulation(self):
         self.population = np.zeros((self.popSize, self.nVar))
@@ -79,7 +70,6 @@ class DifferentialEvolution:
             vMin, vMax = self.bounds[v, 0], self.bounds[v, 1]
             self.population[:, v] = np.random.uniform(vMin, vMax, (self.popSize))
         self.fitness = self.getFitness(self.population)
-        #self.fitness = np.array([self.getFitness(i) for i in self.population])
     
     def solve(self):
         r = self._solve()
@@ -88,16 +78,13 @@ class DifferentialEvolution:
     def _solve(self):
         self.initPopulation()
         for _ in range(self.nMax):
-            print('uno')
             self.nIt += 1
-            for i, individual in enumerate(self.population):
-                u = self.crossover(individual, self.mutation())
-                self.selection(i, u)
+            u = self.crossover(self.mutation())
+            self.selection(u)
             if len(np.unique(self.fitness)) == 1: break
-            print('dos')    
         best = np.argmin(self.fitness)
         
-        return {"x": self.population[best], "nIt": self.nIt, "fun": self.fitness[best], "nFev": self.nF}
+        return {"x": self.population[best].reshape((1, self.nVar)), "nIt": self.nIt, "fun": self.fitness[best], "nFev": self.nF}
     
 def differential_evolution(func, bounds, popSize, cR, nMax, args = ()):
     dE = DifferentialEvolution(func, bounds, popSize, cR, nMax, args)
