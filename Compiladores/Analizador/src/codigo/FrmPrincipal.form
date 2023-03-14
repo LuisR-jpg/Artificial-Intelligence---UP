@@ -23,14 +23,15 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txtResultado" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Component id="txtEntrada" min="-2" pref="294" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnAnalizar" max="32767" attributes="0"/>
+                  <Component id="txtEntrada" max="32767" attributes="0"/>
+                  <Component id="txtResultado" alignment="1" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="btnAnalizar1" min="-2" pref="222" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="btnAnalizar" min="-2" pref="222" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -41,12 +42,17 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="btnAnalizar" max="32767" attributes="0"/>
-                  <Component id="txtEntrada" max="32767" attributes="0"/>
+              <Component id="txtEntrada" min="-2" pref="40" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="btnAnalizar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="btnAnalizar1" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="txtResultado" pref="230" max="32767" attributes="0"/>
+              <Component id="txtResultado" min="-2" pref="251" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -69,6 +75,9 @@
         <Property name="label" type="java.lang.String" value="Analizar"/>
         <Property name="name" type="java.lang.String" value="btnAnalizar" noResource="true"/>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Archivo"/>
+      </AccessibilityProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAnalizarActionPerformed"/>
       </Events>
@@ -77,6 +86,18 @@
       <Properties>
         <Property name="name" type="java.lang.String" value="txtResultado" noResource="true"/>
       </Properties>
+    </Component>
+    <Component class="java.awt.Button" name="btnAnalizar1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="24" style="0"/>
+        </Property>
+        <Property name="label" type="java.lang.String" value="Archivo"/>
+        <Property name="name" type="java.lang.String" value="btnAnalizar" noResource="true"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAnalizar1ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
