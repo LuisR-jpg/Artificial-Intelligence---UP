@@ -1,0 +1,7 @@
+P(<s> i want chinese food </s>) =
+P(i | <s>) = 0.25
+P(want | i) = 0.33
+P(chinese | want) = 0.0065
+P(food | chinese) = 0.52
+P(</s> | food) = 0.68
+= 0.25 * 0.33 * 0.0065 * 0.52 * 0.68 = 0.000189618
