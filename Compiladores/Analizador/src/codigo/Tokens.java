@@ -12,16 +12,23 @@ package codigo;
 
 
 public enum Tokens {
-    Reservadas,
-    T_dato,
+    Int,
+    If, 
+    Else, 
+    While,
+    Linea,
     Igual,
     Suma,
     Resta,
     Multiplicacion,
     Division,
-    Op_Logico,
+    Parentesis_a,
+    Parentesis_c,
+    Llave_a,
+    Llave_c,
+    Main,
+    Punto_c,
     Identificador,
     Numero,
-    Real,
     ERROR
 }
