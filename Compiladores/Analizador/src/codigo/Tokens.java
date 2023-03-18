@@ -30,5 +30,18 @@ public enum Tokens {
     Punto_c,
     Identificador,
     Numero,
-    ERROR
+    ERROR,
+    Comillas,
+    Cadena,
+    T_dato,
+    Do,
+    For,
+    Op_logico,
+    Op_incremento,
+    Op_relacional,
+    Op_atribucion,
+    Op_booleano,
+    Corchete_a,
+    Corchete_c,
+    P_coma
 }
