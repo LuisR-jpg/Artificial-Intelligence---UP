@@ -200,7 +200,7 @@ With huge datasets, stupid ideas work.
 
 - Unseen words
 
-    - $ P_{GT} = \frac{N_i}{N}$
+    - $ P_{GT} = \frac{N_1}{N}$
 
 - Seen words
 
