@@ -3,8 +3,14 @@ import java.io.*;
 
 public class Prefix_Posfix_Stack {
 
+    private static Stack tokenize(String expression) {
+        Stack s = new Stack();
+
+        return s;
+    }
+
     public static void main(String[] args) {
-        Stack<Character> s = new Stack<>();
+        Stack s = new Stack();
         Stack<Character> operando = new Stack<>();
         Stack<Character> operadores = new Stack<>();
         Scanner input = new Scanner(System.in);
@@ -29,7 +35,7 @@ public class Prefix_Posfix_Stack {
         }
 
         while (!s.empty()) {
-            char x = s.peek();
+            String x = s.peek();
             if (Character.isDigit(x)) {                           //operando
                 operando.push(x);
             } else {                                                  //operador
