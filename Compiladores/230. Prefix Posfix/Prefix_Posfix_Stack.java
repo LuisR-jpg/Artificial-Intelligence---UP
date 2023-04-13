@@ -10,6 +10,33 @@ public class Prefix_Posfix_Stack {
         return s;
     }
 
+    private static Double calculate(Double a, Double b, char operador){
+        Double result = 0.0;
+        switch(operador){
+            case '^':
+                result = Math.pow(a, b);
+                break;
+            case '*':
+                result = a * b;
+                break;
+            case '/':
+                result = a / b;
+                break;
+            case '+':
+                result = a + b;
+                break;
+            case '-':
+                result = a - b;
+                break;
+            default:
+                System.out.print(operador);
+                System.out.print(" ");
+                System.out.println("\tNo conozco ese operador. Sorry.");
+                break;
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
         // Get expression
         Scanner input = new Scanner(System.in);
@@ -26,21 +53,18 @@ public class Prefix_Posfix_Stack {
                 '*', 20,
                 '/', 20,
                 '+', 10,
-                '-', 10
+                '-', 10,
+                '(', 0
         );
-
 
         while (!formula.empty()) {
             String x = formula.pop();
             
             char operator;
 
-            System.out.println(x);
-
             // It's digit
             try {
                 operando.push(Double.parseDouble(x));
-                System.out.println("Digit");
                 continue;
             } catch(NumberFormatException e) {
                 assert x.length() == 1: String.format("(%s) no es reconocido como operador.", x);
@@ -50,7 +74,7 @@ public class Prefix_Posfix_Stack {
             // Caso 1 y 2: vacío || "("
             if (operadores.empty() || operator == '(') 
                 operadores.push(operator);
-            else if (!operadores.empty()) {
+            else if (!operadores.empty()  && operator != ')') {
                 char operador_top = operadores.peek();
                 if (priorities.get(operator) > priorities.get(operador_top)) {
                     operadores.push(operator);
@@ -60,36 +84,24 @@ public class Prefix_Posfix_Stack {
                     Double b = operando.pop();
                     Double a = operando.pop();
                     char op = operadores.pop();
-                    System.out.print(a+" "+b+" "+op);
-                    switch(op){
-                        case '^':
-                            operando.push(Math.pow(a, b));
-                            break;
-                        case '*':
-                            operando.push(a*b);
-                            break;
-                        case '/':
-                            operando.push(a/b);
-                            break;
-                        case '+':
-                            break;
-//                                int resultado = a + b;
-//                                char resultadoChar = Character.forDigit(resultado, 10);
-//                                operando.push(resultadoChar);
-//                                operadores.pop();
-//                                System.out.print("\n"+resultadoChar);
-                        case '-':
-                            operando.push(a-b);
-                            break;
-                        default:
-                            System.out.print("\nNo conozco ese operador. Sorry.");
-                            break;
-                    }
+                    operando.push(calculate(a, b, op));
+                    operadores.push(operator);
                 }
             }
             else if (operator == ')'){
-                continue;
+                do {
+                    Double b = operando.pop(), a = operando.pop();
+                    char op = operadores.pop();
+                    operando.push(calculate(a, b, op));
+                } while(operadores.peek() != '(');
+                operadores.pop();
             }
+        }
+        while(!operadores.empty()){
+            Double b = operando.pop();
+            Double a = operando.pop();
+            char operador = operadores.pop();
+            operando.push(calculate(a, b, operador));
         }
         if(!operando.empty()) System.out.println(operando.pop());
     }
