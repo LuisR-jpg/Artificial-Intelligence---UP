@@ -1,6 +1,6 @@
 import logging
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s\t%(levelname)s\t%(message)s')
+logging.basicConfig(level=logging.INFO, format='%(asctime)s\t%(levelname)s\t%(message)s', filename = 'logs.log')
 
 def ArmstrongNumber(n) -> bool:
     """

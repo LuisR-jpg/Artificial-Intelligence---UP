@@ -3,7 +3,6 @@ from armstrong import ArmstrongNumber
 
 class TestArmstrongNumber(ut.TestCase):
     def test_return(self):
-        pass
         self.assertTrue(ArmstrongNumber(3))
         self.assertTrue(ArmstrongNumber(153))
         self.assertTrue(ArmstrongNumber(371))
@@ -13,10 +12,6 @@ class TestArmstrongNumber(ut.TestCase):
         self.assertFalse(ArmstrongNumber(100))
 
     def test_invalid(self):
-        """
-            ArmstrongNumber("Hello!")
-        with self.assertRaises(TypeError):
-        """
         with self.assertRaises(TypeError):
             ArmstrongNumber(True)
         with self.assertRaises(TypeError):
