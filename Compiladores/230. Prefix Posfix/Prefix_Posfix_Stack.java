@@ -40,7 +40,7 @@ public class Prefix_Posfix_Stack {
     public static void main(String[] args) {
         // Get expression
         Scanner input = new Scanner(System.in);
-        System.out.println("Ingrese una expresión:");
+        System.out.println("Ingresar expresión:");
         String expresion = input.nextLine();
         
         Stack<String> formula = tokenize(expresion);
