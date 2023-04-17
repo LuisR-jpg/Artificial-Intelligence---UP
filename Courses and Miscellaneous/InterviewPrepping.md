@@ -31,7 +31,7 @@ STAR(R) model when answering questions. This will help you create clarity and st
     
         - Impact
         
-What I'm looking fo
+What I'm looking for
 
 - Why would you like to work in this company? 
 
@@ -73,6 +73,8 @@ What I'm looking fo
 - Thread vs Process
 
 - Explain recursion as if you were telling a kid.
+
+
 
 
 
