@@ -85,11 +85,11 @@ Tune the objective functions.
 
       - How are we improving the non-dominated solutions?
 
-  - [ ] Try to take off counterweights
+  - [x] Try to take off counterweights
 
-  - [ ] Find line to interpolate alpha
+  - [ ] (DEPRECATED) Find line to interpolate alpha
 
-  - [ ] Update graphical analysis
+  - [x] Update graphical analysis
 
 ## Resources 
 
@@ -135,6 +135,8 @@ The hyper-parameter lambda allows to define priorities in the optimization.
 
     Metaheuristic based on the flashing behavior of fireflies.
 
+
+### [Thesis](https://scripta.up.edu.mx/bitstream/handle/20.500.12552/6495/Orvananos_Tesis.pdf?sequence=1&isAllowed=y)
 
 ### Base [article](https://www.mdpi.com/2227-7390/10/11/1830)
 
