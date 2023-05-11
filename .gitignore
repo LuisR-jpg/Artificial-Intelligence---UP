@@ -4,6 +4,7 @@
 censo.pbix
 ImageCLEF
 **/downloads/
+word2vec_col.txt
 
 # Datasets
 cifar10
